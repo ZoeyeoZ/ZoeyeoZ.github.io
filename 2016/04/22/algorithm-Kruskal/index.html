@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Github,Hexo,Blog," />
+  <meta name="keywords" content="Algorithm,Graph,Kruskal,MST," />
 
 
 
@@ -80,46 +80,22 @@
 
 
 
-<meta name="description" content="参考
-
-hexo你的博客
-HEXO+Github,搭建属于自己的博客
-Mac上搭建基于GitHub的Hexo博客［推荐该篇］
-
-
-配置环境安装Node.js -&amp;gt; 生成静态页面的安装Git -&amp;gt; 把本地的hexo内容提交至github（Xcode自带Git）申请GitHub
-安装Hexo
-sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装(sudo">
+<meta name="description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
+顺便po上为了解决这个问题顺便复习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="［整理/转载］Github＋HEXO (Mac)">
-<meta property="og:url" content="http://yoursite.com/2016/04/13/NewBlog/index.html">
+<meta property="og:title" content="算法－图论－Kruskal">
+<meta property="og:url" content="http://yoursite.com/2016/04/22/algorithm-Kruskal/index.html">
 <meta property="og:site_name" content="Calm down & Carry on">
-<meta property="og:description" content="参考
-
-hexo你的博客
-HEXO+Github,搭建属于自己的博客
-Mac上搭建基于GitHub的Hexo博客［推荐该篇］
-
-
-配置环境安装Node.js -&amp;gt; 生成静态页面的安装Git -&amp;gt; 把本地的hexo内容提交至github（Xcode自带Git）申请GitHub
-安装Hexo
-sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装(sudo">
-<meta property="og:image" content="http://img.blog.csdn.net/20160413150122732">
-<meta property="og:image" content="http://img.blog.csdn.net/20160413152102731">
-<meta property="og:updated_time" content="2016-04-13T11:22:14.000Z">
+<meta property="og:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
+顺便po上为了解决这个问题顺便复习">
+<meta property="og:updated_time" content="2016-04-22T03:13:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="［整理/转载］Github＋HEXO (Mac)">
-<meta name="twitter:description" content="参考
-
-hexo你的博客
-HEXO+Github,搭建属于自己的博客
-Mac上搭建基于GitHub的Hexo博客［推荐该篇］
-
-
-配置环境安装Node.js -&amp;gt; 生成静态页面的安装Git -&amp;gt; 把本地的hexo内容提交至github（Xcode自带Git）申请GitHub
-安装Hexo
-sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装(sudo">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160413150122732">
+<meta name="twitter:title" content="算法－图论－Kruskal">
+<meta name="twitter:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
+顺便po上为了解决这个问题顺便复习">
 
 
 
@@ -137,7 +113,7 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
   };
 </script>
 
-  <title> ［整理/转载］Github＋HEXO (Mac) | Calm down & Carry on </title>
+  <title> 算法－图论－Kruskal | Calm down & Carry on </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -297,7 +273,7 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
             
             
               
-                ［整理/转载］Github＋HEXO (Mac)
+                算法－图论－Kruskal
               
             
           </h1>
@@ -309,8 +285,8 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-13T17:25:34+08:00" content="2016-04-13">
-              2016-04-13
+            <time itemprop="dateCreated" datetime="2016-04-22T11:12:49+08:00" content="2016-04-22">
+              2016-04-22
             </time>
           </span>
 
@@ -323,8 +299,8 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/IT/" itemprop="url" rel="index">
-                    <span itemprop="name">IT</span>
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
                   </a>
                 </span>
 
@@ -339,8 +315,8 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/13/NewBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/13/NewBlog/" itemprop="commentsCount"></span>
+                <a href="/2016/04/22/algorithm-Kruskal/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/algorithm-Kruskal/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +326,7 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
 
           
           
-             <span id="/2016/04/13/NewBlog/" class="leancloud_visitors" data-flag-title="［整理/转载］Github＋HEXO (Mac)">
+             <span id="/2016/04/22/algorithm-Kruskal/" class="leancloud_visitors" data-flag-title="算法－图论－Kruskal">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -372,116 +348,31 @@ sudo npm install-g hexo输入管理员密码（Mac登录密码）即开始安装
       
 
       
-        <p>参考</p>
-<ol>
-<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool" target="_blank" rel="external">hexo你的博客</a></li>
-<li><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a></li>
-<li><a href="http://gonghonglou.com/2016/02/03/firstblog" target="_blank" rel="external">Mac上搭建基于GitHub的Hexo博客</a>［推荐该篇］</li>
+        <pre><code>23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+</code></pre><p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
+<p>顺便po上为了解决这个问题顺便复习和思考的内容（对，思考XD</p>
+<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><ol>
+<li>Kruskal算法是每次选择权重最小的边加入森林，它的本质是贪心算法。</li>
+<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一<ul>
+<li>如果各边权值唯一，从最小生成树开始，每次加一条边i并在新生成的环上删除最大的一条边j（满足权值$e_i$ &lt; $e_j$），这时会得到一棵新的生成树，如果我们加入的那条边满足 $e_j$- $e_i$最小，那么得到的就是第二小的生成树。从这个第二小的生成树开始，进行同样的操作可以得到第三小的生成树。这个迭代过程中树的权值是一直递增的，所以不可能出现相同权值的多棵最小生成树。</li>
+</ul>
+</li>
+<li>对于给定的图而言,因为最小生成树的权值和是确定的,所以最小生成树不唯一当且仅当最小生成树的形状不唯一</li>
+<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$<ul>
+<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w<em>n$ &gt;= $w</em>{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w<em>i’$ &gt;= $w</em>{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
+<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w<em>1$ … $w</em>{i-1}$}产生环，要么就是{$w<em>1$ … $w</em>{i-1}$}中某边。</li>
+<li>所以在选择边 $e<em>1$ … $e</em>{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
+<li>所以矛盾。</li>
+</ul>
+</li>
 </ol>
-<hr>
-<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a> -&gt; 生成静态页面的<br>安装Git -&gt; 把本地的hexo内容提交至github（Xcode自带Git）<br>申请GitHub</p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ul>
-<li><p><code>sudo npm install-g hexo</code><br>输入管理员密码（Mac登录密码）即开始安装<br>(sudo:linux系统管理指令  -g:全局安装)</p>
-<blockquote>
-<p>注意坑一：Hexo官网上的安装命令是 npm install -g hexo-cli，安装时不要忘记前面加上sudo，否则会因为权限问题报错。</p>
-</blockquote>
-</li>
-<li><p>终端cd到一个你选定的目录，执行hexo init命令<br><code>hexo init blog</code>//blog是建立的文件夹名称</p>
-</li>
-<li><p><code>cd blog</code>，<code>npm install</code>//安装npm</p>
-</li>
-<li><p><code>hexo s</code>//开启hexo服务器</p>
-</li>
-<li><p>本地浏览器，<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br><img src="http://img.blog.csdn.net/20160413150122732" alt="成功界面"></p>
-</li>
-</ul>
-<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><ul>
-<li>关联Github<ul>
-<li>检查SSH keys是否存在Github<br><code>ls -al ~/.ssh</code>//检查SSH keys是否存在.<pre><code>- 如果有文件**github_rsa.pub**或**github_dsa.pub**，则直接将SSH key添加到Github中，否则进入下一步生成SSH key。
-</code></pre></li>
-<li>生成新的ssh key<br><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code>//生成public/private rsa key pair<ul>
-<li>注意将your_email@example.com换成你自己注册Github的邮箱地址。</li>
-<li>默认会在相应路径下（~/.ssh/github_rsa.pub）生成<strong>github_rsa和github_rsa.pub</strong>两个文件。</li>
-</ul>
-</li>
-<li>将ssh key添加到Github中<ul>
-<li>Find前往文件夹~/.ssh/github_rsa.pub打开github_rsa.pub文件</li>
-<li>进入Github -&gt; Settings -&gt; SSH and GPG keys -New SSH key -&gt;<br><img src="http://img.blog.csdn.net/20160413152102731" alt="Add SSH key"></li>
-<li>Title内容任意，key为github_rsa.pub内容</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>创建仓库</p>
-<ul>
-<li>登录你的Github帐号，新建仓库，名为用户名.github.io固定写法</li>
-<li>本地的blog文件夹下内容为：<ul>
-<li>_config.yml<br>db.json<br>node_modules<br>package.json<br>scaffolds<br>source<br>themes</li>
-</ul>
-</li>
-<li>终端cd到blog文件夹下，vim打开_config.yml<br><code>vim _config.yml</code></li>
-<li><p>在文件最后deplo修改如下</p>
-<ul>
-<li>deploy:<pre><code>type: git
- repository: https://github.com/yourID/yourID.github.io.git
-branch: master
-</code></pre></li>
-<li>yourID请换成自己的用户名。</li>
-<li><p>hexo 3.1.1版本后type:值为git。</p>
-<blockquote>
-<p>注意坑二：在配置所有的_config.yml文件时（包括theme中的），在所有的冒号:后边都要加一个空格，否则执行hexo命令会报错。<br>博主本人的报错为<code>FATAL bad indentation of a mapping entry at line 72, column 15:</code><br>请确认您使用空格进行<strong>缩进</strong>（Soft tab），并确认<strong>冒号后有一个空格</strong>。</p>
-</blockquote>
-</li>
-<li><p>在blog文件夹目录下执行生成静态页面命令</p>
-<ul>
-<li><code>hexo generate</code> 或者 <code>hexo g</code></li>
-<li>此时若出现如下报错：<br>ERROR Local hexo not found in ~/blog<br>ERROR Try runing: ‘npm install hexo –save’<br>若无报错，自行忽略此步骤。<br>博主本人的报错为<code>ERROR Deployer not found: git</code><br>均执行命令：<br><code>npm install hexo --save</code></li>
-<li>再执行配置<code>hexo deploy</code> 或者 <code>hexo d</code></li>
-<li>比较奇怪的是之后居然要求我输入用户名和密码（私以为SSH已经搞定<blockquote>
-<p>注意坑三：若执行命令hexo deploy仍然报错：无法连接git，则执行如下命令来安装hexo-deployer-git：<br><code>npm install hexo-deployer-git --save</code><br>再次执行hexo generate和hexo deploy命令</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>此时，浏览器中打开网址<a href="http://yourID.github.io（将gonghonglou换成你的用户名）能看到和打开http://localhost:4000时一样的页面。" target="_blank" rel="external">http://yourID.github.io（将gonghonglou换成你的用户名）能看到和打开http://localhost:4000时一样的页面。</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>发布文章<pre><code>- 终端cd到blog文件夹下
-    - ``hexo new &quot;postName&quot;`` //新建文章，位于目录/blog/source/_posts下
-    - 编辑文章
-- 终端cd到blog文件夹下
-    - ``hexo generate`` //生成静态页面
-    - ``hexo deploy `` //将文章部署到Github
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="安装theme"><a href="#安装theme" class="headerlink" title="安装theme"></a>安装theme</h2><ul>
-<li>更多官方主题请戳<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo官网主题页</a>。这里以<a href="http://notes.iissnan.com" target="_blank" rel="external">hexo-theme-next</a>为例</li>
-<li>终端cd到 blog 目录<ul>
-<li><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></li>
-<li>将blog目录下_config.yml里theme的名称landscape修改为next</li>
-</ul>
-</li>
-<li>终端cd到blog目录下执行如下命令(每次部署文章的步骤)<ul>
-<li><code>hexo clean</code>  //清除缓存文件 (db.json) 和已生成的静态文件 (public)</li>
-<li><code>hexo g</code> //生成缓存和静态文件</li>
-<li><code>hexo d</code> //重新部署到服务器</li>
-</ul>
-</li>
-<li>附：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT 使用文档</a><ul>
-<li>更改theme内容，修改 blog/_config.yml 文件和  blog/themes/next/_config.yml 文件中对应的属性名称即可。</li>
-<li>不要忘记冒号:后加空格。</li>
-</ul>
-</li>
-</ul>
-<h2 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h2><ul>
-<li>还未绑定，有兴趣的同学请访问原文。</li>
-</ul>
+<h4 id="另，最小生成树唯一性判定"><a href="#另，最小生成树唯一性判定" class="headerlink" title="另，最小生成树唯一性判定"></a>另，最小生成树唯一性判定</h4><ol>
+<li>对图中每条边，扫描其他边，如果存在相同权值的边，则对该边进行标记；</li>
+<li>然后用Kruskal（或者Prim）算法求MST（最小生成树）；</li>
+<li>求得MST后，如果该MST中未包含做了标记的边，即可判定MST唯一；如果包含作了标记的边，则依次去掉这些边再求MST，如果求得的MST权值和原MST权值相同，即可判定MST不唯一。</li>
+</ol>
+<h4 id="转"><a href="#转" class="headerlink" title="转"></a>转</h4><pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
+</code></pre><p>证：    设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>&nbsp;&nbsp;&nbsp;A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>&nbsp;&nbsp;&nbsp;B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>&nbsp;&nbsp;&nbsp;设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>&nbsp;&nbsp;&nbsp;不妨设w(ai)≥w(bi)<br>&nbsp;&nbsp;&nbsp;情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>&nbsp;&nbsp;&nbsp;情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
 
       
     </div>
@@ -502,11 +393,13 @@ branch: master
       
         <div class="post-tags">
           
-            <a href="/tags/Github/" rel="tag">#Github</a>
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/Graph/" rel="tag">#Graph</a>
           
-            <a href="/tags/Blog/" rel="tag">#Blog</a>
+            <a href="/tags/Kruskal/" rel="tag">#Kruskal</a>
+          
+            <a href="/tags/MST/" rel="tag">#MST</a>
           
         </div>
       
@@ -515,13 +408,13 @@ branch: master
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/22/chanpin20160418/" rel="next" title="如何基于场景设计产品－笔记（20160418）">
+                <i class="fa fa-chevron-left"></i> 如何基于场景设计产品－笔记（20160418）
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/14/NewBlog2/" rel="prev" title="［整理/转载］Github＋HEXO (Mac)（二）">
-                ［整理/转载］Github＋HEXO (Mac)（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,8 +463,8 @@ branch: master
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/13/NewBlog/"
-           data-title="［整理/转载］Github＋HEXO (Mac)" data-url="http://yoursite.com/2016/04/13/NewBlog/">
+      <div class="ds-thread" data-thread-key="2016/04/22/algorithm-Kruskal/"
+           data-title="算法－图论－Kruskal" data-url="http://yoursite.com/2016/04/22/algorithm-Kruskal/">
       </div>
     
   </div>
@@ -662,7 +555,7 @@ branch: master
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境"><span class="nav-number">1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Github"><span class="nav-number">3.</span> <span class="nav-text">配置Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装theme"><span class="nav-number">4.</span> <span class="nav-text">安装theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定个人域名"><span class="nav-number">5.</span> <span class="nav-text">绑定个人域名</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关"><span class="nav-number">1.</span> <span class="nav-text">相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另，最小生成树唯一性判定"><span class="nav-number">2.</span> <span class="nav-text">另，最小生成树唯一性判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转"><span class="nav-number">3.</span> <span class="nav-text">转</span></a></li></ol></div>
             
           </div>
         </section>
