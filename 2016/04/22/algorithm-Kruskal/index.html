@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Github,Hexo,Blog," />
+  <meta name="keywords" content="Algorithm,Graph,Kruskal,MST," />
 
 
 
@@ -80,40 +80,22 @@
 
 
 
-<meta name="description" content="参考NexT使用文档hexo你的博客
-
-配置评论
-Hexo默认集成Disqus提供第三方评论系统
-国内建议多说
-登录后在首页选择 “我要安装”。
-创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。
-创建站点完成后编辑站点配置文件_config.yml文件
-新增 duoshuo_shortname 字段，值设置成上一步中的值。">
+<meta name="description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
+顺便po上为了解决这个问题顺便复习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="［整理/转载］Github＋HEXO (Mac)（二）">
-<meta property="og:url" content="http://yoursite.com/2016/04/14/NewBlog2/index.html">
+<meta property="og:title" content="算法－图论－Kruskal">
+<meta property="og:url" content="http://yoursite.com/2016/04/22/algorithm-Kruskal/index.html">
 <meta property="og:site_name" content="Calm down & Carry on">
-<meta property="og:description" content="参考NexT使用文档hexo你的博客
-
-配置评论
-Hexo默认集成Disqus提供第三方评论系统
-国内建议多说
-登录后在首页选择 “我要安装”。
-创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。
-创建站点完成后编辑站点配置文件_config.yml文件
-新增 duoshuo_shortname 字段，值设置成上一步中的值。">
-<meta property="og:updated_time" content="2016-04-14T04:31:18.000Z">
+<meta property="og:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
+顺便po上为了解决这个问题顺便复习">
+<meta property="og:updated_time" content="2016-04-22T03:09:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="［整理/转载］Github＋HEXO (Mac)（二）">
-<meta name="twitter:description" content="参考NexT使用文档hexo你的博客
-
-配置评论
-Hexo默认集成Disqus提供第三方评论系统
-国内建议多说
-登录后在首页选择 “我要安装”。
-创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。
-创建站点完成后编辑站点配置文件_config.yml文件
-新增 duoshuo_shortname 字段，值设置成上一步中的值。">
+<meta name="twitter:title" content="算法－图论－Kruskal">
+<meta name="twitter:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
+顺便po上为了解决这个问题顺便复习">
 
 
 
@@ -131,7 +113,7 @@ Hexo默认集成Disqus提供第三方评论系统
   };
 </script>
 
-  <title> ［整理/转载］Github＋HEXO (Mac)（二） | Calm down & Carry on </title>
+  <title> 算法－图论－Kruskal | Calm down & Carry on </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +273,7 @@ Hexo默认集成Disqus提供第三方评论系统
             
             
               
-                ［整理/转载］Github＋HEXO (Mac)（二）
+                算法－图论－Kruskal
               
             
           </h1>
@@ -303,8 +285,8 @@ Hexo默认集成Disqus提供第三方评论系统
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-14T12:27:26+08:00" content="2016-04-14">
-              2016-04-14
+            <time itemprop="dateCreated" datetime="2016-04-22T11:07:26+08:00" content="2016-04-22">
+              2016-04-22
             </time>
           </span>
 
@@ -317,8 +299,8 @@ Hexo默认集成Disqus提供第三方评论系统
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/IT/" itemprop="url" rel="index">
-                    <span itemprop="name">IT</span>
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
                   </a>
                 </span>
 
@@ -333,8 +315,8 @@ Hexo默认集成Disqus提供第三方评论系统
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/14/NewBlog2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/14/NewBlog2/" itemprop="commentsCount"></span>
+                <a href="/2016/04/22/algorithm-Kruskal/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/algorithm-Kruskal/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -344,7 +326,7 @@ Hexo默认集成Disqus提供第三方评论系统
 
           
           
-             <span id="/2016/04/14/NewBlog2/" class="leancloud_visitors" data-flag-title="［整理/转载］Github＋HEXO (Mac)（二）">
+             <span id="/2016/04/22/algorithm-Kruskal/" class="leancloud_visitors" data-flag-title="算法－图论－Kruskal">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -366,119 +348,31 @@ Hexo默认集成Disqus提供第三方评论系统
       
 
       
-        <p>参考<br><a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">NexT使用文档</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
-<hr>
-<h3 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h3><ul>
-<li>Hexo默认集成Disqus提供第三方评论系统</li>
-<li>国内建议<a href="http://duoshuo.com" target="_blank" rel="external">多说</a><ul>
-<li>登录后在首页选择 “我要安装”。</li>
-<li>创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。</li>
-<li>创建站点完成后编辑<strong>站点配置文件_config.yml</strong>文件<ul>
-<li>新增 <strong>duoshuo_shortname</strong> 字段，值设置成上一步中的值。</li>
-<li><code>duoshuo_shortname: ZoeyeoZ</code></li>
-<li>此外声明这类配置与主体有关，博主主题［NexT］</li>
+        <pre><code>23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
+</code></pre><p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
+<p>顺便po上为了解决这个问题顺便复习和思考的内容（对，思考XD</p>
+<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><ol>
+<li>Kruskal算法是每次选择权重最小的边加入森林，它的本质是贪心算法。</li>
+<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一<ul>
+<li>如果各边权值唯一，从最小生成树开始，每次加一条边i并在新生成的环上删除最大的一条边j（满足权值$e_i$ &lt; $e_j$），这时会得到一棵新的生成树，如果我们加入的那条边满足 $e_j$- $e_i$最小，那么得到的就是第二小的生成树。从这个第二小的生成树开始，进行同样的操作可以得到第三小的生成树。这个迭代过程中树的权值是一直递增的，所以不可能出现相同权值的多棵最小生成树。</li>
 </ul>
 </li>
-<li>如果采用其他第三方评论系统，通用代码详见多说网站 </li>
+<li>对于给定的图而言,因为最小生成树的权值和是确定的,所以最小生成树不唯一当且仅当最小生成树的形状不唯一</li>
+<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$<ul>
+<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w<em>n$ &gt;= $w</em>{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w<em>i’$ &gt;= $w</em>{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
+<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w<em>1$ … $w</em>{i-1}$}产生环，要么就是{$w<em>1$ … $w</em>{i-1}$}中某边。</li>
+<li>所以在选择边 $e<em>1$ … $e</em>{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
+<li>所以矛盾。</li>
 </ul>
 </li>
-</ul>
-<blockquote>
-<p>使用多说的话，Thread Key一定不要改变，Thread Key相当于是识别码；如果你更新了Hexo或者重装了vps，文章的Thread Key改变了的话，那么恭喜你，评论全部没有了。。。</p>
-</blockquote>
-<h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><ul>
-<li>登录<a href="http://tongji.baidu.com/" target="_blank" rel="external">百度统计</a>， 定位到站点的代码获取页面</li>
-<li>复制 hm.js? 后面那串统计脚本 id，如： </li>
-<li><code>hm.src = &quot;//hm.baidu.com/hm.js?xxxxxx&quot;;</code></li>
-<li>编辑<strong>站点配置文件</strong>，新增字段 <strong>baidu_analytics</strong> 字段，值设置成你的百度统计脚本 id</li>
-</ul>
-<h3 id="阅读次数统计（LeanCloud"><a href="#阅读次数统计（LeanCloud" class="headerlink" title="阅读次数统计（LeanCloud)"></a>阅读次数统计（LeanCloud)</h3><ul>
-<li>详细内容参照<a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></li>
-<li>NexT主题目前已经合并这个Feature，因此如果你使用的是NexT主题，可以<strong>直接使用</strong>不用修改主题模版</li>
-<li><p>修改NexT主题模版</p>
-<ul>
-<li>详见原文</li>
-<li>修改_config.yml文件<br>在<strong>blog/themes/next</strong></li>
-<li>添加lean-analytics.swig文件，<br> 在<strong>blog/themes/next/layout/_scripts</strong></li>
-<li>修改post.swig文件<br>在<strong>blog/themes/next/layout/_macro</strong></li>
-<li>修改layout.swig文件<br>在<strong>blog/themes/next/layout</strong></li>
-<li>修改zh-Hans.yml文件</li>
-</ul>
-</li>
-<li><p>注册<a href="https://leancloud.cn/login.html#/signup" target="_blank" rel="external">LeanCloud</a>（需验证邮箱）</p>
-</li>
-<li><p>配置LeanCloud<br>登录帐号，配置后拿到<strong>AppID</strong>及<strong>AppKey</strong>，用于文章阅读量统计的功能。 </p>
-<ul>
-<li><p>创建应用，用于博客的访问统计的数据操作</p>
-<ul>
-<li>左上角账号，打开控制台</li>
-<li>点击创建应用</li>
-<li>新建的应用名称Test（可修改）</li>
-<li>点击新创建的应用名进入参数配置页</li>
-<li><p>点击左侧右上角的齿轮图标，创建Class。新建表来保存数据</p>
-<blockquote>
-<p>为了保证我们前面对NexT主题的修改兼容，此处的新建Class名字必须为Counter</p>
-</blockquote>
-</li>
-<li><p>选择Counter，点击顶部设置，切换到Test应用操作界面</p>
-</li>
-<li>选择左侧的应用Key选项，得到创建应用的<strong>AppID</strong>以及<strong>AppKey</strong></li>
-<li>复制AppID以及AppKey并在NexT主题的_config.yml文件中我们相应的位置填入即可</li>
-</ul>
-<blockquote>
-<ol>
-<li>注意，NexT用户需要修改false为true<br><code>leancloud_visitors:
-enable: true</code></li>
-<li>重新生成部署Hexo博客，应该就可以正常使用文章阅读量统计的功能了。需要特别说明的是：记录文章访问量的唯一标识符是<strong>文章的发布日期</strong>以及<strong>文章的标题</strong>，因此请确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</li>
 </ol>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>后台管理</p>
-<ul>
-<li>初始的文章统计量显示为0，这时对应应用的Counter表中并没有相应的记录。当博客文章在配置好阅读量统计服务之后第一次打开时，便会自动向服务器发送数据来创建一条数据，该数据会被记录在对应的应用的Counter表中。</li>
-<li>我们可以修改其中的time字段的数值来达到修改某一篇文章的访问量的目的（博客文章访问量快递提升人气的装逼利器）。双击具体的数值，修改之后回车即可保存。</li>
-<li><blockquote>
-<ol>
-<li>url字段被当作唯一ID来使用，因此如果你不知道带来的后果的话请不要修改。</li>
-<li>title字段显示的是博客文章的标题，用于后台管理的时候区分文章之用，没有什么实际作用。</li>
-<li>其他字段皆为自动生成，具体作用请查阅LeanCloud官方文档，如果你不知道有什么作用请不要随意修改。</li>
+<h4 id="另，最小生成树唯一性判定"><a href="#另，最小生成树唯一性判定" class="headerlink" title="另，最小生成树唯一性判定"></a>另，最小生成树唯一性判定</h4><ol>
+<li>对图中每条边，扫描其他边，如果存在相同权值的边，则对该边进行标记；</li>
+<li>然后用Kruskal（或者Prim）算法求MST（最小生成树）；</li>
+<li>求得MST后，如果该MST中未包含做了标记的边，即可判定MST唯一；如果包含作了标记的边，则依次去掉这些边再求MST，如果求得的MST权值和原MST权值相同，即可判定MST不唯一。</li>
 </ol>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>Web安全<br>  由于AppID以及AppKey是暴露在外的，为确保只用于自己博客，建议开启Web安全选项，这样就只能通过自己的域名才有权访问后台的数据</p>
-<ul>
-<li>选择应用的设置的安全中心选项卡</li>
-<li>在Web 安全域名中填入我们自己的博客域名，来确保数据调用的安全</li>
-<li>如果填写错误可能导致博客文章访问量显示不正常，打开浏览器调试模式，发现Web安全域名填写错误，导致服务器拒绝了数据交互的请求，请修改或者放弃。。。</li>
-</ul>
-</li>
-</ul>
-<h3 id="Swiftype-搜索"><a href="#Swiftype-搜索" class="headerlink" title="Swiftype 搜索"></a>Swiftype 搜索</h3><ul>
-<li>使用 Swiftype 之前需要前往 Swiftype 配置一个搜索引擎。 而后编辑 站点配置文件， 新增 swiftype_key 字段，值为你的 swiftype 搜索引擎的 key。 详细的配置请参考： <a href="http://theme-next.iissnan.com/third-party-services.html#swfitype" target="_blank" rel="external">第三方服务 - Swiftype</a></li>
-<li>进入<a href="https://swiftype.com/home" target="_blank" rel="external">Swiftype</a>，根据提示操作<ul>
-<li>注意，修改值在 <strong>/blog/themes/next/_config.yml</strong> 内<br><code># Swiftype Search Key
-swiftype_key: xxxxxxxxx</code></li>
-<li>复制<strong>Install Swiftype On Your Website</strong>内的<br><code>_st(&#39;install&#39;,&#39;XXXXXXXXX&#39;,&#39;2.0.0&#39;);</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="JiaThis"><a href="#JiaThis" class="headerlink" title="JiaThis"></a>JiaThis</h3><ul>
-<li>编辑 站点配置文件， 找到字段 jiathis<br><code>jiathis: 
-enable: true</code></li>
-</ul>
-<hr>
-<h3 id="ERROR"><a href="#ERROR" class="headerlink" title="ERROR"></a>ERROR</h3><ul>
-<li>如发生类似错误<ul>
-<li>ERROR Process failed: layout/_scripts/.DS_Store </li>
-<li>ERROR Process failed: layout/.DS_Store  等</li>
-<li>进入主题里面layout和_partial目录下相应目录下，使用删除命令：<br><code>rm -rf .DS_Store</code></li>
-</ul>
-</li>
-</ul>
+<h4 id="转"><a href="#转" class="headerlink" title="转"></a>转</h4><pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
+</code></pre><p>证：    设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>&nbsp;&nbsp;&nbsp;A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>&nbsp;&nbsp;&nbsp;B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>&nbsp;&nbsp;&nbsp;设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>&nbsp;&nbsp;&nbsp;不妨设w(ai)≥w(bi)<br>&nbsp;&nbsp;&nbsp;情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>&nbsp;&nbsp;&nbsp;情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
 
       
     </div>
@@ -499,11 +393,13 @@ enable: true</code></li>
       
         <div class="post-tags">
           
-            <a href="/tags/Github/" rel="tag">#Github</a>
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/Graph/" rel="tag">#Graph</a>
           
-            <a href="/tags/Blog/" rel="tag">#Blog</a>
+            <a href="/tags/Kruskal/" rel="tag">#Kruskal</a>
+          
+            <a href="/tags/MST/" rel="tag">#MST</a>
           
         </div>
       
@@ -512,17 +408,13 @@ enable: true</code></li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/13/NewBlog/" rel="next" title="［整理/转载］Github＋HEXO (Mac)">
-                <i class="fa fa-chevron-left"></i> ［整理/转载］Github＋HEXO (Mac)
+              <a href="/2016/04/21/chanpin20160418/" rel="next" title="如何基于场景设计产品－笔记（20160418）">
+                <i class="fa fa-chevron-left"></i> 如何基于场景设计产品－笔记（20160418）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/21/chanpin20160418/" rel="prev" title="如何基于场景设计产品－笔记（20160418）">
-                如何基于场景设计产品－笔记（20160418） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,8 +463,8 @@ enable: true</code></li>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/14/NewBlog2/"
-           data-title="［整理/转载］Github＋HEXO (Mac)（二）" data-url="http://yoursite.com/2016/04/14/NewBlog2/">
+      <div class="ds-thread" data-thread-key="2016/04/22/algorithm-Kruskal/"
+           data-title="算法－图论－Kruskal" data-url="http://yoursite.com/2016/04/22/algorithm-Kruskal/">
       </div>
     
   </div>
@@ -663,7 +555,7 @@ enable: true</code></li>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置评论"><span class="nav-number">1.</span> <span class="nav-text">配置评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度统计"><span class="nav-number">2.</span> <span class="nav-text">百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读次数统计（LeanCloud"><span class="nav-number">3.</span> <span class="nav-text">阅读次数统计（LeanCloud)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiftype-搜索"><span class="nav-number">4.</span> <span class="nav-text">Swiftype 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JiaThis"><span class="nav-number">5.</span> <span class="nav-text">JiaThis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR"><span class="nav-number">6.</span> <span class="nav-text">ERROR</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关"><span class="nav-number">1.</span> <span class="nav-text">相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另，最小生成树唯一性判定"><span class="nav-number">2.</span> <span class="nav-text">另，最小生成树唯一性判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转"><span class="nav-number">3.</span> <span class="nav-text">转</span></a></li></ol></div>
             
           </div>
         </section>
