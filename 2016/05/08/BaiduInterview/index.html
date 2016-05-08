@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Algorithm,Graph,Kruskal,MST," />
+  <meta name="keywords" content="面试," />
 
 
 
@@ -80,22 +80,19 @@
 
 
 
-<meta name="description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
-顺便po上为了解决这个问题顺便复习">
+<meta name="description" content="首先说一下侥幸心理，当时收到百度通知去大厦面试的时候心里活动如下（懵^n想着居然过了笔试，也是real可怕，还是很开心的去了。申的是Web前端研发实习岗其实是有点心虚的，大一大二算是知识的巅峰期，目前就是以抛物线的形式下降。收到面试通知以后强行找了一些题目，临时抱了一下大腿，倒没有完全写过。很多已经处于知道有这个，似乎是因为什么，具体怎么描述既不大清了。。。果然今天面试的时候就跪了
+大幸是一面和二">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法－图论－Kruskal">
-<meta property="og:url" content="http://yoursite.com/2016/04/22/algorithm-Kruskal/index.html">
+<meta property="og:title" content="百度面试总结">
+<meta property="og:url" content="http://yoursite.com/2016/05/08/BaiduInterview/index.html">
 <meta property="og:site_name" content="Calm down & Carry on">
-<meta property="og:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
-顺便po上为了解决这个问题顺便复习">
-<meta property="og:updated_time" content="2016-04-22T03:13:13.000Z">
+<meta property="og:description" content="首先说一下侥幸心理，当时收到百度通知去大厦面试的时候心里活动如下（懵^n想着居然过了笔试，也是real可怕，还是很开心的去了。申的是Web前端研发实习岗其实是有点心虚的，大一大二算是知识的巅峰期，目前就是以抛物线的形式下降。收到面试通知以后强行找了一些题目，临时抱了一下大腿，倒没有完全写过。很多已经处于知道有这个，似乎是因为什么，具体怎么描述既不大清了。。。果然今天面试的时候就跪了
+大幸是一面和二">
+<meta property="og:updated_time" content="2016-05-08T04:32:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法－图论－Kruskal">
-<meta name="twitter:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
-顺便po上为了解决这个问题顺便复习">
+<meta name="twitter:title" content="百度面试总结">
+<meta name="twitter:description" content="首先说一下侥幸心理，当时收到百度通知去大厦面试的时候心里活动如下（懵^n想着居然过了笔试，也是real可怕，还是很开心的去了。申的是Web前端研发实习岗其实是有点心虚的，大一大二算是知识的巅峰期，目前就是以抛物线的形式下降。收到面试通知以后强行找了一些题目，临时抱了一下大腿，倒没有完全写过。很多已经处于知道有这个，似乎是因为什么，具体怎么描述既不大清了。。。果然今天面试的时候就跪了
+大幸是一面和二">
 
 
 
@@ -113,7 +110,7 @@
   };
 </script>
 
-  <title> 算法－图论－Kruskal | Calm down & Carry on </title>
+  <title> 百度面试总结 | Calm down & Carry on </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +270,7 @@
             
             
               
-                算法－图论－Kruskal
+                百度面试总结
               
             
           </h1>
@@ -285,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T11:12:49+08:00" content="2016-04-22">
-              2016-04-22
+            <time itemprop="dateCreated" datetime="2016-05-08T12:32:08+08:00" content="2016-05-08">
+              2016-05-08
             </time>
           </span>
 
@@ -299,8 +296,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">杂记</span>
                   </a>
                 </span>
 
@@ -315,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/22/algorithm-Kruskal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/algorithm-Kruskal/" itemprop="commentsCount"></span>
+                <a href="/2016/05/08/BaiduInterview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/08/BaiduInterview/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,7 +323,7 @@
 
           
           
-             <span id="/2016/04/22/algorithm-Kruskal/" class="leancloud_visitors" data-flag-title="算法－图论－Kruskal">
+             <span id="/2016/05/08/BaiduInterview/" class="leancloud_visitors" data-flag-title="百度面试总结">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -348,31 +345,12 @@
       
 
       
-        <pre><code>23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-</code></pre><p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
-<p>顺便po上为了解决这个问题顺便复习和思考的内容（对，思考XD</p>
-<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><ol>
-<li>Kruskal算法是每次选择权重最小的边加入森林，它的本质是贪心算法。</li>
-<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一<ul>
-<li>如果各边权值唯一，从最小生成树开始，每次加一条边i并在新生成的环上删除最大的一条边j（满足权值$e_i$ &lt; $e_j$），这时会得到一棵新的生成树，如果我们加入的那条边满足 $e_j$- $e_i$最小，那么得到的就是第二小的生成树。从这个第二小的生成树开始，进行同样的操作可以得到第三小的生成树。这个迭代过程中树的权值是一直递增的，所以不可能出现相同权值的多棵最小生成树。</li>
-</ul>
-</li>
-<li>对于给定的图而言,因为最小生成树的权值和是确定的,所以最小生成树不唯一当且仅当最小生成树的形状不唯一</li>
-<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$<ul>
-<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w<em>n$ &gt;= $w</em>{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w<em>i’$ &gt;= $w</em>{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
-<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w<em>1$ … $w</em>{i-1}$}产生环，要么就是{$w<em>1$ … $w</em>{i-1}$}中某边。</li>
-<li>所以在选择边 $e<em>1$ … $e</em>{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
-<li>所以矛盾。</li>
-</ul>
-</li>
-</ol>
-<h4 id="另，最小生成树唯一性判定"><a href="#另，最小生成树唯一性判定" class="headerlink" title="另，最小生成树唯一性判定"></a>另，最小生成树唯一性判定</h4><ol>
-<li>对图中每条边，扫描其他边，如果存在相同权值的边，则对该边进行标记；</li>
-<li>然后用Kruskal（或者Prim）算法求MST（最小生成树）；</li>
-<li>求得MST后，如果该MST中未包含做了标记的边，即可判定MST唯一；如果包含作了标记的边，则依次去掉这些边再求MST，如果求得的MST权值和原MST权值相同，即可判定MST不唯一。</li>
-</ol>
-<h4 id="转"><a href="#转" class="headerlink" title="转"></a>转</h4><pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
-</code></pre><p>证：    设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>&nbsp;&nbsp;&nbsp;A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>&nbsp;&nbsp;&nbsp;B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>&nbsp;&nbsp;&nbsp;设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>&nbsp;&nbsp;&nbsp;不妨设w(ai)≥w(bi)<br>&nbsp;&nbsp;&nbsp;情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>&nbsp;&nbsp;&nbsp;情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
+        <p>首先说一下侥幸心理，当时收到百度通知去大厦面试的时候心里活动如下（懵^n<br>想着居然过了笔试，也是real可怕，还是很开心的去了。<br>申的是<strong>Web前端研发实习岗</strong><br>其实是有点心虚的，大一大二算是知识的巅峰期，目前就是以抛物线的形式下降。收到面试通知以后强行找了一些题目，临时抱了一下大腿，倒没有完全写过。<br>很多已经处于知道有这个，似乎是因为什么，具体怎么描述既不大清了。。。<br>果然今天面试的时候就跪了</p>
+<p>大幸是一面和二面对我比较和善，有幸面了三面。<br>一面二面都比较基础，一面主考HTMK/CSS，还有用js写一个函数（用到了递归的思想，还是比较简单的）,二面的时候被问了关于从一维数组构造树的问题，一开始答的一般，没有考虑输入的乱序，例如pid可能不存在，后来就说也是类似递归呗，往上生成。<br>其实一面二面都是很简单的问题，还有就是因为太久没用js写这类实际问题的函数，连数组用push都忘了。显而易见，也被一面和二面都提了说我js基础不够的问题。<br>但到了三面已经明显看到力不从心了。同样问了一下比较基础的内容，依旧有点答不清楚（其实还是那几个inner、block、inner-block，display/visibility，事件绑定，ajax，get/post等等。其实是知道的，但是当时自己都觉得答的混乱。（顺便一说，这几个其实一二三面有重叠的问道，但是中间间隔的时候我没有好好回顾。。。二面面完12:30左右，给时间吃午餐，然后13:00一面，所以也就没吃。。。（后来发现我算是进度快的，大部分人都是一面结束再1点开始。</p>
+<p>再回归正文。三面这里就比较惨了，给了时间让我现场google然后说区别，一开始限制用英文，后来说都可以（不过中英文倒还好，最多看的速度差异。。。），还有一些现场code test，他应该也看出来我基础的问题了，说写伪代码也行。<br>问我用过什么框架，我也就最多一个bootstrap，也没用过node.js（果然还是深入不够，后期就得自我反思了。。。<br>总之我后面自己都心虚了。。。然后他打算从别的地方看看我的优点，例如算法什么的。。。就问我搜索字符串什么方法，我的想法非常naive，肯定有问题。他后来给了用KPM、BP（这个时候我还是懵</p>
+<p>写到这里应该能意识到我妥妥地跪了，最后他就让我问一个问题，我就问我距离百度还需要做多大努力。。<br>他说了一些（综合思想是很多。。<br>后来再想问，就被打断说只有一个问题。。<br>一脸尴尬的我<br>不过三面的时候还有基础面一定只有我了QAQ<br>感觉面试官还是很帅气很有思想的，当时感觉好年轻一定很厉害所以就很开心地做过去了。。。果然被虐的很厉害。<br>在等hr过来收表格的时候可能也有点尴尬，稍微问了点别的，比如学校什么的，然后又说现在还是不够之类的，说大学毕业也不能忘记算法（其实并无毕业。。。），问了面试官是本科毕业工作么，然后了解到他是社招。<br>然后也了解到，其实还会问关于前端项目的注意点啦，比如说性能啊安全多屏幕适配等等（应该看我比较弱渣所以没问到这个。。。（然而我内心os是这个还稍微能扯点似乎，毕竟还是写过项目，只是好久没写了。。。另外还有一个问题就是学校里接触的项目要求不是很高，自己也没太花功夫。。</p>
+<p>所以结果这样还是意料之中的，自嘲为<strong>北京一日游</strong>也是真心的。<br>所以开心的和小伙伴约了饭，和当时一起面试的几个学长学姐留了微信，有缘再见啦<br>果然还是有很多路要走，继续加油咯我，还有你们～</p>
+<p>啊，最后说一句，当时好想要三面面试官的邮箱或者微信之类的联系方式，没敢。。。无比后悔ing</p>
 
       
     </div>
@@ -393,13 +371,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
-          
-            <a href="/tags/Graph/" rel="tag">#Graph</a>
-          
-            <a href="/tags/Kruskal/" rel="tag">#Kruskal</a>
-          
-            <a href="/tags/MST/" rel="tag">#MST</a>
+            <a href="/tags/面试/" rel="tag">#面试</a>
           
         </div>
       
@@ -408,17 +380,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/chanpin20160418/" rel="next" title="如何基于场景设计产品－笔记（20160418）">
-                <i class="fa fa-chevron-left"></i> 如何基于场景设计产品－笔记（20160418）
+              <a href="/2016/04/22/algorithm-Kruskal/" rel="next" title="算法－图论－Kruskal">
+                <i class="fa fa-chevron-left"></i> 算法－图论－Kruskal
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/08/BaiduInterview/" rel="prev" title="百度面试总结">
-                百度面试总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -467,8 +435,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/22/algorithm-Kruskal/"
-           data-title="算法－图论－Kruskal" data-url="http://yoursite.com/2016/04/22/algorithm-Kruskal/">
+      <div class="ds-thread" data-thread-key="2016/05/08/BaiduInterview/"
+           data-title="百度面试总结" data-url="http://yoursite.com/2016/05/08/BaiduInterview/">
       </div>
     
   </div>
@@ -559,7 +527,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关"><span class="nav-number">1.</span> <span class="nav-text">相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另，最小生成树唯一性判定"><span class="nav-number">2.</span> <span class="nav-text">另，最小生成树唯一性判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转"><span class="nav-number">3.</span> <span class="nav-text">转</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
