@@ -63,7 +63,7 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   inner.classList.add("tile-inner");
   inner.textContent = tile.value;
-  inner.style.backgroundImage = "url(img/"+tile.value+".jpg)";
+  inner.style.backgroundImage = "url(img/"+tile.value+"_2.jpg)";
   inner.style.backgroundSize = "100% 100%";
 
   if (tile.previousPosition) {
