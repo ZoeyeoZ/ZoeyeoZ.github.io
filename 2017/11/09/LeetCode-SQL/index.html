@@ -1,0 +1,1009 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Leetcode,SQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+ProblemsBasic182. Duplicate Emails1234SELECT DISTINCT EmailFROM PersonGROUP BY EmailHAVING COUNT(*) &amp;gt; 1;
+183. Customers Who Never Order12345SELECT c.Name AS CustomersFROM Customers AS cWHERE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode | SQL">
+<meta property="og:url" content="http://yoursite.com/2017/11/09/LeetCode-SQL/index.html">
+<meta property="og:site_name" content="Zhuo Han">
+<meta property="og:description" content="[TOC]
+ProblemsBasic182. Duplicate Emails1234SELECT DISTINCT EmailFROM PersonGROUP BY EmailHAVING COUNT(*) &amp;gt; 1;
+183. Customers Who Never Order12345SELECT c.Name AS CustomersFROM Customers AS cWHERE">
+<meta property="og:image" content="https://www.w3schools.com/sql/img_innerjoin.gif">
+<meta property="og:image" content="https://www.w3schools.com/sql/img_leftjoin.gif">
+<meta property="og:image" content="https://www.w3schools.com/sql/img_rightjoin.gif">
+<meta property="og:image" content="https://www.w3schools.com/sql/img_fulljoin.gif">
+<meta property="og:updated_time" content="2017-11-09T23:40:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode | SQL">
+<meta name="twitter:description" content="[TOC]
+ProblemsBasic182. Duplicate Emails1234SELECT DISTINCT EmailFROM PersonGROUP BY EmailHAVING COUNT(*) &amp;gt; 1;
+183. Customers Who Never Order12345SELECT c.Name AS CustomersFROM Customers AS cWHERE">
+<meta name="twitter:image" content="https://www.w3schools.com/sql/img_innerjoin.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Zoey'
+    }
+  };
+</script>
+
+  <title> LeetCode | SQL | Zhuo Han </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a03836ec239f375669ad8f7cb87ff77c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhuo Han</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LeetCode | SQL
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-11-09T15:39:48-08:00" content="2017-11-09">
+              2017-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/11/09/LeetCode-SQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/09/LeetCode-SQL/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/11/09/LeetCode-SQL/" class="leancloud_visitors" data-flag-title="LeetCode | SQL">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><h4 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h4><p><a href="https://leetcode.com/problems/duplicate-emails/description/" target="_blank" rel="external">182. Duplicate Emails</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Email</span><br><span class="line"><span class="keyword">FROM</span> Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/customers-who-never-order/description/" target="_blank" rel="external">183. Customers Who Never Order</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.Name <span class="keyword">AS</span> Customers</span><br><span class="line"><span class="keyword">FROM</span> Customers <span class="keyword">AS</span> c</span><br><span class="line"><span class="keyword">WHERE</span> c.Id <span class="keyword">NOT</span> <span class="keyword">IN</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> CustomerId</span><br><span class="line">    <span class="keyword">FROM</span> Orders);</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/department-highest-salary/description/" target="_blank" rel="external">184. Department Highest Salary</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.Name <span class="keyword">AS</span> Department, e.Name <span class="keyword">AS</span> Employee, e.Salary </span><br><span class="line"><span class="keyword">FROM</span> Employee e, Department d</span><br><span class="line"><span class="keyword">WHERE</span> e.DepartmentId = d.Id </span><br><span class="line"><span class="keyword">AND</span> e.Salary = (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">MAx</span>(Salary)</span><br><span class="line">    <span class="keyword">FROM</span> Employee e2</span><br><span class="line">    <span class="keyword">WHERE</span> e2.DepartmentId = d.Id</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/delete-duplicate-emails/description/" target="_blank" rel="external">196. Delete Duplicate Emails</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> p1</span><br><span class="line"><span class="keyword">FROM</span> Person p1, Person p2</span><br><span class="line"><span class="keyword">WHERE</span> p1.Email = p2.Email <span class="keyword">AND</span> p1.Id &gt; p2.Id;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/rising-temperature/discuss/" target="_blank" rel="external">197. Rising Temperature</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> w1.Id</span><br><span class="line"><span class="keyword">FROM</span> Weather w1, Weather w2</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">TO_DAYS</span>(w1.Date) = <span class="keyword">TO_DAYS</span>(w2.Date)+<span class="number">1</span> <span class="keyword">AND</span> w1.Temperature &gt; w2.Temperature;</span><br></pre></td></tr></table></figure></p>
+<h4 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h4><p><a href="https://leetcode.com/problems/combine-two-tables/description/" target="_blank" rel="external">175. Combine Two Tables</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> p.FirstName, P.LastName, A.City, A.Sate</span><br><span class="line"><span class="keyword">From</span> Perosn P <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Address A</span><br><span class="line"><span class="keyword">ON</span> P.PersonID = A.PersonId;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/" target="_blank" rel="external">181. Employees Earning More Than Their Managers</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.Name <span class="keyword">AS</span> Employee</span><br><span class="line"><span class="keyword">FROM</span> Employee a <span class="keyword">JOIN</span> Employee b</span><br><span class="line"><span class="keyword">ON</span> a.ManagerId = b.Id</span><br><span class="line"><span class="keyword">WHERE</span> a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h4><p><a href="https://leetcode.com/problems/second-highest-salary/description/" target="_blank" rel="external">176. Second Highest Salary</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Max</span>(Salary) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="keyword">FROM</span> Employee</span><br><span class="line"><span class="keyword">WHERE</span> Salary &lt; (<span class="keyword">SELECT</span> <span class="keyword">Max</span>(Salary) <span class="keyword">FROM</span> Employee)</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/nth-highest-salary/description/" target="_blank" rel="external">177. Nth Highest Salary</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT;</span><br><span class="line">SET M=N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">      SELECT DISTINCT Salary </span><br><span class="line">      FROM Employee </span><br><span class="line">      ORDER BY Salary DESC </span><br><span class="line">      LIMIT M, 1</span><br><span class="line">  );</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/rank-scores/description/" target="_blank" rel="external">178. Rank Scores</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Write your MySQL query statement below</span><br><span class="line">SELECT Scores.Score, COUNT(Ranking.Score) AS Rank</span><br><span class="line">FROM Scores, (</span><br><span class="line">    SELECT DISTINCT Score</span><br><span class="line">    FROM Scores) Ranking</span><br><span class="line">WHERE Scores.Score &lt;= Ranking.Score</span><br><span class="line">GROUP BY Scores.Id, Scores.Score</span><br><span class="line">ORDER BY Scores.Score DESC;</span><br><span class="line"></span><br><span class="line">-- If only group by Score, same score will be combined</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://leetcode.com/problems/consecutive-numbers/description/" target="_blank" rel="external">180. Consecutive Numbers</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> l1.Num <span class="keyword">as</span> ConsecutiveNums </span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Logs</span> l1, <span class="keyword">Logs</span> l2, <span class="keyword">Logs</span> l3</span><br><span class="line"><span class="keyword">WHERE</span> l1.Id=l2.Id<span class="number">-1</span> <span class="keyword">AND</span> l2.Id=l3.Id<span class="number">-1</span> <span class="keyword">AND</span> l1.Num=l2.Num <span class="keyword">AND</span> l2.Num=l3.Num</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- using user-defined variables</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">Num</span> <span class="keyword">as</span> ConsecutiveNums </span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">Num</span>,</span><br><span class="line">        @<span class="keyword">count</span> := <span class="keyword">if</span> (@prev = <span class="keyword">Num</span>, @<span class="keyword">count</span>+<span class="number">1</span>, <span class="number">1</span>) <span class="keyword">count</span>,</span><br><span class="line">        @prev := <span class="keyword">Num</span> prev</span><br><span class="line">    <span class="keyword">FROM</span> <span class="keyword">Logs</span>, (</span><br><span class="line">        <span class="keyword">SELECT</span> @<span class="keyword">count</span>:=<span class="number">0</span>,</span><br><span class="line">            @prev:=(<span class="keyword">SELECT</span> <span class="keyword">Num</span> <span class="keyword">FROM</span> <span class="keyword">Logs</span> <span class="keyword">LIMIT</span> <span class="number">1</span>)</span><br><span class="line">        )tmp1</span><br><span class="line">    )tmp2</span><br><span class="line"><span class="keyword">WHERE</span> tmp2.count&gt;=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/department-top-three-salaries/description/" target="_blank" rel="external">185. Department Top Three Salaries</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.Name <span class="keyword">AS</span> Department, e.Name <span class="keyword">AS</span> Employee, e.Salary <span class="keyword">AS</span> Salary </span><br><span class="line"><span class="keyword">FROM</span> Employee e, Department d</span><br><span class="line"><span class="keyword">WHERE</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">distinct</span>(Salary))</span><br><span class="line">    <span class="keyword">FROM</span> Employee</span><br><span class="line">    <span class="keyword">WHERE</span> DepartmentId = e.DepartmentId <span class="keyword">AND</span> Salary &gt; e.Salary</span><br><span class="line">) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">AND</span> e.DepartmentId = d.Id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> e.DepartmentId, E.Salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Basic-knowledge"><a href="#Basic-knowledge" class="headerlink" title="Basic knowledge"></a>Basic knowledge</h2><h4 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h4><ol>
+<li><a href="https://www.w3schools.com/sql/default.asp" target="_blank" rel="external">SQL Tutorial</a></li>
+<li><a href="http://www.sqlcourse.com/intro.html" target="_blank" rel="external">SQLCourse</a></li>
+<li><a href="http://www.sqlcourse2.com" target="_blank" rel="external">SQLCourses</a></li>
+</ol>
+<h4 id="SELECT-extracts-data-from-a-database"><a href="#SELECT-extracts-data-from-a-database" class="headerlink" title="SELECT - extracts data from a database"></a>SELECT - extracts data from a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, ...</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># Search for a pattern</span><br><span class="line">NOT LIKE or LIKE '%s%'</span><br><span class="line"># NOT starting with "b", "s", or "p"</span><br><span class="line">LIKE '[!bsp]%'</span><br><span class="line"># Starts with "a" &amp; at least 3 characters in length</span><br><span class="line">LIKE 'a_%_%'</span><br><span class="line"></span><br><span class="line"># Between an inclusive range</span><br><span class="line">column_name BETWEEN value1 AND value2</span><br><span class="line">or NOT BETWEEN</span><br><span class="line">e.g. WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;</span><br><span class="line"></span><br><span class="line"># To specify multiple possible values for a column</span><br><span class="line">column_name IN (value1,value2,...) </span><br><span class="line">or IN (SELECT STATEMENT)</span><br><span class="line"></span><br><span class="line">&lt;&gt; or !=</span><br><span class="line">=,...</span><br><span class="line"></span><br><span class="line">AND, OR, NOT</span><br><span class="line">IS NULL or IS NOT NULL</span><br><span class="line"></span><br><span class="line"># [] = optional</span><br><span class="line">ORDER BY column1, column2, ... [ASC|DESC];</span><br><span class="line"></span><br><span class="line"># return only distinct (different) values.</span><br><span class="line">SELECT DISTINCT Country FROM Customers;</span><br><span class="line"></span><br><span class="line">!NOTE: COUNT(DISTINCT column_name) is not supported in Microsoft Access databases.</span><br><span class="line">SELECT COUNT(DISTINCT Country) FROM Customers;</span><br><span class="line"></span><br><span class="line">SELECT Count(*) AS DistinctCountries</span><br><span class="line">FROM (SELECT DISTINCT Country FROM Customers);</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># SQL Server / MS Access Syntax:</span><br><span class="line">SELECT TOP number|percent column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line">e.g. SELECT TOP 3 or SELECT TOP 50 PERCENT </span><br><span class="line"></span><br><span class="line"># MySQL Syntax:</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition</span><br><span class="line">LIMIT number;</span><br><span class="line"></span><br><span class="line"># Oracle Syntax:</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE ROWNUM &lt;= number;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIN(), MAX(), COUNT(), AVG(), SUM()</span><br></pre></td></tr></table></figure>
+<h4 id="UPDATE-updates-data-in-a-database"><a href="#UPDATE-updates-data-in-a-database" class="headerlink" title="UPDATE - updates data in a database"></a>UPDATE - updates data in a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name</span><br><span class="line">SET column1 = value1, column2 = value2, ...</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># can write column1 = column1 + 1</span><br><span class="line"></span><br><span class="line"># If you omit the WHERE clause, ALL records will be updated!</span><br></pre></td></tr></table></figure>
+<h4 id="DELETE-deletes-data-from-a-database"><a href="#DELETE-deletes-data-from-a-database" class="headerlink" title="DELETE - deletes data from a database"></a>DELETE - deletes data from a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># If you omit the WHERE clause, all records in the table will be deleted!</span><br><span class="line">DELETE [*] FROM table_name;</span><br></pre></td></tr></table></figure>
+<h4 id="INSERT-INTO-inserts-new-data-into-a-database"><a href="#INSERT-INTO-inserts-new-data-into-a-database" class="headerlink" title="INSERT INTO - inserts new data into a database"></a>INSERT INTO - inserts new data into a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># If only insert in specified columns, others = null</span><br><span class="line">INSERT INTO table_name [(column1, column2, column3, ...)]</span><br><span class="line">VALUES (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
+<h4 id="ALIASE-give-a-table-or-a-column-in-a-table-a-temporary-name"><a href="#ALIASE-give-a-table-or-a-column-in-a-table-a-temporary-name" class="headerlink" title="ALIASE - give a table, or a column in a table, a temporary name"></a>ALIASE - give a table, or a column in a table, a temporary name</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1. </span><br><span class="line">SELECT column_name AS alias_name</span><br><span class="line">FROM table_name;</span><br><span class="line"></span><br><span class="line"># It requires double quotation marks or square brackets if the alias name contains spaces.</span><br><span class="line">[Contact Person]</span><br><span class="line"></span><br><span class="line"># Combine columns</span><br><span class="line">e.g. SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address</span><br><span class="line">FROM Customers;</span><br><span class="line"># But in MySQL</span><br><span class="line">SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address</span><br><span class="line">FROM Customers;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name AS alias_name;</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName</span><br><span class="line">FROM Customers, Orders</span><br><span class="line">WHERE Customers.CustomerName="Around the Horn" AND Customers.CustomerID=Orders.CustomerID;</span><br><span class="line">=&gt;</span><br><span class="line">SELECT o.OrderID, o.OrderDate, c.CustomerName</span><br><span class="line">FROM Customers AS c, Orders AS o</span><br><span class="line">WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;</span><br></pre></td></tr></table></figure>
+<h4 id="JOIN-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them"><a href="#JOIN-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them" class="headerlink" title="JOIN - combine rows from two or more tables, based on a related column between them"></a>JOIN - combine rows from two or more tables, based on a related column between them</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate</span><br><span class="line">FROM Orders</span><br><span class="line">INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;</span><br><span class="line"></span><br><span class="line"># Join three Tables</span><br><span class="line">SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName</span><br><span class="line">FROM ((Orders</span><br><span class="line">INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)</span><br><span class="line">INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);</span><br><span class="line"></span><br><span class="line"># Self JOIN</span><br><span class="line">e.g.</span><br><span class="line">SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City</span><br><span class="line">FROM Customers A, Customers B</span><br><span class="line">WHERE A.CustomerID &lt;&gt; B.CustomerID</span><br><span class="line">AND A.City = B.City </span><br><span class="line">ORDER BY A.City;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.w3schools.com/sql/img_innerjoin.gif" alt="(INNER) JOIN: Returns records that have matching values in both tables"> <img src="https://www.w3schools.com/sql/img_leftjoin.gif" alt="LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table"><br><img src="https://www.w3schools.com/sql/img_rightjoin.gif" alt="RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table"> <img src="https://www.w3schools.com/sql/img_fulljoin.gif" alt="FULL (OUTER) JOIN: Return all records when there is a match in either left or right table"><br>-GROUP BY statement - used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(CustomerID), Country</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country;</span><br></pre></td></tr></table></figure></p>
+<h4 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UNION, UNION ALL with duplicate values</span><br><span class="line"></span><br><span class="line">HAVING, EXISTS, </span><br><span class="line"></span><br><span class="line">WHERE column_name operator ANY/ALL (<span class="keyword">SELECT</span> column_name <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> condition)</span><br></pre></td></tr></table></figure>
+<h4 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Single line</span></span><br><span class="line"><span class="comment">/*Multi-line*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="DATABASE"><a href="#DATABASE" class="headerlink" title="DATABASE"></a>DATABASE</h4><ul>
+<li>CREATE DATABASE - creates a new database</li>
+<li>DROP DATABASE - drop an existing SQL database</li>
+<li>ALTER DATABASE - modifies a database<h4 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h4></li>
+<li><p>CREATE TABLE - creates a new table</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name (</span><br><span class="line">    column1 datatype,</span><br><span class="line">    column2 datatype,</span><br><span class="line">    column3 datatype,</span><br><span class="line">   ....</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> new_table_name <span class="keyword">AS</span></span><br><span class="line">    <span class="keyword">SELECT</span> column1, column2,...</span><br><span class="line">    <span class="keyword">FROM</span> existing_table_name</span><br><span class="line">    <span class="keyword">WHERE</span> ....;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DROP TABLE - deletes a table</p>
+</li>
+<li><p>ALTER TABLE - modifies a table</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">ADD column_name datatype;</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">DROP COLUMN column_name;</span><br><span class="line"></span><br><span class="line"># ALTER/MODIFY COLUMN</span><br><span class="line"># SQL Server / MS Access:</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">ALTER COLUMN column_name datatype;</span><br><span class="line"># My SQL / Oracle (prior version 10G):</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">MODIFY COLUMN column_name datatype;</span><br><span class="line"># Oracle 10G and later:</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">MODIFY column_name datatype;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CREATE INDEX - creates an index (search key)</p>
+</li>
+<li>DROP INDEX - deletes an index</li>
+<li>…</li>
+</ul>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
+            <a href="/tags/SQL/" rel="tag">#SQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/06/Leetcode-Maximum-Length-of-Repeated-Subarray/" rel="next" title="Leetcode | Maximum Length of Repeated Subarray">
+                <i class="fa fa-chevron-left"></i> Leetcode | Maximum Length of Repeated Subarray
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/11/09/LeetCode-SQL/"
+           data-title="LeetCode | SQL" data-url="http://yoursite.com/2017/11/09/LeetCode-SQL/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.JPG"
+               alt="Zoey HAN" />
+          <p class="site-author-name" itemprop="name">Zoey HAN</p>
+          <p class="site-description motion-element" itemprop="description">CS | Web | Write | Music</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZoeyeoZ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5139990830" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/zoey.hz" target="_blank" title="facebook">
+                  
+                    <i class="fa fa-facebook"></i>
+                  
+                  facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zoeyyeoz" target="_blank" title="csdn">
+                  
+                    <i class="fa fa-book"></i>
+                  
+                  csdn
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems"><span class="nav-number">1.</span> <span class="nav-text">Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic"><span class="nav-number">1.0.1.</span> <span class="nav-text">Basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JOIN"><span class="nav-number">1.0.2.</span> <span class="nav-text">JOIN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rank"><span class="nav-number">1.0.3.</span> <span class="nav-text">Rank</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-knowledge"><span class="nav-number">2.</span> <span class="nav-text">Basic knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Links"><span class="nav-number">2.0.1.</span> <span class="nav-text">Links</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SELECT-extracts-data-from-a-database"><span class="nav-number">2.0.2.</span> <span class="nav-text">SELECT - extracts data from a database</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UPDATE-updates-data-in-a-database"><span class="nav-number">2.0.3.</span> <span class="nav-text">UPDATE - updates data in a database</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DELETE-deletes-data-from-a-database"><span class="nav-number">2.0.4.</span> <span class="nav-text">DELETE - deletes data from a database</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#INSERT-INTO-inserts-new-data-into-a-database"><span class="nav-number">2.0.5.</span> <span class="nav-text">INSERT INTO - inserts new data into a database</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ALIASE-give-a-table-or-a-column-in-a-table-a-temporary-name"><span class="nav-number">2.0.6.</span> <span class="nav-text">ALIASE - give a table, or a column in a table, a temporary name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JOIN-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them"><span class="nav-number">2.0.7.</span> <span class="nav-text">JOIN - combine rows from two or more tables, based on a related column between them</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Operators"><span class="nav-number">2.0.8.</span> <span class="nav-text">Operators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Comments"><span class="nav-number">2.0.9.</span> <span class="nav-text">Comments</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DATABASE"><span class="nav-number">2.0.10.</span> <span class="nav-text">DATABASE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TABLE"><span class="nav-number">2.0.11.</span> <span class="nav-text">TABLE</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zoey HAN</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ZoeyeoZ"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("T1GdtjiH3C4zaGGuAfBXLIU9-gzGzoHsz", "E1lU2mO5DS4clhzdUCD45SXs");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
