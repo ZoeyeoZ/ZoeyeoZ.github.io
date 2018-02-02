@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[Java console in Sublime Text]]></title>
+      <url>%2F2018%2F01%2F31%2FJava-console-in-Sublime-Text%2F</url>
+      <content type="text"><![CDATA[Tools -&gt; Build System -&gt; New Build System… 12345678910111213&#123; &quot;shell_cmd&quot;: &quot;javac \&quot;$file\&quot;&quot;, &quot;file_regex&quot;: &quot;^(...*?):([0-9]*):?([0-9]*)&quot;, &quot;selector&quot;: &quot;source.java&quot;, &quot;variants&quot;: [ &#123; &quot;name&quot;: &quot;Run&quot;, &quot;shell_cmd&quot;: &quot;java $file_base_name&quot; &#125; ]&#125; Save as JavaC.sublime-build Choose Automatic, run using command + B 12var fName = function(fVal) &#123;&#125;; console.log(fName(fVal)); Delete build system1OS X: ~/Library/Application Support/Sublime Text 3/Packages/]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[X1_Binary Search Tree]]></title>
+      <url>%2F2018%2F01%2F31%2FX1-Binary-Search-Tree%2F</url>
+      <content type="text"><![CDATA[[TOC] Binary Search TreeReferenceBinary Search Tree | Set 1 (Search and Insertion) Github | X1_Binary Search Tree Definition left subtree &lt; root &lt; right subtree no duplicate nodes What if duplicate? add “count” attribution self-balance: almost full tree. Using red-black tree worst case: 12345671\2\3\4\5\6or 1 2 3 45/6 7\8 ​ Coding• https://leetcode.com/problems/find-k-closest-elements • https://leetcode.com/problems/closest-binary-search-tree-value • https://leetcode.com/problems/closest-binary-search-tree-value-ii • https://leetcode.com/problems/binary-tree-level-order-traversal • https://leetcode.com/problems/maximum-depth-of-binary-tree • https://leetcode.com/problems/balanced-binary-tree • https://leetcode.com/problems/search-in-rotated-sorted-array • https://leetcode.com/problems/search-in-rotated-sorted-array-ii ####Note 先定signature 库函数Arrays.binarySearch(arr, x)，not found: &lt; 0 java8 Collectors 1private static final double EPSILON = 1e-10; boilerplate模版 主动测试test case 1Queue&lt;T&gt; q = new LinkedList&lt;&gt;(); IterativeInOrder, Pre, Post Q 360.Sort Transformed Array a &gt; 0, binary search find the closest one with -b/2a, then … Or from l &amp; r -&gt; middle 173.Binary Search Tree iterator]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[CSS-tricks/Oline helper]]></title>
       <url>%2F2018%2F01%2F23%2FCSS-tricks-Oline-helper%2F</url>
       <content type="text"><![CDATA[#ImgContainers with background images which zoom within their container on hover: Zooming Background ImagesOr you can test it online: css background image zoom with transitionMaybe you just want to clip it to a complex shape, here is CSS clip-path maker #FontUse Google Fonts API to add fonts to your web pages.]]></content>

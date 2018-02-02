@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, Zoey" />
+  <meta name="keywords" content="Algorithm,Data Struct," />
 
 
 
@@ -80,15 +80,40 @@
 
 
 
-<meta name="description" content="CS | Web | Write | Music">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhuo Han">
-<meta property="og:url" content="http://yoursite.com/tags/面试/index.html">
+<meta name="description" content="[TOC]
+Binary Search TreeReferenceBinary Search Tree | Set 1 (Search and Insertion)
+Github | X1_Binary Search Tree
+Definition
+left subtree &amp;lt; root &amp;lt; right subtree
+
+no duplicate nodes
+
+What if dupl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="X1_Binary Search Tree">
+<meta property="og:url" content="http://yoursite.com/2018/01/31/X1-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="CS | Web | Write | Music">
+<meta property="og:description" content="[TOC]
+Binary Search TreeReferenceBinary Search Tree | Set 1 (Search and Insertion)
+Github | X1_Binary Search Tree
+Definition
+left subtree &amp;lt; root &amp;lt; right subtree
+
+no duplicate nodes
+
+What if dupl">
+<meta property="og:updated_time" content="2018-02-02T07:01:04.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhuo Han">
-<meta name="twitter:description" content="CS | Web | Write | Music">
+<meta name="twitter:title" content="X1_Binary Search Tree">
+<meta name="twitter:description" content="[TOC]
+Binary Search TreeReferenceBinary Search Tree | Set 1 (Search and Insertion)
+Github | X1_Binary Search Tree
+Definition
+left subtree &amp;lt; root &amp;lt; right subtree
+
+no duplicate nodes
+
+What if dupl">
 
 
 
@@ -106,7 +131,7 @@
   };
 </script>
 
-  <title> 标签: 面试 | Zhuo Han </title>
+  <title> X1_Binary Search Tree | Zhuo Han </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +171,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,46 +292,240 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        面试
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                X1_Binary Search Tree
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-01-31T15:07:45-08:00" content="2018-01-31">
+              2018-01-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/01/31/X1-Binary-Search-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/31/X1-Binary-Search-Tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/01/31/X1-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="X1_Binary Search Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>[TOC]</p>
+<h3 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h3><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion" target="_blank" rel="external">Binary Search Tree | Set 1 (Search and Insertion)</a></p>
+<p><a href="">Github | X1_Binary Search Tree</a></p>
+<h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ol>
+<li><p>left subtree &lt; root &lt; right subtree</p>
+</li>
+<li><p>no duplicate nodes</p>
+<ul>
+<li><p>What if duplicate? add “count” attribution</p>
+</li>
+<li><p>self-balance: almost full tree. Using red-black tree</p>
+</li>
+<li><p>worst case:</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1\2\3\4\5\6</span><br><span class="line">or</span><br><span class="line">   1</span><br><span class="line">   2</span><br><span class="line">   3</span><br><span class="line">   4</span><br><span class="line">5/6 7\8</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>​</p>
+</li>
+</ol>
+<h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><p>•  <a href="https://leetcode.com/problems/find-k-closest-elements" target="_blank" rel="external">https://leetcode.com/problems/find-k-closest-elements</a></p>
+<p>•  <a href="https://leetcode.com/problems/closest-binary-search-tree-value" target="_blank" rel="external">https://leetcode.com/problems/closest-binary-search-tree-value</a></p>
+<p>•  <a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii" target="_blank" rel="external">https://leetcode.com/problems/closest-binary-search-tree-value-ii</a></p>
+<p>•  <a href="https://leetcode.com/problems/binary-tree-level-order-traversal" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-level-order-traversal</a></p>
+<p>•  <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree" target="_blank" rel="external">https://leetcode.com/problems/maximum-depth-of-binary-tree</a></p>
+<p>•  <a href="https://leetcode.com/problems/balanced-binary-tree" target="_blank" rel="external">https://leetcode.com/problems/balanced-binary-tree</a></p>
+<p>•  <a href="https://leetcode.com/problems/search-in-rotated-sorted-array" target="_blank" rel="external">https://leetcode.com/problems/search-in-rotated-sorted-array</a></p>
+<p>•  <a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii" target="_blank" rel="external">https://leetcode.com/problems/search-in-rotated-sorted-array-ii</a></p>
+<p>####Note</p>
+<ol>
+<li><p>先定signature</p>
+</li>
+<li><p>库函数Arrays.binarySearch(arr, x)，not found: &lt; 0</p>
+</li>
+<li><p><a href="http://www.baeldung.com/java-8-collectors" target="_blank" rel="external">java8 Collectors</a></p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final double EPSILON = 1e-10;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>boilerplate模版</p>
+</li>
+<li><p>主动测试test case</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;T&gt; q = new LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IterativeInOrder, Pre, Post</p>
+</li>
+</ol>
+<h4 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h4><ul>
+<li><p>360.Sort Transformed Array</p>
+<p>a &gt; 0,</p>
+<p>binary search find the closest one with -b/2a, then …</p>
+<p>Or from l &amp; r -&gt; middle</p>
+</li>
+<li><p>173.Binary Search Tree iterator</p>
+</li>
+</ul>
 
-      <h1 class="post-title">
+      
+    </div>
+    
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/05/08/BaiduInterview/" itemprop="url">
-              
-                <span itemprop="name">百度面试总结</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-08T12:32:08-07:00"
-              content="2016-05-08" >
-          05-08
-        </time>
-      </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
+          
+            <a href="/tags/Data-Struct/" rel="tag">#Data Struct</a>
+          
+        </div>
+      
 
-    </header>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/23/CSS-tricks-Oline-helper/" rel="next" title="CSS-tricks/Oline helper">
+                <i class="fa fa-chevron-left"></i> CSS-tricks/Oline helper
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/31/Java-console-in-Sublime-Text/" rel="prev" title="Java console in Sublime Text">
+                Java console in Sublime Text <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -314,6 +533,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/01/31/X1-Binary-Search-Tree/"
+           data-title="X1_Binary Search Tree" data-url="http://yoursite.com/2018/01/31/X1-Binary-Search-Tree/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -333,8 +560,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.JPG"
@@ -422,6 +658,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">1.</span> <span class="nav-text">Binary Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">1.1.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.2.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coding"><span class="nav-number">1.3.</span> <span class="nav-text">Coding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q"><span class="nav-number">1.4.</span> <span class="nav-text">Q</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -525,6 +772,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
