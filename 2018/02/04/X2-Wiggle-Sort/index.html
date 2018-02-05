@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Github,Hexo,Blog," />
+  <meta name="keywords" content="Leetcode,Algorithm," />
 
 
 
@@ -80,40 +80,25 @@
 
 
 
-<meta name="description" content="参考NexT使用文档hexo你的博客
-
-配置评论
-Hexo默认集成Disqus提供第三方评论系统
-国内建议多说
-登录后在首页选择 “我要安装”。
-创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。
-创建站点完成后编辑站点配置文件_config.yml文件
-新增 duoshuo_shortname 字段，值设置成上一步中的值。">
+<meta name="description" content="Subsequence: order, maynot continuous
+QuickSort: Average O(NlgN), worst O(N2)
+MergeSort:  O(NlgN)
+QFind the kth largest element in an unsorted array. Note that it is the kth largest element in the sor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="［整理/转载］Github＋HEXO (Mac)（二）">
-<meta property="og:url" content="http://yoursite.com/2016/04/14/NewBlog2/index.html">
+<meta property="og:title" content="X2_Wiggle Sort">
+<meta property="og:url" content="http://yoursite.com/2018/02/04/X2-Wiggle-Sort/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="参考NexT使用文档hexo你的博客
-
-配置评论
-Hexo默认集成Disqus提供第三方评论系统
-国内建议多说
-登录后在首页选择 “我要安装”。
-创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。
-创建站点完成后编辑站点配置文件_config.yml文件
-新增 duoshuo_shortname 字段，值设置成上一步中的值。">
-<meta property="og:updated_time" content="2016-04-14T04:31:18.000Z">
+<meta property="og:description" content="Subsequence: order, maynot continuous
+QuickSort: Average O(NlgN), worst O(N2)
+MergeSort:  O(NlgN)
+QFind the kth largest element in an unsorted array. Note that it is the kth largest element in the sor">
+<meta property="og:updated_time" content="2018-02-05T06:24:05.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="［整理/转载］Github＋HEXO (Mac)（二）">
-<meta name="twitter:description" content="参考NexT使用文档hexo你的博客
-
-配置评论
-Hexo默认集成Disqus提供第三方评论系统
-国内建议多说
-登录后在首页选择 “我要安装”。
-创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。
-创建站点完成后编辑站点配置文件_config.yml文件
-新增 duoshuo_shortname 字段，值设置成上一步中的值。">
+<meta name="twitter:title" content="X2_Wiggle Sort">
+<meta name="twitter:description" content="Subsequence: order, maynot continuous
+QuickSort: Average O(NlgN), worst O(N2)
+MergeSort:  O(NlgN)
+QFind the kth largest element in an unsorted array. Note that it is the kth largest element in the sor">
 
 
 
@@ -131,7 +116,7 @@ Hexo默认集成Disqus提供第三方评论系统
   };
 </script>
 
-  <title> ［整理/转载］Github＋HEXO (Mac)（二） | Zhuo Han </title>
+  <title> X2_Wiggle Sort | Zhuo Han </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +298,7 @@ Hexo默认集成Disqus提供第三方评论系统
             
             
               
-                ［整理/转载］Github＋HEXO (Mac)（二）
+                X2_Wiggle Sort
               
             
           </h1>
@@ -325,8 +310,8 @@ Hexo默认集成Disqus提供第三方评论系统
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-14T12:27:26-07:00" content="2016-04-14">
-              2016-04-14
+            <time itemprop="dateCreated" datetime="2018-02-04T22:22:28-08:00" content="2018-02-04">
+              2018-02-04
             </time>
           </span>
 
@@ -339,8 +324,20 @@ Hexo默认集成Disqus提供第三方评论系统
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/IT/" itemprop="url" rel="index">
-                    <span itemprop="name">IT</span>
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
                   </a>
                 </span>
 
@@ -355,8 +352,8 @@ Hexo默认集成Disqus提供第三方评论系统
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/14/NewBlog2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/14/NewBlog2/" itemprop="commentsCount"></span>
+                <a href="/2018/02/04/X2-Wiggle-Sort/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/04/X2-Wiggle-Sort/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -366,7 +363,7 @@ Hexo默认集成Disqus提供第三方评论系统
 
           
           
-             <span id="/2016/04/14/NewBlog2/" class="leancloud_visitors" data-flag-title="［整理/转载］Github＋HEXO (Mac)（二）">
+             <span id="/2018/02/04/X2-Wiggle-Sort/" class="leancloud_visitors" data-flag-title="X2_Wiggle Sort">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -388,117 +385,49 @@ Hexo默认集成Disqus提供第三方评论系统
       
 
       
-        <p>参考<br><a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">NexT使用文档</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
-<hr>
-<h3 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h3><ul>
-<li>Hexo默认集成Disqus提供第三方评论系统</li>
-<li>国内建议<a href="http://duoshuo.com" target="_blank" rel="external">多说</a><ul>
-<li>登录后在首页选择 “我要安装”。</li>
-<li>创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。</li>
-<li>创建站点完成后编辑<strong>站点配置文件_config.yml</strong>文件<ul>
-<li>新增 <strong>duoshuo_shortname</strong> 字段，值设置成上一步中的值。</li>
-<li><code>duoshuo_shortname: ZoeyeoZ</code></li>
-<li>此外声明这类配置与主体有关，博主主题［NexT］</li>
-</ul>
-</li>
-<li>如果采用其他第三方评论系统，通用代码详见多说网站 </li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>使用多说的话，Thread Key一定不要改变，Thread Key相当于是识别码；如果你更新了Hexo或者重装了vps，文章的Thread Key改变了的话，那么恭喜你，评论全部没有了。。。</p>
-</blockquote>
-<h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><ul>
-<li>登录<a href="http://tongji.baidu.com/" target="_blank" rel="external">百度统计</a>， 定位到站点的代码获取页面</li>
-<li>复制 hm.js? 后面那串统计脚本 id，如： </li>
-<li><code>hm.src = &quot;//hm.baidu.com/hm.js?xxxxxx&quot;;</code></li>
-<li>编辑<strong>站点配置文件</strong>，新增字段 <strong>baidu_analytics</strong> 字段，值设置成你的百度统计脚本 id</li>
-</ul>
-<h3 id="阅读次数统计（LeanCloud"><a href="#阅读次数统计（LeanCloud" class="headerlink" title="阅读次数统计（LeanCloud)"></a>阅读次数统计（LeanCloud)</h3><ul>
-<li>详细内容参照<a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></li>
-<li>NexT主题目前已经合并这个Feature，因此如果你使用的是NexT主题，可以<strong>直接使用</strong>不用修改主题模版</li>
-<li><p>修改NexT主题模版</p>
+        <p>Subsequence: order, maynot continuous</p>
+<p>QuickSort: Average O(NlgN), worst O(N2)</p>
+<p>MergeSort:  O(NlgN)</p>
+<h4 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h4><p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
+<p>For example,</p>
+<p>Given [3,2,1,5,6,4] and k = 2, return 5. [3,3,3,3] and k = 1, return 3.</p>
+<h4 id="A"><a href="#A" class="headerlink" title="A"></a>A</h4><p>k starts with 1, Assume k is valid</p>
 <ul>
-<li>详见原文</li>
-<li>修改_config.yml文件<br>在<strong>blog/themes/next</strong></li>
-<li>添加lean-analytics.swig文件，<br> 在<strong>blog/themes/next/layout/_scripts</strong></li>
-<li>修改post.swig文件<br>在<strong>blog/themes/next/layout/_macro</strong></li>
-<li>修改layout.swig文件<br>在<strong>blog/themes/next/layout</strong></li>
-<li>修改zh-Hans.yml文件</li>
+<li><p>sol1sort O(NlgN)</p>
+</li>
+<li><p>sol2 Max-Heap, O(Nlgk)</p>
+</li>
+<li><p>sol3 quick select</p>
+<p>randomly choose/middle as privot</p>
+<p>(..discard…pivot…index….)</p>
+<p>time complexity: n/2 + n/4 + n/8 + … = n</p>
+<p>duplicate -&gt; just move it, don’t influence</p>
+<p>worst case: all the number is same</p>
+</li>
 </ul>
-</li>
-<li><p>注册<a href="https://leancloud.cn/login.html#/signup" target="_blank" rel="external">LeanCloud</a>（需验证邮箱）</p>
-</li>
-<li><p>配置LeanCloud<br>登录帐号，配置后拿到<strong>AppID</strong>及<strong>AppKey</strong>，用于文章阅读量统计的功能。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/**</span><br><span class="line">O(N) guaranteed running time + O(1) space</span><br><span class="line">randomize/shuffle the input -&gt; O(N)</span><br><span class="line"></span><br><span class="line">This is QuickSelect from QuickSort.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>, index = nums.length - k;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">            <span class="keyword">int</span> pivot = partition(nums, start, end);</span><br><span class="line">            <span class="keyword">if</span> (pivot &lt; index) &#123;</span><br><span class="line">                start = pivot + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pivot &gt; index) &#123;</span><br><span class="line">                end = pivot - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[pivot];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sample input: [1]</span></span><br><span class="line">        <span class="keyword">return</span> nums[start];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pivot = start;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">while</span> (start &lt;= end &amp;&amp; nums[start] &lt;= nums[pivot]) &#123;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (start &lt;= end &amp;&amp; nums[end] &gt; nums[pivot]) &#123;</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums, start, end);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums, end, pivot);</span><br><span class="line">        <span class="keyword">return</span> end;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = tmp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Sort-Color"><a href="#Sort-Color" class="headerlink" title="Sort Color"></a>Sort Color</h4><ul>
+<li>0..0[l]1…1[r]2…2</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// If nums is very big, it is likely to often hit page default by loading</span></span><br><span class="line">    <span class="comment">// three sections of nums (l,m,r) and cause thrashing</span></span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> r = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt;= r;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[m] == <span class="number">0</span>) &#123;</span><br><span class="line">            swap(nums, l++, m++); <span class="comment">//unless l == m, left = 0; left must be 1, no need to consider again</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[m] == <span class="number">2</span>) &#123;</span><br><span class="line">            swap(nums, r--, m);<span class="comment">//since right may be 0/1/2, should consider again</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>创建应用，用于博客的访问统计的数据操作</p>
+<li>What if 4 section<ul>
+<li>0, 1, [2,3]; then partition 2 &amp; 3</li>
+<li>more pointers?</li>
+</ul>
+</li>
+</ul>
+<h4 id="Wiggle-Sort-I"><a href="#Wiggle-Sort-I" class="headerlink" title="Wiggle Sort I"></a>Wiggle Sort I</h4><p>Greedy</p>
+<h4 id="Wiggle-Sort-II"><a href="#Wiggle-Sort-II" class="headerlink" title="Wiggle Sort II"></a>Wiggle Sort II</h4><p>Find Median: (nums.length+1) &gt;&gt;&gt; 1, O(N)</p>
+<p>Partition: sort color + <strong>Vitural Index</strong>, O(N)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  n = <span class="number">6</span> =&gt; (n | <span class="number">1</span>) = <span class="number">7</span></span><br><span class="line">  n = <span class="number">7</span> =&gt; (n | <span class="number">1</span>) = <span class="number">7</span></span><br><span class="line">  The index mapping, (<span class="number">1</span> + <span class="number">2</span> * index) % (n | <span class="number">1</span>)</span><br><span class="line"><span class="comment">/*</span><br><span class="line">vitual position: 135024, let num[135]&gt;num[024],</span><br><span class="line">then actual position 012345 will be  wiggle sort.</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">wiggleSort2</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span>;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> median = findKthLargest(nums, (nums.length + <span class="number">1</span>) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">     <span class="keyword">int</span> n = nums.length;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> left = <span class="number">0</span>, i = <span class="number">0</span>, right = n - <span class="number">1</span>;</span><br><span class="line">     <span class="comment">// The index mapping, (1 + 2*index) % (n | 1) combined with 'Color sort'</span></span><br><span class="line">     <span class="keyword">while</span> (i &lt;= right) &#123;</span><br><span class="line">         <span class="keyword">int</span> index = newIndex(i, n);</span><br><span class="line">         <span class="keyword">if</span> (nums[index] &gt; median) &#123;</span><br><span class="line">             swap(nums, newIndex(left++, n), index);</span><br><span class="line">             i++;</span><br><span class="line">         &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[index] &lt; median) &#123;</span><br><span class="line">             swap(nums, newIndex(right--, n), index);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             i++;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// n = 6 =&gt; 012345-&gt;[1 3 5 0 2 4], 6 | 1 =&gt; 7</span></span><br><span class="line"> <span class="comment">// n = 7 =&gt; 0123456-&gt;[1 3 5 0 2 4 6], 7 | 1 =&gt; 7</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">newIndex</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> (<span class="number">1</span> + <span class="number">2</span> * index) % (n | <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="expiry-key-hashmap-in-Java"><a href="#expiry-key-hashmap-in-Java" class="headerlink" title="expiry key hashmap in Java"></a>expiry key hashmap in Java</h4><p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">How can I implement expiry key hashmap in Java?</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class ValueWithExpiration &#123;</span><br><span class="line">    V val;</span><br><span class="line">    long expirationTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Map&lt;K, ValueWithExpiration&gt;</span><br><span class="line"></span><br><span class="line">ttl =&gt; expirationTime</span><br></pre></td></tr></table></figure>
 <ul>
-<li>左上角账号，打开控制台</li>
-<li>点击创建应用</li>
-<li>新建的应用名称Test（可修改）</li>
-<li>点击新创建的应用名进入参数配置页</li>
-<li><p>点击左侧右上角的齿轮图标，创建Class。新建表来保存数据</p>
-<blockquote>
-<p>为了保证我们前面对NexT主题的修改兼容，此处的新建Class名字必须为Counter</p>
-</blockquote>
-</li>
-<li><p>选择Counter，点击顶部设置，切换到Test应用操作界面</p>
-</li>
-<li>选择左侧的应用Key选项，得到创建应用的<strong>AppID</strong>以及<strong>AppKey</strong></li>
-<li>复制AppID以及AppKey并在NexT主题的_config.yml文件中我们相应的位置填入即可</li>
-</ul>
-<blockquote>
-<ol>
-<li>注意，NexT用户需要修改false为true<br><code>leancloud_visitors:
-enable: true</code></li>
-<li>重新生成部署Hexo博客，应该就可以正常使用文章阅读量统计的功能了。需要特别说明的是：记录文章访问量的唯一标识符是<strong>文章的发布日期</strong>以及<strong>文章的标题</strong>，因此请确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>后台管理</p>
-<ul>
-<li>初始的文章统计量显示为0，这时对应应用的Counter表中并没有相应的记录。当博客文章在配置好阅读量统计服务之后第一次打开时，便会自动向服务器发送数据来创建一条数据，该数据会被记录在对应的应用的Counter表中。</li>
-<li>我们可以修改其中的time字段的数值来达到修改某一篇文章的访问量的目的（博客文章访问量快递提升人气的装逼利器）。双击具体的数值，修改之后回车即可保存。</li>
-<li><blockquote>
-<ol>
-<li>url字段被当作唯一ID来使用，因此如果你不知道带来的后果的话请不要修改。</li>
-<li>title字段显示的是博客文章的标题，用于后台管理的时候区分文章之用，没有什么实际作用。</li>
-<li>其他字段皆为自动生成，具体作用请查阅LeanCloud官方文档，如果你不知道有什么作用请不要随意修改。</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>Web安全<br>  由于AppID以及AppKey是暴露在外的，为确保只用于自己博客，建议开启Web安全选项，这样就只能通过自己的域名才有权访问后台的数据</p>
-<ul>
-<li>选择应用的设置的安全中心选项卡</li>
-<li>在Web 安全域名中填入我们自己的博客域名，来确保数据调用的安全</li>
-<li>如果填写错误可能导致博客文章访问量显示不正常，打开浏览器调试模式，发现Web安全域名填写错误，导致服务器拒绝了数据交互的请求，请修改或者放弃。。。</li>
-</ul>
-</li>
-</ul>
-<h3 id="Swiftype-搜索"><a href="#Swiftype-搜索" class="headerlink" title="Swiftype 搜索"></a>Swiftype 搜索</h3><ul>
-<li>使用 Swiftype 之前需要前往 Swiftype 配置一个搜索引擎。 而后编辑 站点配置文件， 新增 swiftype_key 字段，值为你的 swiftype 搜索引擎的 key。 详细的配置请参考： <a href="http://theme-next.iissnan.com/third-party-services.html#swfitype" target="_blank" rel="external">第三方服务 - Swiftype</a></li>
-<li>进入<a href="https://swiftype.com/home" target="_blank" rel="external">Swiftype</a>，根据提示操作<ul>
-<li>注意，修改值在 <strong>/blog/themes/next/_config.yml</strong> 内<br><code># Swiftype Search Key
-swiftype_key: xxxxxxxxx</code></li>
-<li>复制<strong>Install Swiftype On Your Website</strong>内的<br><code>_st(&#39;install&#39;,&#39;XXXXXXXXX&#39;,&#39;2.0.0&#39;);</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="JiaThis"><a href="#JiaThis" class="headerlink" title="JiaThis"></a>JiaThis</h3><ul>
-<li>编辑 站点配置文件， 找到字段 jiathis<br><code>jiathis: 
-enable: true</code></li>
-</ul>
-<hr>
-<h3 id="ERROR"><a href="#ERROR" class="headerlink" title="ERROR"></a>ERROR</h3><ul>
-<li>如发生类似错误<ul>
-<li>ERROR Process failed: layout/_scripts/.DS_Store </li>
-<li>ERROR Process failed: layout/.DS_Store  等</li>
-<li>进入主题里面layout和_partial目录下相应目录下，使用删除命令：<br><code>rm -rf .DS_Store</code></li>
-</ul>
+<li><p>follow up:</p>
+<p>When get/put expirationTime?</p>
+<p>Map =&gt; linear scan ? =&gt; PriorityQueue</p>
 </li>
 </ul>
 
@@ -521,11 +450,9 @@ enable: true</code></li>
       
         <div class="post-tags">
           
-            <a href="/tags/Github/" rel="tag">#Github</a>
+            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
-          
-            <a href="/tags/Blog/" rel="tag">#Blog</a>
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
         </div>
       
@@ -534,17 +461,13 @@ enable: true</code></li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/13/NewBlog/" rel="next" title="［整理/转载］Github＋HEXO (Mac)">
-                <i class="fa fa-chevron-left"></i> ［整理/转载］Github＋HEXO (Mac)
+              <a href="/2018/02/02/LeetCode-Intersection-of-Two-Arrays/" rel="next" title="LeetCode | Intersection of Two Arrays">
+                <i class="fa fa-chevron-left"></i> LeetCode | Intersection of Two Arrays
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/22/chanpin20160418/" rel="prev" title="如何基于场景设计产品－笔记（20160418）">
-                如何基于场景设计产品－笔记（20160418） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -593,8 +516,8 @@ enable: true</code></li>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/14/NewBlog2/"
-           data-title="［整理/转载］Github＋HEXO (Mac)（二）" data-url="http://yoursite.com/2016/04/14/NewBlog2/">
+      <div class="ds-thread" data-thread-key="2018/02/04/X2-Wiggle-Sort/"
+           data-title="X2_Wiggle Sort" data-url="http://yoursite.com/2018/02/04/X2-Wiggle-Sort/">
       </div>
     
   </div>
@@ -723,7 +646,7 @@ enable: true</code></li>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置评论"><span class="nav-number">1.</span> <span class="nav-text">配置评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度统计"><span class="nav-number">2.</span> <span class="nav-text">百度统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读次数统计（LeanCloud"><span class="nav-number">3.</span> <span class="nav-text">阅读次数统计（LeanCloud)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiftype-搜索"><span class="nav-number">4.</span> <span class="nav-text">Swiftype 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JiaThis"><span class="nav-number">5.</span> <span class="nav-text">JiaThis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERROR"><span class="nav-number">6.</span> <span class="nav-text">ERROR</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q"><span class="nav-number">1.</span> <span class="nav-text">Q</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A"><span class="nav-number">2.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sort-Color"><span class="nav-number">3.</span> <span class="nav-text">Sort Color</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wiggle-Sort-I"><span class="nav-number">4.</span> <span class="nav-text">Wiggle Sort I</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wiggle-Sort-II"><span class="nav-number">5.</span> <span class="nav-text">Wiggle Sort II</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#expiry-key-hashmap-in-Java"><span class="nav-number">6.</span> <span class="nav-text">expiry key hashmap in Java</span></a></li></ol></div>
             
           </div>
         </section>

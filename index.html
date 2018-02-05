@@ -291,6 +291,191 @@
             
               
                 
+                <a class="post-title-link" href="/2018/02/04/X2-Wiggle-Sort/" itemprop="url">
+                  X2_Wiggle Sort
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-04T22:22:28-08:00" content="2018-02-04">
+              2018-02-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/04/X2-Wiggle-Sort/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/04/X2-Wiggle-Sort/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/04/X2-Wiggle-Sort/" class="leancloud_visitors" data-flag-title="X2_Wiggle Sort">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Subsequence: order, maynot continuous</p>
+<p>QuickSort: Average O(NlgN), worst O(N2)</p>
+<p>MergeSort:  O(NlgN)</p>
+<h4 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h4><p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
+<p>For example,</p>
+<p>Given [3,2,1,5,6,4] and k = 2, return 5. [3,3,3,3] and k = 1, return 3.</p>
+<h4 id="A"><a href="#A" class="headerlink" title="A"></a>A</h4><p>k starts with 1, Assume k is valid</p>
+<ul>
+<li><p>sol1sort O(NlgN)</p>
+</li>
+<li><p>sol2 Max-Heap, O(Nlgk)</p>
+</li>
+<li><p>sol3 quick select</p>
+<p>randomly choose/middle as privot</p>
+<p>(..discard…pivot…index….)</p>
+<p>time complexity: n/2 + n/4 + n/8 + … = n</p>
+<p>duplicate -&gt; just move it, don’t influence</p>
+<p>worst case: all the number is same</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/**</span><br><span class="line">O(N) guaranteed running time + O(1) space</span><br><span class="line">randomize/shuffle the input -&gt; O(N)</span><br><span class="line"></span><br><span class="line">This is QuickSelect from QuickSort.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>, index = nums.length - k;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">            <span class="keyword">int</span> pivot = partition(nums, start, end);</span><br><span class="line">            <span class="keyword">if</span> (pivot &lt; index) &#123;</span><br><span class="line">                start = pivot + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pivot &gt; index) &#123;</span><br><span class="line">                end = pivot - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[pivot];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sample input: [1]</span></span><br><span class="line">        <span class="keyword">return</span> nums[start];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pivot = start;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">while</span> (start &lt;= end &amp;&amp; nums[start] &lt;= nums[pivot]) &#123;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (start &lt;= end &amp;&amp; nums[end] &gt; nums[pivot]) &#123;</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums, start, end);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums, end, pivot);</span><br><span class="line">        <span class="keyword">return</span> end;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = tmp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Sort-Color"><a href="#Sort-Color" class="headerlink" title="Sort Color"></a>Sort Color</h4><ul>
+<li>0..0[l]1…1[r]2…2</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// If nums is very big, it is likely to often hit page default by loading</span></span><br><span class="line">    <span class="comment">// three sections of nums (l,m,r) and cause thrashing</span></span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> r = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt;= r;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[m] == <span class="number">0</span>) &#123;</span><br><span class="line">            swap(nums, l++, m++); <span class="comment">//unless l == m, left = 0; left must be 1, no need to consider again</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[m] == <span class="number">2</span>) &#123;</span><br><span class="line">            swap(nums, r--, m);<span class="comment">//since right may be 0/1/2, should consider again</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>What if 4 section<ul>
+<li>0, 1, [2,3]; then partition 2 &amp; 3</li>
+<li>more pointers?</li>
+</ul>
+</li>
+</ul>
+<h4 id="Wiggle-Sort-I"><a href="#Wiggle-Sort-I" class="headerlink" title="Wiggle Sort I"></a>Wiggle Sort I</h4><p>Greedy</p>
+<h4 id="Wiggle-Sort-II"><a href="#Wiggle-Sort-II" class="headerlink" title="Wiggle Sort II"></a>Wiggle Sort II</h4><p>Find Median: (nums.length+1) &gt;&gt;&gt; 1, O(N)</p>
+<p>Partition: sort color + <strong>Vitural Index</strong>, O(N)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  n = <span class="number">6</span> =&gt; (n | <span class="number">1</span>) = <span class="number">7</span></span><br><span class="line">  n = <span class="number">7</span> =&gt; (n | <span class="number">1</span>) = <span class="number">7</span></span><br><span class="line">  The index mapping, (<span class="number">1</span> + <span class="number">2</span> * index) % (n | <span class="number">1</span>)</span><br><span class="line"><span class="comment">/*</span><br><span class="line">vitual position: 135024, let num[135]&gt;num[024],</span><br><span class="line">then actual position 012345 will be  wiggle sort.</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">wiggleSort2</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span>;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> median = findKthLargest(nums, (nums.length + <span class="number">1</span>) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">     <span class="keyword">int</span> n = nums.length;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> left = <span class="number">0</span>, i = <span class="number">0</span>, right = n - <span class="number">1</span>;</span><br><span class="line">     <span class="comment">// The index mapping, (1 + 2*index) % (n | 1) combined with 'Color sort'</span></span><br><span class="line">     <span class="keyword">while</span> (i &lt;= right) &#123;</span><br><span class="line">         <span class="keyword">int</span> index = newIndex(i, n);</span><br><span class="line">         <span class="keyword">if</span> (nums[index] &gt; median) &#123;</span><br><span class="line">             swap(nums, newIndex(left++, n), index);</span><br><span class="line">             i++;</span><br><span class="line">         &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[index] &lt; median) &#123;</span><br><span class="line">             swap(nums, newIndex(right--, n), index);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             i++;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// n = 6 =&gt; 012345-&gt;[1 3 5 0 2 4], 6 | 1 =&gt; 7</span></span><br><span class="line"> <span class="comment">// n = 7 =&gt; 0123456-&gt;[1 3 5 0 2 4 6], 7 | 1 =&gt; 7</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">newIndex</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> (<span class="number">1</span> + <span class="number">2</span> * index) % (n | <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="expiry-key-hashmap-in-Java"><a href="#expiry-key-hashmap-in-Java" class="headerlink" title="expiry key hashmap in Java"></a>expiry key hashmap in Java</h4><p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">How can I implement expiry key hashmap in Java?</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class ValueWithExpiration &#123;</span><br><span class="line">    V val;</span><br><span class="line">    long expirationTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Map&lt;K, ValueWithExpiration&gt;</span><br><span class="line"></span><br><span class="line">ttl =&gt; expirationTime</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>follow up:</p>
+<p>When get/put expirationTime?</p>
+<p>Map =&gt; linear scan ? =&gt; PriorityQueue</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/02/02/LeetCode-Intersection-of-Two-Arrays/" itemprop="url">
                   LeetCode | Intersection of Two Arrays
                 </a>
@@ -623,6 +808,18 @@
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Program/" itemprop="url" rel="index">
                     <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
                   </a>
                 </span>
 
@@ -1644,159 +1841,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/22/algorithm-Kruskal/" itemprop="url">
-                  算法－图论－Kruskal
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T11:12:49-07:00" content="2016-04-22">
-              2016-04-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/22/algorithm-Kruskal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/algorithm-Kruskal/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/22/algorithm-Kruskal/" class="leancloud_visitors" data-flag-title="算法－图论－Kruskal">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-</code></pre><p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
-<p>顺便po上为了解决这个问题顺便复习和思考的内容（对，思考XD</p>
-<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><ol>
-<li>Kruskal算法是每次选择权重最小的边加入森林，它的本质是贪心算法。</li>
-<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一<ul>
-<li>如果各边权值唯一，从最小生成树开始，每次加一条边i并在新生成的环上删除最大的一条边j（满足权值$e_i$ &lt; $e_j$），这时会得到一棵新的生成树，如果我们加入的那条边满足 $e_j$- $e_i$最小，那么得到的就是第二小的生成树。从这个第二小的生成树开始，进行同样的操作可以得到第三小的生成树。这个迭代过程中树的权值是一直递增的，所以不可能出现相同权值的多棵最小生成树。</li>
-</ul>
-</li>
-<li>对于给定的图而言,因为最小生成树的权值和是确定的,所以最小生成树不唯一当且仅当最小生成树的形状不唯一</li>
-<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$<ul>
-<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w<em>n$ &gt;= $w</em>{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w<em>i’$ &gt;= $w</em>{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
-<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w<em>1$ … $w</em>{i-1}$}产生环，要么就是{$w<em>1$ … $w</em>{i-1}$}中某边。</li>
-<li>所以在选择边 $e<em>1$ … $e</em>{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
-<li>所以矛盾。</li>
-</ul>
-</li>
-</ol>
-<h4 id="另，最小生成树唯一性判定"><a href="#另，最小生成树唯一性判定" class="headerlink" title="另，最小生成树唯一性判定"></a>另，最小生成树唯一性判定</h4><ol>
-<li>对图中每条边，扫描其他边，如果存在相同权值的边，则对该边进行标记；</li>
-<li>然后用Kruskal（或者Prim）算法求MST（最小生成树）；</li>
-<li>求得MST后，如果该MST中未包含做了标记的边，即可判定MST唯一；如果包含作了标记的边，则依次去掉这些边再求MST，如果求得的MST权值和原MST权值相同，即可判定MST不唯一。</li>
-</ol>
-<h4 id="转"><a href="#转" class="headerlink" title="转"></a>转</h4><pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
-</code></pre><p>证：    设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>&nbsp;&nbsp;&nbsp;A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>&nbsp;&nbsp;&nbsp;B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>&nbsp;&nbsp;&nbsp;设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>&nbsp;&nbsp;&nbsp;不妨设w(ai)≥w(bi)<br>&nbsp;&nbsp;&nbsp;情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>&nbsp;&nbsp;&nbsp;情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1842,7 +1886,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1850,7 +1894,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
