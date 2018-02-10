@@ -291,6 +291,173 @@
             
               
                 
+                <a class="post-title-link" href="/2018/02/09/How-to-write-a-basic-Web-Crawler/" itemprop="url">
+                  How to write a basic Web Crawler
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-08:00" content="2018-02-09">
+              2018-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/02/09/How-to-write-a-basic-Web-Crawler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/09/How-to-write-a-basic-Web-Crawler/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/09/How-to-write-a-basic-Web-Crawler/" class="leancloud_visitors" data-flag-title="How to write a basic Web Crawler">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="How-to-write-a-basic-Web-Crawler"><a href="#How-to-write-a-basic-Web-Crawler" class="headerlink" title="How to write a basic Web Crawler"></a>How to write a basic Web Crawler</h2><h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
+<li><p>IntelliJ IDEA or Eclipse</p>
+</li>
+<li><p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
+</li>
+<li><p>Creat new a new project &amp; Add External JARs</p>
+<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code> </p>
+</li>
+<li><p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
+<p>Controller with main function</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String crawlStorageFolder = <span class="string">"/data/crawl"</span>;</span><br><span class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">7</span>;</span><br><span class="line">        CrawlConfig config = <span class="keyword">new</span> CrawlConfig();</span><br><span class="line">        config.setCrawlStorageFolder(crawlStorageFolder);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Instantiate the controller for this crawl.</span><br><span class="line">         */</span></span><br><span class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(config);</span><br><span class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</span><br><span class="line">        RobotstxtServer robotstxtServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</span><br><span class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(config, pageFetcher, robotstxtServer);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * For each crawl, you need to add some seed urls. These are the first</span><br><span class="line">         * URLs that are fetched and then the crawler starts following links</span><br><span class="line">         * which are found in these pages</span><br><span class="line">         */</span></span><br><span class="line">        controller.addSeed(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Start the crawl. This is a blocking operation, meaning that your code</span><br><span class="line">         * will reach the line after this only when crawling is finished.</span><br><span class="line">         */</span></span><br><span class="line">        controller.start(MyCrawler.class, numberOfCrawlers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MyCrawler extends WebCrawler</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCrawler</span> <span class="keyword">extends</span> <span class="title">WebCrawler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Pattern FILTERS = Pattern.compile(<span class="string">".*(\\.(css|js|gif|jpg"</span></span><br><span class="line">            + <span class="string">"|png|mp3|mp3|zip|gz))$"</span>);</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * This method receives two parameters. The first parameter is the page</span><br><span class="line"> * in which we have discovered this new url and the second parameter is</span><br><span class="line"> * the new url. You should implement this function to specify whether</span><br><span class="line"> * the given url should be crawled or not (based on your crawling logic).</span><br><span class="line"> * In this example, we are instructing the crawler to ignore urls that</span><br><span class="line"> * have css, js, git, ... extensions and to only accept urls that start</span><br><span class="line"> * with "http://www.viterbi.usc.edu/". In this case, we didn't need the</span><br><span class="line"> * referringPage parameter to make the decision.</span><br><span class="line"> */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldVisit</span><span class="params">(Page referringPage, WebURL url)</span> </span>&#123;</span><br><span class="line">        String href = url.getURL().toLowerCase();</span><br><span class="line">        <span class="keyword">return</span> !FILTERS.matcher(href).matches()</span><br><span class="line">                &amp;&amp; href.startsWith(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This function is called when a page is fetched and ready</span><br><span class="line">     * to be processed by your program.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">        String url = page.getWebURL().getURL();</span><br><span class="line">        System.out.println(<span class="string">"URL: "</span> + url);</span><br><span class="line">        <span class="keyword">if</span> (page.getParseData() <span class="keyword">instanceof</span> HtmlParseData) &#123;</span><br><span class="line">            HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();</span><br><span class="line">            String text = htmlParseData.getText();</span><br><span class="line">            String html = htmlParseData.getHtml();</span><br><span class="line">            Set&lt;WebURL&gt; links = htmlParseData.getOutgoingUrls();</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"Text length: "</span> + text.length());</span><br><span class="line">            System.out.println(<span class="string">"Html length: "</span> + html.length());</span><br><span class="line">            System.out.println(<span class="string">"Number of outgoing links: "</span> + links.size());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Do not forget import!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.CrawlConfig;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.CrawlController;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.fetcher.PageFetcher;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.Page;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.WebCrawler;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.parser.HtmlParseData;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.url.WebURL;</span><br></pre></td></tr></table></figure>
+<p>And change your main class to <code>com.company.Controller</code></p>
+</li>
+<li><p>Some Issue</p>
+<ol>
+<li><p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>SLF4J: Defaulting to no-operation (NOP) logger implementation<br>SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
+<blockquote>
+<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>. </p>
+<p>Add <code>slf4j-simple-1.7.25jar</code>  to your project</p>
+</blockquote>
+</li>
+<li><p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
+<blockquote>
+<p>Use absolute folder path, such as <code>/Users/XXX/Desktop/XXX/HW2_WebCrawler/data/crawl</code></p>
+</blockquote>
+</li>
+<li><p>If you didn’t get any result</p>
+<blockquote>
+<p>visit the website on your browser first</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/02/05/Java-Programming-Fundations-Object-Oriented-Design/" itemprop="url">
                   Java | Programming Fundations: Object-Oriented Design
                 </a>
@@ -1973,137 +2140,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/29/MDS（multidimensional-scaling）Map/" itemprop="url">
-                  MDS（multidimensional scaling）Map
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-29T15:57:14-07:00" content="2016-05-29">
-              2016-05-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/29/MDS（multidimensional-scaling）Map/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/MDS（multidimensional-scaling）Map/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/29/MDS（multidimensional-scaling）Map/" class="leancloud_visitors" data-flag-title="MDS（multidimensional scaling）Map">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://blog.csdn.net/yang_xian521/article/details/7301121" target="_blank" rel="external">MDS（multidimensional scaling）多维尺度分析</a><br><a href="http://blog.csdn.net/songrotek/article/details/42235097" target="_blank" rel="external">模式识别之 MDS Multidimensional Scaling 多维尺度法 分析及Matlab实现</a></p>
-<hr>
-<p><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1671271" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis</a><br><a href="http://www.slideserve.com/xenos/a-nonlinear-mapping-for-data-structure-analysis" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis PPT</a><br><a href="https://en.wikipedia.org/wiki/Sammon_mapping" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis wiki </a><br><a href="http://www.codeproject.com/Articles/43123/Sammon-Projection" target="_blank" rel="external">Sammon Projection</a><br><a href="http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/AV0910/henderson.pdf" target="_blank" rel="external">Sammon Mapping</a></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2149,7 +2185,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
