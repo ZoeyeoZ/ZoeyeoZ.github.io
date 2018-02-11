@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Program," />
+  <meta name="keywords" content="Leetcode,Algorithm," />
 
 
 
@@ -80,34 +80,34 @@
 
 
 
-<meta name="description" content="How to write a basic Web CrawlerInstallation
-IntelliJ IDEA or Eclipse
+<meta name="description" content="Binary Tree Level Order Traversaltest case:cover different + corner case
 
-Crawler4j: Download latest crawler4j-x.x-jar-with-dependencies.jar
+only left/right child
+full tree
+left child, right child, left child, right child…
 
-Creat new a new project &amp;amp; Add External JARs
-Project Struc">
+Follow Up: output the level to level revers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to write a basic Web Crawler">
-<meta property="og:url" content="http://yoursite.com/2018/02/09/How-to-write-a-basic-Web-Crawler/index.html">
+<meta property="og:title" content="X3_Binary Search">
+<meta property="og:url" content="http://yoursite.com/2018/02/10/X3-Binary-Search/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="How to write a basic Web CrawlerInstallation
-IntelliJ IDEA or Eclipse
+<meta property="og:description" content="Binary Tree Level Order Traversaltest case:cover different + corner case
 
-Crawler4j: Download latest crawler4j-x.x-jar-with-dependencies.jar
+only left/right child
+full tree
+left child, right child, left child, right child…
 
-Creat new a new project &amp;amp; Add External JARs
-Project Struc">
-<meta property="og:updated_time" content="2018-02-10T05:17:53.429Z">
+Follow Up: output the level to level revers">
+<meta property="og:updated_time" content="2018-02-11T06:57:37.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to write a basic Web Crawler">
-<meta name="twitter:description" content="How to write a basic Web CrawlerInstallation
-IntelliJ IDEA or Eclipse
+<meta name="twitter:title" content="X3_Binary Search">
+<meta name="twitter:description" content="Binary Tree Level Order Traversaltest case:cover different + corner case
 
-Crawler4j: Download latest crawler4j-x.x-jar-with-dependencies.jar
+only left/right child
+full tree
+left child, right child, left child, right child…
 
-Creat new a new project &amp;amp; Add External JARs
-Project Struc">
+Follow Up: output the level to level revers">
 
 
 
@@ -125,7 +125,7 @@ Project Struc">
   };
 </script>
 
-  <title> How to write a basic Web Crawler | Zhuo Han </title>
+  <title> X3_Binary Search | Zhuo Han </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@ Project Struc">
             
             
               
-                How to write a basic Web Crawler
+                X3_Binary Search
               
             
           </h1>
@@ -319,8 +319,8 @@ Project Struc">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-08:00" content="2018-02-09">
-              2018-02-09
+            <time itemprop="dateCreated" datetime="2018-02-10T22:56:06-08:00" content="2018-02-10">
+              2018-02-10
             </time>
           </span>
 
@@ -340,6 +340,18 @@ Project Struc">
 
                 
                 
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
 
               
             </span>
@@ -349,8 +361,8 @@ Project Struc">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2018/02/09/How-to-write-a-basic-Web-Crawler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/09/How-to-write-a-basic-Web-Crawler/" itemprop="commentsCount"></span>
+                <a href="/2018/02/10/X3-Binary-Search/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/10/X3-Binary-Search/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -360,7 +372,7 @@ Project Struc">
 
           
           
-             <span id="/2018/02/09/How-to-write-a-basic-Web-Crawler/" class="leancloud_visitors" data-flag-title="How to write a basic Web Crawler">
+             <span id="/2018/02/10/X3-Binary-Search/" class="leancloud_visitors" data-flag-title="X3_Binary Search">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,43 +394,56 @@ Project Struc">
       
 
       
-        <h2 id="How-to-write-a-basic-Web-Crawler"><a href="#How-to-write-a-basic-Web-Crawler" class="headerlink" title="How to write a basic Web Crawler"></a>How to write a basic Web Crawler</h2><h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
-<li><p>IntelliJ IDEA or Eclipse</p>
-</li>
-<li><p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
-</li>
-<li><p>Creat new a new project &amp; Add External JARs</p>
-<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code> </p>
-</li>
-<li><p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
-<p>Controller with main function</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String crawlStorageFolder = <span class="string">"/data/crawl"</span>;</span><br><span class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">7</span>;</span><br><span class="line">        CrawlConfig config = <span class="keyword">new</span> CrawlConfig();</span><br><span class="line">        config.setCrawlStorageFolder(crawlStorageFolder);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Instantiate the controller for this crawl.</span><br><span class="line">         */</span></span><br><span class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(config);</span><br><span class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</span><br><span class="line">        RobotstxtServer robotstxtServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</span><br><span class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(config, pageFetcher, robotstxtServer);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * For each crawl, you need to add some seed urls. These are the first</span><br><span class="line">         * URLs that are fetched and then the crawler starts following links</span><br><span class="line">         * which are found in these pages</span><br><span class="line">         */</span></span><br><span class="line">        controller.addSeed(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Start the crawl. This is a blocking operation, meaning that your code</span><br><span class="line">         * will reach the line after this only when crawling is finished.</span><br><span class="line">         */</span></span><br><span class="line">        controller.start(MyCrawler.class, numberOfCrawlers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>MyCrawler extends WebCrawler</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCrawler</span> <span class="keyword">extends</span> <span class="title">WebCrawler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Pattern FILTERS = Pattern.compile(<span class="string">".*(\\.(css|js|gif|jpg"</span></span><br><span class="line">            + <span class="string">"|png|mp3|mp3|zip|gz))$"</span>);</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * This method receives two parameters. The first parameter is the page</span><br><span class="line"> * in which we have discovered this new url and the second parameter is</span><br><span class="line"> * the new url. You should implement this function to specify whether</span><br><span class="line"> * the given url should be crawled or not (based on your crawling logic).</span><br><span class="line"> * In this example, we are instructing the crawler to ignore urls that</span><br><span class="line"> * have css, js, git, ... extensions and to only accept urls that start</span><br><span class="line"> * with "http://www.viterbi.usc.edu/". In this case, we didn't need the</span><br><span class="line"> * referringPage parameter to make the decision.</span><br><span class="line"> */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldVisit</span><span class="params">(Page referringPage, WebURL url)</span> </span>&#123;</span><br><span class="line">        String href = url.getURL().toLowerCase();</span><br><span class="line">        <span class="keyword">return</span> !FILTERS.matcher(href).matches()</span><br><span class="line">                &amp;&amp; href.startsWith(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This function is called when a page is fetched and ready</span><br><span class="line">     * to be processed by your program.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">        String url = page.getWebURL().getURL();</span><br><span class="line">        System.out.println(<span class="string">"URL: "</span> + url);</span><br><span class="line">        <span class="keyword">if</span> (page.getParseData() <span class="keyword">instanceof</span> HtmlParseData) &#123;</span><br><span class="line">            HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();</span><br><span class="line">            String text = htmlParseData.getText();</span><br><span class="line">            String html = htmlParseData.getHtml();</span><br><span class="line">            Set&lt;WebURL&gt; links = htmlParseData.getOutgoingUrls();</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"Text length: "</span> + text.length());</span><br><span class="line">            System.out.println(<span class="string">"Html length: "</span> + html.length());</span><br><span class="line">            System.out.println(<span class="string">"Number of outgoing links: "</span> + links.size());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Do not forget import!</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.CrawlConfig;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.CrawlController;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.fetcher.PageFetcher;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.Page;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.WebCrawler;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.parser.HtmlParseData;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.url.WebURL;</span><br></pre></td></tr></table></figure>
-<p>And change your main class to <code>com.company.Controller</code></p>
-</li>
-<li><p>Some Issue</p>
+        <h4 id="Binary-Tree-Level-Order-Traversal"><a href="#Binary-Tree-Level-Order-Traversal" class="headerlink" title="Binary Tree Level Order Traversal"></a>Binary Tree Level Order Traversal</h4><p>test case:cover different + corner case</p>
 <ol>
-<li><p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>SLF4J: Defaulting to no-operation (NOP) logger implementation<br>SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
-<blockquote>
-<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>. </p>
-<p>Add <code>slf4j-simple-1.7.25jar</code>  to your project</p>
-</blockquote>
+<li>only left/right child</li>
+<li>full tree</li>
+<li>left child, right child, left child, right child…</li>
+</ol>
+<p>Follow Up: output the level to level reversely from bottom to up</p>
+<ol>
+<li>reverse funtion</li>
+<li>add from front</li>
+</ol>
+<h4 id="Intersection-of-Two-Arrays"><a href="#Intersection-of-Two-Arrays" class="headerlink" title="Intersection of Two Arrays"></a>Intersection of Two Arrays</h4><ol>
+<li>If non sort-&gt; Hashmap. Ues extra space. O(m+n)</li>
+<li>If sort-&gt; Two pointers. O(m+n)</li>
+<li>If no extra space / If n&gt;&gt;m, scan the smaller array and find it in larger one via binary search in -&gt; If already sort -&gt; O(m*logn)</li>
+</ol>
+<p>Intersection of k arrays? merge 的变种</p>
+<ol>
+<li>​</li>
+</ol>
+<h4 id="Dot-Production-FB"><a href="#Dot-Production-FB" class="headerlink" title="Dot Production (FB)"></a>Dot Production (FB)</h4><p>Conduct Dot Product of two large sparse Vectors</p>
+<ol>
+<li>find non-zero indexes</li>
+<li>intersection</li>
+<li>dot product</li>
+</ol>
+<h4 id="Find-K-th-Smallest-Pair-Distance"><a href="#Find-K-th-Smallest-Pair-Distance" class="headerlink" title="Find K-th Smallest Pair Distance"></a>Find K-th Smallest Pair Distance</h4><ol>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> hi = nums[num.length - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (lo &lt; hi)&#123;</span><br><span class="line">  <span class="keyword">int</span> mid = lo + ((hi - lo) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// count function = number of pairs with distance &lt;= guess</span></span><br><span class="line"><span class="keyword">if</span> (nums[right] - nums[left] &gt; guess)</span><br><span class="line">  <span class="keyword">continue</span>;</span><br><span class="line">count += right - left;</span><br></pre></td></tr></table></figure>
+<p>Runtime: <em>N</em>^2*logW</p>
 </li>
-<li><p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
-<blockquote>
-<p>Use absolute folder path, such as <code>/Users/XXX/Desktop/XXX/HW2_WebCrawler/data/crawl</code></p>
-</blockquote>
+<li><p>Optimization</p>
+<p>since there may be duplicate -&gt; </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">right = upperBound(nums, left+<span class="number">1</span>, n-<span class="number">1</span>, target);</span><br><span class="line">count += right - left -<span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>If you didn’t get any result</p>
-<blockquote>
-<p>visit the website on your browser first</p>
-</blockquote>
+<li><p>Optimization II</p>
+<p>Use Map<integer, integer=""> to memorize</integer,></p>
+<p>Binary Search -&gt; N <em>log</em>N * <em>log</em>W</p>
 </li>
 </ol>
+<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><h5 id="410-Split-Array-Largest-Sum"><a href="#410-Split-Array-Largest-Sum" class="headerlink" title="410. Split Array Largest Sum"></a><a href="https://leetcode.com/problems/split-array-largest-sum/description/" target="_blank" rel="external">410. Split Array Largest Sum</a></h5><h5 id="Copy-Books-The-Painter’s-Partition-Problem-Part-II"><a href="#Copy-Books-The-Painter’s-Partition-Problem-Part-II" class="headerlink" title="Copy Books, The Painter’s Partition Problem Part II"></a>Copy Books, <a href="http://articles.leetcode.com/2011/04/the-painters-partition-problem-part-ii.html" target="_blank" rel="external">The Painter’s Partition Problem Part II</a></h5><h5 id="expire-map"><a href="#expire-map" class="headerlink" title="expire map"></a>expire map</h5><p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java</a></p>
+<p>cannot remove element while using for loop, but can use interator</p>
+<p><a href="https://stackoverflow.com/questions/6092642/how-to-remove-a-key-from-hashmap-while-iterating-over-it" target="_blank" rel="external">https://stackoverflow.com/questions/6092642/how-to-remove-a-key-from-hashmap-while-iterating-over-it</a></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExpiringKey</span> <span class="title">implement</span> <span class="title">Comparable</span>&lt;<span class="title">ExpiringKey</span>&gt; </span>&#123;</span><br><span class="line">        V val;</span><br><span class="line">        <span class="keyword">long</span> expirationTime; <span class="comment">// ttl</span></span><br><span class="line">        K k;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ExpringMap</span> </span>&#123;</span><br><span class="line">        Map&lt;K, ExpiringKey&gt; m = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="function">PriorityQueue q</span><br><span class="line">        </span><br><span class="line">        V <span class="title">get</span><span class="params">(Key k)</span> </span>&#123;</span><br><span class="line">            ExpiringKey v = <span class="keyword">this</span>.m.get(k);</span><br><span class="line">            <span class="keyword">if</span> (v == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (v.expirationTime &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">                m.remove(k);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> v.val;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(Key k, V val, <span class="keyword">long</span> expirationTime)</span> </span>&#123;</span><br><span class="line">            ExpiringKey expiringKey = <span class="keyword">new</span> ExpiringKey(val, expirationTime);</span><br><span class="line">            <span class="keyword">this</span>.m.put(k, expiringKey);</span><br><span class="line">            <span class="keyword">this</span>.q.add(expiringKey); <span class="comment">// log(k)</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">cleanup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// q.poll() log(k)</span></span><br><span class="line">            List&lt;K&gt; keys = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (ExpiringKey entry : <span class="keyword">this</span>.m.entrySet()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (entry.getValue().expirationTime &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">                    keys.add(entry.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (K key : keys) <span class="comment">// delete</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// PriorityQueue&lt;&gt;()   minHeap</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>optimization: use PriorityQueue</p>
+<h4 id="Trick"><a href="#Trick" class="headerlink" title="Trick"></a>Trick</h4><ol>
+<li><p>search</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// search in java, return index</span></span><br><span class="line"><span class="keyword">if</span> (index&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">  set.add(num);</span><br><span class="line">  l = index;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  index = -(index+<span class="number">1</span>); <span class="comment">//next one who is larger than it</span></span><br><span class="line">  <span class="keyword">if</span> (index &gt;= r)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  l = index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Difference between &gt;&gt;&gt; and &gt;&gt;</p>
+<p><code>&gt;&gt;&gt;</code>  is unsigned</p>
 </li>
 </ol>
 
@@ -441,7 +466,9 @@ Project Struc">
       
         <div class="post-tags">
           
-            <a href="/tags/Program/" rel="tag">#Program</a>
+            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
         </div>
       
@@ -450,17 +477,13 @@ Project Struc">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/05/Java-Programming-Fundations-Object-Oriented-Design/" rel="next" title="Java | Programming Fundations: Object-Oriented Design">
-                <i class="fa fa-chevron-left"></i> Java | Programming Fundations: Object-Oriented Design
+              <a href="/2018/02/09/How-to-write-a-basic-Web-Crawler/" rel="next" title="How to write a basic Web Crawler">
+                <i class="fa fa-chevron-left"></i> How to write a basic Web Crawler
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/10/X3-Binary-Search/" rel="prev" title="X3_Binary Search">
-                X3_Binary Search <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,8 +532,8 @@ Project Struc">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2018/02/09/How-to-write-a-basic-Web-Crawler/"
-           data-title="How to write a basic Web Crawler" data-url="http://yoursite.com/2018/02/09/How-to-write-a-basic-Web-Crawler/">
+      <div class="ds-thread" data-thread-key="2018/02/10/X3-Binary-Search/"
+           data-title="X3_Binary Search" data-url="http://yoursite.com/2018/02/10/X3-Binary-Search/">
       </div>
     
   </div>
@@ -639,7 +662,7 @@ Project Struc">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-write-a-basic-Web-Crawler"><span class="nav-number">1.</span> <span class="nav-text">How to write a basic Web Crawler</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Installation"><span class="nav-number">1.0.1.</span> <span class="nav-text">Installation</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Binary-Tree-Level-Order-Traversal"><span class="nav-number">1.</span> <span class="nav-text">Binary Tree Level Order Traversal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intersection-of-Two-Arrays"><span class="nav-number">2.</span> <span class="nav-text">Intersection of Two Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dot-Production-FB"><span class="nav-number">3.</span> <span class="nav-text">Dot Production (FB)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Find-K-th-Smallest-Pair-Distance"><span class="nav-number">4.</span> <span class="nav-text">Find K-th Smallest Pair Distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Others"><span class="nav-number">5.</span> <span class="nav-text">Others</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#410-Split-Array-Largest-Sum"><span class="nav-number">5.1.</span> <span class="nav-text">410. Split Array Largest Sum</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Copy-Books-The-Painter’s-Partition-Problem-Part-II"><span class="nav-number">5.2.</span> <span class="nav-text">Copy Books, The Painter’s Partition Problem Part II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#expire-map"><span class="nav-number">5.3.</span> <span class="nav-text">expire map</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trick"><span class="nav-number">6.</span> <span class="nav-text">Trick</span></a></li></ol></div>
             
           </div>
         </section>
