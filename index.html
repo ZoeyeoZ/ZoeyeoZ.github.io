@@ -291,6 +291,155 @@
             
               
                 
+                <a class="post-title-link" href="/2018/03/11/LeetCode-Anagrams/" itemprop="url">
+                  LeetCode | Anagrams
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-11T23:52:18-07:00" content="2018-03-11">
+              2018-03-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/11/LeetCode-Anagrams/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/11/LeetCode-Anagrams/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/11/LeetCode-Anagrams/" class="leancloud_visitors" data-flag-title="LeetCode | Anagrams">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Anagrams"><a href="#Anagrams" class="headerlink" title="Anagrams"></a>Anagrams</h4><h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><ul>
+<li><p><a href="https://leetcode.com/problems/valid-anagram/description/" target="_blank" rel="external">242. Valid Anagram</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isAnagram</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> l1=s.length();</span><br><span class="line">    	<span class="keyword">if</span> (l1!=t.length())</span><br><span class="line">    		return <span class="literal">false</span>;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cnt(<span class="number">256</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">char</span> ch:s)</span><br><span class="line">    		cnt[ch]++;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">char</span> ch:t)&#123;</span><br><span class="line">    		cnt[ch]--;</span><br><span class="line">    		<span class="keyword">if</span> (cnt[ch]&lt;<span class="number">0</span>)</span><br><span class="line">    			return <span class="literal">false</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/group-anagrams/description/" target="_blank" rel="external">49. Group Anagrams</a></p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// use sort &amp; hashmap</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; groupAnagrams(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs) &#123;</span><br><span class="line">  <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>,<span class="built_in">multiset</span>&lt;<span class="built_in">string</span>&gt;&gt; ansmap;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> s:strs)&#123;</span><br><span class="line">    <span class="built_in">string</span> tmp = s;</span><br><span class="line">    sort(tmp.begin(),tmp.end());</span><br><span class="line">    ansmap[tmp].insert(s);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; ans;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> str:ansmap)&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; anstmp(str.second.begin(),str.second.end());</span><br><span class="line">    ans.push_back(anstmp);</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// use primer to present number</span></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) &#123;</span><br><span class="line">  <span class="keyword">int</span>[] prime = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>, <span class="number">71</span>, <span class="number">73</span>, <span class="number">79</span>, <span class="number">83</span>, <span class="number">89</span>, <span class="number">97</span>, <span class="number">101</span>, <span class="number">103</span>&#125;;</span><br><span class="line">  List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  HashMap&lt;Integer, Integer&gt; map= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String s : strs)&#123;</span><br><span class="line">    <span class="keyword">int</span> key = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray())</span><br><span class="line">      key *= prime[c-<span class="string">'a'</span>];</span><br><span class="line">    <span class="comment">//use index as value</span></span><br><span class="line">    List&lt;String&gt; tmp;</span><br><span class="line">    <span class="keyword">if</span> (map.containsKey(key))</span><br><span class="line">      tmp = res.get(map.get(key));</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">      map.put(key, res.size());</span><br><span class="line">      res.add(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    tmp.add(s);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/description/" target="_blank" rel="external">438. Find All Anagrams in a String</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sliding window</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; findAnagrams(<span class="built_in">string</span> s, <span class="built_in">string</span> p) &#123;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ch1(<span class="number">26</span>,<span class="number">0</span>), ch2(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">int</span> l1 = s.length(), l2 = p.length();</span><br><span class="line">    	<span class="keyword">if</span> (l1&lt;l2)</span><br><span class="line">    		return ans;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;l2;i++)&#123;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		ch2[p[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">    		ans.push_back(<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=l2;i&lt;l1;i++)&#123;</span><br><span class="line">    		ch1[s[i-l2]-<span class="string">'a'</span>]--;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">    			ans.push_back(i-l2+<span class="number">1</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;    </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || p == <span class="keyword">null</span> || p.length() == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  <span class="keyword">int</span>[] les = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">char</span> c : p.toCharArray())</span><br><span class="line">    ++ les[c];</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, cnt = p.length();</span><br><span class="line">  <span class="keyword">int</span> len1 = p.length(), len2 = s.length();</span><br><span class="line">  <span class="keyword">while</span> (r &lt; len2)&#123;</span><br><span class="line">    <span class="comment">// right letter s[r] exist in p that has been matched</span></span><br><span class="line">    <span class="keyword">if</span> (les[s.charAt(r++)]-- &gt;= <span class="number">1</span>)</span><br><span class="line">      -- cnt;</span><br><span class="line">    <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">      res.add(l);</span><br><span class="line">    <span class="comment">// left letter s[l] exist in p that shoule be matched letter</span></span><br><span class="line">    <span class="keyword">if</span> (r - l == len1 &amp;&amp; les[s.charAt(l++)]++ &gt;= <span class="number">0</span>) cnt++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/permutation-in-string/description/" target="_blank" rel="external">567. Permutation in String</a></p>
+<p>the first string’s permutations is the <strong>substring</strong> of the second string -&gt; find anagram </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Silimar to 567</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkInclusion</span><span class="params">(<span class="built_in">string</span> p, <span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ch1(<span class="number">26</span>,<span class="number">0</span>), ch2(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">int</span> l1 = s.length(), l2 = p.length();</span><br><span class="line">    	<span class="keyword">if</span> (l1&lt;l2)</span><br><span class="line">    		return <span class="literal">false</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;l2;i++)&#123;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		ch2[p[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">            return <span class="literal">true</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=l2;i&lt;l1;i++)&#123;</span><br><span class="line">    		ch1[s[i-l2]-<span class="string">'a'</span>]--;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">    			return <span class="literal">true</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return <span class="literal">false</span>;           </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkInclusion</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> [] les = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">char</span> c : s1.toCharArray())</span><br><span class="line">    ++ les[c];</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, cnt = s1.length();</span><br><span class="line">  <span class="keyword">int</span> len1 = s1.length(), len2 = s2.length();</span><br><span class="line">  <span class="keyword">while</span> (r &lt; len2)&#123;</span><br><span class="line">    <span class="comment">// right letter s[r] exist in p that has been matched</span></span><br><span class="line">    <span class="keyword">if</span> (les[s2.charAt(r++)]-- &gt;= <span class="number">1</span>)</span><br><span class="line">      -- cnt;</span><br><span class="line">    <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">// left letter s[l] exist in p that shoule be matched letter</span></span><br><span class="line">    <span class="keyword">if</span> (r - l == len1 &amp;&amp; les[s2.charAt(l++)]++ &gt;= <span class="number">0</span>) cnt++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h5><p>Normally it is related to <code>HashMap</code>, <code>sort</code>, <code>two pointer</code></p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/06/System-Design-I/" itemprop="url">
                   System Design I
                 </a>
@@ -305,7 +454,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-06T21:10:16-08:00" content="2018-03-06">
+            <time itemprop="dateCreated" datetime="2018-03-06T21:10:16-07:00" content="2018-03-06">
               2018-03-06
             </time>
           </span>
@@ -510,7 +659,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-20T23:03:16-08:00" content="2018-02-20">
+            <time itemprop="dateCreated" datetime="2018-02-20T23:03:16-07:00" content="2018-02-20">
               2018-02-20
             </time>
           </span>
@@ -644,7 +793,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-10T22:56:06-08:00" content="2018-02-10">
+            <time itemprop="dateCreated" datetime="2018-02-10T22:56:06-07:00" content="2018-02-10">
               2018-02-10
             </time>
           </span>
@@ -836,7 +985,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-08:00" content="2018-02-09">
+            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-07:00" content="2018-02-09">
               2018-02-09
             </time>
           </span>
@@ -1003,7 +1152,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-05T17:18:24-08:00" content="2018-02-05">
+            <time itemprop="dateCreated" datetime="2018-02-05T17:18:24-07:00" content="2018-02-05">
               2018-02-05
             </time>
           </span>
@@ -1400,7 +1549,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-04T22:22:28-08:00" content="2018-02-04">
+            <time itemprop="dateCreated" datetime="2018-02-04T22:22:28-07:00" content="2018-02-04">
               2018-02-04
             </time>
           </span>
@@ -1585,7 +1734,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-02T14:33:37-08:00" content="2018-02-02">
+            <time itemprop="dateCreated" datetime="2018-02-02T14:33:37-07:00" content="2018-02-02">
               2018-02-02
             </time>
           </span>
@@ -1748,7 +1897,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-31T16:31:23-08:00" content="2018-01-31">
+            <time itemprop="dateCreated" datetime="2018-01-31T16:31:23-07:00" content="2018-01-31">
               2018-01-31
             </time>
           </span>
@@ -1887,7 +2036,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-31T15:07:45-08:00" content="2018-01-31">
+            <time itemprop="dateCreated" datetime="2018-01-31T15:07:45-07:00" content="2018-01-31">
               2018-01-31
             </time>
           </span>
@@ -2048,136 +2197,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/01/23/CSS-tricks-Oline-helper/" itemprop="url">
-                  CSS-tricks/Oline helper
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-23T10:59:51-08:00" content="2018-01-23">
-              2018-01-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/01/23/CSS-tricks-Oline-helper/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/23/CSS-tricks-Oline-helper/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2018/01/23/CSS-tricks-Oline-helper/" class="leancloud_visitors" data-flag-title="CSS-tricks/Oline helper">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#Img<br>Containers with background images which zoom within their container on hover: <a href="https://css-tricks.com/zooming-background-images/" target="_blank" rel="external">Zooming Background Images</a><br>Or you can test it online: <a href="https://codepen.io/dragoeco/pen/ibrzK" target="_blank" rel="external">css background image zoom with transition</a><br>Maybe you just want to clip it to a complex shape, here is <a href="http://bennettfeely.com/clippy/" target="_blank" rel="external">CSS clip-path maker</a></p>
-<p>#Font<br>Use <a href="https://developers.google.com/fonts/docs/getting_started" target="_blank" rel="external">Google Fonts API</a> to add fonts to your web pages.</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2223,7 +2242,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
