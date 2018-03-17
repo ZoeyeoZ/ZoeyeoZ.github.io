@@ -291,6 +291,214 @@
             
               
                 
+                <a class="post-title-link" href="/2018/03/17/System-Design-II/" itemprop="url">
+                  System Design II
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-17T10:52:13-07:00" content="2018-03-17">
+              2018-03-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/System-Design/" itemprop="url" rel="index">
+                    <span itemprop="name">System Design</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/17/System-Design-II/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/17/System-Design-II/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/17/System-Design-II/" class="leancloud_visitors" data-flag-title="System Design II">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h5><ul>
+<li><p>concepts</p>
+<ul>
+<li>Vertical scaling: CPU(more cores, L2 Cache…), Disk(PATA, SATA, SAS…; RAID), RAM…</li>
+<li>Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural number of machines</li>
+<li>Caching</li>
+<li>Load balancing: traffic come from people -&gt; distributed or balanced</li>
+<li>Database replication<ul>
+<li>have master-slave; in case of database dies; if more read heavy &gt; write heavy =&gt; select statements go to server 2,3,4, any inserts, updates or deletes go to go to server 1</li>
+<li>have master-master: can write any server; if connection down, you can read from master</li>
+</ul>
+</li>
+<li>Database partitioning</li>
+</ul>
+<p>​</p>
+<ul>
+<li>Using NoSQL instead of scaling a relational database</li>
+<li>Being asynchronous</li>
+<li>how to deal with the two major bottlenecks: handling a lot of users, and handling a lot of data</li>
+</ul>
+</li>
+<li><p>eg.</p>
+<ul>
+<li><a href="http://highscalability.com/blog/2016/10/12/lessons-learned-from-scaling-uber-to-2000-engineers-1000-ser.html" target="_blank" rel="external">Uber</a>: A nice article about how Uber had to scale fast, about breaking your service into many micro services spread across many repos</li>
+<li><a href="http://highscalability.com/blog/2016/6/27/how-facebook-live-streams-to-800000-simultaneous-viewers.html" target="_blank" rel="external">Facebook</a>: How Facebook handles 800,000 simultaneous viewers on a live stream</li>
+<li><a href="http://highscalability.com/blog/2016/4/20/how-twitter-handles-3000-images-per-second.html" target="_blank" rel="external">Twitter</a>: How Twitter handles 3,000 image uploads per second and why the old ways it used would not work nowadays.  Twitter subcomponents: Storing data (<a href="http://www.youtube.com/watch?v=5cKTP36HVgI" target="_blank" rel="external">video</a> | <a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html" target="_blank" rel="external">text</a>), and Timeline (<a href="http://www.infoq.com/presentations/Twitter-Timeline-Scalability" target="_blank" rel="external">video</a> | <a href="http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html" target="_blank" rel="external">text</a>).</li>
+<li><a href="http://highscalability.com/blog/2013/9/23/salesforce-architecture-how-they-handle-13-billion-transacti.html" target="_blank" rel="external">Salesforce</a>: A relatively short example from Salesforce.</li>
+<li><a href="http://highscalability.com/google-architecture" target="_blank" rel="external">Google</a>, Youtube (<a href="http://www.youtube.com/watch?v=w5WVu624fY8" target="_blank" rel="external">video</a> | <a href="http://highscalability.com/youtube-architecture" target="_blank" rel="external">text</a>), <a href="http://highscalability.com/blog/2012/2/13/tumblr-architecture-15-billion-page-views-a-month-and-harder.html" target="_blank" rel="external">Tumblr</a>, <a href="http://highscalability.com/blog/2009/8/5/stack-overflow-architecture.html" target="_blank" rel="external">StackOverflow</a>, and <a href="http://highscalability.com/blog/2011/11/29/datasift-architecture-realtime-datamining-at-120000-tweets-p.html" target="_blank" rel="external">Datashift</a>.</li>
+</ul>
+</li>
+<li><p>Warp-up</p>
+<p>You first build a high-level architecture by identifying the constraints and use cases, sketching up the major components and the relationships between them, and thinking about the system’s bottlenecks. You then apply the right scalability patterns that will take care of these bottlenecks in the context of the system’s constraints.</p>
+<ul>
+<li><p>eg. Scalable design</p>
+<ol>
+<li><p>Application Service layer</p>
+<ul>
+<li>Start with one machine</li>
+<li>Measure how far it takes us (load tests)</li>
+<li>Add a load balance + a cluster of machines over time: to deal with spike-y traffic, to increase availability</li>
+</ul>
+</li>
+<li><p>Data storage</p>
+<p>1) Billions of objects</p>
+<p>2) Each object is fairly smaill(&lt;1K)</p>
+<p>3) There are no relationships between the objects</p>
+<p>4) Reads are 9x more frequent than writes (360 reads, 40 writes per second)</p>
+<p>5) 3TBs of urls, 36GB of hases</p>
+<p>MySQL:</p>
+<ul>
+<li>Widely used</li>
+<li>Mature technology</li>
+<li>Clear acling paradigms(sharding, master/slave replication, master/master replication)</li>
+<li>Used by Facebook, Twitter, Google, etc.</li>
+<li>Index lookups are very fast</li>
+</ul>
+<p>mappings</p>
+<ul>
+<li>hash: varchar(6)</li>
+<li>original_url: varchar(512)</li>
+</ul>
+<p>1) Create a uniquue index on the hash(36GB+). We want to hold it in memory.</p>
+<p>2) Option 1: Vertival sacling of the MySQL machine</p>
+<p>3) Option 2: Partition the data: 5 partitions, 600GB of data, 8GB of indexes</p>
+<p>4) Master-slave (reading from the slaves, writes to the master)</p>
+<p>=&gt; </p>
+<ol>
+<li>Use one MySQL table with two varchar fields</li>
+<li>Create a uniquue index on the hash(36GB+). We want to hold it in memory to speed up lookups.</li>
+<li>Vertival sacling of the MySQL machine for a while</li>
+<li>Eventually, partition the data by taking the first chr of the hash mod the number of partitions. Thinks about a master-slave setup. </li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Example: <a href="https://www.hiredintech.com/classrooms/system-design/lesson/67" target="_blank" rel="external">The Twitter Problem</a>, <a href="https://www.hiredintech.com/classrooms/system-design/lesson/101" target="_blank" rel="external">The Summarization Problem</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/11/LeetCode-Anagrams/" itemprop="url">
                   LeetCode | Anagrams
                 </a>
@@ -454,7 +662,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-06T21:10:16-07:00" content="2018-03-06">
+            <time itemprop="dateCreated" datetime="2018-03-06T21:10:16-08:00" content="2018-03-06">
               2018-03-06
             </time>
           </span>
@@ -659,7 +867,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-20T23:03:16-07:00" content="2018-02-20">
+            <time itemprop="dateCreated" datetime="2018-02-20T23:03:16-08:00" content="2018-02-20">
               2018-02-20
             </time>
           </span>
@@ -793,7 +1001,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-10T22:56:06-07:00" content="2018-02-10">
+            <time itemprop="dateCreated" datetime="2018-02-10T22:56:06-08:00" content="2018-02-10">
               2018-02-10
             </time>
           </span>
@@ -985,7 +1193,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-07:00" content="2018-02-09">
+            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-08:00" content="2018-02-09">
               2018-02-09
             </time>
           </span>
@@ -1152,7 +1360,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-05T17:18:24-07:00" content="2018-02-05">
+            <time itemprop="dateCreated" datetime="2018-02-05T17:18:24-08:00" content="2018-02-05">
               2018-02-05
             </time>
           </span>
@@ -1549,7 +1757,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-04T22:22:28-07:00" content="2018-02-04">
+            <time itemprop="dateCreated" datetime="2018-02-04T22:22:28-08:00" content="2018-02-04">
               2018-02-04
             </time>
           </span>
@@ -1734,7 +1942,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-02T14:33:37-07:00" content="2018-02-02">
+            <time itemprop="dateCreated" datetime="2018-02-02T14:33:37-08:00" content="2018-02-02">
               2018-02-02
             </time>
           </span>
@@ -1897,7 +2105,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-31T16:31:23-07:00" content="2018-01-31">
+            <time itemprop="dateCreated" datetime="2018-01-31T16:31:23-08:00" content="2018-01-31">
               2018-01-31
             </time>
           </span>
@@ -2001,207 +2209,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/01/31/X1-Binary-Search-Tree/" itemprop="url">
-                  X1_Binary Search Tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-31T15:07:45-07:00" content="2018-01-31">
-              2018-01-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Program/" itemprop="url" rel="index">
-                    <span itemprop="name">Program</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/01/31/X1-Binary-Search-Tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/31/X1-Binary-Search-Tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2018/01/31/X1-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="X1_Binary Search Tree">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h3><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion" target="_blank" rel="external">Binary Search Tree | Set 1 (Search and Insertion)</a></p>
-<p><a href="">Github | X1_Binary Search Tree</a></p>
-<h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ol>
-<li><p>left subtree &lt; root &lt; right subtree</p>
-</li>
-<li><p>no duplicate nodes</p>
-<ul>
-<li><p>What if duplicate? add “count” attribution</p>
-</li>
-<li><p>self-balance: almost full tree. Using red-black tree</p>
-</li>
-<li><p>worst case:</p>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1\2\3\4\5\6</span><br><span class="line">or</span><br><span class="line">   1</span><br><span class="line">   2</span><br><span class="line">   3</span><br><span class="line">   4</span><br><span class="line">5/6 7\8</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>​</p>
-</li>
-</ol>
-<h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><p>•  <a href="https://leetcode.com/problems/find-k-closest-elements" target="_blank" rel="external">https://leetcode.com/problems/find-k-closest-elements</a></p>
-<p>•  <a href="https://leetcode.com/problems/closest-binary-search-tree-value" target="_blank" rel="external">https://leetcode.com/problems/closest-binary-search-tree-value</a></p>
-<p>•  <a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii" target="_blank" rel="external">https://leetcode.com/problems/closest-binary-search-tree-value-ii</a></p>
-<p>•  <a href="https://leetcode.com/problems/binary-tree-level-order-traversal" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-level-order-traversal</a></p>
-<p>•  <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree" target="_blank" rel="external">https://leetcode.com/problems/maximum-depth-of-binary-tree</a></p>
-<p>•  <a href="https://leetcode.com/problems/balanced-binary-tree" target="_blank" rel="external">https://leetcode.com/problems/balanced-binary-tree</a></p>
-<p>•  <a href="https://leetcode.com/problems/search-in-rotated-sorted-array" target="_blank" rel="external">https://leetcode.com/problems/search-in-rotated-sorted-array</a></p>
-<p>•  <a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii" target="_blank" rel="external">https://leetcode.com/problems/search-in-rotated-sorted-array-ii</a></p>
-<p>####Note</p>
-<ol>
-<li><p>先定signature</p>
-</li>
-<li><p>库函数Arrays.binarySearch(arr, x)，not found: &lt; 0</p>
-</li>
-<li><p><a href="http://www.baeldung.com/java-8-collectors" target="_blank" rel="external">java8 Collectors</a></p>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final double EPSILON = 1e-10;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>boilerplate模版</p>
-</li>
-<li><p>主动测试test case</p>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;T&gt; q = new LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IterativeInOrder, Pre, Post</p>
-</li>
-</ol>
-<h4 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h4><ul>
-<li><p>360.Sort Transformed Array</p>
-<p>a &gt; 0,</p>
-<p>binary search find the closest one with -b/2a, then …</p>
-<p>Or from l &amp; r -&gt; middle</p>
-</li>
-<li><p>173.Binary Search Tree iterator</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2242,7 +2254,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
