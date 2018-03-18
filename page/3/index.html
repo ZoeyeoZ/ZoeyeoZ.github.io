@@ -291,6 +291,247 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/14/NewBlog2/" itemprop="url">
+                  ［整理/转载］Github＋HEXO (Mac)（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-14T12:27:26-07:00" content="2016-04-14">
+              2016-04-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IT/" itemprop="url" rel="index">
+                    <span itemprop="name">IT</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/14/NewBlog2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/14/NewBlog2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/14/NewBlog2/" class="leancloud_visitors" data-flag-title="［整理/转载］Github＋HEXO (Mac)（二）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考<br><a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">NexT使用文档</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
+<hr>
+<h3 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h3><ul>
+<li>Hexo默认集成Disqus提供第三方评论系统</li>
+<li>国内建议<a href="http://duoshuo.com" target="_blank" rel="external">多说</a><ul>
+<li>登录后在首页选择 “我要安装”。</li>
+<li>创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。</li>
+<li>创建站点完成后编辑<strong>站点配置文件_config.yml</strong>文件<ul>
+<li>新增 <strong>duoshuo_shortname</strong> 字段，值设置成上一步中的值。</li>
+<li><code>duoshuo_shortname: ZoeyeoZ</code></li>
+<li>此外声明这类配置与主体有关，博主主题［NexT］</li>
+</ul>
+</li>
+<li>如果采用其他第三方评论系统，通用代码详见多说网站 </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>使用多说的话，Thread Key一定不要改变，Thread Key相当于是识别码；如果你更新了Hexo或者重装了vps，文章的Thread Key改变了的话，那么恭喜你，评论全部没有了。。。</p>
+</blockquote>
+<h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><ul>
+<li>登录<a href="http://tongji.baidu.com/" target="_blank" rel="external">百度统计</a>， 定位到站点的代码获取页面</li>
+<li>复制 hm.js? 后面那串统计脚本 id，如： </li>
+<li><code>hm.src = &quot;//hm.baidu.com/hm.js?xxxxxx&quot;;</code></li>
+<li>编辑<strong>站点配置文件</strong>，新增字段 <strong>baidu_analytics</strong> 字段，值设置成你的百度统计脚本 id</li>
+</ul>
+<h3 id="阅读次数统计（LeanCloud"><a href="#阅读次数统计（LeanCloud" class="headerlink" title="阅读次数统计（LeanCloud)"></a>阅读次数统计（LeanCloud)</h3><ul>
+<li>详细内容参照<a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></li>
+<li>NexT主题目前已经合并这个Feature，因此如果你使用的是NexT主题，可以<strong>直接使用</strong>不用修改主题模版</li>
+<li><p>修改NexT主题模版</p>
+<ul>
+<li>详见原文</li>
+<li>修改_config.yml文件<br>在<strong>blog/themes/next</strong></li>
+<li>添加lean-analytics.swig文件，<br> 在<strong>blog/themes/next/layout/_scripts</strong></li>
+<li>修改post.swig文件<br>在<strong>blog/themes/next/layout/_macro</strong></li>
+<li>修改layout.swig文件<br>在<strong>blog/themes/next/layout</strong></li>
+<li>修改zh-Hans.yml文件</li>
+</ul>
+</li>
+<li><p>注册<a href="https://leancloud.cn/login.html#/signup" target="_blank" rel="external">LeanCloud</a>（需验证邮箱）</p>
+</li>
+<li><p>配置LeanCloud<br>登录帐号，配置后拿到<strong>AppID</strong>及<strong>AppKey</strong>，用于文章阅读量统计的功能。 </p>
+<ul>
+<li><p>创建应用，用于博客的访问统计的数据操作</p>
+<ul>
+<li>左上角账号，打开控制台</li>
+<li>点击创建应用</li>
+<li>新建的应用名称Test（可修改）</li>
+<li>点击新创建的应用名进入参数配置页</li>
+<li><p>点击左侧右上角的齿轮图标，创建Class。新建表来保存数据</p>
+<blockquote>
+<p>为了保证我们前面对NexT主题的修改兼容，此处的新建Class名字必须为Counter</p>
+</blockquote>
+</li>
+<li><p>选择Counter，点击顶部设置，切换到Test应用操作界面</p>
+</li>
+<li>选择左侧的应用Key选项，得到创建应用的<strong>AppID</strong>以及<strong>AppKey</strong></li>
+<li>复制AppID以及AppKey并在NexT主题的_config.yml文件中我们相应的位置填入即可</li>
+</ul>
+<blockquote>
+<ol>
+<li>注意，NexT用户需要修改false为true<br><code>leancloud_visitors:
+enable: true</code></li>
+<li>重新生成部署Hexo博客，应该就可以正常使用文章阅读量统计的功能了。需要特别说明的是：记录文章访问量的唯一标识符是<strong>文章的发布日期</strong>以及<strong>文章的标题</strong>，因此请确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>后台管理</p>
+<ul>
+<li>初始的文章统计量显示为0，这时对应应用的Counter表中并没有相应的记录。当博客文章在配置好阅读量统计服务之后第一次打开时，便会自动向服务器发送数据来创建一条数据，该数据会被记录在对应的应用的Counter表中。</li>
+<li>我们可以修改其中的time字段的数值来达到修改某一篇文章的访问量的目的（博客文章访问量快递提升人气的装逼利器）。双击具体的数值，修改之后回车即可保存。</li>
+<li><blockquote>
+<ol>
+<li>url字段被当作唯一ID来使用，因此如果你不知道带来的后果的话请不要修改。</li>
+<li>title字段显示的是博客文章的标题，用于后台管理的时候区分文章之用，没有什么实际作用。</li>
+<li>其他字段皆为自动生成，具体作用请查阅LeanCloud官方文档，如果你不知道有什么作用请不要随意修改。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Web安全<br>  由于AppID以及AppKey是暴露在外的，为确保只用于自己博客，建议开启Web安全选项，这样就只能通过自己的域名才有权访问后台的数据</p>
+<ul>
+<li>选择应用的设置的安全中心选项卡</li>
+<li>在Web 安全域名中填入我们自己的博客域名，来确保数据调用的安全</li>
+<li>如果填写错误可能导致博客文章访问量显示不正常，打开浏览器调试模式，发现Web安全域名填写错误，导致服务器拒绝了数据交互的请求，请修改或者放弃。。。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Swiftype-搜索"><a href="#Swiftype-搜索" class="headerlink" title="Swiftype 搜索"></a>Swiftype 搜索</h3><ul>
+<li>使用 Swiftype 之前需要前往 Swiftype 配置一个搜索引擎。 而后编辑 站点配置文件， 新增 swiftype_key 字段，值为你的 swiftype 搜索引擎的 key。 详细的配置请参考： <a href="http://theme-next.iissnan.com/third-party-services.html#swfitype" target="_blank" rel="external">第三方服务 - Swiftype</a></li>
+<li>进入<a href="https://swiftype.com/home" target="_blank" rel="external">Swiftype</a>，根据提示操作<ul>
+<li>注意，修改值在 <strong>/blog/themes/next/_config.yml</strong> 内<br><code># Swiftype Search Key
+swiftype_key: xxxxxxxxx</code></li>
+<li>复制<strong>Install Swiftype On Your Website</strong>内的<br><code>_st(&#39;install&#39;,&#39;XXXXXXXXX&#39;,&#39;2.0.0&#39;);</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="JiaThis"><a href="#JiaThis" class="headerlink" title="JiaThis"></a>JiaThis</h3><ul>
+<li>编辑 站点配置文件， 找到字段 jiathis<br><code>jiathis: 
+enable: true</code></li>
+</ul>
+<hr>
+<h3 id="ERROR"><a href="#ERROR" class="headerlink" title="ERROR"></a>ERROR</h3><ul>
+<li>如发生类似错误<ul>
+<li>ERROR Process failed: layout/_scripts/.DS_Store </li>
+<li>ERROR Process failed: layout/.DS_Store  等</li>
+<li>进入主题里面layout和_partial目录下相应目录下，使用删除命令：<br><code>rm -rf .DS_Store</code></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/13/NewBlog/" itemprop="url">
                   ［整理/转载］Github＋HEXO (Mac)
                 </a>
@@ -553,7 +794,7 @@ branch: master
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -561,7 +802,7 @@ branch: master
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
