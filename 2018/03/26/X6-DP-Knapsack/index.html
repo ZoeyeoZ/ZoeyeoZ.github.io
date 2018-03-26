@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Algorithm,Graph,Kruskal,MST," />
+  <meta name="keywords" content="Leetcode,Algorithm," />
 
 
 
@@ -80,22 +80,22 @@
 
 
 
-<meta name="description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
-顺便po上为了解决这个问题顺便复习">
+<meta name="description" content="Problem
+322. Coin Change
+123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -1;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法－图论－Kruskal">
-<meta property="og:url" content="http://yoursite.com/2016/04/22/algorithm-Kruskal/index.html">
+<meta property="og:title" content="X6_DP & Knapsack">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/X6-DP-Knapsack/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
-顺便po上为了解决这个问题顺便复习">
-<meta property="og:updated_time" content="2016-04-22T03:13:13.000Z">
+<meta property="og:description" content="Problem
+322. Coin Change
+123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -1;">
+<meta property="og:updated_time" content="2018-03-26T23:49:35.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法－图论－Kruskal">
-<meta name="twitter:description" content="23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&amp;gt;&amp;lt;
-顺便po上为了解决这个问题顺便复习">
+<meta name="twitter:title" content="X6_DP & Knapsack">
+<meta name="twitter:description" content="Problem
+322. Coin Change
+123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -1;">
 
 
 
@@ -113,7 +113,7 @@
   };
 </script>
 
-  <title> 算法－图论－Kruskal | Zhuo Han </title>
+  <title> X6_DP & Knapsack | Zhuo Han </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +295,7 @@
             
             
               
-                算法－图论－Kruskal
+                X6_DP & Knapsack
               
             
           </h1>
@@ -307,8 +307,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T11:12:49-07:00" content="2016-04-22">
-              2016-04-22
+            <time itemprop="dateCreated" datetime="2018-03-26T16:49:03-07:00" content="2018-03-26">
+              2018-03-26
             </time>
           </span>
 
@@ -321,8 +321,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
                   </a>
                 </span>
 
@@ -337,8 +349,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/22/algorithm-Kruskal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/algorithm-Kruskal/" itemprop="commentsCount"></span>
+                <a href="/2018/03/26/X6-DP-Knapsack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/26/X6-DP-Knapsack/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -348,7 +360,7 @@
 
           
           
-             <span id="/2016/04/22/algorithm-Kruskal/" class="leancloud_visitors" data-flag-title="算法－图论－Kruskal">
+             <span id="/2018/03/26/X6-DP-Knapsack/" class="leancloud_visitors" data-flag-title="X6_DP & Knapsack">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -370,31 +382,89 @@
       
 
       
-        <pre><code>23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-</code></pre><p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
-<p>顺便po上为了解决这个问题顺便复习和思考的内容（对，思考XD</p>
-<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><ol>
-<li>Kruskal算法是每次选择权重最小的边加入森林，它的本质是贪心算法。</li>
-<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一<ul>
-<li>如果各边权值唯一，从最小生成树开始，每次加一条边i并在新生成的环上删除最大的一条边j（满足权值$e_i$ &lt; $e_j$），这时会得到一棵新的生成树，如果我们加入的那条边满足 $e_j$- $e_i$最小，那么得到的就是第二小的生成树。从这个第二小的生成树开始，进行同样的操作可以得到第三小的生成树。这个迭代过程中树的权值是一直递增的，所以不可能出现相同权值的多棵最小生成树。</li>
+        <h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><ul>
+<li><p><a href="https://leetcode.com/problems/coin-change/description/" target="_blank" rel="external">322. Coin Change</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> n = coins.size();</span><br><span class="line">    	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    		return <span class="number">-1</span>;</span><br><span class="line">    	sort(coins.rbegin(),coins.rend());</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(amount+<span class="number">1</span>, amount+<span class="number">1</span>);</span><br><span class="line">    	dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">auto</span> coin : coins)</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> w = coin; w &lt;= amount; ++w)</span><br><span class="line">    			dp[w] = min(dp[w], dp[w-coin]+<span class="number">1</span>);</span><br><span class="line">    	return dp[amount] &gt; amount ? <span class="number">-1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Others:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if coin[1000, 2000], there is no need for i starting at 0</span></span><br><span class="line"><span class="comment">// coins[0] + 1 may overflow if coins[0] == Integer.MAX_VALUE</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = coins[<span class="number">0</span>]; i &lt;= amount; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> coin : coins) &#123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/combination-sum-iv/description/" target="_blank" rel="external">377. Combination Sum IV</a>, similar</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">combinationSum4</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> n = nums.size();</span><br><span class="line">    	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    		return <span class="number">0</span>;</span><br><span class="line">    	sort(nums.begin(),nums.end());</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(target+<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    	dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">/* remove duplicate.</span><br><span class="line">        eg. 1 1 2 = 1 2 1, since 1 will not consider again</span><br><span class="line">    	for (auto num : nums)</span><br><span class="line">    		for (int w = num; w &lt;= target; ++w)</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> w = nums[<span class="number">0</span>]; w &lt;= target; ++w)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)&#123;</span><br><span class="line">                <span class="keyword">if</span> (w &lt; num)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                dp[w] += dp[w-num];</span><br><span class="line">            &#125;</span><br><span class="line">    	return dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DP</p>
+<ol>
+<li>Deduction Formula</li>
+<li>Initialization</li>
+<li>Space Improvement (Bonus)</li>
+</ol>
+<ul>
+<li><p>Audible 题：BugdetShopping</p>
+<blockquote>
+<p>n dollars, bundleQuantities array, bundleCosts array </p>
+<p>eg. Helen has n = 50 dollars to purchase notebooks from 2 stores described by bundleQunantities = [20, 19] and bundleCost = [24, 20]. She makes the following purchases:<br>​    One bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 50 – 24 = 26 dollars left.<br>​    Another bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 26 – 24 = 2 dollars left.<br>Helen can’t afford any more notebooks, so we return the total number of notebooks she was able to purchase: 20 + 20 = 40.</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f(i) is the maximum number of notebook given i dollar</span></span><br><span class="line">f[i] = max(f[i – b.cost] + b.quantity) given different b</span><br><span class="line">maxf = <span class="number">0</span>, maxf = max(maxf, f[i])</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = bundles[<span class="number">0</span>].cost; i &lt; f.length; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (Bundle b : bundles) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b.cost &gt; i) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (i == b.cost) &#123;</span><br><span class="line">			f[i] = Math.max(f[i], b.quantity);</span><br><span class="line">			max = Math.max(max, f[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">      	<span class="keyword">int</span> c = f[i - b.cost];</span><br><span class="line">		<span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		f[i] = Math.max(f[i], c + b.quantity);</span><br><span class="line">		System.out.println(i + <span class="string">"="</span> + f[i]);</span><br><span class="line">		max = Math.max(max, f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li>对于给定的图而言,因为最小生成树的权值和是确定的,所以最小生成树不唯一当且仅当最小生成树的形状不唯一</li>
-<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$<ul>
-<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w<em>n$ &gt;= $w</em>{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w<em>i’$ &gt;= $w</em>{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
-<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w<em>1$ … $w</em>{i-1}$}产生环，要么就是{$w<em>1$ … $w</em>{i-1}$}中某边。</li>
-<li>所以在选择边 $e<em>1$ … $e</em>{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
-<li>所以矛盾。</li>
 </ul>
+<p><strong>Coin Change is unlimited, while Knapsack is limited</strong></p>
+<ul>
+<li><p>背包问题</p>
+<ol>
+<li><p>Backpack<br>Given n items with size Ai, an integer m denotes the size of a backpack. How full you can fill this backpack?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+A[i], result[j])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Backpack II<br>Given n items with size Ai and value Vi, and a backpack with size m. What’s the maximum value can you put into the backpack?<br>Example<br>Given 4 items with size [2, 3, 5, 7] and value [1, 5, 2, 4], and a backpack with size 10. The maximum value is 9.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+v[i], result[j])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank" rel="external">https://en.wikipedia.org/wiki/Knapsack_problem</a><br><a href="https://www.geeksforgeeks.org/knapsack-problem" target="_blank" rel="external">https://www.geeksforgeeks.org/knapsack-problem</a><br><a href="https://brilliant.org/wiki/backpack-problem" target="_blank" rel="external">https://brilliant.org/wiki/backpack-problem</a></p>
 </li>
 </ol>
-<h4 id="另，最小生成树唯一性判定"><a href="#另，最小生成树唯一性判定" class="headerlink" title="另，最小生成树唯一性判定"></a>另，最小生成树唯一性判定</h4><ol>
-<li>对图中每条边，扫描其他边，如果存在相同权值的边，则对该边进行标记；</li>
-<li>然后用Kruskal（或者Prim）算法求MST（最小生成树）；</li>
-<li>求得MST后，如果该MST中未包含做了标记的边，即可判定MST唯一；如果包含作了标记的边，则依次去掉这些边再求MST，如果求得的MST权值和原MST权值相同，即可判定MST不唯一。</li>
+</li>
+<li><p>背包问题变种</p>
+<ul>
+<li><p><a href="">474. Ones and Zeroes</a></p>
+<blockquote>
+<p>maximize chossedn string -&gt; m’s 1, n’s 0</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for k=1..l</span><br><span class="line">	i=m..s0, j=n..s1</span><br><span class="line">		dp[i][j] = max(dp[i][j],dp[i-s0][j-s1]+1)// wo/w s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="">494. Target Sum</a></p>
+<blockquote>
+<p>+/- ai = s</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sum(P) - sum(N) = target           </span><br><span class="line">sum(P) + sum(N) + sum(P) - sum(N) = target + sum(P) + sum(N)</span><br><span class="line">2 * sum(P) = target + sum(nums)</span><br><span class="line"></span><br><span class="line">for num:nums</span><br><span class="line">	for w = (t+s)/2 ... num</span><br><span class="line">		dp[w] += dp[w-num]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/partition-equal-subset-sum/description/" target="_blank" rel="external">416. Partition Equal Subset Sum</a></p>
+<blockquote>
+<p>find if the array can be partitioned into two subsets, that sum is equal</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum(subset1) = sum/2</span><br><span class="line"></span><br><span class="line">for num:nums</span><br><span class="line">	for w = sum/2 ... num</span><br><span class="line">		dp[w] = dp[w]|dp[w-num]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Thinking"><a href="#Thinking" class="headerlink" title="Thinking"></a>Thinking</h5><ul>
+<li><p>DP</p>
+<ol>
+<li><p>先枚举物品，再枚举容量。<br>eg. [1, 2, 3] 组合4时，(1, 1, 2) == (1, 2, 1)。因为同一个物体不会再次考虑</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* remove duplicate.</span><br><span class="line">        eg. 1 1 2 = 1 2 1, since 1 will not consider again</span><br><span class="line">    	for (auto num : nums)</span><br><span class="line">    		for (int w = num; w &lt;= target; ++w)</span><br><span class="line">        */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先枚举容量，再枚举物品。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> w = nums[<span class="number">0</span>]; w &lt;= target; ++w)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h4 id="转"><a href="#转" class="headerlink" title="转"></a>转</h4><pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
-</code></pre><p>证：    设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>&nbsp;&nbsp;&nbsp;A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>&nbsp;&nbsp;&nbsp;B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>&nbsp;&nbsp;&nbsp;设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>&nbsp;&nbsp;&nbsp;不妨设w(ai)≥w(bi)<br>&nbsp;&nbsp;&nbsp;情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>&nbsp;&nbsp;&nbsp;情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
+</li>
+<li><p>背包问题：</p>
+<ol>
+<li>枚举物品</li>
+<li>枚举容量<br>增序枚举，重复装入某个物品，而且尽可能多的，使价值最大<br>逆序枚举：物品至多装一次</li>
+</ol>
+</li>
+<li><a href="https://github.com/tianyicui/pack" target="_blank" rel="external">背包九讲</a></li>
+</ul>
 
       
     </div>
@@ -415,13 +485,9 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
             <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
-          
-            <a href="/tags/Graph/" rel="tag">#Graph</a>
-          
-            <a href="/tags/Kruskal/" rel="tag">#Kruskal</a>
-          
-            <a href="/tags/MST/" rel="tag">#MST</a>
           
         </div>
       
@@ -430,17 +496,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/chanpin20160418/" rel="next" title="如何基于场景设计产品－笔记（20160418）">
-                <i class="fa fa-chevron-left"></i> 如何基于场景设计产品－笔记（20160418）
+              <a href="/2018/03/24/Responsive-Design/" rel="next" title="Responsive Design">
+                <i class="fa fa-chevron-left"></i> Responsive Design
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/08/BaiduInterview/" rel="prev" title="百度面试总结">
-                百度面试总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,8 +551,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/22/algorithm-Kruskal/"
-           data-title="算法－图论－Kruskal" data-url="http://yoursite.com/2016/04/22/algorithm-Kruskal/">
+      <div class="ds-thread" data-thread-key="2018/03/26/X6-DP-Knapsack/"
+           data-title="X6_DP & Knapsack" data-url="http://yoursite.com/2018/03/26/X6-DP-Knapsack/">
       </div>
     
   </div>
@@ -619,7 +681,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关"><span class="nav-number">1.</span> <span class="nav-text">相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另，最小生成树唯一性判定"><span class="nav-number">2.</span> <span class="nav-text">另，最小生成树唯一性判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转"><span class="nav-number">3.</span> <span class="nav-text">转</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Thinking"><span class="nav-number">2.</span> <span class="nav-text">Thinking</span></a></li></ol></div>
             
           </div>
         </section>

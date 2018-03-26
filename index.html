@@ -291,6 +291,229 @@
             
               
                 
+                <a class="post-title-link" href="/2018/03/26/X6-DP-Knapsack/" itemprop="url">
+                  X6_DP & Knapsack
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-26T16:49:03-07:00" content="2018-03-26">
+              2018-03-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/26/X6-DP-Knapsack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/26/X6-DP-Knapsack/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/03/26/X6-DP-Knapsack/" class="leancloud_visitors" data-flag-title="X6_DP & Knapsack">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><ul>
+<li><p><a href="https://leetcode.com/problems/coin-change/description/" target="_blank" rel="external">322. Coin Change</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> n = coins.size();</span><br><span class="line">    	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    		return <span class="number">-1</span>;</span><br><span class="line">    	sort(coins.rbegin(),coins.rend());</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(amount+<span class="number">1</span>, amount+<span class="number">1</span>);</span><br><span class="line">    	dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">auto</span> coin : coins)</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> w = coin; w &lt;= amount; ++w)</span><br><span class="line">    			dp[w] = min(dp[w], dp[w-coin]+<span class="number">1</span>);</span><br><span class="line">    	return dp[amount] &gt; amount ? <span class="number">-1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Others:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if coin[1000, 2000], there is no need for i starting at 0</span></span><br><span class="line"><span class="comment">// coins[0] + 1 may overflow if coins[0] == Integer.MAX_VALUE</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = coins[<span class="number">0</span>]; i &lt;= amount; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> coin : coins) &#123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/combination-sum-iv/description/" target="_blank" rel="external">377. Combination Sum IV</a>, similar</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">combinationSum4</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> n = nums.size();</span><br><span class="line">    	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    		return <span class="number">0</span>;</span><br><span class="line">    	sort(nums.begin(),nums.end());</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(target+<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    	dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">/* remove duplicate.</span><br><span class="line">        eg. 1 1 2 = 1 2 1, since 1 will not consider again</span><br><span class="line">    	for (auto num : nums)</span><br><span class="line">    		for (int w = num; w &lt;= target; ++w)</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> w = nums[<span class="number">0</span>]; w &lt;= target; ++w)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)&#123;</span><br><span class="line">                <span class="keyword">if</span> (w &lt; num)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                dp[w] += dp[w-num];</span><br><span class="line">            &#125;</span><br><span class="line">    	return dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DP</p>
+<ol>
+<li>Deduction Formula</li>
+<li>Initialization</li>
+<li>Space Improvement (Bonus)</li>
+</ol>
+<ul>
+<li><p>Audible 题：BugdetShopping</p>
+<blockquote>
+<p>n dollars, bundleQuantities array, bundleCosts array </p>
+<p>eg. Helen has n = 50 dollars to purchase notebooks from 2 stores described by bundleQunantities = [20, 19] and bundleCost = [24, 20]. She makes the following purchases:<br>​    One bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 50 – 24 = 26 dollars left.<br>​    Another bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 26 – 24 = 2 dollars left.<br>Helen can’t afford any more notebooks, so we return the total number of notebooks she was able to purchase: 20 + 20 = 40.</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f(i) is the maximum number of notebook given i dollar</span></span><br><span class="line">f[i] = max(f[i – b.cost] + b.quantity) given different b</span><br><span class="line">maxf = <span class="number">0</span>, maxf = max(maxf, f[i])</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = bundles[<span class="number">0</span>].cost; i &lt; f.length; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (Bundle b : bundles) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b.cost &gt; i) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (i == b.cost) &#123;</span><br><span class="line">			f[i] = Math.max(f[i], b.quantity);</span><br><span class="line">			max = Math.max(max, f[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">      	<span class="keyword">int</span> c = f[i - b.cost];</span><br><span class="line">		<span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		f[i] = Math.max(f[i], c + b.quantity);</span><br><span class="line">		System.out.println(i + <span class="string">"="</span> + f[i]);</span><br><span class="line">		max = Math.max(max, f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Coin Change is unlimited, while Knapsack is limited</strong></p>
+<ul>
+<li><p>背包问题</p>
+<ol>
+<li><p>Backpack<br>Given n items with size Ai, an integer m denotes the size of a backpack. How full you can fill this backpack?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+A[i], result[j])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Backpack II<br>Given n items with size Ai and value Vi, and a backpack with size m. What’s the maximum value can you put into the backpack?<br>Example<br>Given 4 items with size [2, 3, 5, 7] and value [1, 5, 2, 4], and a backpack with size 10. The maximum value is 9.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+v[i], result[j])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank" rel="external">https://en.wikipedia.org/wiki/Knapsack_problem</a><br><a href="https://www.geeksforgeeks.org/knapsack-problem" target="_blank" rel="external">https://www.geeksforgeeks.org/knapsack-problem</a><br><a href="https://brilliant.org/wiki/backpack-problem" target="_blank" rel="external">https://brilliant.org/wiki/backpack-problem</a></p>
+</li>
+</ol>
+</li>
+<li><p>背包问题变种</p>
+<ul>
+<li><p><a href="">474. Ones and Zeroes</a></p>
+<blockquote>
+<p>maximize chossedn string -&gt; m’s 1, n’s 0</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for k=1..l</span><br><span class="line">	i=m..s0, j=n..s1</span><br><span class="line">		dp[i][j] = max(dp[i][j],dp[i-s0][j-s1]+1)// wo/w s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="">494. Target Sum</a></p>
+<blockquote>
+<p>+/- ai = s</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sum(P) - sum(N) = target           </span><br><span class="line">sum(P) + sum(N) + sum(P) - sum(N) = target + sum(P) + sum(N)</span><br><span class="line">2 * sum(P) = target + sum(nums)</span><br><span class="line"></span><br><span class="line">for num:nums</span><br><span class="line">	for w = (t+s)/2 ... num</span><br><span class="line">		dp[w] += dp[w-num]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/partition-equal-subset-sum/description/" target="_blank" rel="external">416. Partition Equal Subset Sum</a></p>
+<blockquote>
+<p>find if the array can be partitioned into two subsets, that sum is equal</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum(subset1) = sum/2</span><br><span class="line"></span><br><span class="line">for num:nums</span><br><span class="line">	for w = sum/2 ... num</span><br><span class="line">		dp[w] = dp[w]|dp[w-num]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Thinking"><a href="#Thinking" class="headerlink" title="Thinking"></a>Thinking</h5><ul>
+<li><p>DP</p>
+<ol>
+<li><p>先枚举物品，再枚举容量。<br>eg. [1, 2, 3] 组合4时，(1, 1, 2) == (1, 2, 1)。因为同一个物体不会再次考虑</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* remove duplicate.</span><br><span class="line">        eg. 1 1 2 = 1 2 1, since 1 will not consider again</span><br><span class="line">    	for (auto num : nums)</span><br><span class="line">    		for (int w = num; w &lt;= target; ++w)</span><br><span class="line">        */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先枚举容量，再枚举物品。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> w = nums[<span class="number">0</span>]; w &lt;= target; ++w)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>背包问题：</p>
+<ol>
+<li>枚举物品</li>
+<li>枚举容量<br>增序枚举，重复装入某个物品，而且尽可能多的，使价值最大<br>逆序枚举：物品至多装一次</li>
+</ol>
+</li>
+<li><a href="https://github.com/tianyicui/pack" target="_blank" rel="external">背包九讲</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/24/Responsive-Design/" itemprop="url">
                   Responsive Design
                 </a>
@@ -2344,173 +2567,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/02/09/How-to-write-a-basic-Web-Crawler/" itemprop="url">
-                  How to write a basic Web Crawler
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-09T21:16:02-08:00" content="2018-02-09">
-              2018-02-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Program/" itemprop="url" rel="index">
-                    <span itemprop="name">Program</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/02/09/How-to-write-a-basic-Web-Crawler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/09/How-to-write-a-basic-Web-Crawler/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2018/02/09/How-to-write-a-basic-Web-Crawler/" class="leancloud_visitors" data-flag-title="How to write a basic Web Crawler">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="How-to-write-a-basic-Web-Crawler"><a href="#How-to-write-a-basic-Web-Crawler" class="headerlink" title="How to write a basic Web Crawler"></a>How to write a basic Web Crawler</h2><h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
-<li><p>IntelliJ IDEA or Eclipse</p>
-</li>
-<li><p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
-</li>
-<li><p>Creat new a new project &amp; Add External JARs</p>
-<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code> </p>
-</li>
-<li><p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
-<p>Controller with main function</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String crawlStorageFolder = <span class="string">"/data/crawl"</span>;</span><br><span class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">7</span>;</span><br><span class="line">        CrawlConfig config = <span class="keyword">new</span> CrawlConfig();</span><br><span class="line">        config.setCrawlStorageFolder(crawlStorageFolder);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Instantiate the controller for this crawl.</span><br><span class="line">         */</span></span><br><span class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(config);</span><br><span class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</span><br><span class="line">        RobotstxtServer robotstxtServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</span><br><span class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(config, pageFetcher, robotstxtServer);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * For each crawl, you need to add some seed urls. These are the first</span><br><span class="line">         * URLs that are fetched and then the crawler starts following links</span><br><span class="line">         * which are found in these pages</span><br><span class="line">         */</span></span><br><span class="line">        controller.addSeed(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Start the crawl. This is a blocking operation, meaning that your code</span><br><span class="line">         * will reach the line after this only when crawling is finished.</span><br><span class="line">         */</span></span><br><span class="line">        controller.start(MyCrawler.class, numberOfCrawlers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>MyCrawler extends WebCrawler</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCrawler</span> <span class="keyword">extends</span> <span class="title">WebCrawler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Pattern FILTERS = Pattern.compile(<span class="string">".*(\\.(css|js|gif|jpg"</span></span><br><span class="line">            + <span class="string">"|png|mp3|mp3|zip|gz))$"</span>);</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * This method receives two parameters. The first parameter is the page</span><br><span class="line"> * in which we have discovered this new url and the second parameter is</span><br><span class="line"> * the new url. You should implement this function to specify whether</span><br><span class="line"> * the given url should be crawled or not (based on your crawling logic).</span><br><span class="line"> * In this example, we are instructing the crawler to ignore urls that</span><br><span class="line"> * have css, js, git, ... extensions and to only accept urls that start</span><br><span class="line"> * with "http://www.viterbi.usc.edu/". In this case, we didn't need the</span><br><span class="line"> * referringPage parameter to make the decision.</span><br><span class="line"> */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldVisit</span><span class="params">(Page referringPage, WebURL url)</span> </span>&#123;</span><br><span class="line">        String href = url.getURL().toLowerCase();</span><br><span class="line">        <span class="keyword">return</span> !FILTERS.matcher(href).matches()</span><br><span class="line">                &amp;&amp; href.startsWith(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This function is called when a page is fetched and ready</span><br><span class="line">     * to be processed by your program.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(Page page)</span> </span>&#123;</span><br><span class="line">        String url = page.getWebURL().getURL();</span><br><span class="line">        System.out.println(<span class="string">"URL: "</span> + url);</span><br><span class="line">        <span class="keyword">if</span> (page.getParseData() <span class="keyword">instanceof</span> HtmlParseData) &#123;</span><br><span class="line">            HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();</span><br><span class="line">            String text = htmlParseData.getText();</span><br><span class="line">            String html = htmlParseData.getHtml();</span><br><span class="line">            Set&lt;WebURL&gt; links = htmlParseData.getOutgoingUrls();</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"Text length: "</span> + text.length());</span><br><span class="line">            System.out.println(<span class="string">"Html length: "</span> + html.length());</span><br><span class="line">            System.out.println(<span class="string">"Number of outgoing links: "</span> + links.size());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Do not forget import!</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.CrawlConfig;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.CrawlController;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.fetcher.PageFetcher;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.Page;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.WebCrawler;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.parser.HtmlParseData;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.url.WebURL;</span><br></pre></td></tr></table></figure>
-<p>And change your main class to <code>com.company.Controller</code></p>
-</li>
-<li><p>Some Issue</p>
-<ol>
-<li><p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>SLF4J: Defaulting to no-operation (NOP) logger implementation<br>SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
-<blockquote>
-<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>. </p>
-<p>Add <code>slf4j-simple-1.7.25jar</code>  to your project</p>
-</blockquote>
-</li>
-<li><p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
-<blockquote>
-<p>Use absolute folder path, such as <code>/Users/XXX/Desktop/XXX/HW2_WebCrawler/data/crawl</code></p>
-</blockquote>
-</li>
-<li><p>If you didn’t get any result</p>
-<blockquote>
-<p>visit the website on your browser first</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2556,7 +2612,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
