@@ -291,6 +291,244 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/07/X7-OOD/" itemprop="url">
+                  X7_OOD
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-07T10:30:37-07:00" content="2018-04-07">
+              2018-04-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/System-Design/" itemprop="url" rel="index">
+                    <span itemprop="name">System Design</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/System-Design/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/System-Design/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/04/07/X7-OOD/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/07/X7-OOD/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/04/07/X7-OOD/" class="leancloud_visitors" data-flag-title="X7_OOD">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Design-Food-Delivery-App"><a href="#Design-Food-Delivery-App" class="headerlink" title="Design Food Delivery App"></a>Design Food Delivery App</h4><ul>
+<li><p>OOD fundamental concepts: Inheritance, encapsulation, abstrction and polymorphism<br>First POJO(Plain Old Java Object), Then methods</p>
+</li>
+<li><p>Scenario, Use Cases</p>
+<blockquote>
+<ol>
+<li>User can search different restaurant</li>
+<li>User can select a restaurant</li>
+<li>User sees a menu</li>
+<li>Restaurant can change the menu any time</li>
+<li>User adds an item from menu</li>
+<li>User orders the food</li>
+<li>User can track the order in real time</li>
+<li>User can cancel the order</li>
+<li>User pays for the order</li>
+</ol>
+</blockquote>
+</li>
+<li><p>Solution</p>
+<blockquote>
+<p>Design Patterns involved in the design of this app:</p>
+<ol>
+<li>Builder Design Pattern (For adding food item and ordering)</li>
+<li>Iterator Pattern (User Sees Menu)</li>
+<li>Observer Pattern (Track an order in Real Time)</li>
+<li>(Command Design Pattern) Order and cancellation of Food</li>
+</ol>
+</blockquote>
+</li>
+<li><p>Major Classes</p>
+<blockquote>
+<p>User</p>
+<p>Restaurant</p>
+<p>Menu</p>
+<p>Item</p>
+<p>Order</p>
+</blockquote>
+</li>
+<li><p>Patterns</p>
+<ul>
+<li><p>Builder Pattern</p>
+<blockquote>
+<p>reference: <a href="https://dzone.com/articles/design-patterns-the-builder-pattern" target="_blank" rel="external">I</a>, <a href="https://www.tutorialspoint.com/design_pattern/builder_pattern.htm" target="_blank" rel="external">II</a></p>
+</blockquote>
+</li>
+<li><p>Iterator Pattern</p>
+</li>
+<li><p><strong>Observer Pattern</strong><br>Subject       —— notify() ——&gt;     Observers<br>​    &lt;— subscribe(), unsubscribe() —<br>eg. When DeliveryStatus changes, we can use observery pattern to notify users</p>
+<blockquote>
+<p>kafka:queue, pub/sub</p>
+</blockquote>
+</li>
+<li><p><strong>Command Pattern</strong><br>eg. In order to  <code>pulic class CancelFood: IFoodOrderCommands</code> and  <code>public class OrderFood: IFoodOrderCommands</code>, so we can use command pattern: <code>public interface IFoodOrderCommands</code></p>
+<blockquote>
+<p>java: runnable, callable</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Summary</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class&#123; /*write class signature first,*/</span><br><span class="line">//implement</span><br><span class="line">//call servers</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Reading-Materials"><a href="#Reading-Materials" class="headerlink" title="Reading Materials"></a>Reading Materials</h4><ol>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzUzODEyMzIyOA==&amp;mid=2247484245&amp;idx=1&amp;sn=b3e8dfcc9fb07a9385f59ba26d0e13b2&amp;chksm=faddcde6cdaa44f0d96fc21204e2842ca9803b299a8bc971c1688e12ef037b4df1a7ea0b6ba4&amp;scene=21#wechat_redirect" target="_blank" rel="external">OODmock interview: Design a Vending Machine</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzUzODEyMzIyOA==&amp;mid=2247483985&amp;idx=1&amp;sn=4a339762ffd5882f46e0e3089df09749&amp;chksm=faddcce2cdaa45f44ec278c17d9990ccf8dd611f9bb195606bc7dec2f10a7b2f93939468ffd9&amp;scene=21#wechat_redirect" target="_blank" rel="external">OODmock interview：How to design meeting room schedulingsystem</a></li>
+<li><a href="https://www.careercup.com/question?id=5638730112040960" target="_blank" rel="external">Amazon Interview Question for SDE-2s | Design OO food delivery app catering to use cases</a></li>
+<li><a href="https://github.com/gmershad/FoodDeliveryApp" target="_blank" rel="external">Design OO food delivery app with C# &amp; Design Patterns</a></li>
+</ol>
+<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><h5 id="760-Find-Anagram-Mappings-unordered-map"><a href="#760-Find-Anagram-Mappings-unordered-map" class="headerlink" title="760. Find Anagram Mappings | unordered_map"></a><a href="https://leetcode.com/problems/find-anagram-mappings" target="_blank" rel="external">760. Find Anagram Mappings</a> | unordered_map</h5><h5 id="Longest-Common-Substring-DP"><a href="#Longest-Common-Substring-DP" class="headerlink" title="Longest Common Substring | DP"></a><a href="https://www.geeksforgeeks.org/longest-common-substring" target="_blank" rel="external">Longest Common Substring</a> | DP</h5><h5 id="718-Maximum-Length-of-Repeated-Subarray-DP"><a href="#718-Maximum-Length-of-Repeated-Subarray-DP" class="headerlink" title="718. Maximum Length of Repeated Subarray | DP"></a><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray" target="_blank" rel="external">718. Maximum Length of Repeated Subarray</a> | DP</h5><p>double for loop</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (A[i<span class="number">-1</span>] == B[j<span class="number">-1</span>])&#123;</span><br><span class="line">    dp[i][j] = <span class="number">1</span> + dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">    update max;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Space improvement</span></span><br><span class="line"><span class="comment">// Since we need f[i-1][j-1], we have to update from right</span></span><br><span class="line">    	<span class="keyword">if</span> (n &gt; m)</span><br><span class="line">    		return findLength(B,A);</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(n+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> j = n; j &gt;= <span class="number">1</span>; --j)</span><br><span class="line">    			<span class="keyword">if</span> (A[i<span class="number">-1</span>] == B[j<span class="number">-1</span>])&#123;</span><br><span class="line">    				dp[j] = <span class="number">1</span>+dp[j<span class="number">-1</span>];</span><br><span class="line">    				res = max(res, dp[j]);</span><br><span class="line">    			&#125;</span><br><span class="line">    			<span class="keyword">else</span></span><br><span class="line">    				dp[j] = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="Bloomberg-高频题-航班规划-Greedy"><a href="#Bloomberg-高频题-航班规划-Greedy" class="headerlink" title=" Bloomberg 高频题 | 航班规划 | Greedy"></a><a href="http://algorithms.tutorialhorizon.com/dynamic-programming-longest-common-substring" target="_blank" rel="external"> Bloomberg 高频题 | 航班规划</a> | Greedy</h5><blockquote>
+<p>给你一堆人从纽约飞各个地方开会的 cost。比如<br>A 去 城市SF, LA的 cost 分别是 200, 300<br>B 去城市SF, LA的 cost 分别是 200, 400<br>C 去城市SF, LA的 cost 分别是 100, 400<br>D 去城市SF, LA的 cost 分别是 320, 210<br>然后保证一半的人去 SF，一半的人去 LA，使得总的 cost 最小</p>
+</blockquote>
+<ol>
+<li><p>Represent the Input: Two Dimensional Array / Matrix</p>
+</li>
+<li><p>Greedy =&gt; number not equal<br>if constSF&gt;constLA, numLA++<br>else if constLA&gt;constSF, numSF++<br>else numSame++ // Equal cost</p>
+</li>
+<li><p>Switch smallest difference</p>
+</li>
+<li><p>Check Legal</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (arr = <span class="keyword">null</span> || arr.length == <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line"><span class="keyword">if</span> (m%<span class="number">2</span> != <span class="number">0</span>)</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br></pre></td></tr></table></figure>
+<p>Or use <code>Guava: Preconditions.checkArgument</code></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/26/X6-DP-Knapsack/" itemprop="url">
                   X6_DP & Knapsack
                 </a>
@@ -2375,198 +2613,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/02/10/X3-Binary-Search/" itemprop="url">
-                  X3_Binary Search
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-02-10T22:56:06-08:00" content="2018-02-10">
-              2018-02-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Program/" itemprop="url" rel="index">
-                    <span itemprop="name">Program</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/02/10/X3-Binary-Search/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/10/X3-Binary-Search/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2018/02/10/X3-Binary-Search/" class="leancloud_visitors" data-flag-title="X3_Binary Search">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Binary-Tree-Level-Order-Traversal"><a href="#Binary-Tree-Level-Order-Traversal" class="headerlink" title="Binary Tree Level Order Traversal"></a>Binary Tree Level Order Traversal</h4><p>test case:cover different + corner case</p>
-<ol>
-<li>only left/right child</li>
-<li>full tree</li>
-<li>left child, right child, left child, right child…</li>
-</ol>
-<p>Follow Up: output the level to level reversely from bottom to up</p>
-<ol>
-<li>reverse funtion</li>
-<li>add from front</li>
-</ol>
-<h4 id="Intersection-of-Two-Arrays"><a href="#Intersection-of-Two-Arrays" class="headerlink" title="Intersection of Two Arrays"></a>Intersection of Two Arrays</h4><ol>
-<li>If non sort-&gt; Hashmap. Ues extra space. O(m+n)</li>
-<li>If sort-&gt; Two pointers. O(m+n)</li>
-<li>If no extra space / If n&gt;&gt;m, scan the smaller array and find it in larger one via binary search in -&gt; If already sort -&gt; O(m*logn)</li>
-</ol>
-<p>Intersection of k arrays? merge 的变种</p>
-<ol>
-<li>​</li>
-</ol>
-<h4 id="Dot-Production-FB"><a href="#Dot-Production-FB" class="headerlink" title="Dot Production (FB)"></a>Dot Production (FB)</h4><p>Conduct Dot Product of two large sparse Vectors</p>
-<ol>
-<li>find non-zero indexes</li>
-<li>intersection</li>
-<li>dot product</li>
-</ol>
-<h4 id="Find-K-th-Smallest-Pair-Distance"><a href="#Find-K-th-Smallest-Pair-Distance" class="headerlink" title="Find K-th Smallest Pair Distance"></a>Find K-th Smallest Pair Distance</h4><ol>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> hi = nums[num.length - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (lo &lt; hi)&#123;</span><br><span class="line">  <span class="keyword">int</span> mid = lo + ((hi - lo) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// count function = number of pairs with distance &lt;= guess</span></span><br><span class="line"><span class="keyword">if</span> (nums[right] - nums[left] &gt; guess)</span><br><span class="line">  <span class="keyword">continue</span>;</span><br><span class="line">count += right - left;</span><br></pre></td></tr></table></figure>
-<p>Runtime: <em>N</em>^2*logW</p>
-</li>
-<li><p>Optimization</p>
-<p>since there may be duplicate -&gt; </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">right = upperBound(nums, left+<span class="number">1</span>, n-<span class="number">1</span>, target);</span><br><span class="line">count += right - left -<span class="number">1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Optimization II</p>
-<p>Use Map<integer, integer=""> to memorize</integer,></p>
-<p>Binary Search -&gt; N <em>log</em>N * <em>log</em>W</p>
-</li>
-</ol>
-<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><h5 id="410-Split-Array-Largest-Sum"><a href="#410-Split-Array-Largest-Sum" class="headerlink" title="410. Split Array Largest Sum"></a><a href="https://leetcode.com/problems/split-array-largest-sum/description/" target="_blank" rel="external">410. Split Array Largest Sum</a></h5><h5 id="Copy-Books-The-Painter’s-Partition-Problem-Part-II"><a href="#Copy-Books-The-Painter’s-Partition-Problem-Part-II" class="headerlink" title="Copy Books, The Painter’s Partition Problem Part II"></a>Copy Books, <a href="http://articles.leetcode.com/2011/04/the-painters-partition-problem-part-ii.html" target="_blank" rel="external">The Painter’s Partition Problem Part II</a></h5><h5 id="expire-map"><a href="#expire-map" class="headerlink" title="expire map"></a>expire map</h5><p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java</a></p>
-<p>cannot remove element while using for loop, but can use interator</p>
-<p><a href="https://stackoverflow.com/questions/6092642/how-to-remove-a-key-from-hashmap-while-iterating-over-it" target="_blank" rel="external">https://stackoverflow.com/questions/6092642/how-to-remove-a-key-from-hashmap-while-iterating-over-it</a></p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExpiringKey</span> <span class="title">implement</span> <span class="title">Comparable</span>&lt;<span class="title">ExpiringKey</span>&gt; </span>&#123;</span><br><span class="line">        V val;</span><br><span class="line">        <span class="keyword">long</span> expirationTime; <span class="comment">// ttl</span></span><br><span class="line">        K k;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ExpringMap</span> </span>&#123;</span><br><span class="line">        Map&lt;K, ExpiringKey&gt; m = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="function">PriorityQueue q</span><br><span class="line">        </span><br><span class="line">        V <span class="title">get</span><span class="params">(Key k)</span> </span>&#123;</span><br><span class="line">            ExpiringKey v = <span class="keyword">this</span>.m.get(k);</span><br><span class="line">            <span class="keyword">if</span> (v == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (v.expirationTime &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">                m.remove(k);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> v.val;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(Key k, V val, <span class="keyword">long</span> expirationTime)</span> </span>&#123;</span><br><span class="line">            ExpiringKey expiringKey = <span class="keyword">new</span> ExpiringKey(val, expirationTime);</span><br><span class="line">            <span class="keyword">this</span>.m.put(k, expiringKey);</span><br><span class="line">            <span class="keyword">this</span>.q.add(expiringKey); <span class="comment">// log(k)</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">cleanup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// q.poll() log(k)</span></span><br><span class="line">            List&lt;K&gt; keys = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (ExpiringKey entry : <span class="keyword">this</span>.m.entrySet()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (entry.getValue().expirationTime &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">                    keys.add(entry.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (K key : keys) <span class="comment">// delete</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// PriorityQueue&lt;&gt;()   minHeap</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>optimization: use PriorityQueue</p>
-<h4 id="Trick"><a href="#Trick" class="headerlink" title="Trick"></a>Trick</h4><ol>
-<li><p>search</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// search in java, return index</span></span><br><span class="line"><span class="keyword">if</span> (index&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">  set.add(num);</span><br><span class="line">  l = index;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  index = -(index+<span class="number">1</span>); <span class="comment">//next one who is larger than it</span></span><br><span class="line">  <span class="keyword">if</span> (index &gt;= r)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  l = index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Difference between &gt;&gt;&gt; and &gt;&gt;</p>
-<p><code>&gt;&gt;&gt;</code>  is unsigned</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2612,7 +2658,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
