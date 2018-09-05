@@ -291,6 +291,178 @@
             
               
                 
+                <a class="post-title-link" href="/2018/09/05/Summer-Lec-4-5/" itemprop="url">
+                  Summer Lec 4-5
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-09-05T09:36:38-07:00" content="2018-09-05">
+              2018-09-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Program/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/09/05/Summer-Lec-4-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/05/Summer-Lec-4-5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/09/05/Summer-Lec-4-5/" class="leancloud_visitors" data-flag-title="Summer Lec 4-5">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Summer-Lec-4-Special-Data-Structures"><a href="#Summer-Lec-4-Special-Data-Structures" class="headerlink" title="Summer Lec 4: Special Data Structures"></a>Summer Lec 4: Special Data Structures</h3><h4 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h4><h5 id="Flatten-2D-Vector"><a href="#Flatten-2D-Vector" class="headerlink" title="Flatten 2D Vector"></a><a href="https://leetcode.com/problems/flatten-2d-vector" target="_blank" rel="external">Flatten 2D Vector</a></h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Vector2D &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; vec2d;</span><br><span class="line">    <span class="keyword">int</span> rowIdx = <span class="number">0</span>, colIdx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Vector2D(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; vec2d) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;vec2d = vec2d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span><br><span class="line">    OR </span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt;::iterator i, iEnd;</span><br><span class="line">    vector&lt;int&gt;::iterator j;</span><br><span class="line">    Vector2D(vector&lt;vector&lt;int&gt;&gt;&amp; vec2d) &#123;</span><br><span class="line">        i = vec2d.begin();</span><br><span class="line">        iEnd = vec2d.end();</span><br><span class="line">    &#125;</span><br><span class="line">    */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!hasNext())</span><br><span class="line">            return <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            return vec2d[rowIdx][colIdx++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (rowIdx &lt; vec2d.size()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (colIdx &lt; vec2d[rowIdx].size())</span><br><span class="line">                return <span class="literal">true</span>;</span><br><span class="line">            colIdx = <span class="number">0</span>;</span><br><span class="line">            ++rowIdx;</span><br><span class="line">        &#125;</span><br><span class="line">        return <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Your Vector2D object will be instantiated and called as such:</span><br><span class="line"> * Vector2D i(vec2d);</span><br><span class="line"> * while (i.hasNext()) cout &lt;&lt; i.next();</span><br><span class="line"> */</span></span><br></pre></td></tr></table></figure>
+<h6 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow up"></a>Follow up</h6><p>Java: </p>
+<p>runtiome Exception/unchecked, eg. <code>throw new NoSuchElementException()</code></p>
+<p>checked Exception -&gt; catch or declare</p>
+<p>Uber interview, <strong>Implement Token Bucket</strong>. eg.sleep throws InterruptedException</p>
+<p>remove()</p>
+<h6 id="Iterator-Design-Pattern-in-Java"><a href="#Iterator-Design-Pattern-in-Java" class="headerlink" title="Iterator Design Pattern in Java"></a>Iterator Design Pattern in Java</h6><p>implement next(), hasNext(), remove()</p>
+<p>good for <strong>Lazy Loading</strong>: File I/O, DAO, Big Data</p>
+<h5 id="pancake-sort"><a href="#pancake-sort" class="headerlink" title="pancake sort"></a>pancake sort</h5><h5 id="Max-Chunks-To-Make-Sorted-Max-Chunks-To-Make-Sorted-II"><a href="#Max-Chunks-To-Make-Sorted-Max-Chunks-To-Make-Sorted-II" class="headerlink" title="Max Chunks To Make Sorted, Max Chunks To Make Sorted II"></a><a href="https://leetcode.com/problems/max-chunks-to-make-sorted" target="_blank" rel="external">Max Chunks To Make Sorted</a>, <a href="https://leetcode.com/problems/max-chunks-to-make-sorted-ii" target="_blank" rel="external">Max Chunks To Make Sorted II</a></h5><h6 id="shallow-copy-deep-copy"><a href="#shallow-copy-deep-copy" class="headerlink" title="shallow copy / deep copy"></a>shallow copy / deep copy</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sol 2</span></span><br><span class="line">        <span class="comment">// find (0..n)max/(n..0)min, if at this position, max &lt;= min -&gt;add chunk</span></span><br><span class="line">        <span class="comment">// max &lt; min -&gt;must add chunk, max == min-&gt;can add</span></span><br><span class="line">        <span class="comment">// a0[p0]a1[p1]a2...[pn-2]pn-1</span></span><br><span class="line">        <span class="keyword">int</span> n = arr.size(), res = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; maxN(n), minN(n);</span><br><span class="line">        <span class="keyword">int</span> maxn = maxN[<span class="number">0</span>] = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> minn = minN[n<span class="number">-2</span>] = arr[n<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n<span class="number">-1</span>; ++i)</span><br><span class="line">            maxN[i] = maxn = max(maxn, arr[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n<span class="number">-3</span>; i &gt;= <span class="number">0</span>; --i)</span><br><span class="line">            minN[i] = minn = min(minn, arr[i+<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; ++i)</span><br><span class="line">            <span class="keyword">if</span> (maxN[i]&lt;=minN[i])</span><br><span class="line">                ++res;</span><br></pre></td></tr></table></figure>
+<h5 id="76-Minimum-Window-Substring"><a href="#76-Minimum-Window-Substring" class="headerlink" title="76. Minimum Window Substring"></a><a href="https://leetcode.com/problems/minimum-window-substring/description/" target="_blank" rel="external">76. Minimum Window Substring</a></h5><h5 id="380-Insert-Delete-GetRandom-O-1-381-Insert-Delete-GetRandom-O-1-Duplicates-allowed"><a href="#380-Insert-Delete-GetRandom-O-1-381-Insert-Delete-GetRandom-O-1-Duplicates-allowed" class="headerlink" title="380. Insert Delete GetRandom O(1), 381. Insert Delete GetRandom O(1) - Duplicates allowed"></a><a href="https://leetcode.com/problems/insert-delete-getrandom-o1" target="_blank" rel="external">380. Insert Delete GetRandom O(1)</a>, <a href="https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed" target="_blank" rel="external">381. Insert Delete GetRandom O(1) - Duplicates allowed</a></h5><p>Load Balancer: Randomly choose a server. Runder Robin</p>
+<p>Array: O(1) getRandom</p>
+<p>HashMap: O(1) insert and remove</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; <span class="built_in">map</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; nums; <span class="comment">//&lt;num,map-idx&gt;</span></span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">map</span>; <span class="comment">//num, nums-idxs</span></span><br></pre></td></tr></table></figure>
+<h3 id="Summer-Lec-5-DP-amp-Airbnb"><a href="#Summer-Lec-5-DP-amp-Airbnb" class="headerlink" title="Summer Lec 5: DP &amp; Airbnb"></a>Summer Lec 5: DP &amp; Airbnb</h3><h4 id="Dynamic-programming"><a href="#Dynamic-programming" class="headerlink" title="Dynamic programming"></a>Dynamic programming</h4><ol>
+<li>Deduction formula</li>
+<li>Initialization</li>
+<li>Space improvement</li>
+</ol>
+<h4 id="problem-1"><a href="#problem-1" class="headerlink" title="problem"></a>problem</h4><h5 id="Edit-Distance"><a href="#Edit-Distance" class="headerlink" title="Edit Distance"></a><a href="https://leetcode.com/problems/edit-distance" target="_blank" rel="external">Edit Distance</a></h5><p>#####Airbnb interview questions</p>
+<ul>
+<li><p><a href="http://www.lintcode.com/en/problem/k-edit-distance/" target="_blank" rel="external">K Edit Distance</a>, <a href="https://quip.com/-/blob/XBPAAAT9D5M/l8NmDpf077cF-xqkUCxyiA?s=E7FmAsFC3F2S&amp;name=KEditDistance.java" target="_blank" rel="external">KEditDistance.java</a>: Trie + DP </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> TrieNode&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">vector</span>&lt;TrieNode*&gt; child;</span><br><span class="line">	<span class="keyword">bool</span> isEnd;</span><br><span class="line">	<span class="built_in">string</span> word;</span><br><span class="line">	TrieNode()&#123;</span><br><span class="line">		child.resize(<span class="number">26</span>);</span><br><span class="line">		isEnd = <span class="literal">false</span>;</span><br><span class="line">		word = <span class="string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	~TrieNode()&#123;</span><br><span class="line">		<span class="keyword">for</span> (TrieNode *p : child)</span><br><span class="line">			<span class="keyword">if</span> (p)</span><br><span class="line">				<span class="keyword">delete</span> p;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span>&amp; word, TrieNode* root)</span></span>&#123;</span><br><span class="line">		TrieNode* cur = root;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">char</span> c:word)&#123;</span><br><span class="line">			<span class="keyword">int</span> i = c - <span class="string">'a'</span>;</span><br><span class="line">            <span class="keyword">if</span> (cur-&gt;child[i] == <span class="literal">NULL</span>) </span><br><span class="line">                cur-&gt;child[i] = new TrieNode();</span><br><span class="line">            cur = cur-&gt;child[i];</span><br><span class="line">		&#125;</span><br><span class="line">		cur-&gt;isEnd = <span class="literal">true</span>;</span><br><span class="line">		cur-&gt;word = word;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TrieNode* cur, <span class="built_in">string</span>&amp; target, <span class="keyword">int</span> k, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; dp, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; res)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> l = target.length();</span><br><span class="line">		<span class="keyword">if</span> (cur-&gt;isEnd &amp;&amp; dp[l] &lt;= k)</span><br><span class="line">			res.push_back(cur-&gt;word);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nextdp(l+<span class="number">1</span>);</span><br><span class="line">		nextdp[<span class="number">0</span>] = dp[<span class="number">0</span>]+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">			<span class="keyword">if</span> (cur-&gt;child[i])&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= l; ++j)</span><br><span class="line">				    <span class="comment">//nextdp[j]: target j-1 ~ trie with c</span></span><br><span class="line">					<span class="keyword">if</span> (target[j<span class="number">-1</span>]-<span class="string">'a'</span> == i)</span><br><span class="line">				        <span class="comment">//dp[j-1]: taret j-2 ~ trie without c</span></span><br><span class="line">						nextdp[j] = dp[j<span class="number">-1</span>];</span><br><span class="line">					<span class="keyword">else</span></span><br><span class="line">					    <span class="comment">//taret j-2 ~ trie without c ; j-1 ~ without c, j-2 ~ with c</span></span><br><span class="line">					    <span class="comment">//add c; replace one letter, convert c ~ target[j-1]; add target[j-1]</span></span><br><span class="line">					    nextdp[j] = min(min(dp[j<span class="number">-1</span>],dp[j]),nextdp[j<span class="number">-1</span>])+<span class="number">1</span>;</span><br><span class="line">				dfs(cur-&gt;child[i], target, k, nextdp, res);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @param words: a set of stirngs</span><br><span class="line">     * @param target: a target string</span><br><span class="line">     * @param k: An integer</span><br><span class="line">     * @return: output all the strings that meet the requirements</span><br><span class="line">     */</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; kDistance(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp;words, <span class="built_in">string</span> &amp;target, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        TrieNode* root = new TrieNode();</span><br><span class="line">		<span class="keyword">int</span> l = target.length();</span><br><span class="line">		<span class="keyword">for</span> (<span class="built_in">string</span>&amp; word:words)&#123;</span><br><span class="line">			<span class="comment">//prune</span></span><br><span class="line">			<span class="comment">//if (word.length() &lt;= l+k &amp;&amp; word.length() &gt;= l-k)</span></span><br><span class="line">				insert(word,root);</span><br><span class="line">		    </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(l+<span class="number">1</span>);</span><br><span class="line">		iota(dp.begin(),dp.end(),<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">        dfs(root, target, k, dp, res);</span><br><span class="line">		<span class="keyword">delete</span> root;</span><br><span class="line">		return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p><a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/description/" target="_blank" rel="external">Cheapest Flights within K Stops</a>, <a href="https://quip.com/-/blob/XBPAAAT9D5M/9QjX6vRnAXNi0rjqzNHuMQ?s=E7FmAsFC3F2S&amp;name=CheapestFlightsWithinKStops.java" target="_blank" rel="external">CheapestFlightsWithinKStops.java</a></p>
+<ul>
+<li>Follow up: output the route</li>
+</ul>
+</li>
+</ul>
+<h5 id="221-Maximal-Square"><a href="#221-Maximal-Square" class="headerlink" title="221. Maximal Square"></a><a href="https://leetcode.com/problems/maximal-square" target="_blank" rel="external">221. Maximal Square</a></h5><p><img src="https://raw.githubusercontent.com/yuzhoujr/spazzatura/master/img_box/221.jpeg" alt="DP"></p>
+<h5 id="85-Maximal-Rectangle-764-Largest-Plus-Sign"><a href="#85-Maximal-Rectangle-764-Largest-Plus-Sign" class="headerlink" title="85. Maximal Rectangle, 764. Largest Plus Sign"></a><a href="https://leetcode.com/problems/maximal-rectangle/description/" target="_blank" rel="external">85. Maximal Rectangle</a>, <a href="https://leetcode.com/problems/largest-plus-sign/description/" target="_blank" rel="external">764. Largest Plus Sign</a></h5><h4 id="stack-string-Basic-Calculator"><a href="#stack-string-Basic-Calculator" class="headerlink" title="stack/string : Basic Calculator"></a>stack/string : Basic Calculator</h4><h5 id="224-Basic-Calculator-227-Basic-Calculator-II"><a href="#224-Basic-Calculator-227-Basic-Calculator-II" class="headerlink" title="224. Basic Calculator, 227. Basic Calculator II"></a><a href="https://leetcode.com/problems/basic-calculator/description/" target="_blank" rel="external">224. Basic Calculator</a>, <a href="https://leetcode.com/problems/basic-calculator-ii/description/" target="_blank" rel="external">227. Basic Calculator II</a></h5><h5 id="772-Basic-Calculator-III"><a href="#772-Basic-Calculator-III" class="headerlink" title="772. Basic Calculator III"></a><a href="https://leetcode.com/problems/basic-calculator-iii/description/" target="_blank" rel="external">772. Basic Calculator III</a></h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//res pre op num/() ch</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">calculate</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        s = <span class="string">"+("</span>+s+<span class="string">")++"</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stRes;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stPre; <span class="comment">//pre num</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stOp;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>, pre = <span class="number">0</span>, num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> op = <span class="string">'+'</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> ch : s)&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isdigit</span>(ch))</span><br><span class="line">                num = num*<span class="number">10</span> + ch-<span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (ch!=<span class="string">' '</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">'('</span>)&#123;</span><br><span class="line">                    stRes.push(res), res = <span class="number">0</span>;</span><br><span class="line">                    stPre.push(pre), pre = <span class="number">0</span>;</span><br><span class="line">                    stOp.push(op), op = <span class="string">'+'</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (ch ==<span class="string">')'</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (op==<span class="string">'+'</span> || op==<span class="string">'-'</span>)</span><br><span class="line">                        num = res + pre + (<span class="string">','</span>-op)*num;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">'*'</span>)</span><br><span class="line">                        num = res + pre*num;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">'/'</span>)</span><br><span class="line">                        num = res + pre/num;</span><br><span class="line">                    res = stRes.top(), stRes.pop();</span><br><span class="line">                    pre = stPre.top(), stPre.pop();</span><br><span class="line">                    op = stOp.top(), stOp.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (op==<span class="string">'+'</span> || op ==<span class="string">'-'</span>)&#123;</span><br><span class="line">                        res += pre;</span><br><span class="line">                        pre = (<span class="string">','</span>-op)*num;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">'*'</span>)</span><br><span class="line">                        pre *= num;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (op==<span class="string">'/'</span>)</span><br><span class="line">                        pre /= num;</span><br><span class="line"></span><br><span class="line">                    op = ch;</span><br><span class="line">                    num = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//cout &lt;&lt; res &lt;&lt;","&lt;&lt; pre &lt;&lt;","&lt;&lt; num &lt;&lt;","&lt;&lt; op &lt;&lt;endl;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="770-Basic-Calculator-IV-undo"><a href="#770-Basic-Calculator-IV-undo" class="headerlink" title="770. Basic Calculator IV - undo"></a><a href="https://leetcode.com/problems/basic-calculator-iv/description/" target="_blank" rel="external">770. Basic Calculator IV</a> - undo</h5>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/08/31/Summer-Lec-1-3/" itemprop="url">
                   Summer Lec 1-3
                 </a>
@@ -2514,211 +2686,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/06/System-Design-I/" itemprop="url">
-                  System Design I
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-03-06T21:10:16-08:00" content="2018-03-06">
-              2018-03-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/System-Design/" itemprop="url" rel="index">
-                    <span itemprop="name">System Design</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/03/06/System-Design-I/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/06/System-Design-I/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2018/03/06/System-Design-I/" class="leancloud_visitors" data-flag-title="System Design I">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="System-Design-I"><a href="#System-Design-I" class="headerlink" title="System Design I"></a>System Design I</h4><ul>
-<li><a href="http://www.hiredintech.com/system-design/" target="_blank" rel="external">reference</a></li>
-</ul>
-<p>eg. Design a url shortening service, like bit.ly</p>
-<h5 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h5><ul>
-<li><p>Step 1: [<strong>Scope</strong> the problem]</p>
-<ul>
-<li><p>Use Cases </p>
-<ol>
-<li>Shortening: take a url =&gt; return a shorter url</li>
-<li>Redirection: take a short url =&gt; redirect to the original url</li>
-<li>Custom url: allow users to pick their available shortened URL</li>
-<li><p>High availability of the system</p>
-<p>Others:</p>
-</li>
-<li><p>Analytics: to look at usage statistics </p>
-</li>
-<li>Automatic link expiration: automatically expire link or stay alive forever </li>
-<li>Manual link removal: the user wants to remove the link</li>
-<li>UI vs API: design a web service or a website, or a URL shortening API</li>
-</ol>
-</li>
-<li><p>Constraints</p>
-<ul>
-<li>the amount of traffic &amp; data: how many the requests a mouth should handle and how many new URLs per month should the site handle =&gt; per second</li>
-<li>approcimation eg. active users: Facebook, 1.3billion; Twitter, 650 million, new tweets made per day, 500 million</li>
-</ul>
-<ol>
-<li><p>=&gt; 1.5BN new tweets =&gt; All shortened URL per month 1.5BN =&gt; Site below the top 3: shorten 300M per monty =&gt; We: 100M new urls per month</p>
-</li>
-<li><p>assume average lifetime: 1-2 weeks ~ 10 days</p>
-<p>&amp; assume 1 click per day,</p>
-<p>&amp;  20% got much more traffic than the rest 80% =&gt; 100 mln <em> 10 days </em> 1 click per day = 1 BN requests per month =&gt; 400+ requests per second</p>
-</li>
-<li><p>10% from shortening, 90% from redirection =&gt; 40 shortens, 360 redirections</p>
-</li>
-<li><p>Total urls: 5 years X 12 months X 100M = 6 BN url </p>
-</li>
-<li><p>500 bytes per URL =&gt; total storage of urls over 5 yrs: 6BN  X 500 bytes = 3TB</p>
-</li>
-<li><p>log(62,6BN) =&gt; 6 bytes per hash =&gt; hases: 6BN X 6 bytes = 36GB</p>
-</li>
-<li><p>New data written per second: 40 X (500+6) = 12K</p>
-</li>
-<li><p>Data read per second: 360 X (500+6) = 180K </p>
-</li>
-</ol>
-<p>=&gt; <a href="https://raw.githubusercontent.com/antonrd/hiredintech_files/master/system_design/digram_url_shortening.jpg" target="_blank" rel="external">pic</a></p>
-</li>
-</ul>
-</li>
-<li><p>Step 2: [Sketch up an] <strong>Abstract design</strong></p>
-<p>sketch the important components and the connections between them</p>
-<ol>
-<li>Aplication Design<ol>
-<li>Shortening service: generate on your hash; check if it’s in the datastore, not -&gt; store a new mapping, or -&gt; generate new hash …</li>
-<li>Redirection service:</li>
-<li>Custom URL: take a hash from user, check if it’s a shorten URL word, check if it’s in the datastore, not -&gt; store, or -&gt; return a message</li>
-</ol>
-</li>
-<li>Data storage layer (keep track of the hash =&gt; url mappings)<ol>
-<li>Acts like a hash table: stores new mappings and retrieve a value given a key</li>
-</ol>
-</li>
-</ol>
-<p>hashed_url = convert_to_base62(md5(original_url + random_salt))[:6]</p>
-</li>
-<li><p>Step 3: [Think about the] <strong>bottlenecks</strong></p>
-<p>eg. Perhaps your system needs a load balancer and many machines behind it to handle the user requests. Or maybe the data is so huge that you need to distribute your database on multiple machines. What are some of the downsides that occur from doing that? Is the database too slow and does it need some in-memory caching?</p>
-<ol>
-<li>traffic: not very challenging since it’s lightweight; think how we quickly look up URL</li>
-<li>lots of data</li>
-</ol>
-</li>
-<li><p>Step 4: [Address these bottlenecks by  using the fundamentals principles of <strong>scalable system design</strong>] Scaling your abstract design</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2764,7 +2731,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
