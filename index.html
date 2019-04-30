@@ -400,8 +400,8 @@
 <p><strong>Loss Function</strong></p>
 <p>$$\mathcal {L} <em> {p}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1} \sum </em> l \Vert \phi <em> l(O </em> t^{(i)})- \phi <em> l(P </em> t^{(i)})\Vert _ 1$$</p>
 <p>$$\mathcal {L} <em> {st}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1}M </em> {t \Rightarrow {}t-1}^{(i)} \Vert O <em> t^{(i)}- \hat {O} </em> {t-1}^{(i)}\Vert _ 1$$</p>
-<p>$$\mathcal{L}<em>{lt}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{1}^{(i)}\Vert_1$$</p>
-<p>$$\mathcal{L}=\lambda_p\mathcal{L}<em>p + \lambda</em>{st}\mathcal{L}<em>{st}+\lambda</em>{lt}\mathcal{L}_{lt}$$</p>
+<p>$$ \mathcal {L} <em> {lt}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1}M </em> {t \Rightarrow {}t-1}^{(i)} \Vert O <em> t^{(i)}- \hat {O} </em> {1}^{(i)} \Vert _ 1$$</p>
+<p>$$ \mathcal {L}= \lambda <em> p \mathcal {L} </em> p + \lambda <em> {st} \mathcal {L} </em> {st}+ \lambda <em> {lt} \mathcal {L} </em> {lt}$$</p>
 <p>Notations: $l$ denotes layers, and $\phi_l$ is the activation of the layer $l$. T is the number of frames in the batch, N is the total number of pixels. </p>
 <p>VGG loss was used to make sure that the quality of the image corresponds well to human perception. </p>
 <p>Short term loss minimize the pixel-by-pixel L-1 loss between two consecutive inputs, making them consistent. The input here are the previous frame that was warped by the pre-trained FlowNet, which will guide the image transformation network learn the transformation of current frame being processed. </p>
@@ -3173,6 +3173,26 @@
   </script>
 
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   
 
@@ -3267,7 +3287,7 @@
     });
   </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
 
 <script type="text/x-mathjax-config">
@@ -3279,7 +3299,7 @@
   });
 </script>
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
