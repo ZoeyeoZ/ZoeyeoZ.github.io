@@ -99,7 +99,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T23:49:16.248Z">
+<meta property="og:updated_time" content="2019-04-30T23:51:32.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -385,7 +385,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <p>It is a pity to watch old classic movies are being forgotten by people due to limited shooting technology and the relatively boring black-and-white presentations. Therefore, we decided to make those films more enjoyable by filling them with vivid colors by virtue of existing colorization networks, and creating an animated cartoon version thanks to style-transfer techniques. However, existing colorization and animation networks work on independent images. In order to make the final output video smooth and well displayed, we added another image transfer network with a ConvLSTM layer to increase the consistency of the video through short-term and long-term temporal loss between consecutive frames. Training the animation network with different artist’s style, our work can render any black-and-white film with realistic and colorization and cartoon style in specific art style.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556586599183_Group.png" alt=""></p>
 <h1>Previous Works</h1>
-<p>DeOldify is a deep learning based model, which presents an approach for colorization, espeically for photos taken with old/bad equipment. It is inspired and a combination of Self-Attention Generative Adversarial Network<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, Progressive Growing of GANs[#Karras:2017], Two Time-Scale Update Rule[#Heusel:2017].</p>
+<p>DeOldify is a deep learning based model, which presents an approach for colorization, espeically for photos taken with old/bad equipment. It is inspired and a combination of Self-Attention Generative Adversarial Network<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, Progressive Growing of GANs<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>, Two Time-Scale Update Rule<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>.</p>
 <p>ConvLSTM, based on a deep recurrent network, proposes a solution to enforcing temporal consistency in a video after image processing algorithms applied. In this work, they minimize the temporal loss(short-term loss and long-term loss) for temporal stability and a perceptual loss for perceptual similarity.</p>
 <p>CartoonGAN[#Chen:2018] works on transforming real-world photos into cartoon style images with two novel losses: semantic content loss for style variation and the edge-promoting adversarial loss for preserving clear edges.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606755019_1.png" alt="CartoonGAN architecture"></p>
@@ -431,7 +431,6 @@ To stabilize the video, we need to make the color and the tone between consecuti
 <p>It is difficult to quantify the quality of synthesized images, especially cartoons and videos. Here, we used the warping metric[#Lai:2018] to measure the temporal stability on the output videos.<br>
 The metric is based on the flow warping error between two frames,</p>
 <p>$$E _ {warp(V _ t, V _ {t+1})} = \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2$$</p>
-<p>$$E _ {warp(V _ t,V _ {t+1})} = \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2 \over \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} $$</p>
 <p>where $\hat{V_{t+1}}$ is the warped frame $V_{t+1}$ and $M_t \in {0, 1}$ is a non-occlusion mask indicating non-occluded regions, which is based the occlusion detection method in[#Xingjian:2015].<br>
 The average warping error over the entire sequence is calculated as:</p>
 <p>$$E _ {warp(V)} = \frac {1}{T-1} \sum ^{T-1} _ {t=1} E _ {warp(V _ t, V _ {t+1})}$$</p>
@@ -518,6 +517,10 @@ The average warping error over the entire sequence is calculated as:</p>
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>[#Zhang:2018]: Han Zhang et al. “Self-Attention Generative Adversarial Networks”. In: arXiv e-prints, arXiv:1805.08318 (May 2018), arXiv:1805.08318. arXiv: 1805.08318 [<a href="http://stat.ML" target="_blank" rel="external">stat.ML</a>]. <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>[#Karras:2017]: Karras, Tero, Timo Aila, Samuli Laine, and Jaakko Lehtinen. “Progressive growing of gans for improved quality, stability, and variation.” <em>arXiv preprint arXiv:1710.10196</em> (2017). <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>[#Heusel:2017]: Heusel, Martin, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, Günter Klambauer, and Sepp Hochreiter. “Gans trained by a two time-scale update rule converge to a nash equilibrium.” <em>arXiv preprint arXiv:1706.08500</em> 12, no. 1 (2017). <a href="#fnref3" class="footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>
