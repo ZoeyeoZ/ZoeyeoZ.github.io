@@ -99,7 +99,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T23:46:06.258Z">
+<meta property="og:updated_time" content="2019-04-30T23:47:29.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -385,7 +385,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <p>It is a pity to watch old classic movies are being forgotten by people due to limited shooting technology and the relatively boring black-and-white presentations. Therefore, we decided to make those films more enjoyable by filling them with vivid colors by virtue of existing colorization networks, and creating an animated cartoon version thanks to style-transfer techniques. However, existing colorization and animation networks work on independent images. In order to make the final output video smooth and well displayed, we added another image transfer network with a ConvLSTM layer to increase the consistency of the video through short-term and long-term temporal loss between consecutive frames. Training the animation network with different artist’s style, our work can render any black-and-white film with realistic and colorization and cartoon style in specific art style.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556586599183_Group.png" alt=""></p>
 <h1>Previous Works</h1>
-<p>DeOldify is a deep learning based model, which presents an approach for colorization, espeically for photos taken with old/bad equipment. It is inspired and a combination of Self-Attention Generative Adversarial Network[#Zhang:2018], Progressive Growing of GANs[#Karras:2017], Two Time-Scale Update Rule[#Heusel:2017].</p>
+<p>DeOldify is a deep learning based model, which presents an approach for colorization, espeically for photos taken with old/bad equipment. It is inspired and a combination of Self-Attention Generative Adversarial Network<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, Progressive Growing of GANs[#Karras:2017], Two Time-Scale Update Rule[#Heusel:2017].</p>
 <p>ConvLSTM, based on a deep recurrent network, proposes a solution to enforcing temporal consistency in a video after image processing algorithms applied. In this work, they minimize the temporal loss(short-term loss and long-term loss) for temporal stability and a perceptual loss for perceptual similarity.</p>
 <p>CartoonGAN[#Chen:2018] works on transforming real-world photos into cartoon style images with two novel losses: semantic content loss for style variation and the edge-promoting adversarial loss for preserving clear edges.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606755019_1.png" alt="CartoonGAN architecture"></p>
@@ -517,8 +517,11 @@ The average warping error over the entire sequence is calculated as:</p>
 <p>[#Canny:1986]: Canny, John. “A computational approach to edge detection.” In <em>Readings in computer vision</em>, pp. 184-203. Morgan Kaufmann, 1987.<br>
 [#Chen:2018]: Yang Chen, Yu-Kun Lai, and Yong-Jin Liu. “CartoonGAN: Generative Adversarial Networks for Photo Cartoonization”. In: 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition (2018), pp. 9465– 9474.<br>
 [#Lai:2018]: Wei-Sheng Lai et al. “Learning Blind Video Temporal Consistency”. In: CoRR abs/1808.00449 (2018). arXiv: 1808.00449. url: <a href="http://arxiv.org/abs/1808" target="_blank" rel="external">http://arxiv.org/abs/1808</a>. 00449.<br>
-[#Ronneberger:2015]: Olaf Ronneberger, Philipp Fischer, and Thomas Brox. “U-Net: Convolutional Networks for Biomedical Image Segmentation”. In: CoRR abs/1505.04597 (2015). arXiv: 1505.04597. url: <a href="http://arxiv.org/abs/1505.04597" target="_blank" rel="external">http://arxiv.org/abs/1505.04597</a>.<br>
-[#Zhang:2018]: Han Zhang et al. “Self-Attention Generative Adversarial Networks”. In: arXiv e-prints, arXiv:1805.08318 (May 2018), arXiv:1805.08318. arXiv: 1805.08318 [<a href="http://stat.ML" target="_blank" rel="external">stat.ML</a>].<br>
+[#Ronneberger:2015]: Olaf Ronneberger, Philipp Fischer, and Thomas Brox. “U-Net: Convolutional Networks for Biomedical Image Segmentation”. In: CoRR abs/1505.04597 (2015). arXiv: 1505.04597. url: <a href="http://arxiv.org/abs/1505.04597" target="_blank" rel="external">http://arxiv.org/abs/1505.04597</a>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>[#Zhang:2018]: Han Zhang et al. “Self-Attention Generative Adversarial Networks”. In: arXiv e-prints, arXiv:1805.08318 (May 2018), arXiv:1805.08318. arXiv: 1805.08318 [<a href="http://stat.ML" target="_blank" rel="external">stat.ML</a>].<br>
 [#Karras:2017]: Karras, Tero, Timo Aila, Samuli Laine, and Jaakko Lehtinen. “Progressive growing of gans for improved quality, stability, and variation.” <em>arXiv preprint arXiv:1710.10196</em> (2017).<br>
 [#Heusel:2017]: Heusel, Martin, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, Günter Klambauer, and Sepp Hochreiter. “Gans trained by a two time-scale update rule converge to a nash equilibrium.” <em>arXiv preprint arXiv:1706.08500</em> 12, no. 1 (2017).<br>
 [#Johnson: 2016]: Johnson, Justin, Alexandre Alahi, and Li Fei-Fei. “Perceptual losses for real-time style transfer and super-resolution.” In <em>European conference on computer vision</em>, pp. 694-711. Springer, Cham, 2016.<br>
@@ -526,7 +529,10 @@ The average warping error over the entire sequence is calculated as:</p>
 [#Nguyen:2017]: Nguyen, Tu, Trung Le, Hung Vu, and Dinh Phung. “Dual discriminator generative adversarial nets.” In <em>Advances in Neural Information Processing Systems</em>, pp. 2670-2680. 2017.<br>
 [#Ruder:2018]: Ruder, Manuel, Alexey Dosovitskiy, and Thomas Brox. “Artistic style transfer for videos and spherical images.” <em>International Journal of Computer Vision</em> 126, no. 11 (2018): 1199-1219.<br>
 [#DAVIS-2017 dataset] <a href="https://davischallenge.org/index.html" target="_blank" rel="external">https://davischallenge.org/index.html</a><br>
-[#VIDEVO net] <a href="https://www.videvo.net" target="_blank" rel="external">https://www.videvo.net</a></p>
+[#VIDEVO net] <a href="https://www.videvo.net" target="_blank" rel="external">https://www.videvo.net</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
 
       
     </div>
