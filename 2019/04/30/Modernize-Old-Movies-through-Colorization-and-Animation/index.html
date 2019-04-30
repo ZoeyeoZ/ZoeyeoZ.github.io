@@ -97,7 +97,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T22:42:47.642Z">
+<meta property="og:updated_time" content="2019-04-30T22:59:56.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -405,10 +405,11 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <li>Calculate overall loss, and try to minimize this loss at every iterations.</li>
 </ul>
 <p><strong>Loss Function</strong></p>
-<p>$$\begin{equation}<br>    \mathcal{L}<em>{p}=\sum^{T}</em>{t=2}\sum^{N}_{i=1}\sum_l\Vert\phi_l(O_t^{(i)})-\phi_l(P_t^{(i)})\Vert_1<br>\end{equation}$$</p>
-<p>$$\begin{equation}<br>    \mathcal{L}<em>{st}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{t-1}^{(i)}\Vert_1<br>\end{equation}$$</p>
-<p>$$\begin{equation}<br>    \mathcal{L}<em>{lt}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{1}^{(i)}\Vert_1<br>\end{equation}$$</p>
-<p>$$\begin{equation}<br>    \mathcal{L}=\lambda_p\mathcal{L}<em>p + \lambda</em>{st}\mathcal{L}<em>{st}+\lambda</em>{lt}\mathcal{L}_{lt}<br>\end{equation}$$<br>Notations: $l$ denotes layers, and $\phi_l$ is the activation of the layer $l$. T is the number of frames in the batch, N is the total number of pixels. </p>
+<p>$$\mathcal {L} <em> {p}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1} \sum </em> l \Vert \phi <em> l(O </em> t^{(i)})- \phi <em> l(P </em> t^{(i)})\Vert _ 1$$</p>
+<p>$$\mathcal {L} <em> {st}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1}M </em> {t \Rightarrow {}t-1}^{(i)} \Vert O <em> t^{(i)}- \hat {O} </em> {t-1}^{(i)}\Vert _ 1$$</p>
+<p>$$\mathcal{L}<em>{lt}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{1}^{(i)}\Vert_1$$</p>
+<p>$$\mathcal{L}=\lambda_p\mathcal{L}<em>p + \lambda</em>{st}\mathcal{L}<em>{st}+\lambda</em>{lt}\mathcal{L}_{lt}$$</p>
+<p>Notations: $l$ denotes layers, and $\phi_l$ is the activation of the layer $l$. T is the number of frames in the batch, N is the total number of pixels. </p>
 <p>VGG loss was used to make sure that the quality of the image corresponds well to human perception. </p>
 <p>Short term loss minimize the pixel-by-pixel L-1 loss between two consecutive inputs, making them consistent. The input here are the previous frame that was warped by the pre-trained FlowNet, which will guide the image transformation network learn the transformation of current frame being processed. </p>
 <p>Long term loss sums up pair-wise distance of a sequence of frames in the current batch to the first image of the current batch, the distance is the same pixel-by-pixel L-1 loss as used in the short term loss. Memory and speed constrained the length of frames coherence we consider, but we can always decrease batch size to conform with the limits. </p>
