@@ -391,8 +391,8 @@
 <li>Sequential black-and-white frames, denoted as $I<em>1, …, I</em>{t-1}, I_{t}$ and frames colorized by pre-trained DeOldify model, denoted as $P<em>1, …, P</em>{t-1}, P_t$ are taken as inputs.</li>
 <li>Colorized frames: $P<em>1, …, P</em>{t-1}, P_t$, are passed through Image Transformation Network, which as a ConvLSTM inside. The network will a function $O_t = P_t + F(P(t))$ to generate the colorized, stabilized output frame, $O_t$.</li>
 <li>Meanwhile, $I<em>1, …, I</em>{t-1}, I_{t}$ are passed through a pre-trained FlowNet network, which will generate an optimal flow.</li>
-<li>The optimal flow will be taken, together with colorized frames: $P<em>1, …, P</em>{t-1}, P_t$, as inputs to the warping layer, which will generate frames $\hat{O}<em>1, … , \hat{O}</em>{t-1}, \hat{O}_t$, which will work as previous inputs in calculating LSTM loss. </li>
-<li>Parameter M, is computed, based on occlusion estimation, which takes  black-and-white frames, $I<em>1, …, I</em>{t-1}, I_{t}$ as inputs. This parameter controls the altitude of the consistency loss based on how different two sequential frames are(If two frames are really different, we will have a really small M, to guarantee long term and short term loss stay at a reasonable scale).</li>
+<li>The optimal flow will be taken, together with colorized frames: $P <em> 1, …, P </em> {t-1}, P <em> t$, as inputs to the warping layer, which will generate frames $ \hat {O} </em> 1, … , \hat {O} <em> {t-1}, \hat {O} </em> t$, which will work as previous inputs in calculating LSTM loss. </li>
+<li>Parameter M, is computed, based on occlusion estimation, which takes  black-and-white frames, $I <em> 1, …, I </em> {t-1}, I _ {t}$ as inputs. This parameter controls the altitude of the consistency loss based on how different two sequential frames are(If two frames are really different, we will have a really small M, to guarantee long term and short term loss stay at a reasonable scale).</li>
 <li>Calculate temporal loss based on short term loss function and long term loss function.</li>
 <li>Calculate VGG perceptual loss by passing through a VGG network.</li>
 <li>Calculate overall loss, and try to minimize this loss at every iterations.</li>
@@ -400,8 +400,8 @@
 <p><strong>Loss Function</strong></p>
 <p>$$\mathcal {L} <em> {p}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1} \sum </em> l \Vert \phi <em> l(O </em> t^{(i)})- \phi <em> l(P </em> t^{(i)})\Vert _ 1$$</p>
 <p>$$\mathcal {L} <em> {st}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1}M </em> {t \Rightarrow {}t-1}^{(i)} \Vert O <em> t^{(i)}- \hat {O} </em> {t-1}^{(i)}\Vert _ 1$$</p>
-<p>$$ \mathcal {L} <em> {lt}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1}M </em> {t \Rightarrow {}t-1}^{(i)} \Vert O <em> t^{(i)}- \hat {O} </em> {1}^{(i)} \Vert _ 1$$</p>
-<p>$$ \mathcal {L}= \lambda <em> p \mathcal {L} </em> p + \lambda <em> {st} \mathcal {L} </em> {st}+ \lambda <em> {lt} \mathcal {L} </em> {lt}$$</p>
+<p>$$\mathcal {L} <em> {lt}= \sum ^{T} </em> {t=2} \sum ^{N} <em> {i=1}M </em> {t \Rightarrow {}t-1}^{(i)} \Vert O <em> t^{(i)}- \hat {O} </em> {1}^{(i)} \Vert _ 1$$</p>
+<p>$$\mathcal {L}= \lambda <em> p \mathcal {L} </em> p + \lambda <em> {st} \mathcal {L} </em> {st}+ \lambda <em> {lt} \mathcal {L} </em> {lt}$$</p>
 <p>Notations: $l$ denotes layers, and $\phi_l$ is the activation of the layer $l$. T is the number of frames in the batch, N is the total number of pixels. </p>
 <p>VGG loss was used to make sure that the quality of the image corresponds well to human perception. </p>
 <p>Short term loss minimize the pixel-by-pixel L-1 loss between two consecutive inputs, making them consistent. The input here are the previous frame that was warped by the pre-trained FlowNet, which will guide the image transformation network learn the transformation of current frame being processed. </p>
