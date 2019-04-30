@@ -99,7 +99,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T23:39:57.769Z">
+<meta property="og:updated_time" content="2019-04-30T23:46:06.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -430,7 +430,8 @@ To stabilize the video, we need to make the color and the tone between consecuti
 <h1>Evaluation</h1>
 <p>It is difficult to quantify the quality of synthesized images, especially cartoons and videos. Here, we used the warping metric[#Lai:2018] to measure the temporal stability on the output videos.<br>
 The metric is based on the flow warping error between two frames,</p>
-<p>$$E _ {warp(V _ t,V _ {t+1})} = \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} \sum ^N _ {i=1}M _ t^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2$$</p>
+<p>$$E _ {warp(V _ t,V _ {t+1})} = \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2$$</p>
+<p>$$E _ {warp(V _ t,V _ {t+1})} = \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2 \over \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} $$</p>
 <p>where $\hat{V_{t+1}}$ is the warped frame $V_{t+1}$ and $M_t \in {0, 1}$ is a non-occlusion mask indicating non-occluded regions, which is based the occlusion detection method in[#Xingjian:2015].<br>
 The average warping error over the entire sequence is calculated as:</p>
 <p>$$E _ {warp(V)} = \frac {1}{T-1} \sum ^{T-1} _ {t=1} E _ {warp(V _ t, V _ {t+1})}$$</p>
@@ -438,66 +439,66 @@ The average warping error over the entire sequence is calculated as:</p>
 <table>
 <thead>
 <tr>
-<th>Videos</th>
-<th>Our model</th>
-<th>Baseline(original processed video)</th>
+<th style="text-align:center">Videos</th>
+<th style="text-align:center">Our model</th>
+<th style="text-align:center">Baseline(original processed video)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>psycho_kettle</td>
-<td>0.000293</td>
-<td>0.000688</td>
+<td style="text-align:center">psycho_kettle</td>
+<td style="text-align:center">0.000293</td>
+<td style="text-align:center">0.000688</td>
 </tr>
 <tr>
-<td>psycho_kiss</td>
-<td>0.000271</td>
-<td>0.000782</td>
+<td style="text-align:center">psycho_kiss</td>
+<td style="text-align:center">0.000271</td>
+<td style="text-align:center">0.000782</td>
 </tr>
 <tr>
-<td>BeachByDrone</td>
-<td>0.000188</td>
-<td>0.000375</td>
+<td style="text-align:center">BeachByDrone</td>
+<td style="text-align:center">0.000188</td>
+<td style="text-align:center">0.000375</td>
 </tr>
 <tr>
-<td>Cat</td>
-<td>0.000409</td>
-<td>0.000996</td>
+<td style="text-align:center">Cat</td>
+<td style="text-align:center">0.000409</td>
+<td style="text-align:center">0.000996</td>
 </tr>
 <tr>
-<td>CloudsTimelapse</td>
-<td>0.000181</td>
-<td>0.000293</td>
+<td style="text-align:center">CloudsTimelapse</td>
+<td style="text-align:center">0.000181</td>
+<td style="text-align:center">0.000293</td>
 </tr>
 <tr>
-<td>TajMahal</td>
-<td>0.000138</td>
-<td>0.000260</td>
+<td style="text-align:center">TajMahal</td>
+<td style="text-align:center">0.000138</td>
+<td style="text-align:center">0.000260</td>
 </tr>
 <tr>
-<td>WestminsterBridge</td>
-<td>0.000224</td>
-<td>0.000450</td>
+<td style="text-align:center">WestminsterBridge</td>
+<td style="text-align:center">0.000224</td>
+<td style="text-align:center">0.000450</td>
 </tr>
 <tr>
-<td>SanFrancisco</td>
-<td>0.000561</td>
-<td>0.000739</td>
+<td style="text-align:center">SanFrancisco</td>
+<td style="text-align:center">0.000561</td>
+<td style="text-align:center">0.000739</td>
 </tr>
 <tr>
-<td>MotherAndSon</td>
-<td>0.000295</td>
-<td>0.001414</td>
+<td style="text-align:center">MotherAndSon</td>
+<td style="text-align:center">0.000295</td>
+<td style="text-align:center">0.001414</td>
 </tr>
 <tr>
-<td>WomanWorking</td>
-<td>0.000099</td>
-<td>0.000337</td>
+<td style="text-align:center">WomanWorking</td>
+<td style="text-align:center">0.000099</td>
+<td style="text-align:center">0.000337</td>
 </tr>
 <tr>
-<td><strong>Average</strong></td>
-<td><strong>0.000266</strong></td>
-<td><strong>0.00068</strong></td>
+<td style="text-align:center"><strong>Average</strong></td>
+<td style="text-align:center"><strong>0.000266</strong></td>
+<td style="text-align:center"><strong>0.00068</strong></td>
 </tr>
 </tbody>
 </table>
