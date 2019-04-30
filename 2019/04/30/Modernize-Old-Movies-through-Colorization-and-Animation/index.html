@@ -97,7 +97,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T23:12:35.793Z">
+<meta property="og:updated_time" content="2019-04-30T23:13:34.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -417,7 +417,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <h1 id="Training-of-the-stabilization"><a href="#Training-of-the-stabilization" class="headerlink" title="Training of the stabilization"></a>Training of the stabilization</h1><p>For stabilization, we selected 60 videos with 4,209 frames in total named DAVIS-gray[#DAVIS-2017 dataset], which contains a lot of moving objects. And also additional 80 videos with 21,526 frames named VIDEVO-gray videos[#VIDEVO net] as our training set. All frames were processed to be 480x480.</p>
 <p>Limited by time, we only managed to finish training for 30 epoch, 1000 batch per epoch, which took around 4 days. Considering the memory limits we had, the long-term loss was handled on a 10 image period. </p>
 <h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>It is difficult to quantify the quality of synthesized images, especially cartoons and videos. Here, we used the warping metric[#Lai:2018] to measure the temporal stability on the output videos.<br>The metric is based on the flow warping error between two frames,</p>
-<p>$E_{warp(V<em>t,V</em>{t+1})} = \frac{1}{\sum^N_{i=1}M<em>t^{(i)}} \sum^N</em>{i=1}M_t^{(i)} ||V<em>t^{(i)} - \hat{V}</em>{t+1}^{(i)}||^2_2 $</p>
+<p>$E <em> {warp(V </em> t,V <em> {t+1})} = \frac {1}{ \sum^N </em> {i=1}M <em> t^{(i)}} \sum ^N </em> {i=1}M <em> t^{(i)} ||V </em> t^{(i)} - \hat {V} <em> {t+1}^{(i)}||^2 </em> 2 $</p>
 <p>where $\hat{V<em>{t+1}}$ is the warped frame $V</em>{t+1}$ and $M_t \in {0, 1}$ is a non-occlusion mask indicating non-occluded regions, which is based the occlusion detection method in[#Xingjian:2015].<br>The average warping error over the entire sequence is calculated as:</p>
 <p>$E<em>{warp(V)} = \frac{1}{T-1} \sum^{T-1}</em>{t=1} E_{warp(V<em>t, V</em>{t+1})}$</p>
 <p><strong>Quantitative evaluation on temporal warping error</strong></p>
