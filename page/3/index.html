@@ -370,8 +370,12 @@
       
         
           
-            <p>#Img<br>Containers with background images which zoom within their container on hover: <a href="https://css-tricks.com/zooming-background-images/" target="_blank" rel="external">Zooming Background Images</a><br>Or you can test it online: <a href="https://codepen.io/dragoeco/pen/ibrzK" target="_blank" rel="external">css background image zoom with transition</a><br>Maybe you just want to clip it to a complex shape, here is <a href="http://bennettfeely.com/clippy/" target="_blank" rel="external">CSS clip-path maker</a></p>
-<p>#Font<br>Use <a href="https://developers.google.com/fonts/docs/getting_started" target="_blank" rel="external">Google Fonts API</a> to add fonts to your web pages.</p>
+            <p>#Img<br>
+Containers with background images which zoom within their container on hover: <a href="https://css-tricks.com/zooming-background-images/" target="_blank" rel="external">Zooming Background Images</a><br>
+Or you can test it online: <a href="https://codepen.io/dragoeco/pen/ibrzK" target="_blank" rel="external">css background image zoom with transition</a><br>
+Maybe you just want to clip it to a complex shape, here is <a href="http://bennettfeely.com/clippy/" target="_blank" rel="external">CSS clip-path maker</a><br>
+#Font<br>
+Use <a href="https://developers.google.com/fonts/docs/getting_started" target="_blank" rel="external">Google Fonts API</a> to add fonts to your web pages.</p>
 
           
         
@@ -504,10 +508,12 @@
 <li>Tools -&gt; Build System -&gt; New Build System…</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">//	&quot;shell_cmd&quot;: &quot;make&quot;</span><br><span class="line">  &quot;cmd&quot;: [&quot;node&quot;, &quot;$file&quot;, &quot;$file_base_name&quot;],</span><br><span class="line">  &quot;working_dir&quot;: &quot;$&#123;project_path:$&#123;folder&#125;&#125;&quot;,</span><br><span class="line">  &quot;selector&quot;: &quot;*.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Save as JavaScript.sublime-build</p>
+<ol start="2">
+<li>
+<p>Save as JavaScript.sublime-build</p>
 </li>
-<li><p>Choose Automatic/JavaScript, run *.js</p>
+<li>
+<p>Choose Automatic/JavaScript, run *.js</p>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fName = function(fVal) &#123;&#125;; </span><br><span class="line">console.log(fName(fVal));</span><br></pre></td></tr></table></figure>
@@ -640,49 +646,82 @@
         
           
             <p>[TOC]</p>
-<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><h4 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h4><p><a href="https://leetcode.com/problems/duplicate-emails/description/" target="_blank" rel="external">182. Duplicate Emails</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Email</span><br><span class="line"><span class="keyword">FROM</span> Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/customers-who-never-order/description/" target="_blank" rel="external">183. Customers Who Never Order</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.Name <span class="keyword">AS</span> Customers</span><br><span class="line"><span class="keyword">FROM</span> Customers <span class="keyword">AS</span> c</span><br><span class="line"><span class="keyword">WHERE</span> c.Id <span class="keyword">NOT</span> <span class="keyword">IN</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> CustomerId</span><br><span class="line">    <span class="keyword">FROM</span> Orders);</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/department-highest-salary/description/" target="_blank" rel="external">184. Department Highest Salary</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.Name <span class="keyword">AS</span> Department, e.Name <span class="keyword">AS</span> Employee, e.Salary </span><br><span class="line"><span class="keyword">FROM</span> Employee e, Department d</span><br><span class="line"><span class="keyword">WHERE</span> e.DepartmentId = d.Id </span><br><span class="line"><span class="keyword">AND</span> e.Salary = (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">MAx</span>(Salary)</span><br><span class="line">    <span class="keyword">FROM</span> Employee e2</span><br><span class="line">    <span class="keyword">WHERE</span> e2.DepartmentId = d.Id</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/delete-duplicate-emails/description/" target="_blank" rel="external">196. Delete Duplicate Emails</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> p1</span><br><span class="line"><span class="keyword">FROM</span> Person p1, Person p2</span><br><span class="line"><span class="keyword">WHERE</span> p1.Email = p2.Email <span class="keyword">AND</span> p1.Id &gt; p2.Id;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/rising-temperature/discuss/" target="_blank" rel="external">197. Rising Temperature</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> w1.Id</span><br><span class="line"><span class="keyword">FROM</span> Weather w1, Weather w2</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">TO_DAYS</span>(w1.Date) = <span class="keyword">TO_DAYS</span>(w2.Date)+<span class="number">1</span> <span class="keyword">AND</span> w1.Temperature &gt; w2.Temperature;</span><br></pre></td></tr></table></figure></p>
-<h4 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h4><p><a href="https://leetcode.com/problems/combine-two-tables/description/" target="_blank" rel="external">175. Combine Two Tables</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> p.FirstName, P.LastName, A.City, A.Sate</span><br><span class="line"><span class="keyword">From</span> Perosn P <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Address A</span><br><span class="line"><span class="keyword">ON</span> P.PersonID = A.PersonId;</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/" target="_blank" rel="external">181. Employees Earning More Than Their Managers</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.Name <span class="keyword">AS</span> Employee</span><br><span class="line"><span class="keyword">FROM</span> Employee a <span class="keyword">JOIN</span> Employee b</span><br><span class="line"><span class="keyword">ON</span> a.ManagerId = b.Id</span><br><span class="line"><span class="keyword">WHERE</span> a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h4><p><a href="https://leetcode.com/problems/second-highest-salary/description/" target="_blank" rel="external">176. Second Highest Salary</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Max</span>(Salary) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="keyword">FROM</span> Employee</span><br><span class="line"><span class="keyword">WHERE</span> Salary &lt; (<span class="keyword">SELECT</span> <span class="keyword">Max</span>(Salary) <span class="keyword">FROM</span> Employee)</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/nth-highest-salary/description/" target="_blank" rel="external">177. Nth Highest Salary</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT;</span><br><span class="line">SET M=N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">      SELECT DISTINCT Salary </span><br><span class="line">      FROM Employee </span><br><span class="line">      ORDER BY Salary DESC </span><br><span class="line">      LIMIT M, 1</span><br><span class="line">  );</span><br><span class="line">END</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/rank-scores/description/" target="_blank" rel="external">178. Rank Scores</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Write your MySQL query statement below</span><br><span class="line">SELECT Scores.Score, COUNT(Ranking.Score) AS Rank</span><br><span class="line">FROM Scores, (</span><br><span class="line">    SELECT DISTINCT Score</span><br><span class="line">    FROM Scores) Ranking</span><br><span class="line">WHERE Scores.Score &lt;= Ranking.Score</span><br><span class="line">GROUP BY Scores.Id, Scores.Score</span><br><span class="line">ORDER BY Scores.Score DESC;</span><br><span class="line"></span><br><span class="line">-- If only group by Score, same score will be combined</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://leetcode.com/problems/consecutive-numbers/description/" target="_blank" rel="external">180. Consecutive Numbers</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> l1.Num <span class="keyword">as</span> ConsecutiveNums </span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Logs</span> l1, <span class="keyword">Logs</span> l2, <span class="keyword">Logs</span> l3</span><br><span class="line"><span class="keyword">WHERE</span> l1.Id=l2.Id<span class="number">-1</span> <span class="keyword">AND</span> l2.Id=l3.Id<span class="number">-1</span> <span class="keyword">AND</span> l1.Num=l2.Num <span class="keyword">AND</span> l2.Num=l3.Num</span><br></pre></td></tr></table></figure></p>
+<h2 id="problems"><a class="header-anchor" href="#problems">§</a>Problems</h2>
+<h4 id="basic"><a class="header-anchor" href="#basic">§</a>Basic</h4>
+<p><a href="https://leetcode.com/problems/duplicate-emails/description/" target="_blank" rel="external">182. Duplicate Emails</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Email</span><br><span class="line"><span class="keyword">FROM</span> Person</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Email</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt; <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/customers-who-never-order/description/" target="_blank" rel="external">183. Customers Who Never Order</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.Name <span class="keyword">AS</span> Customers</span><br><span class="line"><span class="keyword">FROM</span> Customers <span class="keyword">AS</span> c</span><br><span class="line"><span class="keyword">WHERE</span> c.Id <span class="keyword">NOT</span> <span class="keyword">IN</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> CustomerId</span><br><span class="line">    <span class="keyword">FROM</span> Orders);</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/department-highest-salary/description/" target="_blank" rel="external">184. Department Highest Salary</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.Name <span class="keyword">AS</span> Department, e.Name <span class="keyword">AS</span> Employee, e.Salary </span><br><span class="line"><span class="keyword">FROM</span> Employee e, Department d</span><br><span class="line"><span class="keyword">WHERE</span> e.DepartmentId = d.Id </span><br><span class="line"><span class="keyword">AND</span> e.Salary = (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">MAx</span>(Salary)</span><br><span class="line">    <span class="keyword">FROM</span> Employee e2</span><br><span class="line">    <span class="keyword">WHERE</span> e2.DepartmentId = d.Id</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/delete-duplicate-emails/description/" target="_blank" rel="external">196. Delete Duplicate Emails</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> p1</span><br><span class="line"><span class="keyword">FROM</span> Person p1, Person p2</span><br><span class="line"><span class="keyword">WHERE</span> p1.Email = p2.Email <span class="keyword">AND</span> p1.Id &gt; p2.Id;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/rising-temperature/discuss/" target="_blank" rel="external">197. Rising Temperature</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> w1.Id</span><br><span class="line"><span class="keyword">FROM</span> Weather w1, Weather w2</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">TO_DAYS</span>(w1.Date) = <span class="keyword">TO_DAYS</span>(w2.Date)+<span class="number">1</span> <span class="keyword">AND</span> w1.Temperature &gt; w2.Temperature;</span><br></pre></td></tr></table></figure>
+<h4 id="join"><a class="header-anchor" href="#join">§</a>JOIN</h4>
+<p><a href="https://leetcode.com/problems/combine-two-tables/description/" target="_blank" rel="external">175. Combine Two Tables</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> p.FirstName, P.LastName, A.City, A.Sate</span><br><span class="line"><span class="keyword">From</span> Perosn P <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Address A</span><br><span class="line"><span class="keyword">ON</span> P.PersonID = A.PersonId;</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/" target="_blank" rel="external">181. Employees Earning More Than Their Managers</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> a.Name <span class="keyword">AS</span> Employee</span><br><span class="line"><span class="keyword">FROM</span> Employee a <span class="keyword">JOIN</span> Employee b</span><br><span class="line"><span class="keyword">ON</span> a.ManagerId = b.Id</span><br><span class="line"><span class="keyword">WHERE</span> a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure>
+<h4 id="rank"><a class="header-anchor" href="#rank">§</a>Rank</h4>
+<p><a href="https://leetcode.com/problems/second-highest-salary/description/" target="_blank" rel="external">176. Second Highest Salary</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Max</span>(Salary) <span class="keyword">AS</span> SecondHighestSalary</span><br><span class="line"><span class="keyword">FROM</span> Employee</span><br><span class="line"><span class="keyword">WHERE</span> Salary &lt; (<span class="keyword">SELECT</span> <span class="keyword">Max</span>(Salary) <span class="keyword">FROM</span> Employee)</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/nth-highest-salary/description/" target="_blank" rel="external">177. Nth Highest Salary</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT;</span><br><span class="line">SET M=N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">      SELECT DISTINCT Salary </span><br><span class="line">      FROM Employee </span><br><span class="line">      ORDER BY Salary DESC </span><br><span class="line">      LIMIT M, 1</span><br><span class="line">  );</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/rank-scores/description/" target="_blank" rel="external">178. Rank Scores</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Write your MySQL query statement below</span><br><span class="line">SELECT Scores.Score, COUNT(Ranking.Score) AS Rank</span><br><span class="line">FROM Scores, (</span><br><span class="line">    SELECT DISTINCT Score</span><br><span class="line">    FROM Scores) Ranking</span><br><span class="line">WHERE Scores.Score &lt;= Ranking.Score</span><br><span class="line">GROUP BY Scores.Id, Scores.Score</span><br><span class="line">ORDER BY Scores.Score DESC;</span><br><span class="line"></span><br><span class="line">-- If only group by Score, same score will be combined</span><br></pre></td></tr></table></figure>
+<p><a href="https://leetcode.com/problems/consecutive-numbers/description/" target="_blank" rel="external">180. Consecutive Numbers</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> l1.Num <span class="keyword">as</span> ConsecutiveNums </span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Logs</span> l1, <span class="keyword">Logs</span> l2, <span class="keyword">Logs</span> l3</span><br><span class="line"><span class="keyword">WHERE</span> l1.Id=l2.Id<span class="number">-1</span> <span class="keyword">AND</span> l2.Id=l3.Id<span class="number">-1</span> <span class="keyword">AND</span> l1.Num=l2.Num <span class="keyword">AND</span> l2.Num=l3.Num</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- using user-defined variables</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> <span class="keyword">Num</span> <span class="keyword">as</span> ConsecutiveNums </span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">Num</span>,</span><br><span class="line">        @<span class="keyword">count</span> := <span class="keyword">if</span> (@prev = <span class="keyword">Num</span>, @<span class="keyword">count</span>+<span class="number">1</span>, <span class="number">1</span>) <span class="keyword">count</span>,</span><br><span class="line">        @prev := <span class="keyword">Num</span> prev</span><br><span class="line">    <span class="keyword">FROM</span> <span class="keyword">Logs</span>, (</span><br><span class="line">        <span class="keyword">SELECT</span> @<span class="keyword">count</span>:=<span class="number">0</span>,</span><br><span class="line">            @prev:=(<span class="keyword">SELECT</span> <span class="keyword">Num</span> <span class="keyword">FROM</span> <span class="keyword">Logs</span> <span class="keyword">LIMIT</span> <span class="number">1</span>)</span><br><span class="line">        )tmp1</span><br><span class="line">    )tmp2</span><br><span class="line"><span class="keyword">WHERE</span> tmp2.count&gt;=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-<p><a href="https://leetcode.com/problems/department-top-three-salaries/description/" target="_blank" rel="external">185. Department Top Three Salaries</a><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.Name <span class="keyword">AS</span> Department, e.Name <span class="keyword">AS</span> Employee, e.Salary <span class="keyword">AS</span> Salary </span><br><span class="line"><span class="keyword">FROM</span> Employee e, Department d</span><br><span class="line"><span class="keyword">WHERE</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">distinct</span>(Salary))</span><br><span class="line">    <span class="keyword">FROM</span> Employee</span><br><span class="line">    <span class="keyword">WHERE</span> DepartmentId = e.DepartmentId <span class="keyword">AND</span> Salary &gt; e.Salary</span><br><span class="line">) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">AND</span> e.DepartmentId = d.Id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> e.DepartmentId, E.Salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Basic-knowledge"><a href="#Basic-knowledge" class="headerlink" title="Basic knowledge"></a>Basic knowledge</h2><h4 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h4><ol>
+<p><a href="https://leetcode.com/problems/department-top-three-salaries/description/" target="_blank" rel="external">185. Department Top Three Salaries</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> d.Name <span class="keyword">AS</span> Department, e.Name <span class="keyword">AS</span> Employee, e.Salary <span class="keyword">AS</span> Salary </span><br><span class="line"><span class="keyword">FROM</span> Employee e, Department d</span><br><span class="line"><span class="keyword">WHERE</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(<span class="keyword">distinct</span>(Salary))</span><br><span class="line">    <span class="keyword">FROM</span> Employee</span><br><span class="line">    <span class="keyword">WHERE</span> DepartmentId = e.DepartmentId <span class="keyword">AND</span> Salary &gt; e.Salary</span><br><span class="line">) <span class="keyword">in</span> (<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line"><span class="keyword">AND</span> e.DepartmentId = d.Id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> e.DepartmentId, E.Salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="basic-knowledge"><a class="header-anchor" href="#basic-knowledge">§</a>Basic knowledge</h2>
+<h4 id="links"><a class="header-anchor" href="#links">§</a>Links</h4>
+<ol>
 <li><a href="https://www.w3schools.com/sql/default.asp" target="_blank" rel="external">SQL Tutorial</a></li>
 <li><a href="http://www.sqlcourse.com/intro.html" target="_blank" rel="external">SQLCourse</a></li>
 <li><a href="http://www.sqlcourse2.com" target="_blank" rel="external">SQLCourses</a></li>
 </ol>
-<h4 id="SELECT-extracts-data-from-a-database"><a href="#SELECT-extracts-data-from-a-database" class="headerlink" title="SELECT - extracts data from a database"></a>SELECT - extracts data from a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, ...</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># Search for a pattern</span><br><span class="line">NOT LIKE or LIKE '%s%'</span><br><span class="line"># NOT starting with "b", "s", or "p"</span><br><span class="line">LIKE '[!bsp]%'</span><br><span class="line"># Starts with "a" &amp; at least 3 characters in length</span><br><span class="line">LIKE 'a_%_%'</span><br><span class="line"></span><br><span class="line"># Between an inclusive range</span><br><span class="line">column_name BETWEEN value1 AND value2</span><br><span class="line">or NOT BETWEEN</span><br><span class="line">e.g. WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;</span><br><span class="line"></span><br><span class="line"># To specify multiple possible values for a column</span><br><span class="line">column_name IN (value1,value2,...) </span><br><span class="line">or IN (SELECT STATEMENT)</span><br><span class="line"></span><br><span class="line">&lt;&gt; or !=</span><br><span class="line">=,...</span><br><span class="line"></span><br><span class="line">AND, OR, NOT</span><br><span class="line">IS NULL or IS NOT NULL</span><br><span class="line"></span><br><span class="line"># [] = optional</span><br><span class="line">ORDER BY column1, column2, ... [ASC|DESC];</span><br><span class="line"></span><br><span class="line"># return only distinct (different) values.</span><br><span class="line">SELECT DISTINCT Country FROM Customers;</span><br><span class="line"></span><br><span class="line">!NOTE: COUNT(DISTINCT column_name) is not supported in Microsoft Access databases.</span><br><span class="line">SELECT COUNT(DISTINCT Country) FROM Customers;</span><br><span class="line"></span><br><span class="line">SELECT Count(*) AS DistinctCountries</span><br><span class="line">FROM (SELECT DISTINCT Country FROM Customers);</span><br></pre></td></tr></table></figure>
+<h4 id="select-extracts-data-from-a-database"><a class="header-anchor" href="#select-extracts-data-from-a-database">§</a>SELECT - extracts data from a database</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, ...</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># Search for a pattern</span><br><span class="line">NOT LIKE or LIKE '%s%'</span><br><span class="line"># NOT starting with "b", "s", or "p"</span><br><span class="line">LIKE '[!bsp]%'</span><br><span class="line"># Starts with "a" &amp; at least 3 characters in length</span><br><span class="line">LIKE 'a_%_%'</span><br><span class="line"></span><br><span class="line"># Between an inclusive range</span><br><span class="line">column_name BETWEEN value1 AND value2</span><br><span class="line">or NOT BETWEEN</span><br><span class="line">e.g. WHERE OrderDate BETWEEN #07/04/1996# AND #07/09/1996#;</span><br><span class="line"></span><br><span class="line"># To specify multiple possible values for a column</span><br><span class="line">column_name IN (value1,value2,...) </span><br><span class="line">or IN (SELECT STATEMENT)</span><br><span class="line"></span><br><span class="line">&lt;&gt; or !=</span><br><span class="line">=,...</span><br><span class="line"></span><br><span class="line">AND, OR, NOT</span><br><span class="line">IS NULL or IS NOT NULL</span><br><span class="line"></span><br><span class="line"># [] = optional</span><br><span class="line">ORDER BY column1, column2, ... [ASC|DESC];</span><br><span class="line"></span><br><span class="line"># return only distinct (different) values.</span><br><span class="line">SELECT DISTINCT Country FROM Customers;</span><br><span class="line"></span><br><span class="line">!NOTE: COUNT(DISTINCT column_name) is not supported in Microsoft Access databases.</span><br><span class="line">SELECT COUNT(DISTINCT Country) FROM Customers;</span><br><span class="line"></span><br><span class="line">SELECT Count(*) AS DistinctCountries</span><br><span class="line">FROM (SELECT DISTINCT Country FROM Customers);</span><br></pre></td></tr></table></figure>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># SQL Server / MS Access Syntax:</span><br><span class="line">SELECT TOP number|percent column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line">e.g. SELECT TOP 3 or SELECT TOP 50 PERCENT </span><br><span class="line"></span><br><span class="line"># MySQL Syntax:</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE condition</span><br><span class="line">LIMIT number;</span><br><span class="line"></span><br><span class="line"># Oracle Syntax:</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE ROWNUM &lt;= number;</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MIN(), MAX(), COUNT(), AVG(), SUM()</span><br></pre></td></tr></table></figure>
-<h4 id="UPDATE-updates-data-in-a-database"><a href="#UPDATE-updates-data-in-a-database" class="headerlink" title="UPDATE - updates data in a database"></a>UPDATE - updates data in a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name</span><br><span class="line">SET column1 = value1, column2 = value2, ...</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># can write column1 = column1 + 1</span><br><span class="line"></span><br><span class="line"># If you omit the WHERE clause, ALL records will be updated!</span><br></pre></td></tr></table></figure>
-<h4 id="DELETE-deletes-data-from-a-database"><a href="#DELETE-deletes-data-from-a-database" class="headerlink" title="DELETE - deletes data from a database"></a>DELETE - deletes data from a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># If you omit the WHERE clause, all records in the table will be deleted!</span><br><span class="line">DELETE [*] FROM table_name;</span><br></pre></td></tr></table></figure>
-<h4 id="INSERT-INTO-inserts-new-data-into-a-database"><a href="#INSERT-INTO-inserts-new-data-into-a-database" class="headerlink" title="INSERT INTO - inserts new data into a database"></a>INSERT INTO - inserts new data into a database</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># If only insert in specified columns, others = null</span><br><span class="line">INSERT INTO table_name [(column1, column2, column3, ...)]</span><br><span class="line">VALUES (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
-<h4 id="ALIASE-give-a-table-or-a-column-in-a-table-a-temporary-name"><a href="#ALIASE-give-a-table-or-a-column-in-a-table-a-temporary-name" class="headerlink" title="ALIASE - give a table, or a column in a table, a temporary name"></a>ALIASE - give a table, or a column in a table, a temporary name</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1. </span><br><span class="line">SELECT column_name AS alias_name</span><br><span class="line">FROM table_name;</span><br><span class="line"></span><br><span class="line"># It requires double quotation marks or square brackets if the alias name contains spaces.</span><br><span class="line">[Contact Person]</span><br><span class="line"></span><br><span class="line"># Combine columns</span><br><span class="line">e.g. SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address</span><br><span class="line">FROM Customers;</span><br><span class="line"># But in MySQL</span><br><span class="line">SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address</span><br><span class="line">FROM Customers;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name AS alias_name;</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName</span><br><span class="line">FROM Customers, Orders</span><br><span class="line">WHERE Customers.CustomerName="Around the Horn" AND Customers.CustomerID=Orders.CustomerID;</span><br><span class="line">=&gt;</span><br><span class="line">SELECT o.OrderID, o.OrderDate, c.CustomerName</span><br><span class="line">FROM Customers AS c, Orders AS o</span><br><span class="line">WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;</span><br></pre></td></tr></table></figure>
-<h4 id="JOIN-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them"><a href="#JOIN-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them" class="headerlink" title="JOIN - combine rows from two or more tables, based on a related column between them"></a>JOIN - combine rows from two or more tables, based on a related column between them</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate</span><br><span class="line">FROM Orders</span><br><span class="line">INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;</span><br><span class="line"></span><br><span class="line"># Join three Tables</span><br><span class="line">SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName</span><br><span class="line">FROM ((Orders</span><br><span class="line">INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)</span><br><span class="line">INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);</span><br><span class="line"></span><br><span class="line"># Self JOIN</span><br><span class="line">e.g.</span><br><span class="line">SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City</span><br><span class="line">FROM Customers A, Customers B</span><br><span class="line">WHERE A.CustomerID &lt;&gt; B.CustomerID</span><br><span class="line">AND A.City = B.City </span><br><span class="line">ORDER BY A.City;</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.w3schools.com/sql/img_innerjoin.gif" alt="(INNER) JOIN: Returns records that have matching values in both tables"> <img src="https://www.w3schools.com/sql/img_leftjoin.gif" alt="LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table"><br><img src="https://www.w3schools.com/sql/img_rightjoin.gif" alt="RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table"> <img src="https://www.w3schools.com/sql/img_fulljoin.gif" alt="FULL (OUTER) JOIN: Return all records when there is a match in either left or right table"><br>-GROUP BY statement - used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(CustomerID), Country</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UNION, UNION ALL with duplicate values</span><br><span class="line"></span><br><span class="line">HAVING, EXISTS, </span><br><span class="line"></span><br><span class="line">WHERE column_name operator ANY/ALL (<span class="keyword">SELECT</span> column_name <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> condition)</span><br></pre></td></tr></table></figure>
-<h4 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Single line</span></span><br><span class="line"><span class="comment">/*Multi-line*/</span></span><br></pre></td></tr></table></figure>
-<h4 id="DATABASE"><a href="#DATABASE" class="headerlink" title="DATABASE"></a>DATABASE</h4><ul>
+<h4 id="update-updates-data-in-a-database"><a class="header-anchor" href="#update-updates-data-in-a-database">§</a>UPDATE - updates data in a database</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name</span><br><span class="line">SET column1 = value1, column2 = value2, ...</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># can write column1 = column1 + 1</span><br><span class="line"></span><br><span class="line"># If you omit the WHERE clause, ALL records will be updated!</span><br></pre></td></tr></table></figure>
+<h4 id="delete-deletes-data-from-a-database"><a class="header-anchor" href="#delete-deletes-data-from-a-database">§</a>DELETE - deletes data from a database</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table_name</span><br><span class="line">WHERE condition;</span><br><span class="line"></span><br><span class="line"># If you omit the WHERE clause, all records in the table will be deleted!</span><br><span class="line">DELETE [*] FROM table_name;</span><br></pre></td></tr></table></figure>
+<h4 id="insert-into-inserts-new-data-into-a-database"><a class="header-anchor" href="#insert-into-inserts-new-data-into-a-database">§</a>INSERT INTO - inserts new data into a database</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># If only insert in specified columns, others = null</span><br><span class="line">INSERT INTO table_name [(column1, column2, column3, ...)]</span><br><span class="line">VALUES (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
+<h4 id="aliase-give-a-table-or-a-column-in-a-table-a-temporary-name"><a class="header-anchor" href="#aliase-give-a-table-or-a-column-in-a-table-a-temporary-name">§</a>ALIASE - give a table, or a column in a table, a temporary name</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1. </span><br><span class="line">SELECT column_name AS alias_name</span><br><span class="line">FROM table_name;</span><br><span class="line"></span><br><span class="line"># It requires double quotation marks or square brackets if the alias name contains spaces.</span><br><span class="line">[Contact Person]</span><br><span class="line"></span><br><span class="line"># Combine columns</span><br><span class="line">e.g. SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address</span><br><span class="line">FROM Customers;</span><br><span class="line"># But in MySQL</span><br><span class="line">SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address</span><br><span class="line">FROM Customers;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name AS alias_name;</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line">SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName</span><br><span class="line">FROM Customers, Orders</span><br><span class="line">WHERE Customers.CustomerName="Around the Horn" AND Customers.CustomerID=Orders.CustomerID;</span><br><span class="line">=&gt;</span><br><span class="line">SELECT o.OrderID, o.OrderDate, c.CustomerName</span><br><span class="line">FROM Customers AS c, Orders AS o</span><br><span class="line">WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;</span><br></pre></td></tr></table></figure>
+<h4 id="join-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them"><a class="header-anchor" href="#join-combine-rows-from-two-or-more-tables-based-on-a-related-column-between-them">§</a>JOIN - combine rows from two or more tables, based on a related column between them</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate</span><br><span class="line">FROM Orders</span><br><span class="line">INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;</span><br><span class="line"></span><br><span class="line"># Join three Tables</span><br><span class="line">SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName</span><br><span class="line">FROM ((Orders</span><br><span class="line">INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)</span><br><span class="line">INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);</span><br><span class="line"></span><br><span class="line"># Self JOIN</span><br><span class="line">e.g.</span><br><span class="line">SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City</span><br><span class="line">FROM Customers A, Customers B</span><br><span class="line">WHERE A.CustomerID &lt;&gt; B.CustomerID</span><br><span class="line">AND A.City = B.City </span><br><span class="line">ORDER BY A.City;</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.w3schools.com/sql/img_innerjoin.gif" alt="(INNER) JOIN: Returns records that have matching values in both tables"> <img src="https://www.w3schools.com/sql/img_leftjoin.gif" alt="LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table"><br>
+<img src="https://www.w3schools.com/sql/img_rightjoin.gif" alt="RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table"> <img src="https://www.w3schools.com/sql/img_fulljoin.gif" alt="FULL (OUTER) JOIN: Return all records when there is a match in either left or right table"><br>
+-GROUP BY statement - used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(CustomerID), Country</span><br><span class="line"><span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Country;</span><br></pre></td></tr></table></figure>
+<h4 id="operators"><a class="header-anchor" href="#operators">§</a>Operators</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UNION, UNION ALL with duplicate values</span><br><span class="line"></span><br><span class="line">HAVING, EXISTS, </span><br><span class="line"></span><br><span class="line">WHERE column_name operator ANY/ALL (<span class="keyword">SELECT</span> column_name <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> condition)</span><br></pre></td></tr></table></figure>
+<h4 id="comments"><a class="header-anchor" href="#comments">§</a>Comments</h4>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- Single line</span></span><br><span class="line"><span class="comment">/*Multi-line*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="database"><a class="header-anchor" href="#database">§</a>DATABASE</h4>
+<ul>
 <li>CREATE DATABASE - creates a new database</li>
 <li>DROP DATABASE - drop an existing SQL database</li>
-<li>ALTER DATABASE - modifies a database<h4 id="TABLE"><a href="#TABLE" class="headerlink" title="TABLE"></a>TABLE</h4></li>
-<li><p>CREATE TABLE - creates a new table</p>
+<li>ALTER DATABASE - modifies a database</li>
+</ul>
+<h4 id="table"><a class="header-anchor" href="#table">§</a>TABLE</h4>
+<ul>
+<li>CREATE TABLE - creates a new table</li>
+</ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name (</span><br><span class="line">    column1 datatype,</span><br><span class="line">    column2 datatype,</span><br><span class="line">    column3 datatype,</span><br><span class="line">   ....</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> new_table_name <span class="keyword">AS</span></span><br><span class="line">    <span class="keyword">SELECT</span> column1, column2,...</span><br><span class="line">    <span class="keyword">FROM</span> existing_table_name</span><br><span class="line">    <span class="keyword">WHERE</span> ....;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DROP TABLE - deletes a table</p>
-</li>
-<li><p>ALTER TABLE - modifies a table</p>
+<ul>
+<li>DROP TABLE - deletes a table</li>
+<li>ALTER TABLE - modifies a table</li>
+</ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">ADD column_name datatype;</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">DROP COLUMN column_name;</span><br><span class="line"></span><br><span class="line"># ALTER/MODIFY COLUMN</span><br><span class="line"># SQL Server / MS Access:</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">ALTER COLUMN column_name datatype;</span><br><span class="line"># My SQL / Oracle (prior version 10G):</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">MODIFY COLUMN column_name datatype;</span><br><span class="line"># Oracle 10G and later:</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">MODIFY column_name datatype;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CREATE INDEX - creates an index (search key)</p>
-</li>
+<ul>
+<li>CREATE INDEX - creates an index (search key)</li>
 <li>DROP INDEX - deletes an index</li>
 <li>…</li>
 </ul>
@@ -816,7 +855,8 @@
           
             <p><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/" target="_blank" rel="external">718. Maximum Length of Repeated Subarray</a></p>
 <p>Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.</p>
-<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">A: [1,2,3,2,1]</span><br><span class="line">B: [3,2,1,4,7]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">The repeated subarray with maximum length is [3, 2, 1].</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">A: [1,2,3,2,1]</span><br><span class="line">B: [3,2,1,4,7]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">The repeated subarray with maximum length is [3, 2, 1].</span><br></pre></td></tr></table></figure>
 <p><strong>Note:</strong></p>
 <ol>
 <li>1&lt;= len(A), len(B) &lt;= 1000</li>
@@ -825,32 +865,33 @@
 <hr>
 <p><strong>! subarray</strong>, not subsequence</p>
 <ul>
-<li>I. <strong>DP</strong>, </li>
+<li>I. <strong>DP</strong>,</li>
 </ul>
 <ol>
 <li>Similar to LCS</li>
 <li>Time Complexity: O($L_A$x $L_B$)</li>
-<li>Space Complexity: O($L_A$x $L_B$)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">    	int l = A.size(),ans = 0;</span><br><span class="line">    	vector&lt;vector&lt;int&gt;&gt; dp(l,vector&lt;int&gt;(l,0));</span><br><span class="line">    	for (int i=0;i&lt;l;i++)&#123;</span><br><span class="line">    		for (int j=0;j&lt;l;j++)&#123;</span><br><span class="line">    			if(i == 0 || j == 0) dp[i][j] = (A[i]==B[j]);</span><br><span class="line">    			else dp[i][j] = (A[i]==B[j]) ? dp[i-1][j-1]+1:0;</span><br><span class="line">    			ans = max(ans,dp[i][j]);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Space Complexity: O($L_A$x $L_B$)</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">    	int l = A.size(),ans = 0;</span><br><span class="line">    	vector&lt;vector&lt;int&gt;&gt; dp(l,vector&lt;int&gt;(l,0));</span><br><span class="line">    	for (int i=0;i&lt;l;i++)&#123;</span><br><span class="line">    		for (int j=0;j&lt;l;j++)&#123;</span><br><span class="line">    			if(i == 0 || j == 0) dp[i][j] = (A[i]==B[j]);</span><br><span class="line">    			else dp[i][j] = (A[i]==B[j]) ? dp[i-1][j-1]+1:0;</span><br><span class="line">    			ans = max(ans,dp[i][j]);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>II. Optimization </li>
+<li>II. Optimization</li>
 </ul>
 <ol>
 <li>DP</li>
 <li>Time Complexity: O($L_A$x $L_B$)</li>
-<li>Space Complexity: O($L_A$)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">        int m = A.size();</span><br><span class="line">        int n = B.size();</span><br><span class="line">        vector&lt;int&gt; dp(n + 1);</span><br><span class="line">        int result = 0;</span><br><span class="line">        for (int i = 1; i &lt;= m; ++i) &#123;</span><br><span class="line">            vector&lt;int&gt; ndp(n + 1);</span><br><span class="line">            for (int j = 1; j &lt;= n; ++j) &#123;</span><br><span class="line">                if (A[i-1] == B[j-1]) &#123;</span><br><span class="line">                    ndp[j] = dp[j-1] + 1;</span><br><span class="line">                    result = max(ndp[j], result);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dp = ndp;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Space Complexity: O($L_A$)</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">        int m = A.size();</span><br><span class="line">        int n = B.size();</span><br><span class="line">        vector&lt;int&gt; dp(n + 1);</span><br><span class="line">        int result = 0;</span><br><span class="line">        for (int i = 1; i &lt;= m; ++i) &#123;</span><br><span class="line">            vector&lt;int&gt; ndp(n + 1);</span><br><span class="line">            for (int j = 1; j &lt;= n; ++j) &#123;</span><br><span class="line">                if (A[i-1] == B[j-1]) &#123;</span><br><span class="line">                    ndp[j] = dp[j-1] + 1;</span><br><span class="line">                    result = max(ndp[j], result);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dp = ndp;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>III. Optimization 2</li>
 </ul>
 <ol>
 <li>DP</li>
 <li>Time Complexity: O($L_A$x $L_B$)</li>
-<li>Space Complexity: O(1)<br>since dp[i][j] only depends on dp[i-1][j-1], we only need to keep it and traverse the matrix diagonally.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Java</span><br><span class="line">public int findLength(int[] A, int[] B) &#123;</span><br><span class="line">        int maxLen = 0;      </span><br><span class="line">        for (int j = 0; j &lt; B.length; j++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int i = 0, k = j; i &lt; A.length &amp;&amp; k &lt; B.length; i++, k++) &#123;</span><br><span class="line">                if (A[i] != B[k]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for (int i =1; i &lt; A.length; i++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int j = 0, k = i; k &lt; A.length &amp;&amp; j &lt; B.length; j++, k++) &#123;</span><br><span class="line">                if (A[k] != B[j]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxLen;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Space Complexity: O(1)<br>
+since dp[i][j] only depends on dp[i-1][j-1], we only need to keep it and traverse the matrix diagonally.</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Java</span><br><span class="line">public int findLength(int[] A, int[] B) &#123;</span><br><span class="line">        int maxLen = 0;      </span><br><span class="line">        for (int j = 0; j &lt; B.length; j++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int i = 0, k = j; i &lt; A.length &amp;&amp; k &lt; B.length; i++, k++) &#123;</span><br><span class="line">                if (A[i] != B[k]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for (int i =1; i &lt; A.length; i++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int j = 0, k = i; k &lt; A.length &amp;&amp; j &lt; B.length; j++, k++) &#123;</span><br><span class="line">                if (A[k] != B[j]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxLen;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>IV. HashMap</li>
 </ul>
@@ -858,11 +899,13 @@
 <hr>
 <p>相关题目</p>
 <ul>
-<li><p><a href="https://leetcode.com/problems/distinct-subsequences/description/" target="_blank" rel="external">115. Distinct Subsequences</a><br>count the number of distinct subsequences of S which equals T<br><strong>DP</strong>, O(n) space</p>
+<li><a href="https://leetcode.com/problems/distinct-subsequences/description/" target="_blank" rel="external">115. Distinct Subsequences</a><br>
+count the number of distinct subsequences of S which equals T<br>
+<strong>DP</strong>, O(n) space</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numDistinct(string s, string t) &#123;</span><br><span class="line">    	int l1 = s.length(), l2 = t.length(), tmp, pre;</span><br><span class="line">    	vector&lt;int&gt; dp(l2+1,0);</span><br><span class="line">    	dp[0] = 1;</span><br><span class="line">    	for (int i=1;i&lt;=l1;i++)&#123;</span><br><span class="line">    		pre = 1;</span><br><span class="line">    		for (int j=1;j&lt;=l2;j++)&#123;</span><br><span class="line">    			tmp = dp[j];</span><br><span class="line">    			dp[j] = dp[j] + (s[i-1]==t[j-1] ? pre:0);</span><br><span class="line">    			pre = tmp;</span><br><span class="line">    		&#125;</span><br><span class="line">    		cout &lt;&lt; endl;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return dp[l2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="http://blog.csdn.net/qq_26437925/article/details/52679690" target="_blank" rel="external">最大连续子序列和，乘积，最长递增子串，最长公共子串，子序列等问题(动态规划等)</a></p>
-</li>
+<ul>
+<li><a href="http://blog.csdn.net/qq_26437925/article/details/52679690" target="_blank" rel="external">最大连续子序列和，乘积，最长递增子串，最长公共子串，子序列等问题(动态规划等)</a></li>
 <li>Some programs are online.</li>
 </ul>
 
@@ -993,9 +1036,14 @@
       
         
           
-            <p><a href="http://blog.csdn.net/yang_xian521/article/details/7301121" target="_blank" rel="external">MDS（multidimensional scaling）多维尺度分析</a><br><a href="http://blog.csdn.net/songrotek/article/details/42235097" target="_blank" rel="external">模式识别之 MDS Multidimensional Scaling 多维尺度法 分析及Matlab实现</a></p>
+            <p><a href="http://blog.csdn.net/yang_xian521/article/details/7301121" target="_blank" rel="external">MDS（multidimensional scaling）多维尺度分析</a><br>
+<a href="http://blog.csdn.net/songrotek/article/details/42235097" target="_blank" rel="external">模式识别之 MDS Multidimensional Scaling 多维尺度法 分析及Matlab实现</a></p>
 <hr>
-<p><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1671271" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis</a><br><a href="http://www.slideserve.com/xenos/a-nonlinear-mapping-for-data-structure-analysis" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis PPT</a><br><a href="https://en.wikipedia.org/wiki/Sammon_mapping" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis wiki </a><br><a href="http://www.codeproject.com/Articles/43123/Sammon-Projection" target="_blank" rel="external">Sammon Projection</a><br><a href="http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/AV0910/henderson.pdf" target="_blank" rel="external">Sammon Mapping</a></p>
+<p><a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=1671271" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis</a><br>
+<a href="http://www.slideserve.com/xenos/a-nonlinear-mapping-for-data-structure-analysis" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis PPT</a><br>
+<a href="https://en.wikipedia.org/wiki/Sammon_mapping" target="_blank" rel="external">A Nonlinear Mapping for Data Structure Analysis wiki </a><br>
+<a href="http://www.codeproject.com/Articles/43123/Sammon-Projection" target="_blank" rel="external">Sammon Projection</a><br>
+<a href="http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/AV0910/henderson.pdf" target="_blank" rel="external">Sammon Mapping</a></p>
 
           
         
@@ -1124,11 +1172,30 @@
       
         
           
-            <p>首先说一下侥幸心理，当时收到百度通知去大厦面试的时候心里活动如下（懵^n<br>想着居然过了笔试，也是real可怕，还是很开心的去了。<br>申的是<strong>Web前端研发实习岗</strong><br>其实是有点心虚的，大一大二算是知识的巅峰期，目前就是以抛物线的形式下降。收到面试通知以后强行找了一些题目，临时抱了一下大腿，倒没有完全写过。<br>很多已经处于知道有这个，似乎是因为什么，具体怎么描述既不大清了。。。<br>果然今天面试的时候就跪了</p>
-<p>大幸是一面和二面对我比较和善，有幸面了三面。<br>一面二面都比较基础，一面主考HTMK/CSS，还有用js写一个函数（用到了递归的思想，还是比较简单的）,二面的时候被问了关于从一维数组构造树的问题，一开始答的一般，没有考虑输入的乱序，例如pid可能不存在，后来就说也是类似递归呗，往上生成。<br>其实一面二面都是很简单的问题，还有就是因为太久没用js写这类实际问题的函数，连数组用push都忘了。显而易见，也被一面和二面都提了说我js基础不够的问题。<br>但到了三面已经明显看到力不从心了。同样问了一下比较基础的内容，依旧有点答不清楚（其实还是那几个inner、block、inner-block，display/visibility，事件绑定，ajax，get/post等等。其实是知道的，但是当时自己都觉得答的混乱。（顺便一说，这几个其实一二三面有重叠的问道，但是中间间隔的时候我没有好好回顾。。。二面面完12:30左右，给时间吃午餐，然后13:00一面，所以也就没吃。。。（后来发现我算是进度快的，大部分人都是一面结束再1点开始。</p>
-<p>再回归正文。三面这里就比较惨了，给了时间让我现场google然后说区别，一开始限制用英文，后来说都可以（不过中英文倒还好，最多看的速度差异。。。），还有一些现场code test，他应该也看出来我基础的问题了，说写伪代码也行。<br>问我用过什么框架，我也就最多一个bootstrap，也没用过node.js（果然还是深入不够，后期就得自我反思了。。。<br>总之我后面自己都心虚了。。。然后他打算从别的地方看看我的优点，例如算法什么的。。。就问我搜索字符串什么方法，我的想法非常naive，肯定有问题。他后来给了用KPM、BP（这个时候我还是懵</p>
-<p>写到这里应该能意识到我妥妥地跪了，最后他就让我问一个问题，我就问我距离百度还需要做多大努力。。<br>他说了一些（综合思想是很多。。<br>后来再想问，就被打断说只有一个问题。。<br>一脸尴尬的我<br>不过三面的时候还有基础面一定只有我了QAQ<br>感觉面试官还是很帅气很有思想的，当时感觉好年轻一定很厉害所以就很开心地做过去了。。。果然被虐的很厉害。<br>在等hr过来收表格的时候可能也有点尴尬，稍微问了点别的，比如学校什么的，然后又说现在还是不够之类的，说大学毕业也不能忘记算法（其实并无毕业。。。），问了面试官是本科毕业工作么，然后了解到他是社招。<br>然后也了解到，其实还会问关于前端项目的注意点啦，比如说性能啊安全多屏幕适配等等（应该看我比较弱渣所以没问到这个。。。（然而我内心os是这个还稍微能扯点似乎，毕竟还是写过项目，只是好久没写了。。。另外还有一个问题就是学校里接触的项目要求不是很高，自己也没太花功夫。。</p>
-<p>所以结果这样还是意料之中的，自嘲为<strong>北京一日游</strong>也是真心的。<br>所以开心的和小伙伴约了饭，和当时一起面试的几个学长学姐留了微信，有缘再见啦<br>果然还是有很多路要走，继续加油咯我，还有你们～</p>
+            <p>首先说一下侥幸心理，当时收到百度通知去大厦面试的时候心里活动如下（懵^n<br>
+想着居然过了笔试，也是real可怕，还是很开心的去了。<br>
+申的是<strong>Web前端研发实习岗</strong><br>
+其实是有点心虚的，大一大二算是知识的巅峰期，目前就是以抛物线的形式下降。收到面试通知以后强行找了一些题目，临时抱了一下大腿，倒没有完全写过。<br>
+很多已经处于知道有这个，似乎是因为什么，具体怎么描述既不大清了。。。<br>
+果然今天面试的时候就跪了</p>
+<p>大幸是一面和二面对我比较和善，有幸面了三面。<br>
+一面二面都比较基础，一面主考HTMK/CSS，还有用js写一个函数（用到了递归的思想，还是比较简单的）,二面的时候被问了关于从一维数组构造树的问题，一开始答的一般，没有考虑输入的乱序，例如pid可能不存在，后来就说也是类似递归呗，往上生成。<br>
+其实一面二面都是很简单的问题，还有就是因为太久没用js写这类实际问题的函数，连数组用push都忘了。显而易见，也被一面和二面都提了说我js基础不够的问题。<br>
+但到了三面已经明显看到力不从心了。同样问了一下比较基础的内容，依旧有点答不清楚（其实还是那几个inner、block、inner-block，display/visibility，事件绑定，ajax，get/post等等。其实是知道的，但是当时自己都觉得答的混乱。（顺便一说，这几个其实一二三面有重叠的问道，但是中间间隔的时候我没有好好回顾。。。二面面完12:30左右，给时间吃午餐，然后13:00一面，所以也就没吃。。。（后来发现我算是进度快的，大部分人都是一面结束再1点开始。</p>
+<p>再回归正文。三面这里就比较惨了，给了时间让我现场google然后说区别，一开始限制用英文，后来说都可以（不过中英文倒还好，最多看的速度差异。。。），还有一些现场code test，他应该也看出来我基础的问题了，说写伪代码也行。<br>
+问我用过什么框架，我也就最多一个bootstrap，也没用过node.js（果然还是深入不够，后期就得自我反思了。。。<br>
+总之我后面自己都心虚了。。。然后他打算从别的地方看看我的优点，例如算法什么的。。。就问我搜索字符串什么方法，我的想法非常naive，肯定有问题。他后来给了用KPM、BP（这个时候我还是懵</p>
+<p>写到这里应该能意识到我妥妥地跪了，最后他就让我问一个问题，我就问我距离百度还需要做多大努力。。<br>
+他说了一些（综合思想是很多。。<br>
+后来再想问，就被打断说只有一个问题。。<br>
+一脸尴尬的我<br>
+不过三面的时候还有基础面一定只有我了QAQ<br>
+感觉面试官还是很帅气很有思想的，当时感觉好年轻一定很厉害所以就很开心地做过去了。。。果然被虐的很厉害。<br>
+在等hr过来收表格的时候可能也有点尴尬，稍微问了点别的，比如学校什么的，然后又说现在还是不够之类的，说大学毕业也不能忘记算法（其实并无毕业。。。），问了面试官是本科毕业工作么，然后了解到他是社招。<br>
+然后也了解到，其实还会问关于前端项目的注意点啦，比如说性能啊安全多屏幕适配等等（应该看我比较弱渣所以没问到这个。。。（然而我内心os是这个还稍微能扯点似乎，毕竟还是写过项目，只是好久没写了。。。另外还有一个问题就是学校里接触的项目要求不是很高，自己也没太花功夫。。</p>
+<p>所以结果这样还是意料之中的，自嘲为<strong>北京一日游</strong>也是真心的。<br>
+所以开心的和小伙伴约了饭，和当时一起面试的几个学长学姐留了微信，有缘再见啦<br>
+果然还是有很多路要走，继续加油咯我，还有你们～</p>
 <p>啊，最后说一句，当时好想要三面面试官的邮箱或者微信之类的联系方式，没敢。。。无比后悔ing</p>
 
           
@@ -1259,30 +1326,43 @@
         
           
             <pre><code>23.2-1 对于同一个输入图，Kruskal算法返回的最小生成树可以不同。这种不同来源于对边进行排序时，对权重相同的边进行的不同处理。证明：对于图G的每棵最小生成树T，存在一种办法来对G的边进行排序，使得Kruskal算法所返回的最小生成树就是T。
-</code></pre><p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
+</code></pre>
+<p>直接想法就是再加一个在输入时边的顺序（即相同权重看哪条边存储的在前面就选哪条）。。。这能怎么证明&gt;&lt;</p>
 <p>顺便po上为了解决这个问题顺便复习和思考的内容（对，思考XD</p>
-<h4 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h4><ol>
+<h4 id="相关"><a class="header-anchor" href="#相关">§</a>相关</h4>
+<ol>
 <li>Kruskal算法是每次选择权重最小的边加入森林，它的本质是贪心算法。</li>
-<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一<ul>
+<li>如果该图所有的边均不相同，那么我们可以证明最小生成树唯一</li>
+</ol>
+<ul>
 <li>如果各边权值唯一，从最小生成树开始，每次加一条边i并在新生成的环上删除最大的一条边j（满足权值$e_i$ &lt; $e_j$），这时会得到一棵新的生成树，如果我们加入的那条边满足 $e_j$- $e_i$最小，那么得到的就是第二小的生成树。从这个第二小的生成树开始，进行同样的操作可以得到第三小的生成树。这个迭代过程中树的权值是一直递增的，所以不可能出现相同权值的多棵最小生成树。</li>
 </ul>
-</li>
+<ol start="3">
 <li>对于给定的图而言,因为最小生成树的权值和是确定的,所以最小生成树不唯一当且仅当最小生成树的形状不唯一</li>
-<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$<ul>
-<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w<em>n$ &gt;= $w</em>{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w<em>i’$ &gt;= $w</em>{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
-<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w<em>1$ … $w</em>{i-1}$}产生环，要么就是{$w<em>1$ … $w</em>{i-1}$}中某边。</li>
-<li>所以在选择边 $e<em>1$ … $e</em>{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
+<li>可证明最小生成树T与任意生成树T’，对边进行排序$w_1$ &lt;= $w_2$ &lt;= … &lt;= $w_n$  , $w_1’$ &lt;= $w_2’$ &lt;= … &lt;= $w_n’$ 有 $w_i’$ &lt;= $w_i’$</li>
+</ol>
+<ul>
+<li>如果i时第一个有 $w_i’$ &lt; $w_i$，即有$w_n$ &gt;= $w_{n-1}$  &gt;= … &gt;=$w_i$ &gt; $w_i’$ &gt;= $w_{i-1}’$ &gt;= … &gt;= $w_1’$。</li>
+<li>所以如果我们选择{$w_1’$ … $w_i’$}中某边加入T，要么产生与{$w_1$ … $w_{i-1}$}产生环，要么就是{$w_1$ … $w_{i-1}$}中某边。</li>
+<li>所以在选择边 $e_1$ … $e_{i-1}$ 后有n-i+1个联通分量，再加入边 $e_1’$ … $e_i’$ 后仍为n-i个联通分量，但事实上，因为来自于生成树T’，所以边 $e_1’$ … $e_i’$ 能够有n-i个联通分量</li>
 <li>所以矛盾。</li>
 </ul>
-</li>
-</ol>
-<h4 id="另，最小生成树唯一性判定"><a href="#另，最小生成树唯一性判定" class="headerlink" title="另，最小生成树唯一性判定"></a>另，最小生成树唯一性判定</h4><ol>
+<h4 id="另-最小生成树唯一性判定"><a class="header-anchor" href="#另-最小生成树唯一性判定">§</a>另，最小生成树唯一性判定</h4>
+<ol>
 <li>对图中每条边，扫描其他边，如果存在相同权值的边，则对该边进行标记；</li>
 <li>然后用Kruskal（或者Prim）算法求MST（最小生成树）；</li>
 <li>求得MST后，如果该MST中未包含做了标记的边，即可判定MST唯一；如果包含作了标记的边，则依次去掉这些边再求MST，如果求得的MST权值和原MST权值相同，即可判定MST不唯一。</li>
 </ol>
-<h4 id="转"><a href="#转" class="headerlink" title="转"></a>转</h4><pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
-</code></pre><p>证：    设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>&nbsp;&nbsp;&nbsp;A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>&nbsp;&nbsp;&nbsp;B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>&nbsp;&nbsp;&nbsp;设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>&nbsp;&nbsp;&nbsp;不妨设w(ai)≥w(bi)<br>&nbsp;&nbsp;&nbsp;情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>&nbsp;&nbsp;&nbsp;情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
+<h4 id="转"><a class="header-anchor" href="#转">§</a>转</h4>
+<pre><code>某版23.1-8 把一个连通无向图的生成树边按权值递增排序，称排好序的边权列表为有序边权列表，则任意两棵最小生成树的有序边权列表是相同的。（算法导论） 
+</code></pre>
+<p>证：	设最小生成树有n条边，任意两棵最小生成树分别称为A, B, 如果e是一条边，用w(e)表示该边的权值。<br>
+   A的边按权值递增排序后为a1, a2,……an   w(a1)≤w(a2)≤……w(an)<br>
+   B的边按权值递增排序后为b1, b2,……bn  w(b1)≤w(b2)≤……w(bn)<br>
+   设i是两个边列表中，第一次出现不同边的位置，ai≠bi<br>
+   不妨设w(ai)≥w(bi)<br>
+   情形1  如果树A中包含边bi，则一定有j&gt;i使得  bi=aj ,事实上,这时有 w(bi)=w(aj)≥w(ai) ≥w(bi) 故 w(bi)=w(aj)=w(ai)，在树A的边列表中交换边ai和 aj的位置并不会影响树A的边权有序列表，两棵树在第i个位置的边变成同一条边。<br>
+   情形2  树A中并不包含边bi，则把bi加到树A上，形成一个圈，由于A是最小生成树，这个圈里任意一条边的权值都不大于w(bi) ，另外，这个圈里存在边aj不在树B中。因此，有w(aj)≤w(bi)，且j&gt;i (因为aj不在B中)。于是，有w(bi)≤w(ai)≤w(aj)≤w(bi)，因此 w(ai)= w(aj) = w(bi)。那么在树A中把aj换成bi仍然保持它是一棵最小生成树，并不会影响树A的边权有序列表，并且转换成情形1。</p>
 
           
         
@@ -1418,116 +1498,169 @@
 <li>场景包括用户自身，外部环境：如网络等人、事的不同流程与状态</li>
 <li>场景下的需求即用户使用的出发点 -&gt; 设计产品迭代、维护等</li>
 </ol>
-<h3 id="为什么要基于场景设计产品"><a href="#为什么要基于场景设计产品" class="headerlink" title="为什么要基于场景设计产品"></a>为什么要基于场景设计产品</h3><ol>
-<li><h4 id="产品已成为场景下的体验"><a href="#产品已成为场景下的体验" class="headerlink" title="产品已成为场景下的体验"></a>产品已成为场景下的体验</h4><ul>
+<h3 id="为什么要基于场景设计产品"><a class="header-anchor" href="#为什么要基于场景设计产品">§</a>为什么要基于场景设计产品</h3>
+<ol>
+<li>
+<h4 id="产品已成为场景下的体验"><a class="header-anchor" href="#产品已成为场景下的体验">§</a>产品已成为场景下的体验</h4>
+</li>
+</ol>
+<ul>
 <li>与传统产品的工具性需求不同，互联网，以人为重心，讲究人与互联网的结合。可能成本低廉，但能满足人的更深层次的需求。</li>
 <li>满足情感上的、个性化的需求。而这些是与产品分不开的，例如和朋友聚餐、情侣约会和自己吃饭是不一样的</li>
 <li>例子：微信红包（“伪”需求）+春节场景 -&gt; <strong>场景点燃情感，情感点燃需求</strong></li>
 <li>=&gt;产品融入了场景 = 基本功能＋附加值 =&gt; 打动用户</li>
 </ul>
+<ol start="2">
+<li>
+<h4 id="移动终端加速了产品场景化"><a class="header-anchor" href="#移动终端加速了产品场景化">§</a>移动终端加速了产品场景化</h4>
 </li>
-<li><h4 id="移动终端加速了产品场景化"><a href="#移动终端加速了产品场景化" class="headerlink" title="移动终端加速了产品场景化"></a>移动终端加速了产品场景化</h4><ul>
+</ol>
+<ul>
 <li>之前的PC等，对位置等是有一定限制的，而移动终端则有更多的场景，有更多的产品需求，催生了产品相应的价值。</li>
 <li>特殊场景，如定位类：百度地图，O2O百度糯米</li>
 </ul>
+<ol start="3">
+<li>
+<h4 id="o2o产品扩展了产品的边界"><a class="header-anchor" href="#o2o产品扩展了产品的边界">§</a>O2O产品扩展了产品的边界</h4>
 </li>
-<li><h4 id="O2O产品扩展了产品的边界"><a href="#O2O产品扩展了产品的边界" class="headerlink" title="O2O产品扩展了产品的边界"></a>O2O产品扩展了产品的边界</h4><ul>
+</ol>
+<ul>
 <li>线上和线下的联系 -&gt; 扩展了产品边界：比如百度糯米，现在有了团购产品，线上团购，线下消费。从用户获得消息，线下消费</li>
 <li>从团队化、标准化到<strong>定制化、个性化</strong>：从套餐 -&gt; 打折券</li>
 <li>新的场景出现，如定电影票</li>
 </ul>
-</li>
-</ol>
-<h3 id="具体例子-百度手机卫士"><a href="#具体例子-百度手机卫士" class="headerlink" title="具体例子:百度手机卫士"></a>具体例子:百度手机卫士</h3><ol>
-<li><h4 id="来去电飘窗，前置化场景的功能，接打电话时手机出现小飘窗出现这个号码的当前信息"><a href="#来去电飘窗，前置化场景的功能，接打电话时手机出现小飘窗出现这个号码的当前信息" class="headerlink" title="来去电飘窗，前置化场景的功能，接打电话时手机出现小飘窗出现这个号码的当前信息"></a>来去电飘窗，前置化场景的功能，接打电话时手机出现小飘窗出现这个号码的当前信息</h4><ul>
-<li>因为用户在接打电话之前了解是否是诈骗电话等，所以必须在当前环境下实现。</li>
-<li>需求用户不会告诉你 -&gt; PM提炼成可以在产品上实现的需求，例如：骚扰电话多 = 电话的场景下，让用户提前知道电话的信息</li>
-</ul>
-</li>
-<li><h4 id="悬浮窗：手机桌面上的小圆点，点击可加速"><a href="#悬浮窗：手机桌面上的小圆点，点击可加速" class="headerlink" title="悬浮窗：手机桌面上的小圆点，点击可加速"></a>悬浮窗：手机桌面上的小圆点，点击可加速</h4><ul>
-<li>为什么是悬浮窗，为什么是加速</li>
-</ul>
+<h3 id="具体例子-百度手机卫士"><a class="header-anchor" href="#具体例子-百度手机卫士">§</a>具体例子:百度手机卫士</h3>
+<ol>
+<li>
+<h4 id="来去电飘窗-前置化场景的功能-接打电话时手机出现小飘窗出现这个号码的当前信息"><a class="header-anchor" href="#来去电飘窗-前置化场景的功能-接打电话时手机出现小飘窗出现这个号码的当前信息">§</a>来去电飘窗，前置化场景的功能，接打电话时手机出现小飘窗出现这个号码的当前信息</h4>
 </li>
 </ol>
 <ul>
+<li>因为用户在接打电话之前了解是否是诈骗电话等，所以必须在当前环境下实现。</li>
+<li>需求用户不会告诉你 -&gt; PM提炼成可以在产品上实现的需求，例如：骚扰电话多 = 电话的场景下，让用户提前知道电话的信息</li>
+</ul>
+<ol start="2">
+<li>
+<h4 id="悬浮窗：手机桌面上的小圆点-点击可加速"><a class="header-anchor" href="#悬浮窗：手机桌面上的小圆点-点击可加速">§</a>悬浮窗：手机桌面上的小圆点，点击可加速</h4>
+</li>
+</ol>
+<ul>
+<li>为什么是悬浮窗，为什么是加速</li>
 <li>使用手机不知道什么时候会变慢变卡，所以手机卡慢贯穿整个使用的场景，而悬浮窗有这个特质，安卓手机可设置从而在所有界面都能看到 =&gt; 所以只有悬浮窗可以满足需求，也只有手机卡慢可以放在上面</li>
 <li>-&gt; 场景和需求的结合</li>
 </ul>
-<ol>
-<li><h4 id="手机加速功能分支下的小功能"><a href="#手机加速功能分支下的小功能" class="headerlink" title="手机加速功能分支下的小功能"></a>手机加速功能分支下的小功能</h4></li>
+<ol start="3">
+<li>
+<h4 id="手机加速功能分支下的小功能"><a class="header-anchor" href="#手机加速功能分支下的小功能">§</a>手机加速功能分支下的小功能</h4>
+</li>
 </ol>
 <ul>
 <li>有哪些场景下，用户会有额外典型的手机加速的需求？如玩游戏，因为需要性能 -&gt; 所以设置成，启动游戏时自动加速</li>
 </ul>
-<ol>
-<li><h4 id="为什么基于场景-gt-因为产品已经成为特定场景下的体验"><a href="#为什么基于场景-gt-因为产品已经成为特定场景下的体验" class="headerlink" title="为什么基于场景 -&gt;因为产品已经成为特定场景下的体验"></a>为什么基于场景 -&gt;因为产品已经成为特定场景下的体验</h4><ul>
+<ol start="4">
+<li>
+<h4 id="为什么基于场景-因为产品已经成为特定场景下的体验"><a class="header-anchor" href="#为什么基于场景-因为产品已经成为特定场景下的体验">§</a>为什么基于场景 -&gt;因为产品已经成为特定场景下的体验</h4>
+</li>
+</ol>
+<ul>
 <li>思考用户需求，思考在这个用户需求下的场景，现在的环境是什么，然后再把场景细分 -&gt; 可能有比较能打动人心的新的点</li>
 </ul>
+<h3 id="同学提问："><a class="header-anchor" href="#同学提问：">§</a>同学提问：</h3>
+<ol>
+<li>
+<p>如何去发现“伪场景”：场景和需求结合在一起，我们可以说 如果是伪场景，那一定也是伪需求；所以其实本质是如何发现伪需求。那么我觉得可以有几点参考：不关注用户说什么而多关注用户做什么；实际去调研，去体会；关心用户最终的目标</p>
+</li>
+<li>
+<p>老师你好，如何确定一个功能是强需求高频率的呢，靠用户调研？：用户调研当然是最简单也最直接的方式；但是在有些情况下，用户调研也会说谎，如果我们没有能力进行调研，我们就可以通过拆解需求，拆解功能，找到功能的本质，进而去发现功能是否是高频的；比如抢红包，拆解以后是不是还有小额转账的功能，这就是一个高频需求</p>
+</li>
+<li>
+<p>我想问下产品的特性是全面好还是单点极限表达好？：核心需求单点极限，初期产品单点极限，但是也不是绝对；比如o2o 永远是越多越好</p>
+</li>
+<li>
+<p>场景细分一般可以从那些层面和纬度去进行细分：可以从场景中涉及到的所有人和事开始，然后每个人、每个事  是否有不同的状态</p>
+</li>
+<li>
+<p>请问老师，在产品初期没有用户的时候怎么做用户体验 用户场景的设置？： 我觉得还是需求的拆解，需求拆解到极致，一定是可以找到切入点的。把这个切入点和已经存在的场景来寻找互通</p>
+</li>
+<li>
+<p>一个产品在多个场景下应用时不同需求冲突该如何解决？： 一个产品在多个场景下应用时不同需求冲突该如何解决？</p>
+</li>
+<li>
+<p>做竞品分析的时候，如何快速分析出一个产品的定位？：还是看功能</p>
+</li>
+<li>
+<p>如果说产品朝个性化定制化方向发展，是不是意味着我们做出来的产品可能会比较小众化：个性化是手段，不是目的；小众产品也可以很优秀的呀</p>
+</li>
+<li>
+<p>刚才您提到微信的抢红包功能，当时它不是用户可能会想得到的或者可能需要的需求，它是微信上有了才慢慢被接受，您认为是一位的做用户需求调查重要呢？还是脑洞大开一下更重要一点？ ： 调查一定是有的，脑洞大开也保不准，但是根本还是其创造者抓住了发红包这种情感的宣泄点，有理有据，才能引爆</p>
+</li>
+<li>
+<p>老师您好，请问在产品推出后，如何去做到更好的维护这个产品，以及如果因为时间等某些因素面临场景的改变怎么办：你指的维护产品可能就是产品的迭代和生长吧，产品也像一个孩子，要明白在不同的阶段 让它做不同的事情吧</p>
+</li>
+<li>
+<p>如何筛选场景呢？不可能满足所有场景：按产品核心需求排优先级，看看场景是否解决了或者契合了核心需求</p>
+</li>
+<li>
+<p>一个产品的核心功能的满足会不会因为场景的满足而产生偏移呢？：需求和场景分不开，如果核心功能被满足，那就是核心场景被满足，然后引发的是额外高阶的需求，那就是不同的场景了</p>
+</li>
+<li>
+<p>说用户需求就会谈到用户体验，如何理解这两者：大概就是手动挡和自动挡的区别</p>
+</li>
+<li>
+<p>老师能说明一些产品迭代的不同时期，考虑的不同需求吗？并且如何考虑的：不是产品迭代左右需求，是需求催生了产品迭代</p>
+</li>
+<li>
+<p>请问老师，随着产品功能的不断扩展，某些功能可能会与其他产品的某种功能发生叠加，这个时候我们是选择保留这种功能还是放弃以保留产品的独特性？：思考为什么会出现重叠？思考去掉或者保留的利弊</p>
+</li>
+<li>
+<p>请问老师，是应该是让场景下的功能无限接近用户需求，还是应该让用户能无限适应场景下的功能： 很好的问题，找平衡，因为需求有时候是伪需求，或者说不完美的需求，你要有自己的判断</p>
+</li>
+<li>
+<p>请问老师，针对刚才被提到的同质化问题，如果已知自主设计的产品会被模仿的情况下应采取何种设计产品的策略呢，采取模仿别人的策略有何不妥：不要忘了产品的初衷，是解决用户需求，而不是应对别人的模仿</p>
+</li>
+<li>
+<p>老师我想请问：那您觉得如果设计一款产品是很全面好呢，比如一个APP包涵了衣食住行的各种O2O服务、也包含了手机安全等功能；还是纯粹地分别设计安全app、团购app、酒店住宿app比较好？因为现在确实手机app越来越纷繁复杂，用户难以选择，而且审美疲劳或是选择疲劳也会导致用户选择乏力，那么您认为将来的趋势是：针对越来越细分的场景和用户需求设计越来越小众的app呢，还是推出一款返璞归真的app，包含尽可能多的功能和场景需求。哪一种可能更成功？： 嗯 我觉得这个问题很好；我的回答是，这不是选择的问题，而是能力的问题；现在没有什么企业可以把一个app做到包含你的所有功能而又不显得臃肿，繁杂，无所适从；试想，如果真的出现了一个真正意义的人工智能app，只需要你一句话就能满足所有需求，何乐而不为呢？   先让大家把每个点做到极致，再考虑综合的问题吧</p>
+</li>
+<li>
+<p>请问如何判断一个产品是否成功了呢？装机量？用户正面评价？营收额？受到资本青睐？：求仁得仁喽</p>
+</li>
+<li>
+<p>在产品功能愈发齐全、场景需求愈发得到满足的背景下，以场景为思路来改进产品功能是否容易陷入瓶颈?是否以后对产品的改进会更加趋向于个性化定制?： 是可能会陷入瓶颈，不过还是那句话 个性化是手段 不是目的，更多还是要发现新场景新需求</p>
+</li>
+<li>
+<p>用户调研如何发现潜在的需求：多关心用户真正去做什么</p>
+</li>
+<li>
+<p>互联网产品在现在市场下的发展趋势：发展肯定会越来越好，互联网化是大趋势了，会影响生活的方方面面</p>
+</li>
+<li>
+<p>现在很多互联网公司所推出的应用都提到了上述所提功能，那么在竞争激烈、同质化严重的市场环境下，企业要如何保证自己的产品能在某个特定场景下最受用户的青睐：可以从产品、运营各个方面来回答。如果说特定场景下，那一定是产品的体验做到极致</p>
+</li>
+<li>
+<p>悬浮窗一般在电脑上使用，复制到手机上，如何解决用户在手机屏幕这么小的空间上因为使用悬浮窗而带来的不适感（屏幕被霸占感觉）？：可以从感情上找一些共鸣，比如设计的趣味性、个性化、娱乐性。如果实在不喜欢，还可以隐藏呀</p>
+</li>
+<li>
+<p>请问有什么工具或原则来高效设计用户场景吗？：设计用户场景我觉得这个说法可能不合适，用户场景需要我们去深入的理解，需要我们设计的  是产品的形态  所以用你的大脑去设计用户场景吧</p>
+</li>
+<li>
+<p>百度手机卫士，360手机卫士和手机管家的产品定位有区别吗？：对用户的核心需求上没有区别，但是结合产品在公司的战略意义，会有战略上的区别</p>
+</li>
+<li>
+<p>说用户需求就会谈到用户体验，如何理解这两者：大概就是手动挡和自动挡的区别</p>
+</li>
+<li>
+<p>学生团队如何做到从0到1？寻找怎样的平台？怎样的契机？：我觉得去做就很好了，哪怕是从0到0以后，还能剩下的东西  就是100</p>
+</li>
+<li>
+<p>是应该是让场景下的功能无限接近用户需求，还是应该让用户能无限适应场景下的功能：很好的问题，找平衡，因为需求有时候是伪需求，或者说不完美的需求，你要有自己的判断</p>
+</li>
+<li>
+<p>请问百度手机卫士APP首页上的“家人防护”是基于什么样的场景，它为什么能有这么高的优先级？：这个就属于成熟型产品的一个方向性尝试吧。<br>
+出现一个新功能前三个月只能全是市场实验，新功能的出现可以改变生活态度，但是要被市场接收还需要好的营销！和用户习惯的养成</p>
 </li>
 </ol>
-<h3 id="同学提问："><a href="#同学提问：" class="headerlink" title="同学提问："></a>同学提问：</h3><ol>
-<li><p>如何去发现“伪场景”：场景和需求结合在一起，我们可以说 如果是伪场景，那一定也是伪需求；所以其实本质是如何发现伪需求。那么我觉得可以有几点参考：不关注用户说什么而多关注用户做什么；实际去调研，去体会；关心用户最终的目标</p>
-</li>
-<li><p>老师你好，如何确定一个功能是强需求高频率的呢，靠用户调研？：用户调研当然是最简单也最直接的方式；但是在有些情况下，用户调研也会说谎，如果我们没有能力进行调研，我们就可以通过拆解需求，拆解功能，找到功能的本质，进而去发现功能是否是高频的；比如抢红包，拆解以后是不是还有小额转账的功能，这就是一个高频需求</p>
-</li>
-<li><p>我想问下产品的特性是全面好还是单点极限表达好？：核心需求单点极限，初期产品单点极限，但是也不是绝对；比如o2o 永远是越多越好</p>
-</li>
-<li><p>场景细分一般可以从那些层面和纬度去进行细分：可以从场景中涉及到的所有人和事开始，然后每个人、每个事  是否有不同的状态</p>
-</li>
-<li><p>请问老师，在产品初期没有用户的时候怎么做用户体验 用户场景的设置？： 我觉得还是需求的拆解，需求拆解到极致，一定是可以找到切入点的。把这个切入点和已经存在的场景来寻找互通</p>
-</li>
-<li><p>一个产品在多个场景下应用时不同需求冲突该如何解决？： 一个产品在多个场景下应用时不同需求冲突该如何解决？</p>
-</li>
-<li><p>做竞品分析的时候，如何快速分析出一个产品的定位？：还是看功能</p>
-</li>
-<li><p>如果说产品朝个性化定制化方向发展，是不是意味着我们做出来的产品可能会比较小众化：个性化是手段，不是目的；小众产品也可以很优秀的呀  </p>
-</li>
-<li><p>刚才您提到微信的抢红包功能，当时它不是用户可能会想得到的或者可能需要的需求，它是微信上有了才慢慢被接受，您认为是一位的做用户需求调查重要呢？还是脑洞大开一下更重要一点？ ： 调查一定是有的，脑洞大开也保不准，但是根本还是其创造者抓住了发红包这种情感的宣泄点，有理有据，才能引爆</p>
-</li>
-<li><p>老师您好，请问在产品推出后，如何去做到更好的维护这个产品，以及如果因为时间等某些因素面临场景的改变怎么办：你指的维护产品可能就是产品的迭代和生长吧，产品也像一个孩子，要明白在不同的阶段 让它做不同的事情吧</p>
-</li>
-<li><p>如何筛选场景呢？不可能满足所有场景：按产品核心需求排优先级，看看场景是否解决了或者契合了核心需求</p>
-</li>
-<li><p>一个产品的核心功能的满足会不会因为场景的满足而产生偏移呢？：需求和场景分不开，如果核心功能被满足，那就是核心场景被满足，然后引发的是额外高阶的需求，那就是不同的场景了</p>
-</li>
-<li><p>说用户需求就会谈到用户体验，如何理解这两者：大概就是手动挡和自动挡的区别</p>
-</li>
-<li><p>老师能说明一些产品迭代的不同时期，考虑的不同需求吗？并且如何考虑的：不是产品迭代左右需求，是需求催生了产品迭代  </p>
-</li>
-<li><p>请问老师，随着产品功能的不断扩展，某些功能可能会与其他产品的某种功能发生叠加，这个时候我们是选择保留这种功能还是放弃以保留产品的独特性？：思考为什么会出现重叠？思考去掉或者保留的利弊 </p>
-</li>
-<li><p>请问老师，是应该是让场景下的功能无限接近用户需求，还是应该让用户能无限适应场景下的功能： 很好的问题，找平衡，因为需求有时候是伪需求，或者说不完美的需求，你要有自己的判断</p>
-</li>
-<li><p>请问老师，针对刚才被提到的同质化问题，如果已知自主设计的产品会被模仿的情况下应采取何种设计产品的策略呢，采取模仿别人的策略有何不妥：不要忘了产品的初衷，是解决用户需求，而不是应对别人的模仿</p>
-</li>
-<li><p>老师我想请问：那您觉得如果设计一款产品是很全面好呢，比如一个APP包涵了衣食住行的各种O2O服务、也包含了手机安全等功能；还是纯粹地分别设计安全app、团购app、酒店住宿app比较好？因为现在确实手机app越来越纷繁复杂，用户难以选择，而且审美疲劳或是选择疲劳也会导致用户选择乏力，那么您认为将来的趋势是：针对越来越细分的场景和用户需求设计越来越小众的app呢，还是推出一款返璞归真的app，包含尽可能多的功能和场景需求。哪一种可能更成功？： 嗯 我觉得这个问题很好；我的回答是，这不是选择的问题，而是能力的问题；现在没有什么企业可以把一个app做到包含你的所有功能而又不显得臃肿，繁杂，无所适从；试想，如果真的出现了一个真正意义的人工智能app，只需要你一句话就能满足所有需求，何乐而不为呢？   先让大家把每个点做到极致，再考虑综合的问题吧</p>
-</li>
-<li><p>请问如何判断一个产品是否成功了呢？装机量？用户正面评价？营收额？受到资本青睐？：求仁得仁喽</p>
-</li>
-<li><p>在产品功能愈发齐全、场景需求愈发得到满足的背景下，以场景为思路来改进产品功能是否容易陷入瓶颈?是否以后对产品的改进会更加趋向于个性化定制?： 是可能会陷入瓶颈，不过还是那句话 个性化是手段 不是目的，更多还是要发现新场景新需求</p>
-</li>
-<li><p>用户调研如何发现潜在的需求：多关心用户真正去做什么</p>
-</li>
-<li><p>互联网产品在现在市场下的发展趋势：发展肯定会越来越好，互联网化是大趋势了，会影响生活的方方面面</p>
-</li>
-<li><p>现在很多互联网公司所推出的应用都提到了上述所提功能，那么在竞争激烈、同质化严重的市场环境下，企业要如何保证自己的产品能在某个特定场景下最受用户的青睐：可以从产品、运营各个方面来回答。如果说特定场景下，那一定是产品的体验做到极致</p>
-</li>
-<li><p>悬浮窗一般在电脑上使用，复制到手机上，如何解决用户在手机屏幕这么小的空间上因为使用悬浮窗而带来的不适感（屏幕被霸占感觉）？：可以从感情上找一些共鸣，比如设计的趣味性、个性化、娱乐性。如果实在不喜欢，还可以隐藏呀</p>
-</li>
-<li><p>请问有什么工具或原则来高效设计用户场景吗？：设计用户场景我觉得这个说法可能不合适，用户场景需要我们去深入的理解，需要我们设计的  是产品的形态  所以用你的大脑去设计用户场景吧</p>
-</li>
-<li><p>百度手机卫士，360手机卫士和手机管家的产品定位有区别吗？：对用户的核心需求上没有区别，但是结合产品在公司的战略意义，会有战略上的区别</p>
-</li>
-<li><p>说用户需求就会谈到用户体验，如何理解这两者：大概就是手动挡和自动挡的区别</p>
-</li>
-<li><p>学生团队如何做到从0到1？寻找怎样的平台？怎样的契机？：我觉得去做就很好了，哪怕是从0到0以后，还能剩下的东西  就是100</p>
-</li>
-<li><p>是应该是让场景下的功能无限接近用户需求，还是应该让用户能无限适应场景下的功能：很好的问题，找平衡，因为需求有时候是伪需求，或者说不完美的需求，你要有自己的判断</p>
-</li>
-<li><p>请问百度手机卫士APP首页上的“家人防护”是基于什么样的场景，它为什么能有这么高的优先级？：这个就属于成熟型产品的一个方向性尝试吧。<br>出现一个新功能前三个月只能全是市场实验，新功能的出现可以改变生活态度，但是要被市场接收还需要好的营销！和用户习惯的养成</p>
-</li>
-</ol>
-<h3 id="产品的路远没有人人都是产品经理这句话说的这么简单。多体会，多思考，多实践。"><a href="#产品的路远没有人人都是产品经理这句话说的这么简单。多体会，多思考，多实践。" class="headerlink" title="产品的路远没有人人都是产品经理这句话说的这么简单。多体会，多思考，多实践。"></a>产品的路远没有人人都是产品经理这句话说的这么简单。多体会，多思考，多实践。</h3>
+<h3 id="产品的路远没有人人都是产品经理这句话说的这么简单-多体会-多思考-多实践"><a class="header-anchor" href="#产品的路远没有人人都是产品经理这句话说的这么简单-多体会-多思考-多实践">§</a>产品的路远没有人人都是产品经理这句话说的这么简单。多体会，多思考，多实践。</h3>
+
           
         
       
@@ -1655,80 +1788,110 @@
       
         
           
-            <p>参考<br><a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">NexT使用文档</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
+            <p>参考<br>
+<a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">NexT使用文档</a><br>
+<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
 <hr>
-<h3 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h3><ul>
+<h3 id="配置评论"><a class="header-anchor" href="#配置评论">§</a>配置评论</h3>
+<ul>
 <li>Hexo默认集成Disqus提供第三方评论系统</li>
-<li>国内建议<a href="http://duoshuo.com" target="_blank" rel="external">多说</a><ul>
+<li>国内建议<a href="http://duoshuo.com" target="_blank" rel="external">多说</a></li>
 <li>登录后在首页选择 “我要安装”。</li>
 <li>创建站点，填写站点相关信息。 多说域名处填写自己命名的short_name 例如博主就根据提示顺手填了ZoeyeoZ。。。</li>
-<li>创建站点完成后编辑<strong>站点配置文件_config.yml</strong>文件<ul>
+<li>创建站点完成后编辑<strong>站点配置文件_config.yml</strong>文件
+<ul>
 <li>新增 <strong>duoshuo_shortname</strong> 字段，值设置成上一步中的值。</li>
 <li><code>duoshuo_shortname: ZoeyeoZ</code></li>
 <li>此外声明这类配置与主体有关，博主主题［NexT］</li>
 </ul>
 </li>
-<li>如果采用其他第三方评论系统，通用代码详见多说网站 </li>
-</ul>
-</li>
+<li>如果采用其他第三方评论系统，通用代码详见多说网站</li>
 </ul>
 <blockquote>
 <p>使用多说的话，Thread Key一定不要改变，Thread Key相当于是识别码；如果你更新了Hexo或者重装了vps，文章的Thread Key改变了的话，那么恭喜你，评论全部没有了。。。</p>
 </blockquote>
-<h3 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h3><ul>
+<h3 id="百度统计"><a class="header-anchor" href="#百度统计">§</a>百度统计</h3>
+<ul>
 <li>登录<a href="http://tongji.baidu.com/" target="_blank" rel="external">百度统计</a>， 定位到站点的代码获取页面</li>
-<li>复制 hm.js? 后面那串统计脚本 id，如： </li>
+<li>复制 hm.js? 后面那串统计脚本 id，如：</li>
 <li><code>hm.src = &quot;//hm.baidu.com/hm.js?xxxxxx&quot;;</code></li>
 <li>编辑<strong>站点配置文件</strong>，新增字段 <strong>baidu_analytics</strong> 字段，值设置成你的百度统计脚本 id</li>
 </ul>
-<h3 id="阅读次数统计（LeanCloud"><a href="#阅读次数统计（LeanCloud" class="headerlink" title="阅读次数统计（LeanCloud)"></a>阅读次数统计（LeanCloud)</h3><ul>
-<li>详细内容参照<a href="https://notes.wanghao.work/2015-10-21-为NexT主题添加文章阅读量统计功能.html#配置LeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></li>
-<li>NexT主题目前已经合并这个Feature，因此如果你使用的是NexT主题，可以<strong>直接使用</strong>不用修改主题模版</li>
-<li><p>修改NexT主题模版</p>
+<h3 id="阅读次数统计-leancloud"><a class="header-anchor" href="#阅读次数统计-leancloud">§</a>阅读次数统计（LeanCloud)</h3>
 <ul>
-<li>详见原文</li>
-<li>修改_config.yml文件<br>在<strong>blog/themes/next</strong></li>
-<li>添加lean-analytics.swig文件，<br> 在<strong>blog/themes/next/layout/_scripts</strong></li>
-<li>修改post.swig文件<br>在<strong>blog/themes/next/layout/_macro</strong></li>
-<li>修改layout.swig文件<br>在<strong>blog/themes/next/layout</strong></li>
-<li>修改zh-Hans.yml文件</li>
-</ul>
+<li>
+<p>详细内容参照<a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></p>
 </li>
-<li><p>注册<a href="https://leancloud.cn/login.html#/signup" target="_blank" rel="external">LeanCloud</a>（需验证邮箱）</p>
+<li>
+<p>NexT主题目前已经合并这个Feature，因此如果你使用的是NexT主题，可以<strong>直接使用</strong>不用修改主题模版</p>
 </li>
-<li><p>配置LeanCloud<br>登录帐号，配置后拿到<strong>AppID</strong>及<strong>AppKey</strong>，用于文章阅读量统计的功能。 </p>
+<li>
+<p>修改NexT主题模版</p>
+</li>
+<li>
+<p>详见原文</p>
+</li>
+<li>
+<p>修改_config.yml文件<br>
+在<strong>blog/themes/next</strong></p>
+</li>
+<li>
+<p>添加lean-analytics.swig文件，<br>
+在<strong>blog/themes/next/layout/_scripts</strong></p>
+</li>
+<li>
+<p>修改post.swig文件<br>
+在<strong>blog/themes/next/layout/_macro</strong></p>
+</li>
+<li>
+<p>修改layout.swig文件<br>
+在<strong>blog/themes/next/layout</strong></p>
+</li>
+<li>
+<p>修改zh-Hans.yml文件</p>
+</li>
+<li>
+<p>注册<a href="https://leancloud.cn/login.html#/signup" target="_blank" rel="external">LeanCloud</a>（需验证邮箱）</p>
+</li>
+<li>
+<p>配置LeanCloud<br>
+登录帐号，配置后拿到<strong>AppID</strong>及<strong>AppKey</strong>，用于文章阅读量统计的功能。</p>
 <ul>
-<li><p>创建应用，用于博客的访问统计的数据操作</p>
+<li>
+<p>创建应用，用于博客的访问统计的数据操作</p>
 <ul>
 <li>左上角账号，打开控制台</li>
 <li>点击创建应用</li>
 <li>新建的应用名称Test（可修改）</li>
 <li>点击新创建的应用名进入参数配置页</li>
-<li><p>点击左侧右上角的齿轮图标，创建Class。新建表来保存数据</p>
+<li>点击左侧右上角的齿轮图标，创建Class。新建表来保存数据</li>
+</ul>
 <blockquote>
 <p>为了保证我们前面对NexT主题的修改兼容，此处的新建Class名字必须为Counter</p>
 </blockquote>
-</li>
-<li><p>选择Counter，点击顶部设置，切换到Test应用操作界面</p>
-</li>
+<ul>
+<li>选择Counter，点击顶部设置，切换到Test应用操作界面</li>
 <li>选择左侧的应用Key选项，得到创建应用的<strong>AppID</strong>以及<strong>AppKey</strong></li>
 <li>复制AppID以及AppKey并在NexT主题的_config.yml文件中我们相应的位置填入即可</li>
 </ul>
 <blockquote>
 <ol>
-<li>注意，NexT用户需要修改false为true<br><code>leancloud_visitors:
-enable: true</code></li>
+<li>注意，NexT用户需要修改false为true<br>
+<code>leancloud_visitors: enable: true</code></li>
 <li>重新生成部署Hexo博客，应该就可以正常使用文章阅读量统计的功能了。需要特别说明的是：记录文章访问量的唯一标识符是<strong>文章的发布日期</strong>以及<strong>文章的标题</strong>，因此请确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</li>
 </ol>
 </blockquote>
 </li>
 </ul>
 </li>
-<li><p>后台管理</p>
+<li>
+<p>后台管理</p>
 <ul>
 <li>初始的文章统计量显示为0，这时对应应用的Counter表中并没有相应的记录。当博客文章在配置好阅读量统计服务之后第一次打开时，便会自动向服务器发送数据来创建一条数据，该数据会被记录在对应的应用的Counter表中。</li>
 <li>我们可以修改其中的time字段的数值来达到修改某一篇文章的访问量的目的（博客文章访问量快递提升人气的装逼利器）。双击具体的数值，修改之后回车即可保存。</li>
-<li><blockquote>
+<li></li>
+</ul>
+<blockquote>
 <ol>
 <li>url字段被当作唯一ID来使用，因此如果你不知道带来的后果的话请不要修改。</li>
 <li>title字段显示的是博客文章的标题，用于后台管理的时候区分文章之用，没有什么实际作用。</li>
@@ -1736,9 +1899,9 @@ enable: true</code></li>
 </ol>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p>Web安全<br>  由于AppID以及AppKey是暴露在外的，为确保只用于自己博客，建议开启Web安全选项，这样就只能通过自己的域名才有权访问后台的数据</p>
+<li>
+<p>Web安全<br>
+由于AppID以及AppKey是暴露在外的，为确保只用于自己博客，建议开启Web安全选项，这样就只能通过自己的域名才有权访问后台的数据</p>
 <ul>
 <li>选择应用的设置的安全中心选项卡</li>
 <li>在Web 安全域名中填入我们自己的博客域名，来确保数据调用的安全</li>
@@ -1746,27 +1909,31 @@ enable: true</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="Swiftype-搜索"><a href="#Swiftype-搜索" class="headerlink" title="Swiftype 搜索"></a>Swiftype 搜索</h3><ul>
+<h3 id="swiftype-搜索"><a class="header-anchor" href="#swiftype-搜索">§</a>Swiftype 搜索</h3>
+<ul>
 <li>使用 Swiftype 之前需要前往 Swiftype 配置一个搜索引擎。 而后编辑 站点配置文件， 新增 swiftype_key 字段，值为你的 swiftype 搜索引擎的 key。 详细的配置请参考： <a href="http://theme-next.iissnan.com/third-party-services.html#swfitype" target="_blank" rel="external">第三方服务 - Swiftype</a></li>
-<li>进入<a href="https://swiftype.com/home" target="_blank" rel="external">Swiftype</a>，根据提示操作<ul>
-<li>注意，修改值在 <strong>/blog/themes/next/_config.yml</strong> 内<br><code># Swiftype Search Key
-swiftype_key: xxxxxxxxx</code></li>
-<li>复制<strong>Install Swiftype On Your Website</strong>内的<br><code>_st(&#39;install&#39;,&#39;XXXXXXXXX&#39;,&#39;2.0.0&#39;);</code></li>
+<li>进入<a href="https://swiftype.com/home" target="_blank" rel="external">Swiftype</a>，根据提示操作
+<ul>
+<li>注意，修改值在 <strong>/blog/themes/next/_config.yml</strong> 内<br>
+<code># Swiftype Search Key swiftype_key: xxxxxxxxx</code></li>
+<li>复制<strong>Install Swiftype On Your Website</strong>内的<br>
+<code>_st('install','XXXXXXXXX','2.0.0');</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="JiaThis"><a href="#JiaThis" class="headerlink" title="JiaThis"></a>JiaThis</h3><ul>
-<li>编辑 站点配置文件， 找到字段 jiathis<br><code>jiathis: 
-enable: true</code></li>
+<h3 id="jiathis"><a class="header-anchor" href="#jiathis">§</a>JiaThis</h3>
+<ul>
+<li>编辑 站点配置文件， 找到字段 jiathis<br>
+<code>jiathis: enable: true</code></li>
 </ul>
 <hr>
-<h3 id="ERROR"><a href="#ERROR" class="headerlink" title="ERROR"></a>ERROR</h3><ul>
-<li>如发生类似错误<ul>
-<li>ERROR Process failed: layout/_scripts/.DS_Store </li>
+<h3 id="error"><a class="header-anchor" href="#error">§</a>ERROR</h3>
+<ul>
+<li>如发生类似错误</li>
+<li>ERROR Process failed: layout/_scripts/.DS_Store</li>
 <li>ERROR Process failed: layout/.DS_Store  等</li>
-<li>进入主题里面layout和_partial目录下相应目录下，使用删除命令：<br><code>rm -rf .DS_Store</code></li>
-</ul>
-</li>
+<li>进入主题里面layout和_partial目录下相应目录下，使用删除命令：<br>
+<code>rm -rf .DS_Store</code></li>
 </ul>
 
           
@@ -1903,107 +2070,138 @@ enable: true</code></li>
 <li><a href="http://gonghonglou.com/2016/02/03/firstblog" target="_blank" rel="external">Mac上搭建基于GitHub的Hexo博客</a>［推荐该篇］</li>
 </ol>
 <hr>
-<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a> -&gt; 生成静态页面的<br>安装Git -&gt; 把本地的hexo内容提交至github（Xcode自带Git）<br>申请GitHub</p>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ul>
-<li><p><code>sudo npm install-g hexo</code><br>输入管理员密码（Mac登录密码）即开始安装<br>(sudo:linux系统管理指令  -g:全局安装)</p>
+<h2 id="配置环境"><a class="header-anchor" href="#配置环境">§</a>配置环境</h2>
+<p>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a> -&gt; 生成静态页面的<br>
+安装Git -&gt; 把本地的hexo内容提交至github（Xcode自带Git）<br>
+申请GitHub</p>
+<h2 id="安装hexo"><a class="header-anchor" href="#安装hexo">§</a>安装Hexo</h2>
+<ul>
+<li><code>sudo npm install-g hexo</code><br>
+输入管理员密码（Mac登录密码）即开始安装<br>
+(sudo:linux系统管理指令  -g:全局安装)</li>
+</ul>
 <blockquote>
 <p>注意坑一：Hexo官网上的安装命令是 npm install -g hexo-cli，安装时不要忘记前面加上sudo，否则会因为权限问题报错。</p>
 </blockquote>
+<ul>
+<li>
+<p>终端cd到一个你选定的目录，执行hexo init命令<br>
+<code>hexo init blog</code>//blog是建立的文件夹名称</p>
 </li>
-<li><p>终端cd到一个你选定的目录，执行hexo init命令<br><code>hexo init blog</code>//blog是建立的文件夹名称</p>
+<li>
+<p><code>cd blog</code>，<code>npm install</code>//安装npm</p>
 </li>
-<li><p><code>cd blog</code>，<code>npm install</code>//安装npm</p>
+<li>
+<p><code>hexo s</code>//开启hexo服务器</p>
 </li>
-<li><p><code>hexo s</code>//开启hexo服务器</p>
-</li>
-<li><p>本地浏览器，<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br><img src="http://img.blog.csdn.net/20160413150122732" alt="成功界面"></p>
+<li>
+<p>本地浏览器，<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>
+<img src="http://img.blog.csdn.net/20160413150122732" alt="成功界面"></p>
 </li>
 </ul>
-<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><ul>
-<li>关联Github<ul>
-<li>检查SSH keys是否存在Github<br><code>ls -al ~/.ssh</code>//检查SSH keys是否存在.<pre><code>- 如果有文件**github_rsa.pub**或**github_dsa.pub**，则直接将SSH key添加到Github中，否则进入下一步生成SSH key。
-</code></pre></li>
-<li>生成新的ssh key<br><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code>//生成public/private rsa key pair<ul>
+<h2 id="配置github"><a class="header-anchor" href="#配置github">§</a>配置Github</h2>
+<ul>
+<li>关联Github</li>
+<li>检查SSH keys是否存在Github<br>
+<code>ls -al ~/.ssh</code>//检查SSH keys是否存在.
+<ul>
+<li>如果有文件<strong>github_rsa.pub</strong>或<strong>github_dsa.pub</strong>，则直接将SSH key添加到Github中，否则进入下一步生成SSH key。</li>
+</ul>
+</li>
+<li>生成新的ssh key<br>
+<code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code>//生成public/private rsa key pair
+<ul>
 <li>注意将your_email@example.com换成你自己注册Github的邮箱地址。</li>
 <li>默认会在相应路径下（~/.ssh/github_rsa.pub）生成<strong>github_rsa和github_rsa.pub</strong>两个文件。</li>
 </ul>
 </li>
-<li>将ssh key添加到Github中<ul>
+<li>将ssh key添加到Github中
+<ul>
 <li>Find前往文件夹~/.ssh/github_rsa.pub打开github_rsa.pub文件</li>
-<li>进入Github -&gt; Settings -&gt; SSH and GPG keys -New SSH key -&gt;<br><img src="http://img.blog.csdn.net/20160413152102731" alt="Add SSH key"></li>
+<li>进入Github -&gt; Settings -&gt; SSH and GPG keys -New SSH key -&gt;<br>
+<img src="http://img.blog.csdn.net/20160413152102731" alt="Add SSH key"></li>
 <li>Title内容任意，key为github_rsa.pub内容</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>创建仓库</p>
+<li>创建仓库
 <ul>
 <li>登录你的Github帐号，新建仓库，名为用户名.github.io固定写法</li>
-<li>本地的blog文件夹下内容为：<ul>
-<li>_config.yml<br>db.json<br>node_modules<br>package.json<br>scaffolds<br>source<br>themes</li>
+<li>本地的blog文件夹下内容为：
+<ul>
+<li>_config.yml<br>
+db.json<br>
+node_modules<br>
+package.json<br>
+scaffolds<br>
+source<br>
+themes</li>
 </ul>
 </li>
-<li>终端cd到blog文件夹下，vim打开_config.yml<br><code>vim _config.yml</code></li>
-<li><p>在文件最后deplo修改如下</p>
+<li>终端cd到blog文件夹下，vim打开_config.yml<br>
+<code>vim _config.yml</code></li>
+<li>在文件最后deplo修改如下
 <ul>
-<li>deploy:<pre><code>type: git
- repository: https://github.com/yourID/yourID.github.io.git
-branch: master
-</code></pre></li>
+<li>deploy:<br>
+type: git<br>
+repository: <a href="https://github.com/yourID/yourID.github.io.git" target="_blank" rel="external">https://github.com/yourID/yourID.github.io.git</a><br>
+branch: master</li>
 <li>yourID请换成自己的用户名。</li>
-<li><p>hexo 3.1.1版本后type:值为git。</p>
+<li>hexo 3.1.1版本后type:值为git。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<p>注意坑二：在配置所有的_config.yml文件时（包括theme中的），在所有的冒号:后边都要加一个空格，否则执行hexo命令会报错。<br>博主本人的报错为<code>FATAL bad indentation of a mapping entry at line 72, column 15:</code><br>请确认您使用空格进行<strong>缩进</strong>（Soft tab），并确认<strong>冒号后有一个空格</strong>。</p>
+<p>注意坑二：在配置所有的_config.yml文件时（包括theme中的），在所有的冒号:后边都要加一个空格，否则执行hexo命令会报错。<br>
+博主本人的报错为<code>FATAL bad indentation of a mapping entry at line 72, column 15:</code><br>
+请确认您使用空格进行<strong>缩进</strong>（Soft tab），并确认<strong>冒号后有一个空格</strong>。</p>
 </blockquote>
-</li>
-<li><p>在blog文件夹目录下执行生成静态页面命令</p>
-<ul>
-<li><code>hexo generate</code> 或者 <code>hexo g</code></li>
-<li>此时若出现如下报错：<br>ERROR Local hexo not found in ~/blog<br>ERROR Try runing: ‘npm install hexo –save’<br>若无报错，自行忽略此步骤。<br>博主本人的报错为<code>ERROR Deployer not found: git</code><br>均执行命令：<br><code>npm install hexo --save</code></li>
-<li>再执行配置<code>hexo deploy</code> 或者 <code>hexo d</code></li>
-<li>比较奇怪的是之后居然要求我输入用户名和密码（私以为SSH已经搞定<blockquote>
-<p>注意坑三：若执行命令hexo deploy仍然报错：无法连接git，则执行如下命令来安装hexo-deployer-git：<br><code>npm install hexo-deployer-git --save</code><br>再次执行hexo generate和hexo deploy命令</p>
+<pre><code>	- 在blog文件夹目录下执行生成静态页面命令
+		- ``hexo generate`` 或者 ``hexo g``
+		- 此时若出现如下报错：
+	ERROR Local hexo not found in ~/blog
+    ERROR Try runing: 'npm install hexo --save'
+    若无报错，自行忽略此步骤。
+	博主本人的报错为``ERROR Deployer not found: git``
+    均执行命令：
+	``npm install hexo --save``
+		- 再执行配置``hexo deploy`` 或者 ``hexo d``
+		- 比较奇怪的是之后居然要求我输入用户名和密码（私以为SSH已经搞定
+</code></pre>
+<blockquote>
+<p>注意坑三：若执行命令hexo deploy仍然报错：无法连接git，则执行如下命令来安装hexo-deployer-git：<br>
+<code>npm install hexo-deployer-git --save</code><br>
+再次执行hexo generate和hexo deploy命令</p>
 </blockquote>
-</li>
-</ul>
-</li>
-<li><p>此时，浏览器中打开网址<a href="http://yourID.github.io（将gonghonglou换成你的用户名）能看到和打开http://localhost:4000时一样的页面。" target="_blank" rel="external">http://yourID.github.io（将gonghonglou换成你的用户名）能看到和打开http://localhost:4000时一样的页面。</a></p>
-</li>
-</ul>
-</li>
-</ul>
+<pre><code>	- 此时，浏览器中打开网址http://yourID.github.io（将gonghonglou换成你的用户名）能看到和打开http://localhost:4000时一样的页面。
+</code></pre>
 <ul>
-<li>发布文章<pre><code>- 终端cd到blog文件夹下
-    - ``hexo new &quot;postName&quot;`` //新建文章，位于目录/blog/source/_posts下
-    - 编辑文章
-- 终端cd到blog文件夹下
-    - ``hexo generate`` //生成静态页面
-    - ``hexo deploy `` //将文章部署到Github
-</code></pre></li>
-</ul>
-</li>
+<li>发布文章<br>
+	- 终端cd到blog文件夹下<br>
+		- <code>hexo new &quot;postName&quot;</code> //新建文章，位于目录/blog/source/_posts下<br>
+		- 编辑文章<br>
+	- 终端cd到blog文件夹下<br>
+		- <code>hexo generate</code> //生成静态页面<br>
+		- <code>hexo deploy</code> //将文章部署到Github</li>
 </ul>
 <hr>
-<h2 id="安装theme"><a href="#安装theme" class="headerlink" title="安装theme"></a>安装theme</h2><ul>
+<h2 id="安装theme"><a class="header-anchor" href="#安装theme">§</a>安装theme</h2>
+<ul>
 <li>更多官方主题请戳<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo官网主题页</a>。这里以<a href="http://notes.iissnan.com" target="_blank" rel="external">hexo-theme-next</a>为例</li>
-<li>终端cd到 blog 目录<ul>
+<li>终端cd到 blog 目录</li>
 <li><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></li>
 <li>将blog目录下_config.yml里theme的名称landscape修改为next</li>
-</ul>
-</li>
-<li>终端cd到blog目录下执行如下命令(每次部署文章的步骤)<ul>
+<li>终端cd到blog目录下执行如下命令(每次部署文章的步骤)</li>
 <li><code>hexo clean</code>  //清除缓存文件 (db.json) 和已生成的静态文件 (public)</li>
 <li><code>hexo g</code> //生成缓存和静态文件</li>
 <li><code>hexo d</code> //重新部署到服务器</li>
-</ul>
-</li>
-<li>附：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT 使用文档</a><ul>
+<li>附：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT 使用文档</a></li>
 <li>更改theme内容，修改 blog/_config.yml 文件和  blog/themes/next/_config.yml 文件中对应的属性名称即可。</li>
 <li>不要忘记冒号:后加空格。</li>
 </ul>
-</li>
-</ul>
-<h2 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h2><ul>
+<h2 id="绑定个人域名"><a class="header-anchor" href="#绑定个人域名">§</a>绑定个人域名</h2>
+<ul>
 <li>还未绑定，有兴趣的同学请访问原文。</li>
 </ul>
 

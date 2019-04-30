@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Algorithm,Leetcode," />
+  <meta name="keywords" content="Leetcode,Algorithm," />
 
 
 
@@ -80,22 +80,28 @@
 
 
 
-<meta name="description" content="Problem
+<meta name="description" content="§Problem
+
+
 322. Coin Change
-123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -1;">
+123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="X6_DP & Knapsack">
 <meta property="og:url" content="http://yoursite.com/2018/03/26/X6-DP-Knapsack/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="Problem
+<meta property="og:description" content="§Problem
+
+
 322. Coin Change
-123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -1;">
+123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -">
 <meta property="og:updated_time" content="2018-03-26T23:49:35.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="X6_DP & Knapsack">
-<meta name="twitter:description" content="Problem
+<meta name="twitter:description" content="§Problem
+
+
 322. Coin Change
-123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -1;">
+123456789101112131415class Solution &amp;#123;public:    int coinChange(vector&amp;lt;int&amp;gt;&amp;amp; coins, int amount) &amp;#123;    	int n = coins.size();    	if (n == 0)    		return -">
 
 
 
@@ -382,62 +388,82 @@
       
 
       
-        <h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><ul>
-<li><p><a href="https://leetcode.com/problems/coin-change/description/" target="_blank" rel="external">322. Coin Change</a></p>
+        <h5 id="problem"><a class="header-anchor" href="#problem">§</a>Problem</h5>
+<ul>
+<li>
+<p><a href="https://leetcode.com/problems/coin-change/description/" target="_blank" rel="external">322. Coin Change</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> n = coins.size();</span><br><span class="line">    	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    		return <span class="number">-1</span>;</span><br><span class="line">    	sort(coins.rbegin(),coins.rend());</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(amount+<span class="number">1</span>, amount+<span class="number">1</span>);</span><br><span class="line">    	dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">auto</span> coin : coins)</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> w = coin; w &lt;= amount; ++w)</span><br><span class="line">    			dp[w] = min(dp[w], dp[w-coin]+<span class="number">1</span>);</span><br><span class="line">    	return dp[amount] &gt; amount ? <span class="number">-1</span> : dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>Others:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if coin[1000, 2000], there is no need for i starting at 0</span></span><br><span class="line"><span class="comment">// coins[0] + 1 may overflow if coins[0] == Integer.MAX_VALUE</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = coins[<span class="number">0</span>]; i &lt;= amount; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> coin : coins) &#123;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://leetcode.com/problems/combination-sum-iv/description/" target="_blank" rel="external">377. Combination Sum IV</a>, similar</p>
+<li>
+<p><a href="https://leetcode.com/problems/combination-sum-iv/description/" target="_blank" rel="external">377. Combination Sum IV</a>, similar</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">combinationSum4</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> n = nums.size();</span><br><span class="line">    	<span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">    		return <span class="number">0</span>;</span><br><span class="line">    	sort(nums.begin(),nums.end());</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp(target+<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    	dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">/* remove duplicate.</span><br><span class="line">        eg. 1 1 2 = 1 2 1, since 1 will not consider again</span><br><span class="line">    	for (auto num : nums)</span><br><span class="line">    		for (int w = num; w &lt;= target; ++w)</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> w = nums[<span class="number">0</span>]; w &lt;= target; ++w)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)&#123;</span><br><span class="line">                <span class="keyword">if</span> (w &lt; num)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                dp[w] += dp[w-num];</span><br><span class="line">            &#125;</span><br><span class="line">    	return dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>DP</p>
+<li>
+<p>DP</p>
 <ol>
 <li>Deduction Formula</li>
 <li>Initialization</li>
 <li>Space Improvement (Bonus)</li>
 </ol>
 <ul>
-<li><p>Audible 题：BugdetShopping</p>
-<blockquote>
-<p>n dollars, bundleQuantities array, bundleCosts array </p>
-<p>eg. Helen has n = 50 dollars to purchase notebooks from 2 stores described by bundleQunantities = [20, 19] and bundleCost = [24, 20]. She makes the following purchases:<br>​    One bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 50 – 24 = 26 dollars left.<br>​    Another bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 26 – 24 = 2 dollars left.<br>Helen can’t afford any more notebooks, so we return the total number of notebooks she was able to purchase: 20 + 20 = 40.</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f(i) is the maximum number of notebook given i dollar</span></span><br><span class="line">f[i] = max(f[i – b.cost] + b.quantity) given different b</span><br><span class="line">maxf = <span class="number">0</span>, maxf = max(maxf, f[i])</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = bundles[<span class="number">0</span>].cost; i &lt; f.length; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (Bundle b : bundles) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b.cost &gt; i) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (i == b.cost) &#123;</span><br><span class="line">			f[i] = Math.max(f[i], b.quantity);</span><br><span class="line">			max = Math.max(max, f[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">      	<span class="keyword">int</span> c = f[i - b.cost];</span><br><span class="line">		<span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		f[i] = Math.max(f[i], c + b.quantity);</span><br><span class="line">		System.out.println(i + <span class="string">"="</span> + f[i]);</span><br><span class="line">		max = Math.max(max, f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Audible 题：BugdetShopping</li>
 </ul>
+<blockquote>
+<p>n dollars, bundleQuantities array, bundleCosts array</p>
+<p>eg. Helen has n = 50 dollars to purchase notebooks from 2 stores described by bundleQunantities = [20, 19] and bundleCost = [24, 20]. She makes the following purchases:<br>
+​	One bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 50 – 24 = 26 dollars left.<br>
+​	Another bundle of 20 notebooks from shop 0 at a cost 24 dollars and has 26 – 24 = 2 dollars left.<br>
+Helen can’t afford any more notebooks, so we return the total number of notebooks she was able to purchase: 20 + 20 = 40.</p>
+</blockquote>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f(i) is the maximum number of notebook given i dollar</span></span><br><span class="line">f[i] = max(f[i – b.cost] + b.quantity) given different b</span><br><span class="line">maxf = <span class="number">0</span>, maxf = max(maxf, f[i])</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = bundles[<span class="number">0</span>].cost; i &lt; f.length; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (Bundle b : bundles) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b.cost &gt; i) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (i == b.cost) &#123;</span><br><span class="line">			f[i] = Math.max(f[i], b.quantity);</span><br><span class="line">			max = Math.max(max, f[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">      	<span class="keyword">int</span> c = f[i - b.cost];</span><br><span class="line">		<span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		f[i] = Math.max(f[i], c + b.quantity);</span><br><span class="line">		System.out.println(i + <span class="string">"="</span> + f[i]);</span><br><span class="line">		max = Math.max(max, f[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>Coin Change is unlimited, while Knapsack is limited</strong></p>
 <ul>
-<li><p>背包问题</p>
+<li>
+<p>背包问题</p>
 <ol>
-<li><p>Backpack<br>Given n items with size Ai, an integer m denotes the size of a backpack. How full you can fill this backpack?</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+A[i], result[j])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Backpack II<br>Given n items with size Ai and value Vi, and a backpack with size m. What’s the maximum value can you put into the backpack?<br>Example<br>Given 4 items with size [2, 3, 5, 7] and value [1, 5, 2, 4], and a backpack with size 10. The maximum value is 9.</p>
+<li>Backpack<br>
+Given n items with size Ai, an integer m denotes the size of a backpack. How full you can fill this backpack?</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+A[i], result[j])</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>Backpack II<br>
+Given n items with size Ai and value Vi, and a backpack with size m. What’s the maximum value can you put into the backpack?<br>
+Example<br>
+Given 4 items with size [2, 3, 5, 7] and value [1, 5, 2, 4], and a backpack with size 10. The maximum value is 9.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = [0, A.length)</span><br><span class="line">	j = [m, A[i]]</span><br><span class="line">		result[j] = max(result[j-A[i]]+v[i], result[j])</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank" rel="external">https://en.wikipedia.org/wiki/Knapsack_problem</a><br><a href="https://www.geeksforgeeks.org/knapsack-problem" target="_blank" rel="external">https://www.geeksforgeeks.org/knapsack-problem</a><br><a href="https://brilliant.org/wiki/backpack-problem" target="_blank" rel="external">https://brilliant.org/wiki/backpack-problem</a></p>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank" rel="external">https://en.wikipedia.org/wiki/Knapsack_problem</a><br>
+<a href="https://www.geeksforgeeks.org/knapsack-problem" target="_blank" rel="external">https://www.geeksforgeeks.org/knapsack-problem</a><br>
+<a href="https://brilliant.org/wiki/backpack-problem" target="_blank" rel="external">https://brilliant.org/wiki/backpack-problem</a></p>
 </li>
 </ol>
 </li>
-<li><p>背包问题变种</p>
+<li>
+<p>背包问题变种</p>
 <ul>
-<li><p><a href="">474. Ones and Zeroes</a></p>
+<li>
+<p><a href="">474. Ones and Zeroes</a></p>
 <blockquote>
 <p>maximize chossedn string -&gt; m’s 1, n’s 0</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for k=1..l</span><br><span class="line">	i=m..s0, j=n..s1</span><br><span class="line">		dp[i][j] = max(dp[i][j],dp[i-s0][j-s1]+1)// wo/w s</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="">494. Target Sum</a></p>
+<li>
+<p><a href="">494. Target Sum</a></p>
 <blockquote>
 <p>+/- ai = s</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sum(P) - sum(N) = target           </span><br><span class="line">sum(P) + sum(N) + sum(P) - sum(N) = target + sum(P) + sum(N)</span><br><span class="line">2 * sum(P) = target + sum(nums)</span><br><span class="line"></span><br><span class="line">for num:nums</span><br><span class="line">	for w = (t+s)/2 ... num</span><br><span class="line">		dp[w] += dp[w-num]</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://leetcode.com/problems/partition-equal-subset-sum/description/" target="_blank" rel="external">416. Partition Equal Subset Sum</a></p>
+<li>
+<p><a href="https://leetcode.com/problems/partition-equal-subset-sum/description/" target="_blank" rel="external">416. Partition Equal Subset Sum</a></p>
 <blockquote>
 <p>find if the array can be partitioned into two subsets, that sum is equal</p>
 </blockquote>
@@ -446,24 +472,34 @@
 </ul>
 </li>
 </ul>
-<h5 id="Thinking"><a href="#Thinking" class="headerlink" title="Thinking"></a>Thinking</h5><ul>
-<li><p>DP</p>
+<h5 id="thinking"><a class="header-anchor" href="#thinking">§</a>Thinking</h5>
+<ul>
+<li>
+<p>DP</p>
 <ol>
-<li><p>先枚举物品，再枚举容量。<br>eg. [1, 2, 3] 组合4时，(1, 1, 2) == (1, 2, 1)。因为同一个物体不会再次考虑</p>
+<li>
+<p>先枚举物品，再枚举容量。<br>
+eg. [1, 2, 3] 组合4时，(1, 1, 2) == (1, 2, 1)。因为同一个物体不会再次考虑</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* remove duplicate.</span><br><span class="line">        eg. 1 1 2 = 1 2 1, since 1 will not consider again</span><br><span class="line">    	for (auto num : nums)</span><br><span class="line">    		for (int w = num; w &lt;= target; ++w)</span><br><span class="line">        */</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>先枚举容量，再枚举物品。</p>
+<li>
+<p>先枚举容量，再枚举物品。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> w = nums[<span class="number">0</span>]; w &lt;= target; ++w)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> num : nums)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
-<li><p>背包问题：</p>
+<li>
+<p>背包问题：</p>
 <ol>
 <li>枚举物品</li>
-<li>枚举容量<br>增序枚举，重复装入某个物品，而且尽可能多的，使价值最大<br>逆序枚举：物品至多装一次</li>
+<li>枚举容量<br>
+增序枚举，重复装入某个物品，而且尽可能多的，使价值最大<br>
+逆序枚举：物品至多装一次</li>
 </ol>
 </li>
-<li><a href="https://github.com/tianyicui/pack" target="_blank" rel="external">背包九讲</a></li>
+<li>
+<p><a href="https://github.com/tianyicui/pack" target="_blank" rel="external">背包九讲</a></p>
+</li>
 </ul>
 
       
@@ -485,9 +521,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
-          
             <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
         </div>
       
@@ -685,7 +721,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Thinking"><span class="nav-number">2.</span> <span class="nav-text">Thinking</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#problem"><span class="nav-number">1.</span> <span class="nav-text">§Problem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#thinking"><span class="nav-number">2.</span> <span class="nav-text">§Thinking</span></a></li></ol></div>
             
           </div>
         </section>

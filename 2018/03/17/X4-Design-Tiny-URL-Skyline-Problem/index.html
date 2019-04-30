@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Algorithm,Leetcode,System Design," />
+  <meta name="keywords" content="Leetcode,Algorithm,System Design," />
 
 
 
@@ -80,22 +80,28 @@
 
 
 
-<meta name="description" content="Design A Tiny URL systemSystem Design
+<meta name="description" content="§Design A Tiny URL system
+§System Design
+
 is always about trade-off &amp;amp;&amp;amp; weighing pros and cons &amp;amp;&amp;amp; constraints
-is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what is most">
+is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what is">
 <meta property="og:type" content="article">
 <meta property="og:title" content="X4_Design Tiny URL | Skyline Problem">
 <meta property="og:url" content="http://yoursite.com/2018/03/17/X4-Design-Tiny-URL-Skyline-Problem/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="Design A Tiny URL systemSystem Design
+<meta property="og:description" content="§Design A Tiny URL system
+§System Design
+
 is always about trade-off &amp;amp;&amp;amp; weighing pros and cons &amp;amp;&amp;amp; constraints
-is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what is most">
+is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what is">
 <meta property="og:updated_time" content="2018-03-18T00:05:33.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="X4_Design Tiny URL | Skyline Problem">
-<meta name="twitter:description" content="Design A Tiny URL systemSystem Design
+<meta name="twitter:description" content="§Design A Tiny URL system
+§System Design
+
 is always about trade-off &amp;amp;&amp;amp; weighing pros and cons &amp;amp;&amp;amp; constraints
-is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what is most">
+is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what is">
 
 
 
@@ -394,16 +400,22 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
       
 
       
-        <h4 id="Design-A-Tiny-URL-system"><a href="#Design-A-Tiny-URL-system" class="headerlink" title="Design A Tiny URL system"></a>Design A Tiny URL system</h4><h5 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h5><ul>
+        <h4 id="design-a-tiny-url-system"><a class="header-anchor" href="#design-a-tiny-url-system">§</a>Design A Tiny URL system</h4>
+<h5 id="system-design"><a class="header-anchor" href="#system-design">§</a>System Design</h5>
+<ul>
 <li>is always about trade-off &amp;&amp; weighing pros and cons &amp;&amp; constraints</li>
 <li>is also about sacrificing what is not needed &amp;&amp; optimizing what is most needed</li>
 </ul>
-<h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><ul>
-<li><p>Ask requirement first: uique URL &lt;-&gt; unique alias</p>
+<h5 id="problem"><a class="header-anchor" href="#problem">§</a>Problem</h5>
+<ul>
+<li>
+<p>Ask requirement first: uique URL &lt;-&gt; unique alias</p>
 </li>
-<li><p>Ask Read or Write heavy: eg. Twitter: read heavy</p>
+<li>
+<p>Ask Read or Write heavy: eg. Twitter: read heavy</p>
 </li>
-<li><p>Constraints</p>
+<li>
+<p>Constraints</p>
 <ol>
 <li>Amount of data to store</li>
 <li>Amount of traffic — QPS or the query-per-second rate(read)</li>
@@ -412,52 +424,61 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
 <li>Projection (10X times) Scalability</li>
 </ol>
 </li>
-<li><p>Numbers, eg. </p>
+<li>
+<p>Numbers, eg.</p>
 <ol>
 <li>Daily active users: 1,000,000</li>
-<li>Insert: Per day: 1,000,000 <em> 1%(function usage) </em> 10(function frequency) = 100,000</li>
-<li>Loop up: Per day: 1,000,000 <em> 100%(function usage) </em> 3(function frequency) = 3,000,000</li>
+<li>Insert: Per day: 1,000,000 * 1%(function usage) * 10(function frequency) = 100,000</li>
+<li>Loop up: Per day: 1,000,000 * 100%(function usage) * 3(function frequency) = 3,000,000</li>
 </ol>
 </li>
-<li><p>URLs: (lower case alphabet 26+upper case alphabet 26+ digit10)^length(=6) ~= 56.8 billions</p>
+<li>
+<p>URLs: (lower case alphabet 26+upper case alphabet 26+ digit10)^length(=6) ~= 56.8 billions</p>
 </li>
-<li><p>Design 接口: REST APIs</p>
+<li>
+<p>Design 接口: REST APIs</p>
 <ul>
 <li>Status Code: 1xx Informational responses; 2XX Success, 200 success, 201 created; 3XX Redirection, 301 moved permanently; 4xx Client errors; 5xx Server errors</li>
 <li>Google URL Shortener, json</li>
 </ul>
 </li>
-<li><p>存储: SQL or NoSQL?</p>
+<li>
+<p>存储: SQL or NoSQL?</p>
 <ol>
 <li>是否需要丰富的 SQL Query？ NoSQL的SQL Query丰富度不如SQL，不过目前差距正在缩小，比如 MongoDB。此题不需要，该因素可以忽略。</li>
 <li>是否追求效率？大多数Web Framework与SQL数据库兼容得很好(自带ORM(Object,-&gt; SQL dialect)，意味着可以少些很多代码。此题没太多业务逻辑，该因素可以忽略。</li>
 <li>是否需要支持Transaction？ NoSQL不支持Transaction，但是可以在业务层做处理保证。</li>
-<li>对QPS要求高不高？<br>NoSQL性能高，MondoDB可以到10k级别，MySQL只能在k这个级别。</li>
+<li>对QPS要求高不高？<br>
+NoSQL性能高，MondoDB可以到10k级别，MySQL只能在k这个级别。</li>
 <li>对Scalability的要求有多高？sharding，replica。</li>
 </ol>
 <ul>
-<li><p>Number</p>
+<li>
+<p>Number</p>
 <p>Average size of longURL = 100 bytes</p>
 <p>Average size of shortURL = 4 bytes(int)</p>
 <p>State = 4 byte</p>
-<p>Daily new URL = 3,000,000 <em> 108 = 324MB =&gt; Yearly new URL = 324</em>365 = 118GB</p>
+<p>Daily new URL = 3,000,000 * 108 = 324MB =&gt; Yearly new URL = 324*365 = 118GB</p>
 </li>
-<li><p>NoSQL,</p>
+<li>
+<p>NoSQL,</p>
 <ol>
 <li><u>Randomly generate</u> 6 characters containing [A-Z, a-z, 0-9]</li>
-<li>Use consistent hashing for partition: Partition By Key Or Consistent Hashing; Vitural nodes; Replication for high avaialbility </li>
+<li>Use consistent hashing for partition: Partition By Key Or Consistent Hashing; Vitural nodes; Replication for high avaialbility</li>
 <li>Use NoSQL’s distributed key-value store</li>
 <li>Eventually consistent: <strong>quorum</strong>; others return checksum(eg. SHA1), if it is same with data -&gt; no need to lookup</li>
 <li>Short URL already exists? What to do with conflicts? Retry</li>
 </ol>
 <ul>
-<li>Write Optimization 1<ul>
+<li>Write Optimization 1
+<ul>
 <li>Use centralized “Counter” to generate unique URL</li>
 <li>similar to auto-increment id in SQL</li>
 <li>Uniqueness guaranteed</li>
 </ul>
 </li>
-<li>Write Optimization 2<ul>
+<li>Write Optimization 2
+<ul>
 <li><u>Round robin</u> to different URL generators, each governing a dedicate key space</li>
 <li>Partition key spaces such as “AXXXXX”, “BXXXXX” and etc.</li>
 <li>Similar to sharding - avoid conflicts</li>
@@ -465,7 +486,8 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
 </li>
 </ul>
 </li>
-<li><p>SQL, <code>id(primary key), long_url(unique index), created_at</code></p>
+<li>
+<p>SQL, <code>id(primary key), long_url(unique index), created_at</code></p>
 <ul>
 <li>Map 6 characters containing [A-Z, a-z, 0-9] to an <u>integer</u></li>
 <li><a href="http://en.wikipedia.org/wiki/Base_conversion#Base_conversion" target="_blank" rel="external">Base Conversion</a> problem: base 62</li>
@@ -475,22 +497,28 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
 </li>
 </ul>
 </li>
-<li><p>Other Factors to Consider</p>
+<li>
+<p>Other Factors to Consider</p>
 <ol>
-<li><p>High availability</p>
+<li>
+<p>High availability</p>
 </li>
-<li><p>How to cache? Preload / Replace</p>
+<li>
+<p>How to cache? Preload / Replace</p>
 <p>First use sharding(分片，根据region) to partition different regions</p>
 <p>You may have China DB and US DB for example</p>
 <p>Use <u>redis / memcached LRU cache</u> for <u>repeated</u> query</p>
 </li>
-<li><p>Reuse popular short urls</p>
+<li>
+<p>Reuse popular short urls</p>
 <p>Store those popular urls based on clicks.  Use the same short url</p>
 </li>
-<li><p>Custom URLs</p>
+<li>
+<p>Custom URLs</p>
 <p>(1) Use another table for custom URLs (SQL), since SQL use id rather than short_url</p>
 <ul>
-<li><ul>
+<li>
+<ul>
 <li>Need to look up two tables now for read/write</li>
 <li>Atomicity not guaranteed in NoSQL</li>
 </ul>
@@ -498,7 +526,8 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
 </ul>
 <p>(2) Use the same table with additional boolean column (NoSQL), <code>short_url, long_url, created_at, custom(true/false)</code></p>
 <ul>
-<li><ul>
+<li>
+<ul>
 <li>Same look up, need to query the boolean column</li>
 <li>Atomicity still guaranteed</li>
 <li>Not working well for SQL solution, which is auto id based</li>
@@ -506,30 +535,41 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
 </li>
 </ul>
 </li>
-<li><p>Analytics (usage of URLs), eg. referrers, browsers, countires, patforms</p>
+<li>
+<p>Analytics (usage of URLs), eg. referrers, browsers, countires, patforms</p>
 </li>
-<li><p>Automatic link expiration, add <code>last_read_time</code></p>
+<li>
+<p>Automatic link expiration, add <code>last_read_time</code></p>
 </li>
-<li><p>Manual link removal</p>
+<li>
+<p>Manual link removal</p>
 <p>in NoSQL, such in disk, Append only operation is faster, add <code>alive(true/false)</code></p>
 </li>
-<li><p>UI v.s. API</p>
+<li>
+<p>UI v.s. API</p>
 </li>
-<li><p>User’s historical short urls, eg. with account system</p>
+<li>
+<p>User’s historical short urls, eg. with account system</p>
 </li>
 </ol>
 </li>
-<li><p>SQL index: use B+ tree index primary key, everytime use binary tree to find</p>
+<li>
+<p>SQL index: use B+ tree index primary key, everytime use binary tree to find</p>
 <ul>
-<li><p>When primary key is declared, DBMS automatically creates unique index</p>
+<li>
+<p>When primary key is declared, DBMS automatically creates unique index</p>
 </li>
-<li><p>Often need additional indexes</p>
+<li>
+<p>Often need additional indexes</p>
 </li>
-<li><p>Using CREATE INDEX command, SQL indexes can be created on basis of any selected attribute</p>
+<li>
+<p>Using CREATE INDEX command, SQL indexes can be created on basis of any selected attribute</p>
 </li>
-<li><p>Composite index</p>
+<li>
+<p>Composite index</p>
 </li>
-<li><ul>
+<li>
+<ul>
 <li>Index based on two or more attributes</li>
 <li>Often used to prevent data duplication</li>
 </ul>
@@ -537,23 +577,29 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
 </ul>
 </li>
 </ul>
-<h4 id="218-The-Skyline-Problem"><a href="#218-The-Skyline-Problem" class="headerlink" title="218. The Skyline Problem"></a><a href="https://leetcode.com/problems/the-skyline-problem/description/" target="_blank" rel="external">218. The Skyline Problem</a></h4><ul>
-<li><p><a href="https://briangordon.github.io/2014/08/the-skyline-problem.html" target="_blank" rel="external">reference</a></p>
+<h4 id="218-the-skyline-problem"><a class="header-anchor" href="#218-the-skyline-problem">§</a><a href="https://leetcode.com/problems/the-skyline-problem/description/" target="_blank" rel="external">218. The Skyline Problem</a></h4>
+<ul>
+<li>
+<p><a href="https://briangordon.github.io/2014/08/the-skyline-problem.html" target="_blank" rel="external">reference</a></p>
 </li>
-<li><p>OOD</p>
+<li>
+<p>OOD</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Building</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Building</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> left;</span><br><span class="line">  <span class="keyword">int</span> right;</span><br><span class="line">  <span class="keyword">int</span> height;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Building</span><span class="params">(<span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.left = left;</span><br><span class="line">	<span class="keyword">this</span>.right = right;</span><br><span class="line">	<span class="keyword">this</span>.height = height;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Building o)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.height != o.height) &#123;</span><br><span class="line">      <span class="keyword">return</span> Integer.compare(<span class="keyword">this</span>.height, o.height);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.left != o.left) &#123;</span><br><span class="line">	  <span class="keyword">return</span> Integer.compare(<span class="keyword">this</span>.left, o.left);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> Integer.compare(<span class="keyword">this</span>.right, o.right);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"Building [left="</span> + left + <span class="string">", right="</span> + right + <span class="string">", height="</span> + height + <span class="string">"]"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Other test case</p>
+<li>
+<p>Other test case</p>
 <ul>
 <li>what if left meets right (B0[1 5 10], B1[5 9 10], B2[9 12 20], B3[12 1510]) -&gt; enter first, otherwise it will add to result (wrong)</li>
 <li>What if start at same and end at same (B0[1 17 3], B1[1 3 8], B2[1 4 2], B3[13 17 8], B4[14 17 2]) -&gt; when compare: if left1=left2, first enter larger height, if right1=right2, first leave smaller height</li>
 </ul>
 </li>
-<li><p>code</p>
+<li>
+<p>code</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">	    <span class="comment">/**</span><br><span class="line">	     * The Skyline Problem</span><br><span class="line">	     *  city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B).</span><br><span class="line">	     *  The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 鈮� Li, Ri 鈮� INT_MAX, 0 &lt; Hi 鈮� INT_MAX, and Ri - Li &gt; 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.</span><br><span class="line">For instance, the dimensions of all buildings in Figure A are recorded as: [ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ] .</span><br><span class="line">The output is a list of "key points" (red dots in Figure B) in the format of [ [x1,y1], [x2, y2], [x3, y3], ... ] that uniquely defines a skyline. A key point is the left endpoint of a horizontal line segment. Note that the last key point, where the rightmost building ends, is merely used to mark the termination of the skyline, and always has zero height. Also, the ground in between any two adjacent buildings should be considered part of the skyline contour.</span><br><span class="line">For instance, the skyline in Figure B should be represented as:[ [2 10], [3 15], [7 12], [12 0], [15 10], [20 8], [24, 0] ].</span><br><span class="line">Notes:</span><br><span class="line">    The number of buildings in any input list is guaranteed to be in the range [0, 10000].</span><br><span class="line">    The input list is already sorted in ascending order by the left x position Li.</span><br><span class="line">    The output list must be sorted by the x position.</span><br><span class="line">    There must be no consecutive horizontal lines of equal height in the output skyline. For instance, [...[2 3], [4 5], [7 5], [11 5], [12 7]...] is not acceptable; the three lines of height 5 should be merged into one in the final output as such: [...[2 3], [4 5], [12 7], ...]</span><br><span class="line">	https://briangordon.github.io/2014/08/the-skyline-problem.html</span><br><span class="line">	     */</span></span><br><span class="line">	<span class="keyword">public</span> List&lt;<span class="keyword">int</span>[]&gt; getSkyline(<span class="keyword">int</span>[][] buildings) &#123;</span><br><span class="line">		<span class="keyword">if</span> (buildings.length == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">		&#125;</span><br><span class="line">		Building[] lefts = <span class="keyword">new</span> Building[buildings.length];</span><br><span class="line">		Building[] rights = <span class="keyword">new</span> Building[buildings.length];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buildings.length; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span>[] b = buildings[i];</span><br><span class="line">			Building building = <span class="keyword">new</span> Building(b[<span class="number">0</span>], b[<span class="number">1</span>], b[<span class="number">2</span>]);</span><br><span class="line">			rights[i] = lefts[i] = building;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//sort according to left</span></span><br><span class="line">		Arrays.sort(lefts, (a, b) -&gt; &#123;</span><br><span class="line">			<span class="keyword">if</span> (a.left != b.left) &#123;</span><br><span class="line">				<span class="keyword">return</span> Integer.compare(a.left, b.left);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> Integer.compare(b.height, a.height);</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="comment">//sort according to right</span></span><br><span class="line">		Arrays.sort(rights, (a, b) -&gt; &#123;</span><br><span class="line">			<span class="keyword">if</span> (a.right != b.right) &#123;</span><br><span class="line">				<span class="keyword">return</span> Integer.compare(a.right, b.right);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> Integer.compare(a.height, b.height);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		System.out.println(Arrays.toString(lefts));</span><br><span class="line">		System.out.println(Arrays.toString(rights));</span><br><span class="line">		List&lt;<span class="keyword">int</span>[]&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		TreeSet&lt;Building&gt; set = <span class="keyword">new</span> TreeSet&lt;&gt;(); <span class="comment">// will use compareTo to compare</span></span><br><span class="line">		<span class="keyword">int</span> leftsIndex = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">int</span> rightsIndex = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> h = lefts[<span class="number">0</span>].height; <span class="comment">// max height of buildings in set</span></span><br><span class="line">		<span class="keyword">int</span> top = h; <span class="comment">// last seen h</span></span><br><span class="line">		set.add(lefts[<span class="number">0</span>]);</span><br><span class="line">		result.add(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; lefts[<span class="number">0</span>].left, top &#125;);</span><br><span class="line">		<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (rightsIndex &lt; buildings.length) &#123;</span><br><span class="line">			<span class="keyword">if</span> (leftsIndex == buildings.length || rights[rightsIndex].right &lt; lefts[leftsIndex].left) &#123;</span><br><span class="line">				index = rights[rightsIndex].right;</span><br><span class="line">				System.out.println(<span class="string">"Remove "</span> + rights[rightsIndex]);</span><br><span class="line">				set.remove(rights[rightsIndex++]);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				index = lefts[leftsIndex].left;</span><br><span class="line">				System.out.println(<span class="string">"Add "</span> + lefts[leftsIndex]);</span><br><span class="line">				set.add(lefts[leftsIndex++]);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(set);</span><br><span class="line">			h = set.isEmpty() ? <span class="number">0</span> : set.last().height;</span><br><span class="line">			<span class="keyword">if</span> (h != top) &#123;</span><br><span class="line">				top = h;</span><br><span class="line">				result.add(<span class="keyword">new</span> <span class="keyword">int</span>[] &#123; index, top &#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">sol1: h[mostL...mostR]</span><br><span class="line">sol2:</span><br><span class="line">maintain a PQ &lt;height,end time&gt;</span><br><span class="line">cur = 0,</span><br><span class="line">nexT = PQ top end time;</span><br><span class="line">if cur.begT &gt; next // it ends before others coming</span><br><span class="line">	pop all the buildings in Pq whose enttime &lt;= nextT;</span><br><span class="line">else&#123;</span><br><span class="line">	push all the buildings at the same time,cur++</span><br><span class="line">	nexT = cur.beg</span><br><span class="line">&#125;</span><br><span class="line">//nexT = PQ's heightest building's end time</span><br><span class="line">curH = PQ's heightest or 0;</span><br><span class="line">if != last height </span><br><span class="line">	add curH,nexT</span><br><span class="line"></span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; getSkyline(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; buildings) &#123;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">    	priority_queue&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; aliveB;</span><br><span class="line">    	<span class="keyword">int</span> cur = <span class="number">0</span>, nexT = <span class="number">0</span>, curH = <span class="number">0</span>, len = buildings.size();</span><br><span class="line">    	<span class="keyword">while</span> (!aliveB.empty() || (cur&lt;len))&#123;</span><br><span class="line">    		<span class="keyword">if</span> (aliveB.empty())</span><br><span class="line">    			nexT = buildings[cur][<span class="number">0</span>];</span><br><span class="line">    		<span class="keyword">else</span> </span><br><span class="line">    			nexT = aliveB.top().second;</span><br><span class="line">    		<span class="keyword">if</span> ((cur&gt;=len)||(buildings[cur][<span class="number">0</span>]&gt;nexT))</span><br><span class="line">    			<span class="keyword">while</span> (!aliveB.empty() &amp;&amp; aliveB.top().second&lt;= nexT)</span><br><span class="line">    				aliveB.pop();</span><br><span class="line">    		<span class="keyword">else</span>&#123;</span><br><span class="line">    			nexT = buildings[cur][<span class="number">0</span>];</span><br><span class="line">    			<span class="keyword">while</span> ((cur&lt;len)&amp;&amp;(buildings[cur][<span class="number">0</span>]==nexT))&#123;</span><br><span class="line">    				aliveB.push(make_pair(buildings[cur][<span class="number">2</span>],buildings[cur][<span class="number">1</span>]));</span><br><span class="line">    				cur++;</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">if</span> (aliveB.empty())</span><br><span class="line">    			curH = <span class="number">0</span>;</span><br><span class="line">    		<span class="keyword">else</span> </span><br><span class="line">    			curH = aliveB.top().first;</span><br><span class="line">    		<span class="keyword">if</span> ((ans.empty())||(ans.back().second!=curH))</span><br><span class="line">    			ans.push_back(make_pair(nexT, curH));</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Interval: <a href="">253. Meeting Rooms II</a></p>
+<li>
+<p>Interval: <a href="">253. Meeting Rooms II</a></p>
 </li>
 </ul>
 
@@ -576,9 +622,9 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
       
         <div class="post-tags">
           
-            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
-          
             <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
             <a href="/tags/System-Design/" rel="tag">#System Design</a>
           
@@ -778,7 +824,7 @@ is also about sacrificing what is not needed &amp;amp;&amp;amp; optimizing what 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-A-Tiny-URL-system"><span class="nav-number">1.</span> <span class="nav-text">Design A Tiny URL system</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#System-Design"><span class="nav-number">1.1.</span> <span class="nav-text">System Design</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Problem"><span class="nav-number">1.2.</span> <span class="nav-text">Problem</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#218-The-Skyline-Problem"><span class="nav-number">2.</span> <span class="nav-text">218. The Skyline Problem</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#design-a-tiny-url-system"><span class="nav-number">1.</span> <span class="nav-text">§Design A Tiny URL system</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#system-design"><span class="nav-number">1.1.</span> <span class="nav-text">§System Design</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#problem"><span class="nav-number">1.2.</span> <span class="nav-text">§Problem</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#218-the-skyline-problem"><span class="nav-number">2.</span> <span class="nav-text">§218. The Skyline Problem</span></a></li></ol></div>
             
           </div>
         </section>

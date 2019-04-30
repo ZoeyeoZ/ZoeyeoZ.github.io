@@ -80,31 +80,34 @@
 
 
 
-<meta name="description" content="349. Intersection of Two ArraysNote:
+<meta name="description" content="§349. Intersection of Two Arrays
+Note:
 
 Each element in the result must be unique.  -&amp;gt; use set
 The result can be in any order.
 
-123456789101112131415161718192021222324252627282930//javapublic int[] i">
+123456789101112131415161718192021222324252627282930//javapublic int[]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode | Intersection of Two Arrays">
 <meta property="og:url" content="http://yoursite.com/2018/02/02/LeetCode-Intersection-of-Two-Arrays/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="349. Intersection of Two ArraysNote:
+<meta property="og:description" content="§349. Intersection of Two Arrays
+Note:
 
 Each element in the result must be unique.  -&amp;gt; use set
 The result can be in any order.
 
-123456789101112131415161718192021222324252627282930//javapublic int[] i">
+123456789101112131415161718192021222324252627282930//javapublic int[]">
 <meta property="og:updated_time" content="2018-02-02T23:59:31.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode | Intersection of Two Arrays">
-<meta name="twitter:description" content="349. Intersection of Two ArraysNote:
+<meta name="twitter:description" content="§349. Intersection of Two Arrays
+Note:
 
 Each element in the result must be unique.  -&amp;gt; use set
 The result can be in any order.
 
-123456789101112131415161718192021222324252627282930//javapublic int[] i">
+123456789101112131415161718192021222324252627282930//javapublic int[]">
 
 
 
@@ -379,21 +382,25 @@ The result can be in any order.
       
 
       
-        <h4 id="349-Intersection-of-Two-Arrays"><a href="#349-Intersection-of-Two-Arrays" class="headerlink" title="349. Intersection of Two Arrays"></a><a href="https://leetcode.com/problems/intersection-of-two-arrays/description/" target="_blank" rel="external">349. Intersection of Two Arrays</a></h4><p><strong>Note:</strong></p>
+        <h4 id="349-intersection-of-two-arrays"><a class="header-anchor" href="#349-intersection-of-two-arrays">§</a><a href="https://leetcode.com/problems/intersection-of-two-arrays/description/" target="_blank" rel="external">349. Intersection of Two Arrays</a></h4>
+<p><strong>Note:</strong></p>
 <ul>
 <li>Each element in the result must be unique.  -&gt; use set</li>
 <li>The result can be in any order.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums1.length == <span class="number">0</span> || nums2.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        Set&lt;Integer&gt; hs = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++) &#123;</span><br><span class="line">            hs.add(nums1[i]); </span><br><span class="line">        &#125;</span><br><span class="line">        Set&lt;Integer&gt; res = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums2.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (hs.contains(nums2[i])) &#123;</span><br><span class="line">                res.add(nums2[i]);</span><br><span class="line">                hs.remove(nums2[i]); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] res_ = <span class="keyword">new</span> <span class="keyword">int</span>[res.size()];</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num : res) &#123;</span><br><span class="line">            res_[i++] = num; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res_; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">Using Stream in java 8</span><br><span class="line">Set&lt;Integer&gt; set = Arrays.stream(nums2).boxed().collect(Collectors.toSet());</span><br><span class="line">return Arrays.stream(nums1).distinct().filter(e-&gt; set.contains(e)).toArray();</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersection(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">    	<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; s(nums1.begin(), nums1.end());</span><br><span class="line">	    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums2)</span><br><span class="line">	        <span class="keyword">if</span> (s.erase(num))</span><br><span class="line">	            ans.push_back(num);</span><br><span class="line">	    return ans;     </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow up"></a>Follow up</h4><ul>
-<li>If sorted?<ol>
+<h4 id="follow-up"><a class="header-anchor" href="#follow-up">§</a>Follow up</h4>
+<ul>
+<li>If sorted?
+<ol>
 <li>Use 2 pointers. O(M+N)</li>
 <li>Binary search. O(MlogN) or O(NlogM)</li>
 </ol>
 </li>
 </ul>
-<h4 id="350-Intersection-of-Two-Arrays-II"><a href="#350-Intersection-of-Two-Arrays-II" class="headerlink" title="350. Intersection of Two Arrays II"></a><a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/description/" target="_blank" rel="external">350. Intersection of Two Arrays II</a></h4><p><strong>Note:</strong></p>
+<h4 id="350-intersection-of-two-arrays-ii"><a class="header-anchor" href="#350-intersection-of-two-arrays-ii">§</a><a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/description/" target="_blank" rel="external">350. Intersection of Two Arrays II</a></h4>
+<p><strong>Note:</strong></p>
 <ul>
 <li>Each element in the result should appear as many times as it shows in both arrays.</li>
 <li>The result can be in any order.</li>
@@ -403,13 +410,16 @@ The result can be in any order.
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Another solution in C++</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersect(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        sort(nums1.begin(),nums1.end());</span><br><span class="line">        sort(nums2.begin(),nums2.end());</span><br><span class="line">        <span class="keyword">int</span> n1 = nums1.size(), n2 = nums2.size();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j =<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;n1 &amp;&amp; j&lt;n2)&#123;</span><br><span class="line">        	<span class="keyword">if</span> (nums1[i]==nums2[j])&#123;</span><br><span class="line">        		ans.push_back(nums1[i]);</span><br><span class="line">        		i++,j++;</span><br><span class="line">        	&#125;</span><br><span class="line">        	<span class="keyword">else</span> <span class="keyword">if</span> (nums1[i]&gt;nums2[j])</span><br><span class="line">        		j++;</span><br><span class="line">        	<span class="keyword">else</span> </span><br><span class="line">        		i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Follow up:</strong></p>
 <ul>
-<li><p>What if the given array is already sorted? How would you optimize your algorithm?</p>
+<li>
+<p>What if the given array is already sorted? How would you optimize your algorithm?</p>
 <p>Use 2 pointers, O(M+N)</p>
 </li>
-<li><p>What if <em>nums1</em>‘s size is small compared to <em>nums2</em>‘s size? Which algorithm is better?</p>
+<li>
+<p>What if <em>nums1</em>’s size is small compared to <em>nums2</em>’s size? Which algorithm is better?</p>
 <p>Use the smaller array to construct the counter hash.</p>
 </li>
-<li><p>What if elements of <em>nums2</em> are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</p>
+<li>
+<p>What if elements of <em>nums2</em> are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</p>
 <p>Divide and conquer.</p>
 <p>Do repeatedly: Slice nums2, caculate intersections, write partial results back to the memory.</p>
 </li>
@@ -632,7 +642,7 @@ The result can be in any order.
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#349-Intersection-of-Two-Arrays"><span class="nav-number">1.</span> <span class="nav-text">349. Intersection of Two Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Follow-up"><span class="nav-number">2.</span> <span class="nav-text">Follow up</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#350-Intersection-of-Two-Arrays-II"><span class="nav-number">3.</span> <span class="nav-text">350. Intersection of Two Arrays II</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#349-intersection-of-two-arrays"><span class="nav-number">1.</span> <span class="nav-text">§349. Intersection of Two Arrays</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#follow-up"><span class="nav-number">2.</span> <span class="nav-text">§Follow up</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#350-intersection-of-two-arrays-ii"><span class="nav-number">3.</span> <span class="nav-text">§350. Intersection of Two Arrays II</span></a></li></ol></div>
             
           </div>
         </section>

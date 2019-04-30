@@ -370,27 +370,34 @@
       
         
           
-            <h4 id="Anagrams"><a href="#Anagrams" class="headerlink" title="Anagrams"></a>Anagrams</h4><h5 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h5><ul>
-<li><p><a href="https://leetcode.com/problems/valid-anagram/description/" target="_blank" rel="external">242. Valid Anagram</a></p>
+            <h4 id="anagrams"><a class="header-anchor" href="#anagrams">§</a>Anagrams</h4>
+<h5 id="problem"><a class="header-anchor" href="#problem">§</a>Problem</h5>
+<ul>
+<li>
+<p><a href="https://leetcode.com/problems/valid-anagram/description/" target="_blank" rel="external">242. Valid Anagram</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isAnagram</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> l1=s.length();</span><br><span class="line">    	<span class="keyword">if</span> (l1!=t.length())</span><br><span class="line">    		return <span class="literal">false</span>;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cnt(<span class="number">256</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">char</span> ch:s)</span><br><span class="line">    		cnt[ch]++;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">char</span> ch:t)&#123;</span><br><span class="line">    		cnt[ch]--;</span><br><span class="line">    		<span class="keyword">if</span> (cnt[ch]&lt;<span class="number">0</span>)</span><br><span class="line">    			return <span class="literal">false</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://leetcode.com/problems/group-anagrams/description/" target="_blank" rel="external">49. Group Anagrams</a></p>
+<li>
+<p><a href="https://leetcode.com/problems/group-anagrams/description/" target="_blank" rel="external">49. Group Anagrams</a></p>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// use sort &amp; hashmap</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; groupAnagrams(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs) &#123;</span><br><span class="line">  <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>,<span class="built_in">multiset</span>&lt;<span class="built_in">string</span>&gt;&gt; ansmap;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> s:strs)&#123;</span><br><span class="line">    <span class="built_in">string</span> tmp = s;</span><br><span class="line">    sort(tmp.begin(),tmp.end());</span><br><span class="line">    ansmap[tmp].insert(s);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; ans;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> str:ansmap)&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; anstmp(str.second.begin(),str.second.end());</span><br><span class="line">    ans.push_back(anstmp);</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// use primer to present number</span></span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) &#123;</span><br><span class="line">  <span class="keyword">int</span>[] prime = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>, <span class="number">71</span>, <span class="number">73</span>, <span class="number">79</span>, <span class="number">83</span>, <span class="number">89</span>, <span class="number">97</span>, <span class="number">101</span>, <span class="number">103</span>&#125;;</span><br><span class="line">  List&lt;List&lt;String&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  HashMap&lt;Integer, Integer&gt; map= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span> (String s : strs)&#123;</span><br><span class="line">    <span class="keyword">int</span> key = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray())</span><br><span class="line">      key *= prime[c-<span class="string">'a'</span>];</span><br><span class="line">    <span class="comment">//use index as value</span></span><br><span class="line">    List&lt;String&gt; tmp;</span><br><span class="line">    <span class="keyword">if</span> (map.containsKey(key))</span><br><span class="line">      tmp = res.get(map.get(key));</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">      map.put(key, res.size());</span><br><span class="line">      res.add(tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    tmp.add(s);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/description/" target="_blank" rel="external">438. Find All Anagrams in a String</a></p>
+<li>
+<p><a href="https://leetcode.com/problems/find-all-anagrams-in-a-string/description/" target="_blank" rel="external">438. Find All Anagrams in a String</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sliding window</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; findAnagrams(<span class="built_in">string</span> s, <span class="built_in">string</span> p) &#123;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ch1(<span class="number">26</span>,<span class="number">0</span>), ch2(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">int</span> l1 = s.length(), l2 = p.length();</span><br><span class="line">    	<span class="keyword">if</span> (l1&lt;l2)</span><br><span class="line">    		return ans;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;l2;i++)&#123;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		ch2[p[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">    		ans.push_back(<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=l2;i&lt;l1;i++)&#123;</span><br><span class="line">    		ch1[s[i-l2]-<span class="string">'a'</span>]--;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">    			ans.push_back(i-l2+<span class="number">1</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;    </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span> || p == <span class="keyword">null</span> || p.length() == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  <span class="keyword">int</span>[] les = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">char</span> c : p.toCharArray())</span><br><span class="line">    ++ les[c];</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, cnt = p.length();</span><br><span class="line">  <span class="keyword">int</span> len1 = p.length(), len2 = s.length();</span><br><span class="line">  <span class="keyword">while</span> (r &lt; len2)&#123;</span><br><span class="line">    <span class="comment">// right letter s[r] exist in p that has been matched</span></span><br><span class="line">    <span class="keyword">if</span> (les[s.charAt(r++)]-- &gt;= <span class="number">1</span>)</span><br><span class="line">      -- cnt;</span><br><span class="line">    <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">      res.add(l);</span><br><span class="line">    <span class="comment">// left letter s[l] exist in p that shoule be matched letter</span></span><br><span class="line">    <span class="keyword">if</span> (r - l == len1 &amp;&amp; les[s.charAt(l++)]++ &gt;= <span class="number">0</span>) cnt++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://leetcode.com/problems/permutation-in-string/description/" target="_blank" rel="external">567. Permutation in String</a></p>
-<p>the first string’s permutations is the <strong>substring</strong> of the second string -&gt; find anagram </p>
+<li>
+<p><a href="https://leetcode.com/problems/permutation-in-string/description/" target="_blank" rel="external">567. Permutation in String</a></p>
+<p>the first string’s permutations is the <strong>substring</strong> of the second string -&gt; find anagram</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Silimar to 567</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkInclusion</span><span class="params">(<span class="built_in">string</span> p, <span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ch1(<span class="number">26</span>,<span class="number">0</span>), ch2(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">    	<span class="keyword">int</span> l1 = s.length(), l2 = p.length();</span><br><span class="line">    	<span class="keyword">if</span> (l1&lt;l2)</span><br><span class="line">    		return <span class="literal">false</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;l2;i++)&#123;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		ch2[p[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">            return <span class="literal">true</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=l2;i&lt;l1;i++)&#123;</span><br><span class="line">    		ch1[s[i-l2]-<span class="string">'a'</span>]--;</span><br><span class="line">    		ch1[s[i]-<span class="string">'a'</span>]++;</span><br><span class="line">    		<span class="keyword">if</span> (ch1==ch2)</span><br><span class="line">    			return <span class="literal">true</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return <span class="literal">false</span>;           </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkInclusion</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> [] les = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">char</span> c : s1.toCharArray())</span><br><span class="line">    ++ les[c];</span><br><span class="line">  <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>, cnt = s1.length();</span><br><span class="line">  <span class="keyword">int</span> len1 = s1.length(), len2 = s2.length();</span><br><span class="line">  <span class="keyword">while</span> (r &lt; len2)&#123;</span><br><span class="line">    <span class="comment">// right letter s[r] exist in p that has been matched</span></span><br><span class="line">    <span class="keyword">if</span> (les[s2.charAt(r++)]-- &gt;= <span class="number">1</span>)</span><br><span class="line">      -- cnt;</span><br><span class="line">    <span class="keyword">if</span> (cnt == <span class="number">0</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">// left letter s[l] exist in p that shoule be matched letter</span></span><br><span class="line">    <span class="keyword">if</span> (r - l == len1 &amp;&amp; les[s2.charAt(l++)]++ &gt;= <span class="number">0</span>) cnt++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h5><p>Normally it is related to <code>HashMap</code>, <code>sort</code>, <code>two pointer</code></p>
+<h5 id="conclusion"><a class="header-anchor" href="#conclusion">§</a>Conclusion</h5>
+<p>Normally it is related to <code>HashMap</code>, <code>sort</code>, <code>two pointer</code></p>
 
           
         
@@ -519,81 +526,99 @@
       
         
           
-            <h4 id="System-Design-I"><a href="#System-Design-I" class="headerlink" title="System Design I"></a>System Design I</h4><ul>
+            <h4 id="system-design-i"><a class="header-anchor" href="#system-design-i">§</a>System Design I</h4>
+<ul>
 <li><a href="http://www.hiredintech.com/system-design/" target="_blank" rel="external">reference</a></li>
 </ul>
-<p>eg. Design a url shortening service, like bit.ly</p>
-<h5 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h5><ul>
-<li><p>Step 1: [<strong>Scope</strong> the problem]</p>
+<p>eg. Design a url shortening service, like <a href="http://bit.ly" target="_blank" rel="external">bit.ly</a></p>
+<h5 id="process"><a class="header-anchor" href="#process">§</a>Process</h5>
 <ul>
-<li><p>Use Cases </p>
+<li>
+<p>Step 1: [<strong>Scope</strong> the problem]</p>
+<ul>
+<li>
+<p>Use Cases</p>
 <ol>
 <li>Shortening: take a url =&gt; return a shorter url</li>
 <li>Redirection: take a short url =&gt; redirect to the original url</li>
 <li>Custom url: allow users to pick their available shortened URL</li>
-<li><p>High availability of the system</p>
+<li>High availability of the system</li>
+</ol>
 <p>Others:</p>
-</li>
-<li><p>Analytics: to look at usage statistics </p>
-</li>
-<li>Automatic link expiration: automatically expire link or stay alive forever </li>
+<ol>
+<li>Analytics: to look at usage statistics</li>
+<li>Automatic link expiration: automatically expire link or stay alive forever</li>
 <li>Manual link removal: the user wants to remove the link</li>
 <li>UI vs API: design a web service or a website, or a URL shortening API</li>
 </ol>
 </li>
-<li><p>Constraints</p>
+<li>
+<p>Constraints</p>
 <ul>
 <li>the amount of traffic &amp; data: how many the requests a mouth should handle and how many new URLs per month should the site handle =&gt; per second</li>
 <li>approcimation eg. active users: Facebook, 1.3billion; Twitter, 650 million, new tweets made per day, 500 million</li>
 </ul>
 <ol>
-<li><p>=&gt; 1.5BN new tweets =&gt; All shortened URL per month 1.5BN =&gt; Site below the top 3: shorten 300M per monty =&gt; We: 100M new urls per month</p>
+<li>
+<p>=&gt; 1.5BN new tweets =&gt; All shortened URL per month 1.5BN =&gt; Site below the top 3: shorten 300M per monty =&gt; We: 100M new urls per month</p>
 </li>
-<li><p>assume average lifetime: 1-2 weeks ~ 10 days</p>
+<li>
+<p>assume average lifetime: 1-2 weeks ~ 10 days</p>
 <p>&amp; assume 1 click per day,</p>
-<p>&amp;  20% got much more traffic than the rest 80% =&gt; 100 mln <em> 10 days </em> 1 click per day = 1 BN requests per month =&gt; 400+ requests per second</p>
+<p>&amp;  20% got much more traffic than the rest 80% =&gt; 100 mln * 10 days * 1 click per day = 1 BN requests per month =&gt; 400+ requests per second</p>
 </li>
-<li><p>10% from shortening, 90% from redirection =&gt; 40 shortens, 360 redirections</p>
+<li>
+<p>10% from shortening, 90% from redirection =&gt; 40 shortens, 360 redirections</p>
 </li>
-<li><p>Total urls: 5 years X 12 months X 100M = 6 BN url </p>
+<li>
+<p>Total urls: 5 years X 12 months X 100M = 6 BN url</p>
 </li>
-<li><p>500 bytes per URL =&gt; total storage of urls over 5 yrs: 6BN  X 500 bytes = 3TB</p>
+<li>
+<p>500 bytes per URL =&gt; total storage of urls over 5 yrs: 6BN  X 500 bytes = 3TB</p>
 </li>
-<li><p>log(62,6BN) =&gt; 6 bytes per hash =&gt; hases: 6BN X 6 bytes = 36GB</p>
+<li>
+<p>log(62,6BN) =&gt; 6 bytes per hash =&gt; hases: 6BN X 6 bytes = 36GB</p>
 </li>
-<li><p>New data written per second: 40 X (500+6) = 12K</p>
+<li>
+<p>New data written per second: 40 X (500+6) = 12K</p>
 </li>
-<li><p>Data read per second: 360 X (500+6) = 180K </p>
+<li>
+<p>Data read per second: 360 X (500+6) = 180K</p>
 </li>
 </ol>
 <p>=&gt; <a href="https://raw.githubusercontent.com/antonrd/hiredintech_files/master/system_design/digram_url_shortening.jpg" target="_blank" rel="external">pic</a></p>
 </li>
 </ul>
 </li>
-<li><p>Step 2: [Sketch up an] <strong>Abstract design</strong></p>
+<li>
+<p>Step 2: [Sketch up an] <strong>Abstract design</strong></p>
 <p>sketch the important components and the connections between them</p>
 <ol>
-<li>Aplication Design<ol>
+<li>Aplication Design
+<ol>
 <li>Shortening service: generate on your hash; check if it’s in the datastore, not -&gt; store a new mapping, or -&gt; generate new hash …</li>
 <li>Redirection service:</li>
 <li>Custom URL: take a hash from user, check if it’s a shorten URL word, check if it’s in the datastore, not -&gt; store, or -&gt; return a message</li>
 </ol>
 </li>
-<li>Data storage layer (keep track of the hash =&gt; url mappings)<ol>
+<li>Data storage layer (keep track of the hash =&gt; url mappings)
+<ol>
 <li>Acts like a hash table: stores new mappings and retrieve a value given a key</li>
 </ol>
 </li>
 </ol>
 <p>hashed_url = convert_to_base62(md5(original_url + random_salt))[:6]</p>
 </li>
-<li><p>Step 3: [Think about the] <strong>bottlenecks</strong></p>
+<li>
+<p>Step 3: [Think about the] <strong>bottlenecks</strong></p>
 <p>eg. Perhaps your system needs a load balancer and many machines behind it to handle the user requests. Or maybe the data is so huge that you need to distribute your database on multiple machines. What are some of the downsides that occur from doing that? Is the database too slow and does it need some in-memory caching?</p>
 <ol>
 <li>traffic: not very challenging since it’s lightweight; think how we quickly look up URL</li>
 <li>lots of data</li>
 </ol>
 </li>
-<li><p>Step 4: [Address these bottlenecks by  using the fundamentals principles of <strong>scalable system design</strong>] Scaling your abstract design</p>
+<li>
+<p>Step 4: [Address these bottlenecks by  using the fundamentals principles of <strong>scalable system design</strong>] Scaling your abstract design</p>
 </li>
 </ul>
 
@@ -724,7 +749,8 @@
       
         
           
-            <h3 id="Midterm-Review"><a href="#Midterm-Review" class="headerlink" title="Midterm Review"></a>Midterm Review</h3><ul>
+            <h3 id="midterm-review"><a class="header-anchor" href="#midterm-review">§</a>Midterm Review</h3>
+<ul>
 <li><a href="https://github.com/ZoeyeoZ/USC_Projects/blob/master/571/571%20Midterm%201.pdf" target="_blank" rel="external">571 Midterm 1</a></li>
 <li><a href="https://github.com/ZoeyeoZ/USC_Projects/blob/master/571/571%20Midterm%202.pdf" target="_blank" rel="external">571 Midterm 2</a></li>
 <li><a href="https://github.com/ZoeyeoZ/USC_Projects/blob/master/571/571%20Midterm%203.pdf" target="_blank" rel="external">571 Midterm 3</a></li>
@@ -870,7 +896,8 @@
       
         
           
-            <h4 id="Binary-Tree-Level-Order-Traversal"><a href="#Binary-Tree-Level-Order-Traversal" class="headerlink" title="Binary Tree Level Order Traversal"></a>Binary Tree Level Order Traversal</h4><p>test case:cover different + corner case</p>
+            <h4 id="binary-tree-level-order-traversal"><a class="header-anchor" href="#binary-tree-level-order-traversal">§</a>Binary Tree Level Order Traversal</h4>
+<p>test case:cover different + corner case</p>
 <ol>
 <li>only left/right child</li>
 <li>full tree</li>
@@ -881,44 +908,57 @@
 <li>reverse funtion</li>
 <li>add from front</li>
 </ol>
-<h4 id="Intersection-of-Two-Arrays"><a href="#Intersection-of-Two-Arrays" class="headerlink" title="Intersection of Two Arrays"></a>Intersection of Two Arrays</h4><ol>
+<h4 id="intersection-of-two-arrays"><a class="header-anchor" href="#intersection-of-two-arrays">§</a>Intersection of Two Arrays</h4>
+<ol>
 <li>If non sort-&gt; Hashmap. Ues extra space. O(m+n)</li>
 <li>If sort-&gt; Two pointers. O(m+n)</li>
 <li>If no extra space / If n&gt;&gt;m, scan the smaller array and find it in larger one via binary search in -&gt; If already sort -&gt; O(m*logn)</li>
 </ol>
 <p>Intersection of k arrays? merge 的变种</p>
-<ol>
+<ol start="2">
 <li>​</li>
 </ol>
-<h4 id="Dot-Production-FB"><a href="#Dot-Production-FB" class="headerlink" title="Dot Production (FB)"></a>Dot Production (FB)</h4><p>Conduct Dot Product of two large sparse Vectors</p>
+<h4 id="dot-production-fb"><a class="header-anchor" href="#dot-production-fb">§</a>Dot Production (FB)</h4>
+<p>Conduct Dot Product of two large sparse Vectors</p>
 <ol>
 <li>find non-zero indexes</li>
 <li>intersection</li>
 <li>dot product</li>
 </ol>
-<h4 id="Find-K-th-Smallest-Pair-Distance"><a href="#Find-K-th-Smallest-Pair-Distance" class="headerlink" title="Find K-th Smallest Pair Distance"></a>Find K-th Smallest Pair Distance</h4><ol>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> hi = nums[num.length - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (lo &lt; hi)&#123;</span><br><span class="line">  <span class="keyword">int</span> mid = lo + ((hi - lo) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// count function = number of pairs with distance &lt;= guess</span></span><br><span class="line"><span class="keyword">if</span> (nums[right] - nums[left] &gt; guess)</span><br><span class="line">  <span class="keyword">continue</span>;</span><br><span class="line">count += right - left;</span><br></pre></td></tr></table></figure>
+<h4 id="find-k-th-smallest-pair-distance"><a class="header-anchor" href="#find-k-th-smallest-pair-distance">§</a>Find K-th Smallest Pair Distance</h4>
+<ol>
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> hi = nums[num.length - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (lo &lt; hi)&#123;</span><br><span class="line">  <span class="keyword">int</span> mid = lo + ((hi - lo) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// count function = number of pairs with distance &lt;= guess</span></span><br><span class="line"><span class="keyword">if</span> (nums[right] - nums[left] &gt; guess)</span><br><span class="line">  <span class="keyword">continue</span>;</span><br><span class="line">count += right - left;</span><br></pre></td></tr></table></figure>
 <p>Runtime: <em>N</em>^2*logW</p>
 </li>
-<li><p>Optimization</p>
-<p>since there may be duplicate -&gt; </p>
+<li>
+<p>Optimization</p>
+<p>since there may be duplicate -&gt;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">right = upperBound(nums, left+<span class="number">1</span>, n-<span class="number">1</span>, target);</span><br><span class="line">count += right - left -<span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Optimization II</p>
-<p>Use Map<integer, integer=""> to memorize</integer,></p>
+<li>
+<p>Optimization II</p>
+<p>Use Map&lt;Integer, Integer&gt; to memorize</p>
 <p>Binary Search -&gt; N <em>log</em>N * <em>log</em>W</p>
 </li>
 </ol>
-<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><h5 id="410-Split-Array-Largest-Sum"><a href="#410-Split-Array-Largest-Sum" class="headerlink" title="410. Split Array Largest Sum"></a><a href="https://leetcode.com/problems/split-array-largest-sum/description/" target="_blank" rel="external">410. Split Array Largest Sum</a></h5><h5 id="Copy-Books-The-Painter’s-Partition-Problem-Part-II"><a href="#Copy-Books-The-Painter’s-Partition-Problem-Part-II" class="headerlink" title="Copy Books, The Painter’s Partition Problem Part II"></a>Copy Books, <a href="http://articles.leetcode.com/2011/04/the-painters-partition-problem-part-ii.html" target="_blank" rel="external">The Painter’s Partition Problem Part II</a></h5><h5 id="expire-map"><a href="#expire-map" class="headerlink" title="expire map"></a>expire map</h5><p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java</a></p>
+<h4 id="others"><a class="header-anchor" href="#others">§</a>Others</h4>
+<h5 id="410-split-array-largest-sum"><a class="header-anchor" href="#410-split-array-largest-sum">§</a><a href="https://leetcode.com/problems/split-array-largest-sum/description/" target="_blank" rel="external">410. Split Array Largest Sum</a></h5>
+<h5 id="copy-books-the-painter-s-partition-problem-part-ii"><a class="header-anchor" href="#copy-books-the-painter-s-partition-problem-part-ii">§</a>Copy Books, <a href="http://articles.leetcode.com/2011/04/the-painters-partition-problem-part-ii.html" target="_blank" rel="external">The Painter’s Partition Problem Part II</a></h5>
+<h5 id="expire-map"><a class="header-anchor" href="#expire-map">§</a>expire map</h5>
+<p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java</a></p>
 <p>cannot remove element while using for loop, but can use interator</p>
 <p><a href="https://stackoverflow.com/questions/6092642/how-to-remove-a-key-from-hashmap-while-iterating-over-it" target="_blank" rel="external">https://stackoverflow.com/questions/6092642/how-to-remove-a-key-from-hashmap-while-iterating-over-it</a></p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExpiringKey</span> <span class="title">implement</span> <span class="title">Comparable</span>&lt;<span class="title">ExpiringKey</span>&gt; </span>&#123;</span><br><span class="line">        V val;</span><br><span class="line">        <span class="keyword">long</span> expirationTime; <span class="comment">// ttl</span></span><br><span class="line">        K k;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ExpringMap</span> </span>&#123;</span><br><span class="line">        Map&lt;K, ExpiringKey&gt; m = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="function">PriorityQueue q</span><br><span class="line">        </span><br><span class="line">        V <span class="title">get</span><span class="params">(Key k)</span> </span>&#123;</span><br><span class="line">            ExpiringKey v = <span class="keyword">this</span>.m.get(k);</span><br><span class="line">            <span class="keyword">if</span> (v == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (v.expirationTime &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">                m.remove(k);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> v.val;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(Key k, V val, <span class="keyword">long</span> expirationTime)</span> </span>&#123;</span><br><span class="line">            ExpiringKey expiringKey = <span class="keyword">new</span> ExpiringKey(val, expirationTime);</span><br><span class="line">            <span class="keyword">this</span>.m.put(k, expiringKey);</span><br><span class="line">            <span class="keyword">this</span>.q.add(expiringKey); <span class="comment">// log(k)</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">cleanup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// q.poll() log(k)</span></span><br><span class="line">            List&lt;K&gt; keys = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (ExpiringKey entry : <span class="keyword">this</span>.m.entrySet()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (entry.getValue().expirationTime &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">                    keys.add(entry.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (K key : keys) <span class="comment">// delete</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// PriorityQueue&lt;&gt;()   minHeap</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>optimization: use PriorityQueue</p>
-<h4 id="Trick"><a href="#Trick" class="headerlink" title="Trick"></a>Trick</h4><ol>
-<li><p>search</p>
+<h4 id="trick"><a class="header-anchor" href="#trick">§</a>Trick</h4>
+<ol>
+<li>
+<p>search</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// search in java, return index</span></span><br><span class="line"><span class="keyword">if</span> (index&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">  set.add(num);</span><br><span class="line">  l = index;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  index = -(index+<span class="number">1</span>); <span class="comment">//next one who is larger than it</span></span><br><span class="line">  <span class="keyword">if</span> (index &gt;= r)</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  l = index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Difference between &gt;&gt;&gt; and &gt;&gt;</p>
+<li>
+<p>Difference between &gt;&gt;&gt; and &gt;&gt;</p>
 <p><code>&gt;&gt;&gt;</code>  is unsigned</p>
 </li>
 </ol>
@@ -1050,15 +1090,21 @@
       
         
           
-            <h2 id="How-to-write-a-basic-Web-Crawler"><a href="#How-to-write-a-basic-Web-Crawler" class="headerlink" title="How to write a basic Web Crawler"></a>How to write a basic Web Crawler</h2><h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
-<li><p>IntelliJ IDEA or Eclipse</p>
+            <h2 id="how-to-write-a-basic-web-crawler"><a class="header-anchor" href="#how-to-write-a-basic-web-crawler">§</a>How to write a basic Web Crawler</h2>
+<h4 id="installation"><a class="header-anchor" href="#installation">§</a>Installation</h4>
+<ol>
+<li>
+<p>IntelliJ IDEA or Eclipse</p>
 </li>
-<li><p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
+<li>
+<p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
 </li>
-<li><p>Creat new a new project &amp; Add External JARs</p>
-<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code> </p>
+<li>
+<p>Creat new a new project &amp; Add External JARs</p>
+<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code></p>
 </li>
-<li><p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
+<li>
+<p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
 <p>Controller with main function</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String crawlStorageFolder = <span class="string">"/data/crawl"</span>;</span><br><span class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">7</span>;</span><br><span class="line">        CrawlConfig config = <span class="keyword">new</span> CrawlConfig();</span><br><span class="line">        config.setCrawlStorageFolder(crawlStorageFolder);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Instantiate the controller for this crawl.</span><br><span class="line">         */</span></span><br><span class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(config);</span><br><span class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</span><br><span class="line">        RobotstxtServer robotstxtServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</span><br><span class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(config, pageFetcher, robotstxtServer);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * For each crawl, you need to add some seed urls. These are the first</span><br><span class="line">         * URLs that are fetched and then the crawler starts following links</span><br><span class="line">         * which are found in these pages</span><br><span class="line">         */</span></span><br><span class="line">        controller.addSeed(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Start the crawl. This is a blocking operation, meaning that your code</span><br><span class="line">         * will reach the line after this only when crawling is finished.</span><br><span class="line">         */</span></span><br><span class="line">        controller.start(MyCrawler.class, numberOfCrawlers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>MyCrawler extends WebCrawler</p>
@@ -1068,20 +1114,26 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.Page;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.WebCrawler;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.parser.HtmlParseData;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.url.WebURL;</span><br></pre></td></tr></table></figure>
 <p>And change your main class to <code>com.company.Controller</code></p>
 </li>
-<li><p>Some Issue</p>
+<li>
+<p>Some Issue</p>
 <ol>
-<li><p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>SLF4J: Defaulting to no-operation (NOP) logger implementation<br>SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
+<li>
+<p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>
+SLF4J: Defaulting to no-operation (NOP) logger implementation<br>
+SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
 <blockquote>
-<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>. </p>
+<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>.</p>
 <p>Add <code>slf4j-simple-1.7.25jar</code>  to your project</p>
 </blockquote>
 </li>
-<li><p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
+<li>
+<p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
 <blockquote>
 <p>Use absolute folder path, such as <code>/Users/XXX/Desktop/XXX/HW2_WebCrawler/data/crawl</code></p>
 </blockquote>
 </li>
-<li><p>If you didn’t get any result</p>
+<li>
+<p>If you didn’t get any result</p>
 <blockquote>
 <p>visit the website on your browser first</p>
 </blockquote>
@@ -1217,7 +1269,9 @@
       
         
           
-            <h3 id="Programming-Fundations-Object-Oriented-Design"><a href="#Programming-Fundations-Object-Oriented-Design" class="headerlink" title="Programming Fundations: Object-Oriented Design"></a><a href="https://www.lynda.com/Java-tutorials/Foundations-Programming-Object-Oriented-Design/96949-2.html" target="_blank" rel="external">Programming Fundations: Object-Oriented Design</a></h3><h4 id="Q-amp-Term"><a href="#Q-amp-Term" class="headerlink" title="Q &amp; Term"></a>Q &amp; Term</h4><ol>
+            <h3 id="programming-fundations-object-oriented-design"><a class="header-anchor" href="#programming-fundations-object-oriented-design">§</a><a href="https://www.lynda.com/Java-tutorials/Foundations-Programming-Object-Oriented-Design/96949-2.html" target="_blank" rel="external">Programming Fundations: Object-Oriented Design</a></h3>
+<h4 id="q-term"><a class="header-anchor" href="#q-term">§</a>Q &amp; Term</h4>
+<ol>
 <li>Objects are always physical or visible items. [False]</li>
 <li>Responsibilities should be stored in one master object. [False]</li>
 <li>Single Responsibility Principle and Open/Closed Principle are two of the principles of object-oriented design that are grouped under the acronym SOLID.</li>
@@ -1228,75 +1282,143 @@
 <li>An interface contains [method signature] that have no functionality.</li>
 <li>Design patterns are split into the creational, structural, and behavioral groups.</li>
 </ol>
-<h4 id="Core-Concepts"><a href="#Core-Concepts" class="headerlink" title="Core Concepts"></a>Core Concepts</h4><ul>
+<h4 id="core-concepts"><a class="header-anchor" href="#core-concepts">§</a>Core Concepts</h4>
+<ul>
 <li>class: name, attribution, behavior</li>
 <li>Abstraction</li>
 <li>Encapsulation: rescrict access -&gt; information hiding or data hiding</li>
 <li>Inheritance</li>
 <li>Polymorphism: do the correct behavior for each one.</li>
 </ul>
-<h4 id="Object-Oriented-Analysis-and-Design"><a href="#Object-Oriented-Analysis-and-Design" class="headerlink" title="Object-Oriented Analysis and Design"></a>Object-Oriented Analysis and Design</h4><ul>
-<li><p>Process</p>
+<h4 id="object-oriented-analysis-and-design"><a class="header-anchor" href="#object-oriented-analysis-and-design">§</a>Object-Oriented Analysis and Design</h4>
+<ul>
+<li>
+<p>Process</p>
 <ol>
-<li><p>Gather your requirements: Must-do </p>
+<li>
+<p>Gather your requirements: Must-do</p>
 <p>Functional Requirements: Feature/Capabilities</p>
 <p>Non-Funciontal Requirements: Help, Legalm Performance, Support, Security</p>
 <p>-&gt; FURPS(Function, Usability, Reliability, Performance, Supportability)</p>
 <p>+Design requirements, Implementation r, Interface r, Physical r</p>
 </li>
-<li><p>describe the application</p>
+<li>
+<p>describe the application</p>
 </li>
-<li><p>identify the most important objects</p>
+<li>
+<p>identify the most important objects</p>
 </li>
-<li><p>describe the interaction between those objects</p>
+<li>
+<p>describe the interaction between those objects</p>
 </li>
-<li><p>create a class diagram</p>
+<li>
+<p>create a class diagram</p>
 </li>
 </ol>
 </li>
-<li><p>UML(Unified modeling Language)</p>
+<li>
+<p>UML(Unified modeling Language)</p>
 </li>
 </ul>
-<h4 id="Utilizing-Use-Cases"><a href="#Utilizing-Use-Cases" class="headerlink" title="Utilizing Use Cases"></a>Utilizing Use Cases</h4><ul>
-<li><p>Title(What is  the goal) + Actor(Who esires it) + Scenario(How is it accomplished) + Extensions/Precondition/…</p>
+<h4 id="utilizing-use-cases"><a class="header-anchor" href="#utilizing-use-cases">§</a>Utilizing Use Cases</h4>
+<ul>
+<li>
+<p>Title(What is  the goal) + Actor(Who esires it) + Scenario(How is it accomplished) + Extensions/Precondition/…</p>
 </li>
-<li><p>Use case diagram</p>
+<li>
+<p>Use case diagram</p>
 </li>
-<li><p>User Story:  As a (type of user), I want (goal), so that (reason)</p>
+<li>
+<p>User Story:  As a (type of user), I want (goal), so that (reason)</p>
 </li>
-<li><p>| User Stories                   | Use Cases                  |<br>| —————————— | ————————– |<br>| short - one index card         | long - a document          |<br>| one goal, no details           | multiple goals and details |<br>| informal                       | casual to (very formal)    |<br>| “placeholder for conversation” | “record of conversation”   |</p>
+<li>
+<table>
+<thead>
+<tr>
+<th>User Stories</th>
+<th>Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>short - one index card</td>
+<td>long - a document</td>
+</tr>
+<tr>
+<td>one goal, no details</td>
+<td>multiple goals and details</td>
+</tr>
+<tr>
+<td>informal</td>
+<td>casual to (very formal)</td>
+</tr>
+<tr>
+<td>“placeholder for conversation”</td>
+<td>“record of conversation”</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
-<h4 id="Domain-Modeling-Modeling-the-APP"><a href="#Domain-Modeling-Modeling-the-APP" class="headerlink" title="Domain Modeling(Modeling the APP)"></a>Domain Modeling(Modeling the APP)</h4><ol>
+<h4 id="domain-modeling-modeling-the-app"><a class="header-anchor" href="#domain-modeling-modeling-the-app">§</a>Domain Modeling(Modeling the APP)</h4>
+<ol>
 <li>Identifying objects: Noun List in User Case Scenario -&gt; select as Conceptual Object Model</li>
 <li>Identifing class relationships: link &amp; symbol</li>
-<li>Identifing class responsibilities: Verb List(what has happend/whose job) -&gt; rename &amp; split </li>
-<li>Using CRC(Class,, ) cards<ul>
+<li>Identifing class responsibilities: Verb List(what has happend/whose job) -&gt; rename &amp; split</li>
+<li>Using CRC(Class, ) cards
+<ul>
 <li>Class name</li>
 <li>Responsibility of the class</li>
 <li>Collaboratior: the other classes it interacts with</li>
 </ul>
 </li>
 </ol>
-<h4 id="Creating-Classes"><a href="#Creating-Classes" class="headerlink" title="Creating Classes"></a>Creating Classes</h4><ul>
-<li><p>Class Diagram: Visibility: -private +public</p>
-<p>| Class name | eg. Product                              | Spaceship                                |<br>| ———- | —————————————- | —————————————- |<br>| Attributes | - name: String = “New Product”<br>- isActive: Boolean<br>- launchDate: Date<br>- itemNumber: Integer | + name: String<br>- shieldStringth: Integer<br>… |<br>| Operations | + getName(): String<br>+ setActive(Bollean)<br>+ getProductDetails(): String<br>+ displayProduct()<br>- formatProductDetails(): String | + fire(): String<br>+ reduceShields(Integer)<br>… |</p>
+<h4 id="creating-classes"><a class="header-anchor" href="#creating-classes">§</a>Creating Classes</h4>
+<ul>
+<li>
+<p>Class Diagram: Visibility: -private +public</p>
+<table>
+<thead>
+<tr>
+<th>Class name</th>
+<th>eg. Product</th>
+<th>Spaceship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attributes</td>
+<td>- name: String = “New Product”<br>- isActive: Boolean<br>- launchDate: Date<br>- itemNumber: Integer</td>
+<td>+ name: String<br>- shieldStringth: Integer<br>…</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td>+ getName(): String<br>+ setActive(Bollean)<br>+ getProductDetails(): String<br>+ displayProduct()<br>- formatProductDetails(): String</td>
+<td>+ fire(): String<br>+ reduceShields(Integer)<br>…</td>
+</tr>
+</tbody>
+</table>
 </li>
-<li><p>Code</p>
+<li>
+<p>Code</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Spaceship</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// instance variables</span></span><br><span class="line">  <span class="keyword">public</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> ShieldStringth;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//method</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">fire</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Boom!"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduceShields</span><span class="params">(<span class="keyword">int</span> amount)</span></span>&#123;</span><br><span class="line">    ShieldStringth -= amount;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@interface Spaceship: NSObject&#123;</span><br><span class="line">  @public</span><br><span class="line">    NSString *name;</span><br><span class="line">  @private</span><br><span class="line">    int shieldStringth;</span><br><span class="line">&#125;</span><br><span class="line">//method declarations</span><br><span class="line">- (NSString *) fire;</span><br><span class="line">- (void) reduceShields:(int) amount;</span><br><span class="line">@end</span><br><span class="line">  </span><br><span class="line">@implementation Spaceship</span><br><span class="line">- (NSString *) fire&#123;</span><br><span class="line">  return @&quot;Boom!&quot;;</span><br><span class="line">&#125;</span><br><span class="line">- (void) reduceShields:(int) amount&#123;</span><br><span class="line">  shieldStringth -= amout;</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Class lifetime</p>
+<li>
+<p>Class lifetime</p>
 <ul>
-<li><p>Instantiation</p>
+<li>
+<p>Instantiation</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Java	Customer fred = new Costomer();</span><br><span class="line">C# 		Customer fred = new Costomer();</span><br><span class="line">VB.NET	Dim fred As New Customer</span><br><span class="line">Ruby	fred = Customer.new</span><br><span class="line">C++		Customer *fred = new Costomer();</span><br><span class="line">Obective-C	Customer *fred = [[Customer alloc] init];</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Constructoe example</p>
+<li>
+<p>Constructoe example</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Spaceshio</span></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// constructor method</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Spaceship</span><span class="params">()</span></span>&#123;</span><br><span class="line">    name = <span class="string">"Unnamed ship"</span>;</span><br><span class="line">    shieldStringth = <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//overloaded constructor</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Spaceship</span><span class="params">(String n)</span></span>&#123;</span><br><span class="line">    name = n;</span><br><span class="line">    shieldStrength = <span class="number">200</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Destructors/Finalizers</p>
+<li>
+<p>Destructors/Finalizers</p>
 <ol>
 <li>called when an object is being deleted/deallocated/released</li>
 <li>Use for releasing resources</li>
@@ -1305,48 +1427,73 @@
 </li>
 </ul>
 </li>
-<li><p>Using static/shared members</p>
+<li>
+<p>Using static/shared members</p>
 <ul>
-<li><p>Static variables</p>
+<li>
+<p>Static variables</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SacingsAccount</span></span>&#123;</span><br><span class="line">  <span class="comment">// instance variables</span></span><br><span class="line">  <span class="keyword">public</span> String accountMnumber;</span><br><span class="line">  <span class="keyword">private</span> Money balance;</span><br><span class="line">  <span class="comment">//static variables</span></span><br><span class="line">  <span class="comment">/*</span><br><span class="line">  //public (accessible) static variable</span><br><span class="line">  public static float interestRate;</span><br><span class="line">  // changed to private</span><br><span class="line">  */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">float</span> interestRate</span><br><span class="line">  <span class="comment">//public static methods</span></span><br><span class="line">  <span class="comment">/*static methods can only access static variable, static data.*/</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">setInterestRate</span><span class="params">(<span class="keyword">float</span> r)</span></span>&#123;</span><br><span class="line">    interestRate = r;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">getInterestRate</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> interestRate;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//access normal instance-level variables</span></span><br><span class="line">the name of the object.accountNumber</span><br><span class="line"><span class="comment">//access a public static/shared variable</span></span><br><span class="line">the name of the <span class="class"><span class="keyword">class</span>.<span class="title">interetRate</span></span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="Inheritance-and-Compostion"><a href="#Inheritance-and-Compostion" class="headerlink" title="Inheritance and Compostion"></a>Inheritance and Compostion</h4><ul>
-<li><p>Using inheritance: “IS A”</p>
+<h4 id="inheritance-and-compostion"><a class="header-anchor" href="#inheritance-and-compostion">§</a>Inheritance and Compostion</h4>
+<ul>
+<li>
+<p>Using inheritance: “IS A”</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Java	public class Album extends Product&#123;...&#125;</span><br><span class="line">C# 		public class Album : Product&#123;...&#125;</span><br><span class="line">VB.NET 	Public Class Album</span><br><span class="line">			Inherits Product ...</span><br><span class="line">Ruby	class Album &lt; Product ...</span><br><span class="line">C++ 	class Album : public Product&#123;...&#125;</span><br><span class="line">Objective-C	@interface Album : Product &#123;...&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Overriding</p>
+<li>
+<p>Overriding</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Jave	super.doSomething();</span><br><span class="line">C#		base.doSomething();</span><br><span class="line">VB.NET	Mybase.doSomething();</span><br><span class="line">Ruby 	super do_something</span><br><span class="line">Objective-C	[super someMethod];</span><br><span class="line">C++		NamedBaseClass::doSomething();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>Using abstract Class</p>
+<li>
+<p>Using abstract Class</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Java	abstract class BankAccount&#123;...&#125;</span><br><span class="line">VB.NET	Public MustInherit Class BankAccount ...</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Using Interfaces</p>
+<li>
+<p>Using Interfaces</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// not allowed to put functionality inside an interface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Printable</span></span>&#123;</span><br><span class="line">  <span class="comment">//method sigature</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">printToPDF</span><span class="params">(String filename)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// if implements the interface -&gt; have to provide those 2 methods and implementation for them</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="keyword">implements</span> <span class="title">Printable</span></span>&#123;</span><br><span class="line">  <span class="comment">//method bodies</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//provide implementation</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printToPDF</span><span class="params">(String filename)</span></span>&#123;</span><br><span class="line">    <span class="comment">//provide implementation</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Benefits: Could have many different classes choose to implement the same interface. </p>
+<li>
+<p>Benefits: Could have many different classes choose to implement the same interface.</p>
 <p>eg. In Java I’d use instance of other languages do it different ways, but the concept is the same, we can just ask, does the object that I have support that particular interface, if it does, I know I can use it.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (genericObject in listOfObjects)&#123;</span><br><span class="line">  <span class="keyword">if</span> (genericObject instanceOf Printable)&#123;</span><br><span class="line">    <span class="comment">// if it implements the interface, we can use it</span></span><br><span class="line">    genericObject.print();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>| &lt;<interface>&gt;<br>Printable |<br>| —————————- |<br>| print()<br>printToPDF()    |</interface></p>
+<table>
+<thead>
+<tr>
+<th>&lt;<interface>&gt;<br>Printable</interface></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>print()<br>printToPDF()</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ul>
 </li>
-<li><p>Using aggregation and composition</p>
+<li>
+<p>Using aggregation and composition</p>
 <ul>
-<li><p>Aggregation: “HAS A” relationship of Inheritation</p>
+<li>
+<p>Aggregation: “HAS A” relationship of Inheritation</p>
 </li>
-<li><p>Composition: a more specific form of Aggregation, implies ownership</p>
+<li>
+<p>Composition: a more specific form of Aggregation, implies ownership</p>
 </li>
-<li><p>eg.</p>
+<li>
+<p>eg.</p>
 <ol>
-<li><p>Classroom[1] ——aggregation —— Student[*]</p>
+<li>
+<p>Classroom[1] ——aggregation —— Student[*]</p>
 <p>If deleted the Classroom Object, perhaps the class got canceled -&gt; Student objects won’t destroyed, they may be used in different classrooms or just be able to live on their own</p>
 </li>
-<li><p>Document[1] —— composition(implies ownership) —— Page[1…*]</p>
+<li>
+<p>Document[1] —— composition(implies ownership) —— Page[1…*]</p>
 <p>But if I were to delete the Document object all the associated Page objectsshould be deleted too</p>
 </li>
 </ol>
@@ -1354,38 +1501,52 @@
 </ul>
 </li>
 </ul>
-<h4 id="Advanced-Concepts"><a href="#Advanced-Concepts" class="headerlink" title="Advanced Concepts"></a>Advanced Concepts</h4><ul>
-<li><p>Structural/Static diagrams: Class D </p>
+<h4 id="advanced-concepts"><a class="header-anchor" href="#advanced-concepts">§</a>Advanced Concepts</h4>
+<ul>
+<li>
+<p>Structural/Static diagrams: Class D</p>
 <p>-&gt; But they are not so great at representing the lifetime of an object or actually how objects interact with one other</p>
 <p>-&gt; Behavior/Dynamic diagrams: Sequence D(eg. <a href="https://www.lynda.com/Java-tutorials/Creating-sequence-diagrams/96949/106094-4.html" target="_blank" rel="external">Pleanse see 04:20’s pic</a>)</p>
 </li>
-<li><p>UML Diagrams:</p>
+<li>
+<p>UML Diagrams:</p>
 <p>Class Diagram, Use Case D, Object D, Sequence D, State Machine D, Activity D, Deploment D, Package D, Component D, Profile D, Communication D, Timing D, Composite Structure D, Interaction Overview D</p>
 </li>
-<li><p>UML Tools: <a href="https://www.lynda.com/Java-tutorials/Using-UML-tools/96949/106096-4.html" target="_blank" rel="external">Please see 01:32’s pic</a> or <a href="http://goo.gl/YAuOY" target="_blank" rel="external">Wikipedia page</a></p>
+<li>
+<p>UML Tools: <a href="https://www.lynda.com/Java-tutorials/Using-UML-tools/96949/106096-4.html" target="_blank" rel="external">Please see 01:32’s pic</a> or <a href="http://goo.gl/YAuOY" target="_blank" rel="external">Wikipedia page</a></p>
 </li>
 </ul>
-<h4 id="Object-Oriented-Design-Patterns"><a href="#Object-Oriented-Design-Patterns" class="headerlink" title="Object-Oriented Design Patterns"></a>Object-Oriented Design Patterns</h4><ul>
-<li><p>“Gang of Four” / “GoF” book:</p>
+<h4 id="object-oriented-design-patterns"><a class="header-anchor" href="#object-oriented-design-patterns">§</a>Object-Oriented Design Patterns</h4>
+<ul>
+<li>
+<p>“Gang of Four” / “GoF” book:</p>
 <p>Creational Patterns, Structural P, Behavioral P</p>
 </li>
-<li><p>eg. the Singleton Pattern</p>
+<li>
+<p>eg. the Singleton Pattern</p>
 <ul>
-<li><p>ensure a class only has one instance</p>
+<li>
+<p>ensure a class only has one instance</p>
 </li>
-<li><p>one way of accessing it</p>
+<li>
+<p>one way of accessing it</p>
 </li>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySingleton</span></span>&#123;</span><br><span class="line">  <span class="comment">// placeholder for current singleton object</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> MySingleton _me = <span class="keyword">null</span>;</span><br><span class="line">  <span class="comment">// private constructor - now no other object can instantiate</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">MySingleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  <span class="comment">// this is how you ack for the singleton</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// do I exist?</span></span><br><span class="line">    <span class="keyword">if</span> (_me == <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="comment">// if not, instantiate and store</span></span><br><span class="line">      _me = <span class="keyword">new</span> MySignleton);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _me;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// additional functionality</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;<span class="comment">//...&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ask for the singleton</span></span><br><span class="line">  MySingleton single = MySingleton.getInstance();</span><br><span class="line">  <span class="comment">//use it</span></span><br><span class="line">  single.someMethod();</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//or even just call it directly</span></span><br><span class="line">  MySingleton.getInstance.someMethod();</span><br></pre></td></tr></table></figure>
+<li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySingleton</span></span>&#123;</span><br><span class="line">  <span class="comment">// placeholder for current singleton object</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> MySingleton _me = <span class="keyword">null</span>;</span><br><span class="line">  <span class="comment">// private constructor - now no other object can instantiate</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">MySingleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">  <span class="comment">// this is how you ack for the singleton</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// do I exist?</span></span><br><span class="line">    <span class="keyword">if</span> (_me == <span class="keyword">null</span>)&#123;</span><br><span class="line">      <span class="comment">// if not, instantiate and store</span></span><br><span class="line">      _me = <span class="keyword">new</span> MySignleton);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _me;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// additional functionality</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;<span class="comment">//...&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ask for the singleton</span></span><br><span class="line">  MySingleton single = MySingleton.getInstance();</span><br><span class="line">  <span class="comment">//use it</span></span><br><span class="line">  single.someMethod();</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//or even just call it directly</span></span><br><span class="line">  MySingleton.getInstance.someMethod();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>eg. the Memento Pattern</p>
+<li>
+<p>eg. the Memento Pattern</p>
 <ul>
-<li><p>Handles “undo” in an object</p>
+<li>
+<p>Handles “undo” in an object</p>
 </li>
-<li><p>Does not violate encapsulation</p>
+<li>
+<p>Does not violate encapsulation</p>
 </li>
-<li><p><code>Originator: original state</code>, <code>Caretaker</code>, <code>Moemento</code></p>
+<li>
+<p><code>Originator: original state</code>, <code>Caretaker</code>, <code>Moemento</code></p>
 <p><code>C</code> requestes <code>O</code> <em>saveState</em> =&gt; <code>O</code> creates a <code>M</code>: <code>O: os, M</code>, and it bundles the information up in the <code>M</code> and returns it to the <code>C</code> =&gt; <code>C:M</code>, <code>O:os</code></p>
 <p>call to the <code>O</code> to <em>change</em> state =&gt; <code>O:changed state</code></p>
 <p>calls can from <code>C</code> or others =&gt; <code>O: changed again</code></p>
@@ -1394,35 +1555,46 @@
 </ul>
 </li>
 </ul>
-<h4 id="Object-Oriented-Design-Priciples"><a href="#Object-Oriented-Design-Priciples" class="headerlink" title="Object-Oriented Design Priciples"></a>Object-Oriented Design Priciples</h4><ul>
-<li><p>General Softwre Development Pricibles</p>
+<h4 id="object-oriented-design-priciples"><a class="header-anchor" href="#object-oriented-design-priciples">§</a>Object-Oriented Design Priciples</h4>
+<ul>
+<li>
+<p>General Softwre Development Pricibles</p>
 <ol>
-<li><p>DRY: Don’t Repeat Yourself</p>
+<li>
+<p>DRY: Don’t Repeat Yourself</p>
 </li>
-<li><p>YAGNI: You Ain’t Gonna Need it</p>
+<li>
+<p>YAGNI: You Ain’t Gonna Need it</p>
 </li>
-<li><p>Example Code Smells</p>
+<li>
+<p>Example Code Smells</p>
 <p>Long methods, Very short(or long) identifiers, Pointless comments</p>
 <p>God object:  one master object that tries to do everything in the program, or at least one object that seems to be doing very different responsibilities that have nothing to do with each other -&gt; need to be revisited and broken apart</p>
 <p>Feature envy:  If a class seems to do very little except use all the methods of one other class -&gt; need to rethink the roles of one or the other</p>
 </li>
 </ol>
 </li>
-<li><p>SOLID Priciples</p>
+<li>
+<p>SOLID Priciples</p>
 <ul>
-<li><p>S: Single Responsibility Principle: object should have one reason to exist, one reason to change - one primary responsibility</p>
+<li>
+<p>S: Single Responsibility Principle: object should have one reason to exist, one reason to change - one primary responsibility</p>
 </li>
-<li><p>O: Open/Closed Principle: open for extension, but closed to modification</p>
+<li>
+<p>O: Open/Closed Principle: open for extension, but closed to modification</p>
 <p>eg. Inheritance: if get a new business requirement -&gt; support it by adding a new class, privide some new code if it need a new business behavior, don’t change the original superclass</p>
 </li>
-<li><p>L: Liskov Substitution Principle: derived classes must be substitutable for their base classes</p>
+<li>
+<p>L: Liskov Substitution Principle: derived classes must be substitutable for their base classes</p>
 <p>if we’ve created a whole bunch of derived classes or child classes, no one can be treated specially</p>
 </li>
-<li><p>I: Interface Segregation Principle: Multiple spefic interfaces are better than one general purpose interface</p>
-<p> those lists of methods should be as small as possible.</p>
-<p>If they start to get bigger, they should be split up into smaller interfaces.Because classes can choose to implement multiple smaller interfaces, no classshould be forced to support huge lists of methods that it doesn’t need. </p>
+<li>
+<p>I: Interface Segregation Principle: Multiple spefic interfaces are better than one general purpose interface</p>
+<p>those lists of methods should be as small as possible.</p>
+<p>If they start to get bigger, they should be split up into smaller interfaces.Because classes can choose to implement multiple smaller interfaces, no classshould be forced to support huge lists of methods that it doesn’t need.</p>
 </li>
-<li><p>D: Dependency Inversion Principle: depend on abstractions, not on concretions</p>
+<li>
+<p>D: Dependency Inversion Principle: depend on abstractions, not on concretions</p>
 <p>eg. Store — AudioFileReader &amp; AudioFileWriter</p>
 <p>Add a layer of abstraction -&gt; make it more flexibility</p>
 <p>Store — Reader — MovieFileReader, AudioFileReader, …</p>
@@ -1430,17 +1602,23 @@
 </li>
 </ul>
 </li>
-<li><p>GRASP(General Responsibility Assignment Software Patterns) Principles</p>
+<li>
+<p>GRASP(General Responsibility Assignment Software Patterns) Principles</p>
 <ul>
-<li><p>Creator, Controller, Pure Fabrication, Information Expert, High Cohesion, Indirection, Low Coupling, Polymorphism, Protected Variations</p>
+<li>
+<p>Creator, Controller, Pure Fabrication, Information Expert, High Cohesion, Indirection, Low Coupling, Polymorphism, Protected Variations</p>
 </li>
-<li><p>Expert/Information Expert: Assign the reponsibility to the class that has the information needed to fulgfill it</p>
+<li>
+<p>Expert/Information Expert: Assign the reponsibility to the class that has the information needed to fulgfill it</p>
 </li>
-<li><p>Creator: Who is responsible for creating an object?</p>
+<li>
+<p>Creator: Who is responsible for creating an object?</p>
 </li>
-<li><p>Low Coupling/High Cohesion</p>
+<li>
+<p>Low Coupling/High Cohesion</p>
 <ul>
-<li><p>Coupling: the level of dependencies between objects</p>
+<li>
+<p>Coupling: the level of dependencies between objects</p>
 <p>-&gt; do reduce the amount of requirement connections between objects</p>
 </li>
 </ul>
@@ -1453,20 +1631,26 @@
   a measure of how focused the internal behavior of a class is. Are all its behaviors related to that single responsibility?
 
   eg. God object has low cohesion 
-</code></pre><ul>
-<li><p>Controller: Don’t connect UI elements directly to business objects(problem: high coupling, low cohesion)</p>
+</code></pre>
+<ul>
+<li>
+<p>Controller: Don’t connect UI elements directly to business objects(problem: high coupling, low cohesion)</p>
 <p>eg. Business Object &lt;-&gt;  Controller Object: eg. Model View Controller &lt;-&gt; User Interface Object</p>
 </li>
-<li><p>Pure Fabrication: When the behavior does not belong anywhere else, create a new class</p>
+<li>
+<p>Pure Fabrication: When the behavior does not belong anywhere else, create a new class</p>
 <p>if force that behavior into an existing class where it doesn’t belong -&gt; decreasing Cohesion -&gt; so we fabricate a new class</p>
 </li>
-<li><p>Indirection: to reduce coupling, introduce an intermediate object</p>
+<li>
+<p>Indirection: to reduce coupling, introduce an intermediate object</p>
 <p>If you have multiple objects that need to talk to each other -&gt; HIGH COUPLING -&gt; so put an Ondirection Object to simplify the amount of connections -&gt; decrease coupling between objects</p>
 </li>
-<li><p>Polymorphism: automatically correct behavior based on type</p>
+<li>
+<p>Polymorphism: automatically correct behavior based on type</p>
 <p>As opposed to: conditional logic that checks for particular type -&gt; we want to reduce checks</p>
 </li>
-<li><p>Protected Variations: protect the system from changes and viriations</p>
+<li>
+<p>Protected Variations: protect the system from changes and viriations</p>
 <p>How to design a system so that changes and variations have the minimum impact on what already exists</p>
 <ul>
 <li>Identify the most likely points of change</li>
@@ -1474,11 +1658,91 @@
 </ul>
 </li>
 </ul>
-<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><ul>
-<li><p>Objective-Oriented Languages</p>
-<p>| Language    | Inheritance | Typing         | Call to super   | Private Methods | Abstract Classes | Interfaces     |<br>| ———– | ———– | ————– | ————— | ————— | —————- | ————– |<br>| Java        | Single      | static         | super           | Yes             | Yes              | Yes            |<br>| C#          | Single      | static         | base            | Yes             | Yes              | Yes            |<br>| VB.NET      | Single      | static         | Mybase          | Yes             | Yes              | Yes            |<br>| Objective-C | Single      | static/dynamic | sper            | No              | No               | Protocols      |<br>| C++         | Multiple    | static         | name of class:: | Yes             | Yes              | Abstract Class |<br>| Ruby        | Mix-ins     | dynamic        | super           | Yes             | n/a              | n/a            |<br>| JavaScript  | Prototype   | dynamic        | n/a             | Yes             | n/a              | n/a            |</p>
+<h4 id="conclusion"><a class="header-anchor" href="#conclusion">§</a>Conclusion</h4>
+<ul>
+<li>
+<p>Objective-Oriented Languages</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Inheritance</th>
+<th>Typing</th>
+<th>Call to super</th>
+<th>Private Methods</th>
+<th>Abstract Classes</th>
+<th>Interfaces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java</td>
+<td>Single</td>
+<td>static</td>
+<td>super</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>Single</td>
+<td>static</td>
+<td>base</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="http://VB.NET" target="_blank" rel="external">VB.NET</a></td>
+<td>Single</td>
+<td>static</td>
+<td>Mybase</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Objective-C</td>
+<td>Single</td>
+<td>static/dynamic</td>
+<td>sper</td>
+<td>No</td>
+<td>No</td>
+<td>Protocols</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>Multiple</td>
+<td>static</td>
+<td>name of class::</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Abstract Class</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>Mix-ins</td>
+<td>dynamic</td>
+<td>super</td>
+<td>Yes</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>Prototype</td>
+<td>dynamic</td>
+<td>n/a</td>
+<td>Yes</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
 </li>
-<li><p>Additional resources</p>
+<li>
+<p>Additional resources</p>
 <p>Software Requirements by Karl Wiegers</p>
 <p>Alistair Cockburn’s Writing Effective Use Cases</p>
 <p>Mike Cohn’s User Stories Applied/User Stories Applied for Agile Software Development</p>
@@ -1629,44 +1893,55 @@
             <p>Subsequence: order, maynot continuous</p>
 <p>QuickSort: Average O(NlgN), worst O(N2)</p>
 <p>MergeSort:  O(NlgN)</p>
-<h4 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h4><p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
+<h4 id="q"><a class="header-anchor" href="#q">§</a>Q</h4>
+<p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
 <p>For example,</p>
 <p>Given [3,2,1,5,6,4] and k = 2, return 5. [3,3,3,3] and k = 1, return 3.</p>
-<h4 id="A"><a href="#A" class="headerlink" title="A"></a>A</h4><p>k starts with 1, Assume k is valid</p>
+<h4 id="a"><a class="header-anchor" href="#a">§</a>A</h4>
+<p>k starts with 1, Assume k is valid</p>
 <ul>
-<li><p>sol1sort O(NlgN)</p>
+<li>
+<p>sol1sort O(NlgN)</p>
 </li>
-<li><p>sol2 Max-Heap, O(Nlgk)</p>
+<li>
+<p>sol2 Max-Heap, O(Nlgk)</p>
 </li>
-<li><p>sol3 quick select</p>
+<li>
+<p>sol3 quick select</p>
 <p>randomly choose/middle as privot</p>
-<p>(..discard…pivot…index….)</p>
+<p>(…discard…pivot…index….)</p>
 <p>time complexity: n/2 + n/4 + n/8 + … = n</p>
 <p>duplicate -&gt; just move it, don’t influence</p>
 <p>worst case: all the number is same</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/**</span><br><span class="line">O(N) guaranteed running time + O(1) space</span><br><span class="line">randomize/shuffle the input -&gt; O(N)</span><br><span class="line"></span><br><span class="line">This is QuickSelect from QuickSort.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>, index = nums.length - k;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">            <span class="keyword">int</span> pivot = partition(nums, start, end);</span><br><span class="line">            <span class="keyword">if</span> (pivot &lt; index) &#123;</span><br><span class="line">                start = pivot + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pivot &gt; index) &#123;</span><br><span class="line">                end = pivot - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[pivot];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sample input: [1]</span></span><br><span class="line">        <span class="keyword">return</span> nums[start];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pivot = start;</span><br><span class="line">        <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">while</span> (start &lt;= end &amp;&amp; nums[start] &lt;= nums[pivot]) &#123;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (start &lt;= end &amp;&amp; nums[end] &gt; nums[pivot]) &#123;</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums, start, end);</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums, end, pivot);</span><br><span class="line">        <span class="keyword">return</span> end;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = a[i];</span><br><span class="line">        a[i] = a[j];</span><br><span class="line">        a[j] = tmp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Sort-Color"><a href="#Sort-Color" class="headerlink" title="Sort Color"></a>Sort Color</h4><ul>
-<li>0..0[l]1…1[r]2…2</li>
+<h4 id="sort-color"><a class="header-anchor" href="#sort-color">§</a>Sort Color</h4>
+<ul>
+<li>0…0[l]1…1[r]2…2</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sortColors</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// If nums is very big, it is likely to often hit page default by loading</span></span><br><span class="line">    <span class="comment">// three sections of nums (l,m,r) and cause thrashing</span></span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> r = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt;= r;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[m] == <span class="number">0</span>) &#123;</span><br><span class="line">            swap(nums, l++, m++); <span class="comment">//unless l == m, left = 0; left must be 1, no need to consider again</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[m] == <span class="number">2</span>) &#123;</span><br><span class="line">            swap(nums, r--, m);<span class="comment">//since right may be 0/1/2, should consider again</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            m++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>What if 4 section<ul>
+<li>What if 4 section
+<ul>
 <li>0, 1, [2,3]; then partition 2 &amp; 3</li>
 <li>more pointers?</li>
 </ul>
 </li>
 </ul>
-<h4 id="Wiggle-Sort-I"><a href="#Wiggle-Sort-I" class="headerlink" title="Wiggle Sort I"></a>Wiggle Sort I</h4><p>Greedy</p>
-<h4 id="Wiggle-Sort-II"><a href="#Wiggle-Sort-II" class="headerlink" title="Wiggle Sort II"></a>Wiggle Sort II</h4><p>Find Median: (nums.length+1) &gt;&gt;&gt; 1, O(N)</p>
+<h4 id="wiggle-sort-i"><a class="header-anchor" href="#wiggle-sort-i">§</a>Wiggle Sort I</h4>
+<p>Greedy</p>
+<h4 id="wiggle-sort-ii"><a class="header-anchor" href="#wiggle-sort-ii">§</a>Wiggle Sort II</h4>
+<p>Find Median: (nums.length+1) &gt;&gt;&gt; 1, O(N)</p>
 <p>Partition: sort color + <strong>Vitural Index</strong>, O(N)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  n = <span class="number">6</span> =&gt; (n | <span class="number">1</span>) = <span class="number">7</span></span><br><span class="line">  n = <span class="number">7</span> =&gt; (n | <span class="number">1</span>) = <span class="number">7</span></span><br><span class="line">  The index mapping, (<span class="number">1</span> + <span class="number">2</span> * index) % (n | <span class="number">1</span>)</span><br><span class="line"><span class="comment">/*</span><br><span class="line">vitual position: 135024, let num[135]&gt;num[024],</span><br><span class="line">then actual position 012345 will be  wiggle sort.</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">wiggleSort2</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span>;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> median = findKthLargest(nums, (nums.length + <span class="number">1</span>) &gt;&gt;&gt; <span class="number">1</span>);</span><br><span class="line">     <span class="keyword">int</span> n = nums.length;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> left = <span class="number">0</span>, i = <span class="number">0</span>, right = n - <span class="number">1</span>;</span><br><span class="line">     <span class="comment">// The index mapping, (1 + 2*index) % (n | 1) combined with 'Color sort'</span></span><br><span class="line">     <span class="keyword">while</span> (i &lt;= right) &#123;</span><br><span class="line">         <span class="keyword">int</span> index = newIndex(i, n);</span><br><span class="line">         <span class="keyword">if</span> (nums[index] &gt; median) &#123;</span><br><span class="line">             swap(nums, newIndex(left++, n), index);</span><br><span class="line">             i++;</span><br><span class="line">         &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[index] &lt; median) &#123;</span><br><span class="line">             swap(nums, newIndex(right--, n), index);</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             i++;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// n = 6 =&gt; 012345-&gt;[1 3 5 0 2 4], 6 | 1 =&gt; 7</span></span><br><span class="line"> <span class="comment">// n = 7 =&gt; 0123456-&gt;[1 3 5 0 2 4 6], 7 | 1 =&gt; 7</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">newIndex</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> (<span class="number">1</span> + <span class="number">2</span> * index) % (n | <span class="number">1</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="expiry-key-hashmap-in-Java"><a href="#expiry-key-hashmap-in-Java" class="headerlink" title="expiry key hashmap in Java"></a>expiry key hashmap in Java</h4><p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">How can I implement expiry key hashmap in Java?</a></p>
+<h4 id="expiry-key-hashmap-in-java"><a class="header-anchor" href="#expiry-key-hashmap-in-java">§</a>expiry key hashmap in Java</h4>
+<p><a href="https://www.quora.com/How-can-I-implement-expiry-key-hashmap-in-Java" target="_blank" rel="external">How can I implement expiry key hashmap in Java?</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class ValueWithExpiration &#123;</span><br><span class="line">    V val;</span><br><span class="line">    long expirationTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Map&lt;K, ValueWithExpiration&gt;</span><br><span class="line"></span><br><span class="line">ttl =&gt; expirationTime</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>follow up:</p>
+<li>
+<p>follow up:</p>
 <p>When get/put expirationTime?</p>
 <p>Map =&gt; linear scan ? =&gt; PriorityQueue</p>
 </li>
@@ -1799,21 +2074,25 @@
       
         
           
-            <h4 id="349-Intersection-of-Two-Arrays"><a href="#349-Intersection-of-Two-Arrays" class="headerlink" title="349. Intersection of Two Arrays"></a><a href="https://leetcode.com/problems/intersection-of-two-arrays/description/" target="_blank" rel="external">349. Intersection of Two Arrays</a></h4><p><strong>Note:</strong></p>
+            <h4 id="349-intersection-of-two-arrays"><a class="header-anchor" href="#349-intersection-of-two-arrays">§</a><a href="https://leetcode.com/problems/intersection-of-two-arrays/description/" target="_blank" rel="external">349. Intersection of Two Arrays</a></h4>
+<p><strong>Note:</strong></p>
 <ul>
 <li>Each element in the result must be unique.  -&gt; use set</li>
 <li>The result can be in any order.</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums1.length == <span class="number">0</span> || nums2.length == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        Set&lt;Integer&gt; hs = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++) &#123;</span><br><span class="line">            hs.add(nums1[i]); </span><br><span class="line">        &#125;</span><br><span class="line">        Set&lt;Integer&gt; res = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums2.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (hs.contains(nums2[i])) &#123;</span><br><span class="line">                res.add(nums2[i]);</span><br><span class="line">                hs.remove(nums2[i]); </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] res_ = <span class="keyword">new</span> <span class="keyword">int</span>[res.size()];</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Integer num : res) &#123;</span><br><span class="line">            res_[i++] = num; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res_; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">Using Stream in java 8</span><br><span class="line">Set&lt;Integer&gt; set = Arrays.stream(nums2).boxed().collect(Collectors.toSet());</span><br><span class="line">return Arrays.stream(nums1).distinct().filter(e-&gt; set.contains(e)).toArray();</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersection(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">    	<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; s(nums1.begin(), nums1.end());</span><br><span class="line">	    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums2)</span><br><span class="line">	        <span class="keyword">if</span> (s.erase(num))</span><br><span class="line">	            ans.push_back(num);</span><br><span class="line">	    return ans;     </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow up"></a>Follow up</h4><ul>
-<li>If sorted?<ol>
+<h4 id="follow-up"><a class="header-anchor" href="#follow-up">§</a>Follow up</h4>
+<ul>
+<li>If sorted?
+<ol>
 <li>Use 2 pointers. O(M+N)</li>
 <li>Binary search. O(MlogN) or O(NlogM)</li>
 </ol>
 </li>
 </ul>
-<h4 id="350-Intersection-of-Two-Arrays-II"><a href="#350-Intersection-of-Two-Arrays-II" class="headerlink" title="350. Intersection of Two Arrays II"></a><a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/description/" target="_blank" rel="external">350. Intersection of Two Arrays II</a></h4><p><strong>Note:</strong></p>
+<h4 id="350-intersection-of-two-arrays-ii"><a class="header-anchor" href="#350-intersection-of-two-arrays-ii">§</a><a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/description/" target="_blank" rel="external">350. Intersection of Two Arrays II</a></h4>
+<p><strong>Note:</strong></p>
 <ul>
 <li>Each element in the result should appear as many times as it shows in both arrays.</li>
 <li>The result can be in any order.</li>
@@ -1823,13 +2102,16 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Another solution in C++</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersect(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        sort(nums1.begin(),nums1.end());</span><br><span class="line">        sort(nums2.begin(),nums2.end());</span><br><span class="line">        <span class="keyword">int</span> n1 = nums1.size(), n2 = nums2.size();</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j =<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">while</span> (i&lt;n1 &amp;&amp; j&lt;n2)&#123;</span><br><span class="line">        	<span class="keyword">if</span> (nums1[i]==nums2[j])&#123;</span><br><span class="line">        		ans.push_back(nums1[i]);</span><br><span class="line">        		i++,j++;</span><br><span class="line">        	&#125;</span><br><span class="line">        	<span class="keyword">else</span> <span class="keyword">if</span> (nums1[i]&gt;nums2[j])</span><br><span class="line">        		j++;</span><br><span class="line">        	<span class="keyword">else</span> </span><br><span class="line">        		i++;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Follow up:</strong></p>
 <ul>
-<li><p>What if the given array is already sorted? How would you optimize your algorithm?</p>
+<li>
+<p>What if the given array is already sorted? How would you optimize your algorithm?</p>
 <p>Use 2 pointers, O(M+N)</p>
 </li>
-<li><p>What if <em>nums1</em>‘s size is small compared to <em>nums2</em>‘s size? Which algorithm is better?</p>
+<li>
+<p>What if <em>nums1</em>’s size is small compared to <em>nums2</em>’s size? Which algorithm is better?</p>
 <p>Use the smaller array to construct the counter hash.</p>
 </li>
-<li><p>What if elements of <em>nums2</em> are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</p>
+<li>
+<p>What if elements of <em>nums2</em> are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</p>
 <p>Divide and conquer.</p>
 <p>Do repeatedly: Slice nums2, caculate intersections, write partial results back to the memory.</p>
 </li>
@@ -1966,14 +2248,17 @@
 <li>Tools -&gt; Build System -&gt; New Build System…</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;shell_cmd&quot;: &quot;javac \&quot;$file\&quot;&quot;,</span><br><span class="line">    &quot;file_regex&quot;: &quot;^(...*?):([0-9]*):?([0-9]*)&quot;,</span><br><span class="line">    &quot;selector&quot;: &quot;source.java&quot;,</span><br><span class="line"></span><br><span class="line">    &quot;variants&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Run&quot;,</span><br><span class="line">            &quot;shell_cmd&quot;: &quot;java $file_base_name&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Save as JavaC.sublime-build</p>
+<ol start="2">
+<li>
+<p>Save as JavaC.sublime-build</p>
 </li>
-<li><p>Choose Automatic, run using <code>command + B</code></p>
+<li>
+<p>Choose Automatic, run using <code>command + B</code></p>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fName = function(fVal) &#123;&#125;; </span><br><span class="line">console.log(fName(fVal));</span><br></pre></td></tr></table></figure>
-<h4 id="Delete-build-system"><a href="#Delete-build-system" class="headerlink" title="Delete build system"></a>Delete build system</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OS X: ~/Library/Application Support/Sublime Text 3/Packages/</span><br></pre></td></tr></table></figure>
+<h4 id="delete-build-system"><a class="header-anchor" href="#delete-build-system">§</a>Delete build system</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OS X: ~/Library/Application Support/Sublime Text 3/Packages/</span><br></pre></td></tr></table></figure>
           
         
       
@@ -2113,27 +2398,38 @@
       
         
           
-            <h3 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h3><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion" target="_blank" rel="external">Binary Search Tree | Set 1 (Search and Insertion)</a></p>
+            <h3 id="binary-search-tree"><a class="header-anchor" href="#binary-search-tree">§</a>Binary Search Tree</h3>
+<h4 id="reference"><a class="header-anchor" href="#reference">§</a>Reference</h4>
+<p><a href="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion" target="_blank" rel="external">Binary Search Tree | Set 1 (Search and Insertion)</a></p>
 <p><a href="">Github | X1_Binary Search Tree</a></p>
-<h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ol>
-<li><p>left subtree &lt; root &lt; right subtree</p>
+<h4 id="definition"><a class="header-anchor" href="#definition">§</a>Definition</h4>
+<ol>
+<li>
+<p>left subtree &lt; root &lt; right subtree</p>
 </li>
-<li><p>no duplicate nodes</p>
+<li>
+<p>no duplicate nodes</p>
 <ul>
-<li><p>What if duplicate? add “count” attribution</p>
+<li>
+<p>What if duplicate? add “count” attribution</p>
 </li>
-<li><p>self-balance: almost full tree. Using red-black tree</p>
+<li>
+<p>self-balance: almost full tree. Using red-black tree</p>
 </li>
-<li><p>worst case:</p>
+<li>
+<p>worst case:</p>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1\2\3\4\5\6</span><br><span class="line">or</span><br><span class="line">   1</span><br><span class="line">   2</span><br><span class="line">   3</span><br><span class="line">   4</span><br><span class="line">5/6 7\8</span><br></pre></td></tr></table></figure>
+<li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1\2\3\4\5\6</span><br><span class="line">or</span><br><span class="line">   1</span><br><span class="line">   2</span><br><span class="line">   3</span><br><span class="line">   4</span><br><span class="line">5/6 7\8</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>​</p>
+<li>
+<p>​</p>
 </li>
 </ol>
-<h4 id="Coding"><a href="#Coding" class="headerlink" title="Coding"></a>Coding</h4><p>•  <a href="https://leetcode.com/problems/find-k-closest-elements" target="_blank" rel="external">https://leetcode.com/problems/find-k-closest-elements</a></p>
+<h4 id="coding"><a class="header-anchor" href="#coding">§</a>Coding</h4>
+<p>•  <a href="https://leetcode.com/problems/find-k-closest-elements" target="_blank" rel="external">https://leetcode.com/problems/find-k-closest-elements</a></p>
 <p>•  <a href="https://leetcode.com/problems/closest-binary-search-tree-value" target="_blank" rel="external">https://leetcode.com/problems/closest-binary-search-tree-value</a></p>
 <p>•  <a href="https://leetcode.com/problems/closest-binary-search-tree-value-ii" target="_blank" rel="external">https://leetcode.com/problems/closest-binary-search-tree-value-ii</a></p>
 <p>•  <a href="https://leetcode.com/problems/binary-tree-level-order-traversal" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-level-order-traversal</a></p>
@@ -2143,30 +2439,41 @@
 <p>•  <a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii" target="_blank" rel="external">https://leetcode.com/problems/search-in-rotated-sorted-array-ii</a></p>
 <p>####Note</p>
 <ol>
-<li><p>先定signature</p>
+<li>
+<p>先定signature</p>
 </li>
-<li><p>库函数Arrays.binarySearch(arr, x)，not found: &lt; 0</p>
+<li>
+<p>库函数Arrays.binarySearch(arr, x)，not found: &lt; 0</p>
 </li>
-<li><p><a href="http://www.baeldung.com/java-8-collectors" target="_blank" rel="external">java8 Collectors</a></p>
+<li>
+<p><a href="http://www.baeldung.com/java-8-collectors" target="_blank" rel="external">java8 Collectors</a></p>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final double EPSILON = 1e-10;</span><br></pre></td></tr></table></figure>
+<li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final double EPSILON = 1e-10;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>boilerplate模版</p>
+<li>
+<p>boilerplate模版</p>
 </li>
-<li><p>主动测试test case</p>
+<li>
+<p>主动测试test case</p>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;T&gt; q = new LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;T&gt; q = new LinkedList&lt;&gt;();</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>IterativeInOrder, Pre, Post</p>
+<li>
+<p>IterativeInOrder, Pre, Post</p>
 </li>
 </ol>
-<h4 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h4><ul>
-<li><p>360.Sort Transformed Array</p>
+<h4 id="q"><a class="header-anchor" href="#q">§</a>Q</h4>
+<ul>
+<li>
+<p>360.Sort Transformed Array</p>
 <p>a &gt; 0,</p>
 <p>binary search find the closest one with -b/2a, then …</p>
 <p>Or from l &amp; r -&gt; middle</p>
 </li>
-<li><p>173.Binary Search Tree iterator</p>
+<li>
+<p>173.Binary Search Tree iterator</p>
 </li>
 </ul>
 

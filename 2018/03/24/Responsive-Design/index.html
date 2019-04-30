@@ -82,29 +82,32 @@
 
 <meta name="description" content="Lydna | Lerning Responsive Design
 
-Responsive Web Design -  Ethan Marcotte
+§Responsive Web Design -  Ethan Marcotte
+
 Fluid Grid for flexible layouts
 Media Queries to help you adapt content to specific screen sizes
-Flexible Images and media t">
+Flexible Images and media">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Responsive Design">
 <meta property="og:url" content="http://yoursite.com/2018/03/24/Responsive-Design/index.html">
 <meta property="og:site_name" content="Zhuo Han">
 <meta property="og:description" content="Lydna | Lerning Responsive Design
 
-Responsive Web Design -  Ethan Marcotte
+§Responsive Web Design -  Ethan Marcotte
+
 Fluid Grid for flexible layouts
 Media Queries to help you adapt content to specific screen sizes
-Flexible Images and media t">
+Flexible Images and media">
 <meta property="og:updated_time" content="2018-03-24T21:56:19.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Responsive Design">
 <meta name="twitter:description" content="Lydna | Lerning Responsive Design
 
-Responsive Web Design -  Ethan Marcotte
+§Responsive Web Design -  Ethan Marcotte
+
 Fluid Grid for flexible layouts
 Media Queries to help you adapt content to specific screen sizes
-Flexible Images and media t">
+Flexible Images and media">
 
 
 
@@ -382,90 +385,116 @@ Flexible Images and media t">
         <blockquote>
 <p>Lydna | <a href="https://www.lynda.com/Web-Responsive-Design-tutorials/Welcome/104969/115611-4.html" target="_blank" rel="external">Lerning Responsive Design</a></p>
 </blockquote>
-<h5 id="Responsive-Web-Design-Ethan-Marcotte"><a href="#Responsive-Web-Design-Ethan-Marcotte" class="headerlink" title="Responsive Web Design -  Ethan Marcotte"></a>Responsive Web Design -  Ethan Marcotte</h5><ol>
+<h5 id="responsive-web-design-ethan-marcotte"><a class="header-anchor" href="#responsive-web-design-ethan-marcotte">§</a>Responsive Web Design -  Ethan Marcotte</h5>
+<ol>
 <li>Fluid Grid for flexible layouts</li>
 <li>Media Queries to help you adapt content to specific screen sizes</li>
 <li>Flexible Images and media that respond to changes in screen sizes as well.</li>
 </ol>
 <ul>
-<li><p>HTML: clean code, proper semantics HTMLs</p>
+<li>
+<p>HTML: clean code, proper semantics HTMLs</p>
 <p>CSS: media queries, fluid layout, transitions css graphics</p>
 <p>JavaScript: resourse loading, adaptive media, device functionality</p>
 </li>
 </ul>
-<h5 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h5><ul>
-<li><p>viewport(have a minimum scaling factor) &gt; the screen’s resolution</p>
-<p>Mobile browsers will display a web page within the viewport ans the shrink that viewport down until the content fits within the width of the screen itself.  While this usually results in tiny pages, it does allow the user to see the page in its entirety and decide which areas of the page they’d like to zoom up to, and read. </p>
+<h5 id="concepts"><a class="header-anchor" href="#concepts">§</a>Concepts</h5>
+<ul>
+<li>
+<p>viewport(have a minimum scaling factor) &gt; the screen’s resolution</p>
+<p>Mobile browsers will display a web page within the viewport ans the shrink that viewport down until the content fits within the width of the screen itself.  While this usually results in tiny pages, it does allow the user to see the page in its entirety and decide which areas of the page they’d like to zoom up to, and read.</p>
 <p>=&gt; how to control both the viewport size and its initial scale factor.</p>
 </li>
-<li><p>Controlling Viewports</p>
+<li>
+<p>Controlling Viewports</p>
 <ol>
-<li><p>viewport meta tag <code>met name=&quot;viewport&quot; content=&quot;width=480, initial-scale=1&quot;&gt;</code></p>
+<li>
+<p>viewport meta tag <code>met name=&quot;viewport&quot; content=&quot;width=480, initial-scale=1&quot;&gt;</code></p>
 </li>
-<li><p>@viewport CSS rule <code>@viewport{width: 480px; zoom: 1;}</code></p>
+<li>
+<p>@viewport CSS rule <code>@viewport{width: 480px; zoom: 1;}</code></p>
 <p>should be placed before media queries</p>
 </li>
 </ol>
 <ul>
-<li><p><strong>device width</strong>: instructs the browser to set the viewport to the exact size as the available screen pixels. </p>
+<li>
+<p><strong>device width</strong>: instructs the browser to set the viewport to the exact size as the available screen pixels.</p>
 <p>And the browser automatically sets initial scale to 100%.</p>
 <p>In fact, on iOS devices, there’s a bug with initial scale that affects pages when the orientation changes, so many people advise leaving initial scale off entirely unless you need to set the value to something other than 100%.</p>
 </li>
-<li><p>zoom: 2, -&gt; 200%</p>
+<li>
+<p>zoom: 2, -&gt; 200%</p>
 </li>
-<li><p>control how much zoom</p>
+<li>
+<p>control how much zoom</p>
 <p>eg. <code>minimum-scale=1 maximum-scale=2</code> in tag, <code>min-zoom:1; max-zoom:2</code>in CSS. The user can scale up to 200% but can’t scale down pass 100%.</p>
 <p>eg. <code>user-scalable=no</code> or <code>user-zoom:fixed;</code></p>
 </li>
 </ul>
 </li>
-<li><p>Screen density is the number of pixels within a physical area of a screen, and newer screens are featuring higher and higher screen densities every year</p>
+<li>
+<p>Screen density is the number of pixels within a physical area of a screen, and newer screens are featuring higher and higher screen densities every year</p>
 <ol>
-<li><p>hardware pixels</p>
-<p>eg. Let’s say you had a line of text that was 30 pixels high on a lower-density screen. The same text mapped to the higher- density screen would now appear twice as <u>small</u>. </p>
+<li>
+<p>hardware pixels</p>
+<p>eg. Let’s say you had a line of text that was 30 pixels high on a lower-density screen. The same text mapped to the higher- density screen would now appear twice as <u>small</u>.</p>
 </li>
-<li><p>reference pixels - “CSS pixel”</p>
-<p>eg. If you’ve specified that an element be 50 pixels wide, it might map to the first screen at exactly 50 pixels if the hardware and reference pixels were the same.<br>On a higher-density screen, however, the device would actually display the same element over 100 hardware pixels to ensure that it remains the same visual size.</p>
+<li>
+<p>reference pixels - “CSS pixel”</p>
+<p>eg. If you’ve specified that an element be 50 pixels wide, it might map to the first screen at exactly 50 pixels if the hardware and reference pixels were the same.<br>
+On a higher-density screen, however, the device would actually display the same element over 100 hardware pixels to ensure that it remains the same visual size.</p>
 <ul>
 <li>scaling factor - device-pixel-ratio, the ratio between reference pixels and hardware pixels</li>
 </ul>
 </li>
 </ol>
 </li>
-<li><p>Designing for multiple screen densities</p>
+<li>
+<p>Designing for multiple screen densities</p>
 <ul>
-<li><p>Optimize graphics for higher-density displays - Reduce bitmap graphics</p>
+<li>
+<p>Optimize graphics for higher-density displays - Reduce bitmap graphics</p>
 <ol>
-<li><p>SVG</p>
+<li>
+<p>SVG</p>
 <p>Often larger than bitmaps</p>
 <p>Graphics are redrawn with each screen change</p>
 </li>
-<li><p>CSS</p>
+<li>
+<p>CSS</p>
 <p>Complex artwork is difficult</p>
 <p>Often require non-semantic markup</p>
 <p>Property support isn’t universal</p>
 </li>
-<li><p>use icon fonts</p>
+<li>
+<p>use icon fonts</p>
 </li>
 </ol>
 </li>
-<li><p>Screen-density targeting option</p>
+<li>
+<p>Screen-density targeting option</p>
 <ol>
-<li><p>Don’t target screen, but use high-res graphocs where needed<br>issue1: Higher-resolution graphics are larger in size -&gt; some of your users to download larger images than they really need.<br>issue2: Not all screens use the same scaling factors -&gt; you’d have to account for the largest size needed, which again leads to unnecessary file sizes in most instances. </p>
+<li>
+<p>Don’t target screen, but use high-res graphocs where needed<br>
+issue1: Higher-resolution graphics are larger in size -&gt; some of your users to download larger images than they really need.<br>
+issue2: Not all screens use the same scaling factors -&gt; you’d have to account for the largest size needed, which again leads to unnecessary file sizes in most instances.</p>
 </li>
-<li><p>target</p>
-<p> if you are targeting CSS background images, you can use media queries to target specific device-pixel-ratios. -&gt; JavaScript</p>
+<li>
+<p>target</p>
+<p>if you are targeting CSS background images, you can use media queries to target specific device-pixel-ratios. -&gt; JavaScript</p>
 </li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p>Media Queries</p>
+<li>
+<p>Media Queries</p>
 <p><code>@media [not | only] screen [and] (expression){}</code> in CSS</p>
 <p><code>media=&quot;screen and (min-width: 480px), screen and (orientation: landscape)&quot;</code> in tag</p>
 <p>modified: <code>@import url(example.css) screen and (max-width: 480px);</code></p>
 </li>
-<li><p>breakpoint: A breakpoint indicates the moment your layout switches from one layout to another, and is usually triggered by the width of a screen.</p>
+<li>
+<p>breakpoint: A breakpoint indicates the moment your layout switches from one layout to another, and is usually triggered by the width of a screen.</p>
 <ol>
 <li><code>@media only screen and (max-width: 480px){}</code> // mobile, eg. 480/16 = 30em</li>
 <li><code>@media only screen and (min-width:481px) and (max-width: 768px){}</code> //tablet, 30em 48em</li>
@@ -473,60 +502,83 @@ Flexible Images and media t">
 </ol>
 <p>if use <code>em</code>, the width of the screen is set relative to the device’s font size.</p>
 </li>
-<li><p>Fluid grid</p>
+<li>
+<p>Fluid grid</p>
 <p>eg. Grid systems</p>
 <p>downsides of frameworks: class-based, non-semantic, container/clearing elements, large in size/extra code</p>
 </li>
-<li><p>Making images responsive</p>
+<li>
+<p>Making images responsive</p>
 <ol>
-<li><p>define with different @media </p>
+<li>
+<p>define with different @media</p>
 <p>but, in <u>earlier versions of Android</u>, all of the CSS background images would be downloaded, not just the ones needed for the appropriate media query.</p>
 </li>
-<li><p>modify your .htaccess file, link to their responsive images JavaScript file, and add a query string on any image that requires a larger desktop version of that image.</p>
+<li>
+<p>modify your .htaccess file, link to their responsive images JavaScript file, and add a query string on any image that requires a larger desktop version of that image.</p>
 <p>but, more complex solution, JS parse slower load time(and often replacement images are requested after the original image is already downloaded.)</p>
-<p>And that’s the evolution of browser prefetching: speed up load time, but may download elements that will be replaced. </p>
+<p>And that’s the evolution of browser prefetching: speed up load time, but may download elements that will be replaced.</p>
 </li>
 </ol>
-<p>-&gt; </p>
+<p>-&gt;</p>
 <ol>
-<li>WHTWQ: add a new attribute called <code>srcset</code>, eg. <code>&lt;img … src=&quot;&quot; srcset=&quot;1.png 800w, 2.png 600w&quot;&gt;</code><br>benefits: straight forward, uncluttered, no new html elements, backwards compatible</li>
-<li>w3c: <code>&lt;picture&gt;&lt;source..&gt;&lt;source..&gt;&lt;img&gt;&lt;/picture&gt;</code><br>benefits: acts as parent for range of <img> elements. multiple source options with alternate images, image properties, and media queries. user agent selects matching images</li>
+<li>WHTWQ: add a new attribute called <code>srcset</code>, eg. <code>&lt;img … src=&quot;&quot; srcset=&quot;1.png 800w, 2.png 600w&quot;&gt;</code><br>
+benefits: straight forward, uncluttered, no new html elements, backwards compatible</li>
+<li>w3c: <code>&lt;picture&gt;&lt;source..&gt;&lt;source..&gt;&lt;img&gt;&lt;/picture&gt;</code><br>
+benefits: acts as parent for range of <img> elements. multiple source options with alternate images, image properties, and media queries. user agent selects matching images</li>
 </ol>
 </li>
-<li><p>Responsive forms<br>start by considering the mobile context first<br>eg. use <code>&lt;label&gt;&lt;input.. placehold=&quot;balabala&quot; required=&quot;required&quot;&gt;&lt;/label&gt;</code><br>Makes submitting data easier, automates input when possible, and even combines form elements to require less input from the user. </p>
+<li>
+<p>Responsive forms<br>
+start by considering the mobile context first<br>
+eg. use <code>&lt;label&gt;&lt;input.. placehold=&quot;balabala&quot; required=&quot;required&quot;&gt;&lt;/label&gt;</code><br>
+Makes submitting data easier, automates input when possible, and even combines form elements to require less input from the user.</p>
 <ol>
-<li>combile address into a single input ans use placeholder text to show format. </li>
+<li>combile address into a single input ans use placeholder text to show format.</li>
 <li>single dropdown menu instead of using a radio button grouping of multiple choices</li>
 </ol>
 </li>
-<li><p>Performance</p>
+<li>
+<p>Performance</p>
 <ul>
 <li>Network connections, bandwidth speed, network latency</li>
-<li>keep code lean<ol>
+<li>keep code lean
+<ol>
 <li>use standards compliant code</li>
 <li>elimicate extraneous markup</li>
 <li>keep external scripts and styles lean and efficient</li>
 </ol>
 </li>
-<li>limit requests<ol>
-<li>eg. If you’re linking to multiple external scripts, try combining them into a single file.<br>Or tools: Filament Group’s QuickConcat, Enhance.js, which can combine files at runtime into single request.</li>
+<li>limit requests
+<ol>
+<li>eg. If you’re linking to multiple external scripts, try combining them into a single file.<br>
+Or tools: Filament Group’s QuickConcat, Enhance.js, which can combine files at runtime into single request.</li>
 <li>Combine images and icons into sprites -&gt; use same images for multiple</li>
 <li>Use data URI: allows you to embed images directly into your CSS without having to request the image from the server</li>
-<li>Evaluate any external resource to make sure that you’re actually using them. </li>
+<li>Evaluate any external resource to make sure that you’re actually using them.</li>
 <li>use a JavaScript library in one context but not the other.</li>
 </ol>
 </li>
 </ul>
 </li>
 </ul>
-<h5 id="Responsice-Design-Strategies"><a href="#Responsice-Design-Strategies" class="headerlink" title="Responsice Design Strategies"></a>Responsice Design Strategies</h5><ul>
+<h5 id="responsice-design-strategies"><a class="header-anchor" href="#responsice-design-strategies">§</a>Responsice Design Strategies</h5>
+<ul>
 <li>Designing for the appropriate:  targeting the appropriate context in which the site will be used.</li>
-<li>Planning a responsie design<br>develop a content strategy, think about breakpoints<br>tweak point -&gt; allow you to refine your designs throughout the scaling proces<br>device-specific functionality: geo location, instant messaging, touch sensitivity<br>layout considerations: plan out your navigation, creat consistent coding standards</li>
+<li>Planning a responsie design<br>
+develop a content strategy, think about breakpoints<br>
+tweak point -&gt; allow you to refine your designs throughout the scaling proces<br>
+device-specific functionality: geo location, instant messaging, touch sensitivity<br>
+layout considerations: plan out your navigation, creat consistent coding standards</li>
 <li>Building responsive mockups</li>
-<li>Developing a context strategy for responsive sites<br>goas: emphasize important content, make relationship clear, make it accessible on small screens<br>start with content -&gt; think about prioritize/purpose -&gt; generate a set of rules that govern how content should be displayed and shifted as screen sizes change</li>
+<li>Developing a context strategy for responsive sites<br>
+goas: emphasize important content, make relationship clear, make it accessible on small screens<br>
+start with content -&gt; think about prioritize/purpose -&gt; generate a set of rules that govern how content should be displayed and shifted as screen sizes change</li>
 <li>Understanding the mobile context</li>
-<li>Designing for mobile capabilities<br>location, motion/accelerometer, built in compass, media, touch screen, phone</li>
-<li>Creating flexible HTML<ol>
+<li>Designing for mobile capabilities<br>
+location, motion/accelerometer, built in compass, media, touch screen, phone</li>
+<li>Creating flexible HTML
+<ol>
 <li>write clean code</li>
 <li>use html5 if possible</li>
 <li>explore microformats</li>
@@ -536,19 +588,30 @@ Flexible Images and media t">
 </li>
 <li>Testing responsive designs</li>
 </ul>
-<h5 id="Conclution"><a href="#Conclution" class="headerlink" title="Conclution"></a>Conclution</h5><ul>
-<li><p>Fluid grid framework</p>
+<h5 id="conclution"><a class="header-anchor" href="#conclution">§</a>Conclution</h5>
 <ul>
-<li>benefits:<br>speed up development<br>help keep code consistent<br>solid starting code base<br>can add unnecessary code<br>some require non-semantic code</li>
+<li>
+<p>Fluid grid framework</p>
+<ul>
+<li>benefits:<br>
+speed up development<br>
+help keep code consistent<br>
+solid starting code base<br>
+can add unnecessary code<br>
+some require non-semantic code</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>eg. Twitter’s Bootstrap: it’s a collection of HTML, CSS, and JavaScript that includes a fluid grid, starter layouts, UI components, and much, much more. </li>
-<li>eg. Skeleton:  lightweight, includes a fluid grid, basic typography controls, and default styling for forms and buttons.</li>
-</ul>
-<ul>
-<li>Responsice design tools</li>
+<li>
+<p>eg. Twitter’s Bootstrap: it’s a collection of HTML, CSS, and JavaScript that includes a fluid grid, starter layouts, UI components, and much, much more.</p>
+</li>
+<li>
+<p>eg. Skeleton:  lightweight, includes a fluid grid, basic typography controls, and default styling for forms and buttons.</p>
+</li>
+<li>
+<p>Responsice design tools</p>
+</li>
 </ul>
 
       
@@ -768,7 +831,7 @@ Flexible Images and media t">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Responsive-Web-Design-Ethan-Marcotte"><span class="nav-number">1.</span> <span class="nav-text">Responsive Web Design -  Ethan Marcotte</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Concepts"><span class="nav-number">2.</span> <span class="nav-text">Concepts</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Responsice-Design-Strategies"><span class="nav-number">3.</span> <span class="nav-text">Responsice Design Strategies</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Conclution"><span class="nav-number">4.</span> <span class="nav-text">Conclution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#responsive-web-design-ethan-marcotte"><span class="nav-number">1.</span> <span class="nav-text">§Responsive Web Design -  Ethan Marcotte</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#concepts"><span class="nav-number">2.</span> <span class="nav-text">§Concepts</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#responsice-design-strategies"><span class="nav-number">3.</span> <span class="nav-text">§Responsice Design Strategies</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#conclution"><span class="nav-number">4.</span> <span class="nav-text">§Conclution</span></a></li></ol></div>
             
           </div>
         </section>

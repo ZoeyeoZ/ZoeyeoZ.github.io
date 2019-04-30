@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Algorithm,Leetcode,DP," />
+  <meta name="keywords" content="Leetcode,Algorithm,DP," />
 
 
 
@@ -82,20 +82,23 @@
 
 <meta name="description" content="718. Maximum Length of Repeated Subarray
 Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.
-Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
+Example 1:
+123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode | Maximum Length of Repeated Subarray">
 <meta property="og:url" content="http://yoursite.com/2017/11/06/Leetcode-Maximum-Length-of-Repeated-Subarray/index.html">
 <meta property="og:site_name" content="Zhuo Han">
 <meta property="og:description" content="718. Maximum Length of Repeated Subarray
 Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.
-Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
+Example 1:
+123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outp">
 <meta property="og:updated_time" content="2017-11-06T23:35:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode | Maximum Length of Repeated Subarray">
 <meta name="twitter:description" content="718. Maximum Length of Repeated Subarray
 Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.
-Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
+Example 1:
+123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outp">
 
 
 
@@ -372,7 +375,8 @@ Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
       
         <p><a href="https://leetcode.com/problems/maximum-length-of-repeated-subarray/description/" target="_blank" rel="external">718. Maximum Length of Repeated Subarray</a></p>
 <p>Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.</p>
-<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">A: [1,2,3,2,1]</span><br><span class="line">B: [3,2,1,4,7]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">The repeated subarray with maximum length is [3, 2, 1].</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">A: [1,2,3,2,1]</span><br><span class="line">B: [3,2,1,4,7]</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: </span><br><span class="line">The repeated subarray with maximum length is [3, 2, 1].</span><br></pre></td></tr></table></figure>
 <p><strong>Note:</strong></p>
 <ol>
 <li>1&lt;= len(A), len(B) &lt;= 1000</li>
@@ -381,32 +385,33 @@ Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
 <hr>
 <p><strong>! subarray</strong>, not subsequence</p>
 <ul>
-<li>I. <strong>DP</strong>, </li>
+<li>I. <strong>DP</strong>,</li>
 </ul>
 <ol>
 <li>Similar to LCS</li>
 <li>Time Complexity: O($L_A$x $L_B$)</li>
-<li>Space Complexity: O($L_A$x $L_B$)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">    	int l = A.size(),ans = 0;</span><br><span class="line">    	vector&lt;vector&lt;int&gt;&gt; dp(l,vector&lt;int&gt;(l,0));</span><br><span class="line">    	for (int i=0;i&lt;l;i++)&#123;</span><br><span class="line">    		for (int j=0;j&lt;l;j++)&#123;</span><br><span class="line">    			if(i == 0 || j == 0) dp[i][j] = (A[i]==B[j]);</span><br><span class="line">    			else dp[i][j] = (A[i]==B[j]) ? dp[i-1][j-1]+1:0;</span><br><span class="line">    			ans = max(ans,dp[i][j]);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Space Complexity: O($L_A$x $L_B$)</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">    	int l = A.size(),ans = 0;</span><br><span class="line">    	vector&lt;vector&lt;int&gt;&gt; dp(l,vector&lt;int&gt;(l,0));</span><br><span class="line">    	for (int i=0;i&lt;l;i++)&#123;</span><br><span class="line">    		for (int j=0;j&lt;l;j++)&#123;</span><br><span class="line">    			if(i == 0 || j == 0) dp[i][j] = (A[i]==B[j]);</span><br><span class="line">    			else dp[i][j] = (A[i]==B[j]) ? dp[i-1][j-1]+1:0;</span><br><span class="line">    			ans = max(ans,dp[i][j]);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>II. Optimization </li>
+<li>II. Optimization</li>
 </ul>
 <ol>
 <li>DP</li>
 <li>Time Complexity: O($L_A$x $L_B$)</li>
-<li>Space Complexity: O($L_A$)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">        int m = A.size();</span><br><span class="line">        int n = B.size();</span><br><span class="line">        vector&lt;int&gt; dp(n + 1);</span><br><span class="line">        int result = 0;</span><br><span class="line">        for (int i = 1; i &lt;= m; ++i) &#123;</span><br><span class="line">            vector&lt;int&gt; ndp(n + 1);</span><br><span class="line">            for (int j = 1; j &lt;= n; ++j) &#123;</span><br><span class="line">                if (A[i-1] == B[j-1]) &#123;</span><br><span class="line">                    ndp[j] = dp[j-1] + 1;</span><br><span class="line">                    result = max(ndp[j], result);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dp = ndp;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Space Complexity: O($L_A$)</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//c++</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int findLength(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123;</span><br><span class="line">        int m = A.size();</span><br><span class="line">        int n = B.size();</span><br><span class="line">        vector&lt;int&gt; dp(n + 1);</span><br><span class="line">        int result = 0;</span><br><span class="line">        for (int i = 1; i &lt;= m; ++i) &#123;</span><br><span class="line">            vector&lt;int&gt; ndp(n + 1);</span><br><span class="line">            for (int j = 1; j &lt;= n; ++j) &#123;</span><br><span class="line">                if (A[i-1] == B[j-1]) &#123;</span><br><span class="line">                    ndp[j] = dp[j-1] + 1;</span><br><span class="line">                    result = max(ndp[j], result);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            dp = ndp;</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>III. Optimization 2</li>
 </ul>
 <ol>
 <li>DP</li>
 <li>Time Complexity: O($L_A$x $L_B$)</li>
-<li>Space Complexity: O(1)<br>since dp[i][j] only depends on dp[i-1][j-1], we only need to keep it and traverse the matrix diagonally.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Java</span><br><span class="line">public int findLength(int[] A, int[] B) &#123;</span><br><span class="line">        int maxLen = 0;      </span><br><span class="line">        for (int j = 0; j &lt; B.length; j++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int i = 0, k = j; i &lt; A.length &amp;&amp; k &lt; B.length; i++, k++) &#123;</span><br><span class="line">                if (A[i] != B[k]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for (int i =1; i &lt; A.length; i++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int j = 0, k = i; k &lt; A.length &amp;&amp; j &lt; B.length; j++, k++) &#123;</span><br><span class="line">                if (A[k] != B[j]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxLen;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>Space Complexity: O(1)<br>
+since dp[i][j] only depends on dp[i-1][j-1], we only need to keep it and traverse the matrix diagonally.</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//Java</span><br><span class="line">public int findLength(int[] A, int[] B) &#123;</span><br><span class="line">        int maxLen = 0;      </span><br><span class="line">        for (int j = 0; j &lt; B.length; j++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int i = 0, k = j; i &lt; A.length &amp;&amp; k &lt; B.length; i++, k++) &#123;</span><br><span class="line">                if (A[i] != B[k]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        for (int i =1; i &lt; A.length; i++) &#123;</span><br><span class="line">            int maxLenEnding = 0;</span><br><span class="line">            for (int j = 0, k = i; k &lt; A.length &amp;&amp; j &lt; B.length; j++, k++) &#123;</span><br><span class="line">                if (A[k] != B[j]) maxLenEnding = 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    maxLenEnding++;</span><br><span class="line">                    maxLen = Math.max(maxLen, maxLenEnding);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxLen;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>IV. HashMap</li>
 </ul>
@@ -414,11 +419,13 @@ Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
 <hr>
 <p>相关题目</p>
 <ul>
-<li><p><a href="https://leetcode.com/problems/distinct-subsequences/description/" target="_blank" rel="external">115. Distinct Subsequences</a><br>count the number of distinct subsequences of S which equals T<br><strong>DP</strong>, O(n) space</p>
+<li><a href="https://leetcode.com/problems/distinct-subsequences/description/" target="_blank" rel="external">115. Distinct Subsequences</a><br>
+count the number of distinct subsequences of S which equals T<br>
+<strong>DP</strong>, O(n) space</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numDistinct(string s, string t) &#123;</span><br><span class="line">    	int l1 = s.length(), l2 = t.length(), tmp, pre;</span><br><span class="line">    	vector&lt;int&gt; dp(l2+1,0);</span><br><span class="line">    	dp[0] = 1;</span><br><span class="line">    	for (int i=1;i&lt;=l1;i++)&#123;</span><br><span class="line">    		pre = 1;</span><br><span class="line">    		for (int j=1;j&lt;=l2;j++)&#123;</span><br><span class="line">    			tmp = dp[j];</span><br><span class="line">    			dp[j] = dp[j] + (s[i-1]==t[j-1] ? pre:0);</span><br><span class="line">    			pre = tmp;</span><br><span class="line">    		&#125;</span><br><span class="line">    		cout &lt;&lt; endl;</span><br><span class="line">    	&#125;</span><br><span class="line">    	return dp[l2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="http://blog.csdn.net/qq_26437925/article/details/52679690" target="_blank" rel="external">最大连续子序列和，乘积，最长递增子串，最长公共子串，子序列等问题(动态规划等)</a></p>
-</li>
+<ul>
+<li><a href="http://blog.csdn.net/qq_26437925/article/details/52679690" target="_blank" rel="external">最大连续子序列和，乘积，最长递增子串，最长公共子串，子序列等问题(动态规划等)</a></li>
 <li>Some programs are online.</li>
 </ul>
 
@@ -441,9 +448,9 @@ Example 1:123456Input:A: [1,2,3,2,1]B: [3,2,1,4,7]Outpu">
       
         <div class="post-tags">
           
-            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
-          
             <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
+            <a href="/tags/Algorithm/" rel="tag">#Algorithm</a>
           
             <a href="/tags/DP/" rel="tag">#DP</a>
           

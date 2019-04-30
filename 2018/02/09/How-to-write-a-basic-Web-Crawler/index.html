@@ -80,34 +80,49 @@
 
 
 
-<meta name="description" content="How to write a basic Web CrawlerInstallation
+<meta name="description" content="§How to write a basic Web Crawler
+§Installation
+
+
 IntelliJ IDEA or Eclipse
+
 
 Crawler4j: Download latest crawler4j-x.x-jar-with-dependencies.jar
 
+
 Creat new a new project &amp;amp; Add External JARs
-Project Struc">
+Projec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to write a basic Web Crawler">
 <meta property="og:url" content="http://yoursite.com/2018/02/09/How-to-write-a-basic-Web-Crawler/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="How to write a basic Web CrawlerInstallation
+<meta property="og:description" content="§How to write a basic Web Crawler
+§Installation
+
+
 IntelliJ IDEA or Eclipse
+
 
 Crawler4j: Download latest crawler4j-x.x-jar-with-dependencies.jar
 
+
 Creat new a new project &amp;amp; Add External JARs
-Project Struc">
+Projec">
 <meta property="og:updated_time" content="2018-02-10T05:17:53.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to write a basic Web Crawler">
-<meta name="twitter:description" content="How to write a basic Web CrawlerInstallation
+<meta name="twitter:description" content="§How to write a basic Web Crawler
+§Installation
+
+
 IntelliJ IDEA or Eclipse
+
 
 Crawler4j: Download latest crawler4j-x.x-jar-with-dependencies.jar
 
+
 Creat new a new project &amp;amp; Add External JARs
-Project Struc">
+Projec">
 
 
 
@@ -382,15 +397,21 @@ Project Struc">
       
 
       
-        <h2 id="How-to-write-a-basic-Web-Crawler"><a href="#How-to-write-a-basic-Web-Crawler" class="headerlink" title="How to write a basic Web Crawler"></a>How to write a basic Web Crawler</h2><h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
-<li><p>IntelliJ IDEA or Eclipse</p>
+        <h2 id="how-to-write-a-basic-web-crawler"><a class="header-anchor" href="#how-to-write-a-basic-web-crawler">§</a>How to write a basic Web Crawler</h2>
+<h4 id="installation"><a class="header-anchor" href="#installation">§</a>Installation</h4>
+<ol>
+<li>
+<p>IntelliJ IDEA or Eclipse</p>
 </li>
-<li><p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
+<li>
+<p>Crawler4j: <a href="https://github.com/yasserg/crawler4j/releases" target="_blank" rel="external">Download latest crawler4j-x.x-jar-with-dependencies.jar</a></p>
 </li>
-<li><p>Creat new a new project &amp; Add External JARs</p>
-<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code> </p>
+<li>
+<p>Creat new a new project &amp; Add External JARs</p>
+<p>Project Structure (<code>CTRL</code> +<code>SHIFT</code> +<code>ALT</code> + <code>S</code> on Windows/Linux, <code>⌘</code> + <code>;</code> on Mac OS X) -&gt; <code>Libraries</code> , click <code>+</code></p>
 </li>
-<li><p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
+<li>
+<p>Write classes as <a href="https://github.com/yasserg/crawler4j#quickstart" target="_blank" rel="external">Quickstart</a></p>
 <p>Controller with main function</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String crawlStorageFolder = <span class="string">"/data/crawl"</span>;</span><br><span class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">7</span>;</span><br><span class="line">        CrawlConfig config = <span class="keyword">new</span> CrawlConfig();</span><br><span class="line">        config.setCrawlStorageFolder(crawlStorageFolder);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Instantiate the controller for this crawl.</span><br><span class="line">         */</span></span><br><span class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(config);</span><br><span class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</span><br><span class="line">        RobotstxtServer robotstxtServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</span><br><span class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(config, pageFetcher, robotstxtServer);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * For each crawl, you need to add some seed urls. These are the first</span><br><span class="line">         * URLs that are fetched and then the crawler starts following links</span><br><span class="line">         * which are found in these pages</span><br><span class="line">         */</span></span><br><span class="line">        controller.addSeed(<span class="string">"http://www.viterbi.usc.edu/"</span>);</span><br><span class="line">        <span class="comment">/*</span><br><span class="line">         * Start the crawl. This is a blocking operation, meaning that your code</span><br><span class="line">         * will reach the line after this only when crawling is finished.</span><br><span class="line">         */</span></span><br><span class="line">        controller.start(MyCrawler.class, numberOfCrawlers);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>MyCrawler extends WebCrawler</p>
@@ -400,20 +421,26 @@ Project Struc">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.Page;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.crawler.WebCrawler;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.parser.HtmlParseData;</span><br><span class="line"><span class="keyword">import</span> edu.uci.ics.crawler4j.url.WebURL;</span><br></pre></td></tr></table></figure>
 <p>And change your main class to <code>com.company.Controller</code></p>
 </li>
-<li><p>Some Issue</p>
+<li>
+<p>Some Issue</p>
 <ol>
-<li><p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>SLF4J: Defaulting to no-operation (NOP) logger implementation<br>SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
+<li>
+<p>SLF4J: Failed to load class “org.slf4j.impl.StaticLoggerBinder”.<br>
+SLF4J: Defaulting to no-operation (NOP) logger implementation<br>
+SLF4J: See <a href="http://www.slf4j.org/codes.html#StaticLoggerBinder" target="_blank" rel="external">http://www.slf4j.org/codes.html#StaticLoggerBinder</a> for further details.</p>
 <blockquote>
-<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>. </p>
+<p>Go to <a href="https://www.slf4j.org/download.html" target="_blank" rel="external">https://www.slf4j.org/download.html</a> and download the newest slf4j package in <a href="http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/" target="_blank" rel="external">http://repo2.maven.org/maven2/org/slf4j/slf4j-simple/1.7.25/</a>.</p>
 <p>Add <code>slf4j-simple-1.7.25jar</code>  to your project</p>
 </blockquote>
 </li>
-<li><p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
+<li>
+<p>Exception in thread “main” java.lang.Exception: couldn’t create the storage folder: /data/crawl does it already exist ?</p>
 <blockquote>
 <p>Use absolute folder path, such as <code>/Users/XXX/Desktop/XXX/HW2_WebCrawler/data/crawl</code></p>
 </blockquote>
 </li>
-<li><p>If you didn’t get any result</p>
+<li>
+<p>If you didn’t get any result</p>
 <blockquote>
 <p>visit the website on your browser first</p>
 </blockquote>
@@ -639,7 +666,7 @@ Project Struc">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-write-a-basic-Web-Crawler"><span class="nav-number">1.</span> <span class="nav-text">How to write a basic Web Crawler</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Installation"><span class="nav-number">1.0.1.</span> <span class="nav-text">Installation</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-write-a-basic-web-crawler"><span class="nav-number">1.</span> <span class="nav-text">§How to write a basic Web Crawler</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#installation"><span class="nav-number">1.0.1.</span> <span class="nav-text">§Installation</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

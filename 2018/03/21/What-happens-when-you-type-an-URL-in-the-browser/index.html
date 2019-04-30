@@ -80,22 +80,26 @@
 
 
 
-<meta name="description" content="Reference I
+<meta name="description" content="§Reference I
+
 what happens when you type in a URL in browser
 What happens when you type an URL in the browser and press enter?
 
-Process
-Attention: this is an extremely rough and oversimplified sketch, a">
+§Process
+
+Attention: this is an extremely rough and oversimplified sketc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What happens when you type an URL in the browser">
 <meta property="og:url" content="http://yoursite.com/2018/03/21/What-happens-when-you-type-an-URL-in-the-browser/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="Reference I
+<meta property="og:description" content="§Reference I
+
 what happens when you type in a URL in browser
 What happens when you type an URL in the browser and press enter?
 
-Process
-Attention: this is an extremely rough and oversimplified sketch, a">
+§Process
+
+Attention: this is an extremely rough and oversimplified sketc">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*udK6jZ3PjlhjqW8U.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*SyxEqHOBZElX5laf.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*ifRt45gihG_AwR3Z.png">
@@ -107,12 +111,14 @@ Attention: this is an extremely rough and oversimplified sketch, a">
 <meta property="og:updated_time" content="2018-03-21T22:51:13.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What happens when you type an URL in the browser">
-<meta name="twitter:description" content="Reference I
+<meta name="twitter:description" content="§Reference I
+
 what happens when you type in a URL in browser
 What happens when you type an URL in the browser and press enter?
 
-Process
-Attention: this is an extremely rough and oversimplified sketch, a">
+§Process
+
+Attention: this is an extremely rough and oversimplified sketc">
 <meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/0*udK6jZ3PjlhjqW8U.png">
 
 
@@ -388,74 +394,105 @@ Attention: this is an extremely rough and oversimplified sketch, a">
       
 
       
-        <h5 id="Reference-I"><a href="#Reference-I" class="headerlink" title="Reference I"></a>Reference I</h5><ul>
+        <h5 id="reference-i"><a class="header-anchor" href="#reference-i">§</a>Reference I</h5>
+<ul>
 <li><a href="https://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser" target="_blank" rel="external">what happens when you type in a URL in browser</a></li>
 <li><a href="https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a" target="_blank" rel="external">What happens when you type an URL in the browser and press enter?</a></li>
 </ul>
-<h5 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h5><blockquote>
-<p>Attention: this is an extremely rough and <strong>oversimplified</strong> sketch, assuming the simplest possible HTTP request (no HTTPS, no HTTP2, no extras), simplest possible DNS, no proxies, single-stack IPv4, one HTTP request only, a simple HTTP server on the other end, and no problems in any step. </p>
+<h5 id="process"><a class="header-anchor" href="#process">§</a>Process</h5>
+<blockquote>
+<p>Attention: this is an extremely rough and <strong>oversimplified</strong> sketch, assuming the simplest possible HTTP request (no HTTPS, no HTTP2, no extras), simplest possible DNS, no proxies, single-stack IPv4, one HTTP request only, a simple HTTP server on the other end, and no problems in any step.</p>
 </blockquote>
 <ol>
-<li><p>browser checks cache; if requested object is in cache and is fresh, skip to #9</p>
-<p>1) Browser cache. The browser maintains a repository of DNS records for a fixed duration for websites you have previously visited</p>
+<li>
+<p>browser checks cache; if requested object is in cache and is fresh, skip to #9</p>
+<ol>
+<li>Browser cache. The browser maintains a repository of DNS records for a fixed duration for websites you have previously visited</li>
+</ol>
 </li>
-<li><p>browser asks OS for server’s IP address</p>
-<p>2) OS cache.  the browser would make a system call (i.e. <em>gethostname</em> on Windows) to your underlying computer OS</p>
-<p>3) Router cache. </p>
-<p>4) ISP cache. Your ISP maintains its’ own DNS server which includes a cache of DNS records.</p>
+<li>
+<p>browser asks OS for server’s IP address</p>
+<ol start="2">
+<li>
+<p>OS cache.  the browser would make a system call (i.e. <em>gethostname</em> on Windows) to your underlying computer OS</p>
 </li>
-<li><p>OS makes a DNS lookup and replies the IP address to the browser</p>
-<p><strong>DNS</strong>(Domain Name System) is a database that maintains the name of the website (URL) and the particular IP address it links to. The main purpose of DNS is human-friendly navigation. </p>
+<li>
+<p>Router cache.</p>
+</li>
+<li>
+<p>ISP cache. Your ISP maintains its’ own DNS server which includes a cache of DNS records.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>OS makes a DNS lookup and replies the IP address to the browser</p>
+<p><strong>DNS</strong>(Domain Name System) is a database that maintains the name of the website (URL) and the particular IP address it links to. The main purpose of DNS is human-friendly navigation.</p>
 <p>a <strong>recursive search</strong> since the search will continue repeatedly from DNS server to DNS server until it either finds the IP address we need or returns an error response saying it was unable to find it.</p>
 <p>call the ISP’s DNS server a DNS recursor -&gt;  other DNS servers are called name servers</p>
-<p>eg. DNS recursor -&gt; root name server -&gt; <strong>.com</strong> domain name server -&gt; <strong>google.com</strong> name server, find the matching IP address</p>
+<p>eg. DNS recursor -&gt; root name server -&gt; <strong>.com</strong> domain name server -&gt; <strong><a href="http://google.com" target="_blank" rel="external">google.com</a></strong> name server, find the matching IP address</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*udK6jZ3PjlhjqW8U.png" alt=""></p>
 <p>​</p>
 </li>
-<li><p>browser opens a TCP connection to server (this step is much more complex with HTTPS)</p>
-<p>TCP/IP <strong>three-way handshake</strong>: the client and the server exchange SYN(synchronize) and ACK(acknowledge) </p>
+<li>
+<p>browser opens a TCP connection to server (this step is much more complex with HTTPS)</p>
+<p>TCP/IP <strong>three-way handshake</strong>: the client and the server exchange SYN(synchronize) and ACK(acknowledge)</p>
 </li>
-<li><p>browser sends the HTTP request through TCP connection</p>
-<p> GET/POST request, also contain additional information such as browser identification (<em>User-Agent</em> header), types of requests that it will accept (<em>Accept</em>header), and connection headers asking it to keep the TCP connection alive for additional requests.</p>
+<li>
+<p>browser sends the HTTP request through TCP connection</p>
+<p>GET/POST request, also contain additional information such as browser identification (<em>User-Agent</em> header), types of requests that it will accept (<em>Accept</em>header), and connection headers asking it to keep the TCP connection alive for additional requests.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*SyxEqHOBZElX5laf.png" alt="Example"></p>
 </li>
-<li><p>browser receives HTTP response and may close the TCP connection, or reuse it for another request</p>
+<li>
+<p>browser receives HTTP response and may close the TCP connection, or reuse it for another request</p>
 <p>The server response contains the web page you requested as well as the status code, compression type (<em>Content-Encoding)</em>, how to cache the page (<em>Cache-Control</em>), any cookies to set, privacy information, etc.</p>
 <p><img src="https://cdn-images-1.medium.com/max/1600/0*ifRt45gihG_AwR3Z.png" alt="Example"></p>
 </li>
-<li><p>browser checks if the response is a redirect or a conditional response (3xx result status codes), authorization request (401), error (4xx and 5xx), etc.; these are handled differently from normal responses (2xx)</p>
+<li>
+<p>browser checks if the response is a redirect or a conditional response (3xx result status codes), authorization request (401), error (4xx and 5xx), etc.; these are handled differently from normal responses (2xx)</p>
 </li>
-<li><p>if cacheable, response is stored in cache</p>
+<li>
+<p>if cacheable, response is stored in cache</p>
 </li>
-<li><p>browser decodes response (e.g. if it’s gzipped)</p>
+<li>
+<p>browser decodes response (e.g. if it’s gzipped)</p>
 </li>
-<li><p>browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)</p>
+<li>
+<p>browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)</p>
 </li>
-<li><p>browser renders response, or offers a download dialog for unrecognized types</p>
+<li>
+<p>browser renders response, or offers a download dialog for unrecognized types</p>
 <p>First, it will render the bare bone HTML skeleton.</p>
-<p>Then it will check the HTML tags and sends out GET requests for additional elements on the web page, such as images, CSS stylesheets, JavaScript files etc. These static files are cached by the browser so it doesn’t have to fetch them again the next time you visit the page. </p>
+<p>Then it will check the HTML tags and sends out GET requests for additional elements on the web page, such as images, CSS stylesheets, JavaScript files etc. These static files are cached by the browser so it doesn’t have to fetch them again the next time you visit the page.</p>
 <p>At the end, you’ll see the page</p>
 </li>
 </ol>
-<h5 id="Reference-II"><a href="#Reference-II" class="headerlink" title="Reference II"></a>Reference II</h5><ul>
+<h5 id="reference-ii"><a class="header-anchor" href="#reference-ii">§</a>Reference II</h5>
+<ul>
 <li><a href="http://www.dailichun.com/2018/03/12/whenyouenteraurl.html" target="_blank" rel="external">从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！</a></li>
 <li><a href="http://fex.baidu.com/blog/2014/05/what-happen/" target="_blank" rel="external">从输入 URL 到页面加载完成的过程中都发生了什么事情？</a></li>
 </ul>
-<h5 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h5><ol>
-<li><p>从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）</p>
+<h5 id="details"><a class="header-anchor" href="#details">§</a>Details</h5>
+<ol>
+<li>
+<p>从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）</p>
 <ul>
 <li>浏览器多进程：Browser进程（主控），第三方插件进程，GPU进程，浏览器渲染进程（内核，默认每个Tab页面一个进程）</li>
-<li>多线程的浏览器内核<br><img src="https://dailc.github.io/staticResource/blog/basicKnowledge/whenyouenteraurl/browser_inner_thread.png" alt=""></li>
+<li>多线程的浏览器内核<br>
+<img src="https://dailc.github.io/staticResource/blog/basicKnowledge/whenyouenteraurl/browser_inner_thread.png" alt=""></li>
 <li>解析URL：<code>protocol</code>://<code>host</code>:<code>port</code>/<code>path</code>/<code>query</code>#<code>fragment</code></li>
 </ul>
 </li>
-<li><p>开启网络线程到发出一个完整的http请求（这一部分涉及到dns查询，tcp/ip请求，五层因特网协议栈等知识）</p>
+<li>
+<p>开启网络线程到发出一个完整的http请求（这一部分涉及到dns查询，tcp/ip请求，五层因特网协议栈等知识）</p>
 <ul>
-<li><p>DNS解析 -&gt; IP Adress</p>
+<li>
+<p>DNS解析 -&gt; IP Adress</p>
 </li>
-<li><p><code>tcp/ip</code>请求构建：3次握手规则建立连接，断开连接时的四次挥手</p>
+<li>
+<p><code>tcp/ip</code>请求构建：3次握手规则建立连接，断开连接时的四次挥手</p>
 </li>
-<li><p>五层因特网协议栈：</p>
+<li>
+<p>五层因特网协议栈：</p>
 <ol>
 <li>应用层(dns,http) DNS解析成IP并发送http请求</li>
 <li>传输层(tcp,udp) 建立tcp连接（三次握手）</li>
@@ -471,41 +508,55 @@ Attention: this is an extremely rough and oversimplified sketch, a">
 </li>
 </ul>
 </li>
-<li><p>从服务器接收到请求到对应后台接收到请求（这一部分可能涉及到负载均衡，安全拦截以及后台内部的处理等等）</p>
+<li>
+<p>从服务器接收到请求到对应后台接收到请求（这一部分可能涉及到负载均衡，安全拦截以及后台内部的处理等等）</p>
 <p><strong>负载均衡</strong>：用户发起的请求都指向调度服务器（反向代理服务器，譬如安装了nginx控制负载均衡），然后调度服务器根据实际的调度算法，分配不同的请求给对应集群中的服务器执行，然后调度器等待实际服务器的HTTP响应，并将它反馈给用户</p>
 </li>
-<li><p>后台和前台的http交互（这一部分包括http头部、响应码、报文结构、cookie等知识，可以提下静态资源的cookie优化，以及编码解码，如gzip压缩等）</p>
+<li>
+<p>后台和前台的http交互（这一部分包括http头部、响应码、报文结构、cookie等知识，可以提下静态资源的cookie优化，以及编码解码，如gzip压缩等）</p>
 <p><img src="https://dailc.github.io/staticResource/blog/basicKnowledge/whenyouenteraurl/http_ajax_headers.png" alt="Example"></p>
 </li>
-<li><p>单独拎出来的缓存问题，http的缓存（这部分包括http缓存头部，etag，catch-control等）</p>
+<li>
+<p>单独拎出来的缓存问题，http的缓存（这部分包括http缓存头部，etag，catch-control等）</p>
 <p><code>强缓存</code>（<code>200 from cache</code>）与<code>协商缓存</code>（<code>304</code>）</p>
 <p><img src="https://dailc.github.io/staticResource/blog/basicKnowledge/whenyouenteraurl/http_cache.png" alt=""></p>
 </li>
-<li><p>浏览器接收到http数据包后的解析流程（解析html-词法分析然后解析成dom树、解析css生成css规则树、合并成render树，然后layout、painting渲染、复合图层的合成、GPU绘制、外链资源的处理、loaded和domcontentloaded等）</p>
+<li>
+<p>浏览器接收到http数据包后的解析流程（解析html-词法分析然后解析成dom树、解析css生成css规则树、合并成render树，然后layout、painting渲染、复合图层的合成、GPU绘制、外链资源的处理、loaded和domcontentloaded等）</p>
 <p><img src="https://dailc.github.io/staticResource/blog/basicKnowledge/whenyouenteraurl/browser_rending.png" alt=""></p>
 <ol>
-<li><p>解析HTML，构建DOM树</p>
+<li>
+<p>解析HTML，构建DOM树</p>
 </li>
-<li><p>解析CSS，生成CSS规则树</p>
+<li>
+<p>解析CSS，生成CSS规则树</p>
 </li>
-<li><p>合并DOM树和CSS规则，生成render树</p>
+<li>
+<p>合并DOM树和CSS规则，生成render树</p>
 <p><img src="https://dailc.github.io/staticResource/blog/basicKnowledge/whenyouenteraurl/browser_parse_rendertree.png" alt=""></p>
 </li>
-<li><p>布局render树（Layout(reflow)/reflow），负责各元素尺寸、位置的计算</p>
+<li>
+<p>布局render树（Layout(reflow)/reflow），负责各元素尺寸、位置的计算</p>
 </li>
-<li><p>绘制render树（paint），绘制页面像素信息</p>
+<li>
+<p>绘制render树（paint），绘制页面像素信息</p>
 </li>
-<li><p>浏览器会将各层的信息发送给GPU，GPU会将各层合成（composite），显示在屏幕上</p>
+<li>
+<p>浏览器会将各层的信息发送给GPU，GPU会将各层合成（composite），显示在屏幕上</p>
 </li>
 </ol>
 </li>
-<li><p>CSS的可视化格式模型（元素的渲染规则）</p>
+<li>
+<p>CSS的可视化格式模型（元素的渲染规则）</p>
 <ol>
-<li><p>包含块（Containing Block）</p>
+<li>
+<p>包含块（Containing Block）</p>
 </li>
-<li><p>控制框（Controlling Box）</p>
+<li>
+<p>控制框（Controlling Box）</p>
 </li>
-<li><p>BFC（Block Formatting Context）</p>
+<li>
+<p>BFC（Block Formatting Context）</p>
 <p>如何触发BFC？</p>
 <ol>
 <li>根元素</li>
@@ -515,13 +566,16 @@ Attention: this is an extremely rough and oversimplified sketch, a">
 <li><code>overflow</code>不为<code>visible</code></li>
 </ol>
 </li>
-<li><p>IFC（Inline Formatting Context）：行内元素自身如何显示以及在框内如何摆放的渲染规则</p>
+<li>
+<p>IFC（Inline Formatting Context）：行内元素自身如何显示以及在框内如何摆放的渲染规则</p>
 </li>
 </ol>
 </li>
-<li><p>JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）</p>
+<li>
+<p>JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）</p>
 <ul>
-<li>即时编译（<code>JIT-Just In Time compiler</code>）<ol>
+<li>即时编译（<code>JIT-Just In Time compiler</code>）
+<ol>
 <li>读取代码，进行词法分析（Lexical analysis），然后将代码分解成词元（token）</li>
 <li>对词元进行语法分析（parsing），然后将代码整理成语法树（syntax tree）</li>
 <li>使用翻译器（translator），将代码转为字节码（bytecode）</li>
@@ -532,23 +586,30 @@ Attention: this is an extremely rough and oversimplified sketch, a">
 </li>
 </ol>
 <ul>
-<li><p>JS的预处理阶段：<a href="http://inimino.org/~inimino/blog/javascript_semicolons" target="_blank" rel="external">Semicolon Insertion</a>规则，分号补全，变量提升</p>
+<li>
+<p>JS的预处理阶段：<a href="http://inimino.org/~inimino/blog/javascript_semicolons" target="_blank" rel="external">Semicolon Insertion</a>规则，分号补全，变量提升</p>
 </li>
-<li><p>JS的执行阶段</p>
+<li>
+<p>JS的执行阶段</p>
 <ul>
-<li><p>变量对象(<code>Variable object，VO</code>)</p>
+<li>
+<p>变量对象(<code>Variable object，VO</code>)</p>
 </li>
-<li><p>作用域链(<code>Scope chain</code>)</p>
+<li>
+<p>作用域链(<code>Scope chain</code>)</p>
 </li>
-<li><p><code>this</code>：this的值只取决中进入上下文时的情况</p>
+<li>
+<p><code>this</code>：this的值只取决中进入上下文时的情况</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> baz = <span class="number">200</span>;</span><br><span class="line"><span class="keyword">var</span> bar = &#123;</span><br><span class="line">    baz: <span class="number">100</span>,</span><br><span class="line">    foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.baz);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> foo = bar.foo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 进入环境：global</span></span><br><span class="line">foo(); <span class="comment">// 200，严格模式中会报错，Cannot read property 'baz' of undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 进入环境：global bar</span></span><br><span class="line">bar.foo(); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>回收机制</p>
+<li>
+<p>回收机制</p>
 <ul>
 <li>simple GC：<code>mark and sweep</code>（标记清除），引用计数</li>
-<li><strong>分代回收（Generation GC）</strong><ul>
+<li><strong>分代回收（Generation GC）</strong>
+<ul>
 <li>多回收“临时对象”区（<code>young generation</code>）</li>
 <li>少回收“持久对象”区（<code>tenured generation</code>）</li>
 <li>减少每次需遍历的对象，从而减少每次GC的耗时</li>
@@ -557,7 +618,7 @@ Attention: this is an extremely rough and oversimplified sketch, a">
 </ul>
 </li>
 </ul>
-<ol>
+<ol start="9">
 <li>其它（可以拓展不同的知识模块，如跨域，web安全，hybrid模式等等内容）</li>
 </ol>
 
@@ -778,7 +839,7 @@ Attention: this is an extremely rough and oversimplified sketch, a">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Reference-I"><span class="nav-number">1.</span> <span class="nav-text">Reference I</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process"><span class="nav-number">2.</span> <span class="nav-text">Process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Reference-II"><span class="nav-number">3.</span> <span class="nav-text">Reference II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Details"><span class="nav-number">4.</span> <span class="nav-text">Details</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#reference-i"><span class="nav-number">1.</span> <span class="nav-text">§Reference I</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#process"><span class="nav-number">2.</span> <span class="nav-text">§Process</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reference-ii"><span class="nav-number">3.</span> <span class="nav-text">§Reference II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#details"><span class="nav-number">4.</span> <span class="nav-text">§Details</span></a></li></ol></div>
             
           </div>
         </section>

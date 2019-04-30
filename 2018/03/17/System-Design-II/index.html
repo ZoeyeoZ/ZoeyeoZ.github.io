@@ -80,28 +80,34 @@
 
 
 
-<meta name="description" content="Scalability
+<meta name="description" content="§Scalability
+
+
 concepts
 
 Vertical scaling: CPU(more cores, L2 Cache…), Disk(PATA, SATA, SAS…; RAID), RAM…
-Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural number o">
+Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural numbe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="System Design II">
 <meta property="og:url" content="http://yoursite.com/2018/03/17/System-Design-II/index.html">
 <meta property="og:site_name" content="Zhuo Han">
-<meta property="og:description" content="Scalability
+<meta property="og:description" content="§Scalability
+
+
 concepts
 
 Vertical scaling: CPU(more cores, L2 Cache…), Disk(PATA, SATA, SAS…; RAID), RAM…
-Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural number o">
+Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural numbe">
 <meta property="og:updated_time" content="2018-03-17T17:53:53.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="System Design II">
-<meta name="twitter:description" content="Scalability
+<meta name="twitter:description" content="§Scalability
+
+
 concepts
 
 Vertical scaling: CPU(more cores, L2 Cache…), Disk(PATA, SATA, SAS…; RAID), RAM…
-Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural number o">
+Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural numbe">
 
 
 
@@ -376,14 +382,17 @@ Horizontal scaling: get a bunch of slower or at least cheaper machines instand o
       
 
       
-        <h5 id="Scalability"><a href="#Scalability" class="headerlink" title="Scalability"></a>Scalability</h5><ul>
-<li><p>concepts</p>
+        <h5 id="scalability"><a class="header-anchor" href="#scalability">§</a>Scalability</h5>
+<ul>
+<li>
+<p>concepts</p>
 <ul>
 <li>Vertical scaling: CPU(more cores, L2 Cache…), Disk(PATA, SATA, SAS…; RAID), RAM…</li>
 <li>Horizontal scaling: get a bunch of slower or at least cheaper machines instand of plural number of machines</li>
 <li>Caching</li>
 <li>Load balancing: traffic come from people -&gt; distributed or balanced</li>
-<li>Database replication<ul>
+<li>Database replication
+<ul>
 <li>have master-slave; in case of database dies; if more read heavy &gt; write heavy =&gt; select statements go to server 2,3,4, any inserts, updates or deletes go to go to server 1</li>
 <li>have master-master: can write any server; if connection down, you can read from master</li>
 </ul>
@@ -397,7 +406,8 @@ Horizontal scaling: get a bunch of slower or at least cheaper machines instand o
 <li>how to deal with the two major bottlenecks: handling a lot of users, and handling a lot of data</li>
 </ul>
 </li>
-<li><p>eg.</p>
+<li>
+<p>eg.</p>
 <ul>
 <li><a href="http://highscalability.com/blog/2016/10/12/lessons-learned-from-scaling-uber-to-2000-engineers-1000-ser.html" target="_blank" rel="external">Uber</a>: A nice article about how Uber had to scale fast, about breaking your service into many micro services spread across many repos</li>
 <li><a href="http://highscalability.com/blog/2016/6/27/how-facebook-live-streams-to-800000-simultaneous-viewers.html" target="_blank" rel="external">Facebook</a>: How Facebook handles 800,000 simultaneous viewers on a live stream</li>
@@ -406,24 +416,40 @@ Horizontal scaling: get a bunch of slower or at least cheaper machines instand o
 <li><a href="http://highscalability.com/google-architecture" target="_blank" rel="external">Google</a>, Youtube (<a href="http://www.youtube.com/watch?v=w5WVu624fY8" target="_blank" rel="external">video</a> | <a href="http://highscalability.com/youtube-architecture" target="_blank" rel="external">text</a>), <a href="http://highscalability.com/blog/2012/2/13/tumblr-architecture-15-billion-page-views-a-month-and-harder.html" target="_blank" rel="external">Tumblr</a>, <a href="http://highscalability.com/blog/2009/8/5/stack-overflow-architecture.html" target="_blank" rel="external">StackOverflow</a>, and <a href="http://highscalability.com/blog/2011/11/29/datasift-architecture-realtime-datamining-at-120000-tweets-p.html" target="_blank" rel="external">Datashift</a>.</li>
 </ul>
 </li>
-<li><p>Warp-up</p>
+<li>
+<p>Warp-up</p>
 <p>You first build a high-level architecture by identifying the constraints and use cases, sketching up the major components and the relationships between them, and thinking about the system’s bottlenecks. You then apply the right scalability patterns that will take care of these bottlenecks in the context of the system’s constraints.</p>
 <ul>
-<li><p>eg. Scalable design</p>
+<li>
+<p>eg. Scalable design</p>
 <ol>
-<li><p>Application Service layer</p>
+<li>
+<p>Application Service layer</p>
 <ul>
 <li>Start with one machine</li>
 <li>Measure how far it takes us (load tests)</li>
 <li>Add a load balance + a cluster of machines over time: to deal with spike-y traffic, to increase availability</li>
 </ul>
 </li>
-<li><p>Data storage</p>
-<p>1) Billions of objects</p>
-<p>2) Each object is fairly smaill(&lt;1K)</p>
-<p>3) There are no relationships between the objects</p>
-<p>4) Reads are 9x more frequent than writes (360 reads, 40 writes per second)</p>
-<p>5) 3TBs of urls, 36GB of hases</p>
+<li>
+<p>Data storage</p>
+<ol>
+<li>
+<p>Billions of objects</p>
+</li>
+<li>
+<p>Each object is fairly smaill(&lt;1K)</p>
+</li>
+<li>
+<p>There are no relationships between the objects</p>
+</li>
+<li>
+<p>Reads are 9x more frequent than writes (360 reads, 40 writes per second)</p>
+</li>
+<li>
+<p>3TBs of urls, 36GB of hases</p>
+</li>
+</ol>
 <p>MySQL:</p>
 <ul>
 <li>Widely used</li>
@@ -437,23 +463,34 @@ Horizontal scaling: get a bunch of slower or at least cheaper machines instand o
 <li>hash: varchar(6)</li>
 <li>original_url: varchar(512)</li>
 </ul>
-<p>1) Create a uniquue index on the hash(36GB+). We want to hold it in memory.</p>
-<p>2) Option 1: Vertival sacling of the MySQL machine</p>
-<p>3) Option 2: Partition the data: 5 partitions, 600GB of data, 8GB of indexes</p>
-<p>4) Master-slave (reading from the slaves, writes to the master)</p>
-<p>=&gt; </p>
+<ol>
+<li>
+<p>Create a uniquue index on the hash(36GB+). We want to hold it in memory.</p>
+</li>
+<li>
+<p>Option 1: Vertival sacling of the MySQL machine</p>
+</li>
+<li>
+<p>Option 2: Partition the data: 5 partitions, 600GB of data, 8GB of indexes</p>
+</li>
+<li>
+<p>Master-slave (reading from the slaves, writes to the master)</p>
+</li>
+</ol>
+<p>=&gt;</p>
 <ol>
 <li>Use one MySQL table with two varchar fields</li>
 <li>Create a uniquue index on the hash(36GB+). We want to hold it in memory to speed up lookups.</li>
 <li>Vertival sacling of the MySQL machine for a while</li>
-<li>Eventually, partition the data by taking the first chr of the hash mod the number of partitions. Thinks about a master-slave setup. </li>
+<li>Eventually, partition the data by taking the first chr of the hash mod the number of partitions. Thinks about a master-slave setup.</li>
 </ol>
 </li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p>Example: <a href="https://www.hiredintech.com/classrooms/system-design/lesson/67" target="_blank" rel="external">The Twitter Problem</a>, <a href="https://www.hiredintech.com/classrooms/system-design/lesson/101" target="_blank" rel="external">The Summarization Problem</a></p>
+<li>
+<p>Example: <a href="https://www.hiredintech.com/classrooms/system-design/lesson/67" target="_blank" rel="external">The Twitter Problem</a>, <a href="https://www.hiredintech.com/classrooms/system-design/lesson/101" target="_blank" rel="external">The Summarization Problem</a></p>
 </li>
 </ul>
 
@@ -674,7 +711,7 @@ Horizontal scaling: get a bunch of slower or at least cheaper machines instand o
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Scalability"><span class="nav-number">1.</span> <span class="nav-text">Scalability</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#scalability"><span class="nav-number">1.</span> <span class="nav-text">§Scalability</span></a></li></ol></div>
             
           </div>
         </section>
