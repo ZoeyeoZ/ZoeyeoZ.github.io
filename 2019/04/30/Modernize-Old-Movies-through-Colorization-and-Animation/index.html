@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -97,7 +97,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T22:34:57.751Z">
+<meta property="og:updated_time" content="2019-04-30T22:42:47.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -120,7 +120,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
   };
 </script>
 
-  <title> Modernize Old Movies through Colorization and Animation | Zhuo Han </title>
+  <title> Modernize Old Movies through Colorization and Animation | Zhuo Han </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -128,7 +128,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
   
 
 
-<script>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -391,7 +391,7 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <p>One of the problems for this approach is that the output video was not stable enough because of significant color gaps and strobes. Therefore we decided to use the initial approach as baseline and moved on to find ways to stabilize the video output.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556492105849_example.png" alt="Unstable Sequential Frames"></p>
 <h3 id="Final-Solution-Pipeline-with-Combined-Models-and-Consistency-Loss-Functions"><a href="#Final-Solution-Pipeline-with-Combined-Models-and-Consistency-Loss-Functions" class="headerlink" title="Final Solution: Pipeline with Combined Models and Consistency Loss Functions"></a>Final Solution: Pipeline with Combined Models and Consistency Loss Functions</h3><p><strong>Description</strong><br>To stabilize the video, we need to make the color and the tone between consecutive frames and of a tandem of frames consistent with each other. We decided to add consistency loss during the training process. The inspiration came from Wei-Sheng Lai’s paper \it Learning Blind Video Temporal Consistency[#Lai:2018]. We used a combined loss function of perception loss, short-term and long term temporal loss. VGG perception loss was used to guarantee the quality of the colorized frame, temporal loss was designed to increase the consistency of adjacent frames. Detailed model architecture and loss functions are shown below.</p>
-<p><strong>Model Ar**</strong>chi<strong>**tecture</strong></p>
+<p><strong>Model Architecture</strong></p>
 <p><img src="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556497886918_architecture.png" alt="Detailed Model Architecture"></p>
 <p>The above picture shows the model architecture and here are some details in every iteration:</p>
 <ul>
@@ -405,11 +405,10 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
 <li>Calculate overall loss, and try to minimize this loss at every iterations.</li>
 </ul>
 <p><strong>Loss Function</strong></p>
-<p>$\begin{equation}<br>    \mathcal{L}<em>{p}=\sum^{T}</em>{t=2}\sum^{N}_{i=1}\sum_l\Vert\phi_l(O_t^{(i)})-\phi_l(P_t^{(i)})\Vert_1<br>\end{equation}$</p>
-<p>$\begin{equation}<br>    \mathcal{L}<em>{st}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{t-1}^{(i)}\Vert_1<br>\end{equation}$</p>
-<p>$\begin{equation}<br>    \mathcal{L}<em>{lt}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{1}^{(i)}\Vert_1<br>\end{equation}$</p>
-<p>$\begin{equation}<br>    \mathcal{L}=\lambda_p\mathcal{L}<em>p + \lambda</em>{st}\mathcal{L}<em>{st}+\lambda</em>{lt}\mathcal{L}_{lt}<br>\end{equation}$</p>
-<p>Notations: $l$ denotes layers, and $\phi_l$ is the activation of the layer $l$. T is the number of frames in the batch, N is the total number of pixels. </p>
+<p>$$\begin{equation}<br>    \mathcal{L}<em>{p}=\sum^{T}</em>{t=2}\sum^{N}_{i=1}\sum_l\Vert\phi_l(O_t^{(i)})-\phi_l(P_t^{(i)})\Vert_1<br>\end{equation}$$</p>
+<p>$$\begin{equation}<br>    \mathcal{L}<em>{st}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{t-1}^{(i)}\Vert_1<br>\end{equation}$$</p>
+<p>$$\begin{equation}<br>    \mathcal{L}<em>{lt}=\sum^{T}</em>{t=2}\sum^{N}<em>{i=1}M</em>{t\Rightarrow{}t-1}^{(i)}\Vert O<em>t^{(i)}-\hat{O}</em>{1}^{(i)}\Vert_1<br>\end{equation}$$</p>
+<p>$$\begin{equation}<br>    \mathcal{L}=\lambda_p\mathcal{L}<em>p + \lambda</em>{st}\mathcal{L}<em>{st}+\lambda</em>{lt}\mathcal{L}_{lt}<br>\end{equation}$$<br>Notations: $l$ denotes layers, and $\phi_l$ is the activation of the layer $l$. T is the number of frames in the batch, N is the total number of pixels. </p>
 <p>VGG loss was used to make sure that the quality of the image corresponds well to human perception. </p>
 <p>Short term loss minimize the pixel-by-pixel L-1 loss between two consecutive inputs, making them consistent. The input here are the previous frame that was warped by the pre-trained FlowNet, which will guide the image transformation network learn the transformation of current frame being processed. </p>
 <p>Long term loss sums up pair-wise distance of a sequence of frames in the current batch to the first image of the current batch, the distance is the same pixel-by-pixel L-1 loss as used in the short term loss. Memory and speed constrained the length of frames coherence we consider, but we can always decrease batch size to conform with the limits. </p>
@@ -1077,7 +1076,24 @@ MotivationIt is a pity to watch old classic movies are being forgotten by people
         showTime(Counter);
       }
     });
-  </script>
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
