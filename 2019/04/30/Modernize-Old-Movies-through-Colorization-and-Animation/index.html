@@ -99,7 +99,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-04-30T23:47:29.219Z">
+<meta property="og:updated_time" content="2019-04-30T23:49:16.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -430,7 +430,7 @@ To stabilize the video, we need to make the color and the tone between consecuti
 <h1>Evaluation</h1>
 <p>It is difficult to quantify the quality of synthesized images, especially cartoons and videos. Here, we used the warping metric[#Lai:2018] to measure the temporal stability on the output videos.<br>
 The metric is based on the flow warping error between two frames,</p>
-<p>$$E _ {warp(V _ t,V _ {t+1})} = \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2$$</p>
+<p>$$E _ {warp(V _ t, V _ {t+1})} = \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2$$</p>
 <p>$$E _ {warp(V _ t,V _ {t+1})} = \sum ^N _ {i=1}M _ t ^{(i)} ||V _ t^{(i)} - \hat {V} _ {t+1}<sup>{(i)}||</sup>2 _ 2 \over \frac {1}{ \sum ^N _ {i=1}M _ t^{(i)}} $$</p>
 <p>where $\hat{V_{t+1}}$ is the warped frame $V_{t+1}$ and $M_t \in {0, 1}$ is a non-occlusion mask indicating non-occluded regions, which is based the occlusion detection method in[#Xingjian:2015].<br>
 The average warping error over the entire sequence is calculated as:</p>
@@ -514,22 +514,10 @@ The average warping error over the entire sequence is calculated as:</p>
 <p>As discussed with Professor Lim, we thought about adding a stabilization structure to CartoonGAN and a stabilization discriminator. We enriched our original dataset with its consecutive frames (5 frames, 10 frames, and 20 frames), we calculated pixal-based squared distance between every two consecutive frames to make sure there are no scene-cut inside our dataset(Afterwards, we realized that we shouldn’t do that, we manually made our dataset more biased). We utilized a dual-discriminator structure[#Nguyen:2017], one is the same as CartoonGAN, to determine whether the frame-by-frame input is a real cartoon and the otherone is used to determine whether the sequence input is a consecutive cartoon using short-term and long-term loss[#Lai:2018][#Ruder:2018]. However, this GAN is incredible harder to train, we downsize our batch size from 6 to 3 to 1, and reduce consecutive frames from 5 to 3, then we managed to get rid of Cuda’s out of memory error. And training speed is very slow(couldn’t finish even one epoch in a day), and still had many hyper-parameter to tune. It seemed unworthy to finish it to check if it works and tune everything, therefore we dropped this idea.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png" alt=""></p>
 <h1>References</h1>
-<p>[#Canny:1986]: Canny, John. “A computational approach to edge detection.” In <em>Readings in computer vision</em>, pp. 184-203. Morgan Kaufmann, 1987.<br>
-[#Chen:2018]: Yang Chen, Yu-Kun Lai, and Yong-Jin Liu. “CartoonGAN: Generative Adversarial Networks for Photo Cartoonization”. In: 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition (2018), pp. 9465– 9474.<br>
-[#Lai:2018]: Wei-Sheng Lai et al. “Learning Blind Video Temporal Consistency”. In: CoRR abs/1808.00449 (2018). arXiv: 1808.00449. url: <a href="http://arxiv.org/abs/1808" target="_blank" rel="external">http://arxiv.org/abs/1808</a>. 00449.<br>
-[#Ronneberger:2015]: Olaf Ronneberger, Philipp Fischer, and Thomas Brox. “U-Net: Convolutional Networks for Biomedical Image Segmentation”. In: CoRR abs/1505.04597 (2015). arXiv: 1505.04597. url: <a href="http://arxiv.org/abs/1505.04597" target="_blank" rel="external">http://arxiv.org/abs/1505.04597</a>.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>[#Zhang:2018]: Han Zhang et al. “Self-Attention Generative Adversarial Networks”. In: arXiv e-prints, arXiv:1805.08318 (May 2018), arXiv:1805.08318. arXiv: 1805.08318 [<a href="http://stat.ML" target="_blank" rel="external">stat.ML</a>].<br>
-[#Karras:2017]: Karras, Tero, Timo Aila, Samuli Laine, and Jaakko Lehtinen. “Progressive growing of gans for improved quality, stability, and variation.” <em>arXiv preprint arXiv:1710.10196</em> (2017).<br>
-[#Heusel:2017]: Heusel, Martin, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, Günter Klambauer, and Sepp Hochreiter. “Gans trained by a two time-scale update rule converge to a nash equilibrium.” <em>arXiv preprint arXiv:1706.08500</em> 12, no. 1 (2017).<br>
-[#Johnson: 2016]: Johnson, Justin, Alexandre Alahi, and Li Fei-Fei. “Perceptual losses for real-time style transfer and super-resolution.” In <em>European conference on computer vision</em>, pp. 694-711. Springer, Cham, 2016.<br>
-[#Xingjian:2015]: Xingjian, S., Chen, Z., Wang, H., Yeung, D.Y., Wong, W.K., Woo, W.C.: Convolutional LSTM network: A machine learning approach for precipitation nowcasting. In: NIPS (2015)<br>
-[#Nguyen:2017]: Nguyen, Tu, Trung Le, Hung Vu, and Dinh Phung. “Dual discriminator generative adversarial nets.” In <em>Advances in Neural Information Processing Systems</em>, pp. 2670-2680. 2017.<br>
-[#Ruder:2018]: Ruder, Manuel, Alexey Dosovitskiy, and Thomas Brox. “Artistic style transfer for videos and spherical images.” <em>International Journal of Computer Vision</em> 126, no. 11 (2018): 1199-1219.<br>
-[#DAVIS-2017 dataset] <a href="https://davischallenge.org/index.html" target="_blank" rel="external">https://davischallenge.org/index.html</a><br>
-[#VIDEVO net] <a href="https://www.videvo.net" target="_blank" rel="external">https://www.videvo.net</a> <a href="#fnref1" class="footnote-backref">↩</a></p>
+<li id="fn1" class="footnote-item"><p>[#Zhang:2018]: Han Zhang et al. “Self-Attention Generative Adversarial Networks”. In: arXiv e-prints, arXiv:1805.08318 (May 2018), arXiv:1805.08318. arXiv: 1805.08318 [<a href="http://stat.ML" target="_blank" rel="external">stat.ML</a>]. <a href="#fnref1" class="footnote-backref">↩</a></p>
 </li>
 </ol>
 </section>
