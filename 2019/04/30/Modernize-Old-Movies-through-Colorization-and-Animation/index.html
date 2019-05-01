@@ -99,7 +99,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-05-01T00:15:27.183Z">
+<meta property="og:updated_time" content="2019-05-01T00:21:43.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -502,9 +502,37 @@ The average warping error over the entire sequence is calculated as:</p>
 </tbody>
 </table>
 <h1>Results</h1>
-<video src="images/1236.MP4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">
-your browser does not support the video tag
-</video>
+<h2 id="psycho-videos"><a class="header-anchor" href="#psycho-videos">§</a>Psycho videos</h2>
+<table>
+<tr>
+	<th>Input Video</th>
+	<th>Baseline Video</th>
+	<th>Out Video</th>
+</tr>
+<tr>
+	<td></td>
+</tr>
+</table>
+<h2 id="more-results"><a class="header-anchor" href="#more-results">§</a>More results</h2>
+<table>
+<tr>
+	<td>
+		<p>BeachByDrone</p>
+		<video src="images/1236.MP4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">your browser does not support the video tag 
+		</video>
+	</td>
+	<td>
+		<p>CloudsTimelapse</p>
+		<video src="images/1247.MP4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">your browser does not support the video tag 
+		</video>
+	</td>
+	<td>
+		<p>Cat</p>
+		<video src="images/1238.MP4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;">your browser does not support the video tag 
+		</video>
+	</td>
+</tr>
+</table>
 <h1>Experiments and ideas we tried</h1>
 <h2 id="choosing-between-colorization-models"><a class="header-anchor" href="#choosing-between-colorization-models">§</a>Choosing between Colorization Models</h2>
 <p>We also tried another colorization model, for example an implementation of GAN model based on<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>. And we eventually chose DeOldify as our model because it renders more vivid colors, thus will be better for animation in next phase.</p>
@@ -759,7 +787,7 @@ your browser does not support the video tag
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Previous Works</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Datasets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Architectural Design</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#initial-idea"><span class="nav-number">4.1.</span> <span class="nav-text">§Initial Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final-solution-pipeline-with-combined-models-and-consistency-loss-functions"><span class="nav-number">4.2.</span> <span class="nav-text">§Final Solution: Pipeline with Combined Models and Consistency Loss Functions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Training of the stabilization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">Experiments and ideas we tried</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#choosing-between-colorization-models"><span class="nav-number">8.1.</span> <span class="nav-text">§Choosing between Colorization Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tune-deoldify"><span class="nav-number">8.2.</span> <span class="nav-text">§Tune DeOldify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gan-for-stabilization"><span class="nav-number">8.3.</span> <span class="nav-text">§GAN for Stabilization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Previous Works</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Datasets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Architectural Design</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#initial-idea"><span class="nav-number">4.1.</span> <span class="nav-text">§Initial Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final-solution-pipeline-with-combined-models-and-consistency-loss-functions"><span class="nav-number">4.2.</span> <span class="nav-text">§Final Solution: Pipeline with Combined Models and Consistency Loss Functions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Training of the stabilization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">Results</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#psycho-videos"><span class="nav-number">7.1.</span> <span class="nav-text">§Psycho videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more-results"><span class="nav-number">7.2.</span> <span class="nav-text">§More results</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">Experiments and ideas we tried</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#choosing-between-colorization-models"><span class="nav-number">8.1.</span> <span class="nav-text">§Choosing between Colorization Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tune-deoldify"><span class="nav-number">8.2.</span> <span class="nav-text">§Tune DeOldify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gan-for-stabilization"><span class="nav-number">8.3.</span> <span class="nav-text">§GAN for Stabilization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">References</span></a></li></ol></div>
             
           </div>
         </section>
