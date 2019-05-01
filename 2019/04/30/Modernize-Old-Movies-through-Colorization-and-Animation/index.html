@@ -99,7 +99,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg">
 <meta property="og:image" content="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606686354_2.png">
-<meta property="og:updated_time" content="2019-05-01T02:00:10.823Z">
+<meta property="og:updated_time" content="2019-05-01T02:13:47.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modernize Old Movies through Colorization and Animation">
 <meta name="twitter:description" content="Team: DeeperFour
@@ -390,7 +390,7 @@ It is a pity to watch old classic movies are being forgotten by people due to li
 <p>CartoonGAN<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> works on transforming real-world photos into cartoon style images with two novel losses: semantic content loss for style variation and the edge-promoting adversarial loss for preserving clear edges.</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556606755019_1.png" alt="CartoonGAN architecture"></p>
 <h1>Datasets</h1>
-<p>We gathered four Makoto Shinkai’s works: *The Place Promised in Our Early Days(*雲のむこう、約束の場所), *Five Centimeters per Second(*秒速5センチメートル), <em>The Garden of Words(<em>言の葉の庭</em>)</em>, and <em>Your Name(<em>君の名は</em>).</em> <em>First,</em> we clipped the video to frames on a pace of 1 frame per 3 seconds, and then discarded black frames and frames from crew lists. Second, we resized and cropped all frames into size $256\times 256$. And in order to make the generator to generate clearer contours, we augmented the data by dilating and smoothing the edges(regions that were found by Canny edge detector<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>).</p>
+<p>We gathered four Makoto Shinkai’s works: <em>The Place Promised in Our Early Days</em>(雲のむこう、約束の場所), <em>Five Centimeters per Second</em>(秒速5センチメートル), <em>The Garden of Words</em>(言の葉の庭), and *Your Name(*君の名は). First, we clipped the video to frames on a pace of 1 frame per 3 seconds, and then discarded black frames and frames from crew lists. Second, we resized and cropped all frames into size $256\times 256$. And in order to make the generator to generate clearer contours, we augmented the data by dilating and smoothing the edges(regions that were found by Canny edge detector<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>).</p>
 <p><img src="https://paper-attachments.dropbox.com/s_33BC8E3177835D6147C233F29AEE7F019BDC905E916E7DC9C92C5E436A454360_1556500133937_yourname_fig.png" alt=""></p>
 <h1>Architectural Design</h1>
 <h2 id="initial-idea"><a class="header-anchor" href="#initial-idea">§</a>Initial Idea</h2>
