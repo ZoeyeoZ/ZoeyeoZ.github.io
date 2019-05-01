@@ -618,8 +618,18 @@ The average warping error over the entire sequence is calculated as:</p>
 <h1>Experiments and ideas we tried</h1>
 <h2 id="choosing-between-colorization-models"><a class="header-anchor" href="#choosing-between-colorization-models">§</a>Choosing between Colorization Models</h2>
 <p>We also tried another colorization model, for example an implementation of GAN model based on<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>. And we eventually chose DeOldify as our model because it renders more vivid colors, thus will be better for animation in next phase.</p>
-<p><img src="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg" alt="Results of Using Johnson’s Network"><br>
-<img src="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg" alt="Results of Using DeOldify"></p>
+<table>
+<tr>
+	<td>
+		<img src="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514797347_psycho1257.jpg" alt="Results of Using Johnson’s Network">
+		<p style="text-align: center; margin-top: 5px; margin-bottom: 5px;">Results of Using Johnson’s Network</p>
+	</td>
+	<td>
+		<img src="https://paper-attachments.dropbox.com/s_BB923EE403F4FA0B2AC5356A2ED69F4A8FC578950CD21EC48207217EE95E0525_1556514808357_psycho1257.jpg" alt="Results of Using DeOldify">
+		<p style="text-align: center; margin-top: 5px; margin-bottom: 5px;">Results of Using DeOldify</p>
+	</td>
+</tr>
+</table>
 <h2 id="tune-deoldify"><a class="header-anchor" href="#tune-deoldify">§</a>Tune DeOldify</h2>
 <p>Previously, we tried to do some transfer learning on DeOldify with video frames to improve its capability to work on video colorization. But the training failed because of “cuda is out of memory” on Google Cloud Platform. Therefore, we stayed with the pre-trained model.</p>
 <h2 id="gan-for-stabilization"><a class="header-anchor" href="#gan-for-stabilization">§</a>GAN for Stabilization</h2>
